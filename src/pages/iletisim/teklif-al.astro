@@ -37,14 +37,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <section class="py-16 lg:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
+      <!-- Başarı mesajı -->
+      <div id="success-msg" class="hidden bg-green-50 border border-green-200 rounded-xl p-6 text-center mb-6">
+        <svg class="w-12 h-12 text-green-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <h3 class="text-lg font-bold text-green-800 mb-1">Talebiniz Alındı!</h3>
+        <p class="text-green-700 text-sm">En kısa sürede sizinle iletişime geçeceğiz.</p>
+      </div>
+
       <form
-        method="POST"
-        name="teklif-al"
-        netlify
+        id="teklif-form"
         class="space-y-6"
       >
-        <!-- Form Name (hidden) -->
-        <input type="hidden" name="form-name" value="teklif-al" />
+        <input type="hidden" name="access_key" value="7fe6232c-6b7a-464a-afe1-265dca4a2472" />
+        <input type="hidden" name="subject" value="Yiğiter — Yeni Teklif Talebi" />
+        <input type="hidden" name="from_name" value="Yiğiter Web Sitesi" />
+        <input type="hidden" name="botcheck" value="" style="display:none" />
 
         <!-- Şirket Bilgileri -->
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
@@ -231,9 +240,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="flex gap-3">
           <button
             type="submit"
-            class="flex-1 bg-accent hover:bg-accent-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+            id="submit-btn"
+            class="flex-1 bg-accent hover:bg-accent-dark text-white font-bold px-6 py-3 rounded-lg transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Teklif İste
+            <span id="submit-label">Teklif İste</span>
+            <span id="submit-loading" class="hidden">Gönderiliyor...</span>
           </button>
           <a
             href="/iletisim"
@@ -288,20 +299,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 
 <script>
+  // ?urun= pre-fill
   const params = new URLSearchParams(window.location.search);
   const urun = params.get('urun');
   if (urun) {
     const decoded = decodeURIComponent(urun);
-
-    // Hero başlığına ürün adını ekle
     const heroP = document.querySelector('section.bg-primary p.text-white\\/75');
     if (heroP) heroP.textContent = `"${decoded}" için teklif talebinizi aşağıdaki formu doldurarak iletebilirsiniz.`;
-
-    // Ürün detayları textarea'sını pre-fill et
     const details = document.getElementById('product_details') as HTMLTextAreaElement | null;
     if (details && !details.value) details.value = decoded;
-
-    // Kategori select'ini eşleştir
     const select = document.getElementById('product_category') as HTMLSelectElement | null;
     if (select) {
       const lower = decoded.toLowerCase();
@@ -312,9 +318,50 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       else if (lower.includes('kasa') || lower.includes('pervaz')) val = 'kapi-kasasi-pervaz';
       else if (lower.includes('kağıt') || lower.includes('honeycomb') || lower.includes('petek')) val = 'kagit-dolgu';
       else if (lower.includes('pvc')) val = 'pvc-film';
-      else if (lower.includes('ihracat')) val = 'diger';
       if (val) select.value = val;
     }
   }
+
+  // Web3Forms submit
+  const form = document.getElementById('teklif-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const submitLabel = document.getElementById('submit-label');
+  const submitLoading = document.getElementById('submit-loading');
+  const successMsg = document.getElementById('success-msg');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!submitBtn || !form) return;
+
+    submitBtn.disabled = true;
+    submitLabel?.classList.add('hidden');
+    submitLoading?.classList.remove('hidden');
+
+    const data = new FormData(form);
+    const json = Object.fromEntries(data.entries());
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(json),
+      });
+      const result = await res.json();
+      if (result.success) {
+        form.classList.add('hidden');
+        successMsg?.classList.remove('hidden');
+      } else {
+        alert('Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin veya WhatsApp ile iletişime geçin.');
+        submitBtn.disabled = false;
+        submitLabel?.classList.remove('hidden');
+        submitLoading?.classList.add('hidden');
+      }
+    } catch {
+      alert('Bağlantı hatası. Lütfen tekrar deneyin.');
+      submitBtn.disabled = false;
+      submitLabel?.classList.remove('hidden');
+      submitLoading?.classList.add('hidden');
+    }
+  });
 </script>
 </BaseLayout>
