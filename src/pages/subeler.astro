@@ -14,7 +14,7 @@ const subeler = [
       { numara: '0541 515 7667', href: 'tel:+905415157667', tip: 'Cep/WhatsApp' },
     ],
     whatsapp: 'https://wa.me/905415157667?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
-    eposta: 'kapi@yigiter.com.tr',
+    eposta: 'dilek@yigiter.com.tr',
     uzmanlik: 'Kapı kasası, pervaz, melamin kapı yüzeyleri, kağıt dolgu, PVC film',
     renk: 'primary',
   },
@@ -45,7 +45,7 @@ const subeler = [
       { numara: '0546 488 6737', href: 'tel:+905464886737', tip: 'Cep/WhatsApp' },
     ],
     whatsapp: 'https://wa.me/905464886737?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
-    eposta: 'mdf@yigiter.com.tr',
+    eposta: 'zeynep@yigiter.com.tr',
     uzmanlik: 'Kastamonu Entegre ürünleri — yongalevha, MDF, MDFLam, paneller',
     renk: 'primary',
   },
@@ -58,11 +58,11 @@ const subeler = [
     adres: 'Harsat Mahallesi, 8. Yukarı Sanayi Sokak No: 5',
     telefonlar: [
       { numara: '0366 313 7667', href: 'tel:+903663137667', tip: 'Sabit' },
-      { numara: '0541 717 7667', href: 'tel:+905417177667', tip: 'Cep/WhatsApp' },
       { numara: '0531 931 3310', href: 'tel:+905319313310', tip: 'Cep/WhatsApp' },
     ],
-    whatsapp: 'https://wa.me/905417177667?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
-    eposta: 'tosya@yigiter.com.tr',
+    whatsapp: 'https://wa.me/905319313310?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
+    eposta: 'suzan@yigiter.com.tr',
+    eposta2: 'halitkibar@yigiter.com.tr',
     uzmanlik: 'Genel ürün satışı, bölgesel merkez, Genç Boya Tosya bayisi',
     renk: 'primary',
   },
@@ -77,7 +77,7 @@ const subeler = [
       { numara: '0541 818 7667', href: 'tel:+905418187667', tip: 'Cep/WhatsApp' },
     ],
     whatsapp: 'https://wa.me/905418187667?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
-    eposta: 'uretim@yigiter.com.tr',
+    eposta: 'hilmi@yigiter.com.tr',
     uzmanlik: 'Kapı kasası ve pervaz — kendi tesisimizde üretim. İhracat kalitesi.',
     renk: 'accent',
     ozelVurgu: true,
@@ -91,6 +91,7 @@ const subeler = [
     adres: 'Necip Fazıl Bulvarı, Keyap Sanayi Sitesi No: 44/133 H Blok',
     telefonlar: [
       { numara: '0533 387 6756', href: 'tel:+905333876756', tip: 'Cep/WhatsApp' },
+      { numara: '0541 717 7667', href: 'tel:+905417177667', tip: 'Cep/WhatsApp' },
     ],
     whatsapp: 'https://wa.me/905333876756?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
     eposta: 'gencsiparis@yigiter.com.tr',
@@ -253,7 +254,10 @@ const localBusinessSchema = {
               <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
-              <a href={`mailto:${sube.eposta}`} class="text-sm text-gray-700 hover:text-accent transition-colors">{sube.eposta}</a>
+              <div class="flex flex-col gap-0.5">
+                <a href={`mailto:${sube.eposta}`} class="text-sm text-gray-700 hover:text-accent transition-colors">{sube.eposta}</a>
+                {sube.eposta2 && <a href={`mailto:${sube.eposta2}`} class="text-sm text-gray-700 hover:text-accent transition-colors">{sube.eposta2}</a>}
+              </div>
             </div>
 
             <!-- Çalışma Saatleri -->
