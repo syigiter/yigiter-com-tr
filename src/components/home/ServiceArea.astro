@@ -1,30 +1,30 @@
 ---
 const depots = [
   {
-    name: 'Anadolu Yakası Deposu',
-    region: 'İstanbul, Anadolu Yakası',
-    products: 'Kastamonu Entegre, Genç Boya, Melamin Yüzey, Kapı Komponentleri',
+    name: 'İstanbul — Avrupa Yakası',
+    region: 'Başakşehir (3 şube)',
+    products: 'Kapı ürünleri, MDF & panel, boya — İkitelli & Deparko',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />`,
     highlight: true,
   },
   {
-    name: 'Avrupa Yakası Deposu',
-    region: 'İstanbul, Avrupa Yakası',
-    products: 'Genç Boya — Bölgesel hızlı tedarik',
+    name: 'İstanbul — Anadolu Yakası',
+    region: 'Ümraniye',
+    products: 'Genç Boya — Anadolu Yakası distribütörü',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />`,
     highlight: false,
   },
   {
-    name: 'Tosya Bayisi',
+    name: 'Tosya Merkez',
     region: 'Kastamonu, Tosya',
-    products: 'Genç Boya — Karadeniz bölgesi hizmet noktası',
+    products: 'Kapı, MDF, boya — Tüm ürünler, Karadeniz bölgesi',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />`,
     highlight: false,
   },
   {
     name: 'Üretim Tesisi',
-    region: 'TODO: Konum eklenecek',
-    products: 'Kapı kasası ve pervaz üretimi',
+    region: 'Tosya Kurtbeli OSB',
+    products: 'Kapı kasası ve pervaz — kendi üretimimiz',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />`,
     highlight: false,
   },
@@ -48,17 +48,16 @@ const depots = [
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
 
-      <!-- Sol: Türkiye Haritası Placeholder -->
+      <!-- Sol: Google Maps -->
       <div>
-        <div class="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
-          <!-- TODO: Türkiye haritası SVG eklenecek (depo lokasyonları işaretli) -->
-          <div class="text-center px-6">
-            <svg class="w-16 h-16 text-primary/20 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
-            <p class="text-gray-400 text-sm font-medium">Türkiye hizmet haritası</p>
-            <p class="text-gray-300 text-xs mt-1">Depo lokasyonları işaretlenecek</p>
-          </div>
+        <div class="rounded-xl overflow-hidden border border-gray-200" style="height: 340px; position: relative;">
+          <iframe
+            src="https://www.google.com/maps/d/embed?mid=1EeHCH3JvvfbKZnkSh_jbVsem3NgLf-s"
+            style="position: absolute; top: -56px; left: 0; width: 100%; height: calc(100% + 56px); border: 0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Yiğiter Orman Ürünleri — Depo Lokasyonları"
+          ></iframe>
         </div>
 
         <!-- Türkiye geneli vurgu -->
