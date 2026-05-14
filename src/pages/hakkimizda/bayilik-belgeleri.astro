@@ -3,8 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Bayilik Belgeleri | Hakkımızda"
-  description="Yiğiter Orman Ürünleri — Kastamonu Entegre Ana Bayisi, Genç Boya Distribütörü yetki belgeleri."
+  title="Yetkili Bayiliklerimiz"
+  description="Yiğiter Orman Ürünleri — Kastamonu Entegre Ana Bayisi, Genç Boya Distribütörü. Orijinal ürün ve üretici güvencesi."
 >
   <!-- Breadcrumb -->
   <div class="bg-gray-50 border-b border-gray-200 py-4">
@@ -25,10 +25,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="max-w-3xl">
         <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
           Yetkili Bayi ve<br />
-          Distribütörlük Belgeleri
+          Distribütörlüklerimiz
         </h1>
         <p class="text-white/75 text-lg">
-          Kastamonu Entegre, Genç Boya ve diğer marka yetkilendirmelerimizin belgeleri. Orijinal ürün garantisi.
+          Kastamonu Entegre, Genç Boya ve ithalat yetkilerimizle müşterilerimize orijinal, garantili ürün sunuyoruz.
         </p>
       </div>
     </div>
@@ -115,32 +115,176 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- Belgeler Bölümü -->
-      <h2 class="text-3xl font-bold text-primary mb-8">Belge Galerisi</h2>
+      <!-- Yetkililik Kartları -->
+      <h2 class="text-3xl font-bold text-primary mb-8">Yetkili Olduğumuz Markalar</h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <!-- Belgeler Placeholder -->
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <div class="border-2 border-dashed border-gray-300 rounded-xl overflow-hidden bg-gray-50 flex flex-col items-center justify-center aspect-[3/4] p-4">
-            <!-- TODO: Belge görseli/fotoğrafı eklenecek -->
-            <svg class="w-12 h-12 text-gray-300 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            <p class="text-gray-400 text-sm text-center">Belge {i}</p>
-            <p class="text-gray-300 text-xs mt-1">Fotoğraf eklenecek</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+        <!-- Kastamonu Entegre Ana Bayi -->
+        <div class="border border-gray-200 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            <div>
+              <span class="inline-block bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-full mb-1">Ana Bayi</span>
+              <h3 class="text-lg font-bold text-gray-900">Kastamonu Entegre</h3>
+            </div>
           </div>
-        ))}
-      </div>
+          <div class="space-y-3 text-sm">
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Yetki Türü</span>
+              <span class="text-gray-800 font-medium">Ana Bayilik</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Kapsam</span>
+              <span class="text-gray-800">Yongalevha (Sunta), MDF, MDFLam ve tüm panel ürünleri</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Bölge</span>
+              <span class="text-gray-800">Türkiye geneli sevkiyat</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Avantaj</span>
+              <span class="text-gray-800">Stoktan teslimat, rekabetçi toptan fiyat, orijinal ürün</span>
+            </div>
+          </div>
+        </div>
 
-      <!-- Not -->
-      <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-        <p class="text-blue-900 text-sm mb-2">
-          <strong>Belgeleri İndir veya Görüntüle</strong>
-        </p>
-        <p class="text-blue-700 text-xs">
-          Belge görselleri veya PDF dosyaları yakında eklenecektir. Müşteri hizmetleri ile iletişime geçerek
-          belgeleri talep edebilirsiniz.
-        </p>
+        <!-- Genç Boya Distribütör -->
+        <div class="border border-gray-200 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <div>
+              <span class="inline-block bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-full mb-1">Distribütör</span>
+              <h3 class="text-lg font-bold text-gray-900">Genç Boya — İstanbul Anadolu Yakası</h3>
+            </div>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Yetki Türü</span>
+              <span class="text-gray-800 font-medium">Bölge Distribütörlüğü</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Kapsam</span>
+              <span class="text-gray-800">Boya, vernik, astar, sertleştirici, tiner — mobilya ve ahşap boyası ürünleri</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Bölge</span>
+              <span class="text-gray-800">İstanbul Anadolu Yakası</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Şube</span>
+              <span class="text-gray-800">Ümraniye — Keyap Sanayi Sitesi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Genç Boya Bayi (Avrupa Yakası) -->
+        <div class="border border-gray-200 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <div>
+              <span class="inline-block bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-full mb-1">Bayi</span>
+              <h3 class="text-lg font-bold text-gray-900">Genç Boya — İstanbul Avrupa Yakası</h3>
+            </div>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Yetki Türü</span>
+              <span class="text-gray-800 font-medium">Bölge Bayiliği</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Kapsam</span>
+              <span class="text-gray-800">Genç Boya ürün portföyünün tamamı</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Bölge</span>
+              <span class="text-gray-800">İstanbul Avrupa Yakası</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Şube</span>
+              <span class="text-gray-800">Başakşehir — İkitelli Keresteciler Sitesi, 18. Blok</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Genç Boya Bayi (Tosya) -->
+        <div class="border border-gray-200 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <div>
+              <span class="inline-block bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-full mb-1">Bayi</span>
+              <h3 class="text-lg font-bold text-gray-900">Genç Boya — Tosya</h3>
+            </div>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Yetki Türü</span>
+              <span class="text-gray-800 font-medium">Bölge Bayiliği</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Kapsam</span>
+              <span class="text-gray-800">Genç Boya ürün portföyünün tamamı</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Bölge</span>
+              <span class="text-gray-800">Tosya ve Karadeniz çevresi</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Şube</span>
+              <span class="text-gray-800">Tosya Merkez — Harsat Mahallesi Sanayi Sokak</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Melamin Kapı Yüzeyi İthalatçısı -->
+        <div class="border border-accent/30 rounded-2xl p-6 hover:border-accent/50 hover:shadow-md transition-all md:col-span-2">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <span class="inline-block bg-accent/10 text-accent text-xs font-bold px-2 py-0.5 rounded-full mb-1">İthalatçı</span>
+              <h3 class="text-lg font-bold text-gray-900">Melamin Kaplı Kapı Yüzeyi</h3>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Yetki Türü</span>
+              <span class="text-gray-800 font-medium">Doğrudan İthalat</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Menşe</span>
+              <span class="text-gray-800">Yurt dışı — seçilmiş tedarikçiler</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Kapsam</span>
+              <span class="text-gray-800">Melamin kaplı kapı yüzeyleri — geniş renk ve desen kataloğu</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-400 w-24 flex-shrink-0">Avantaj</span>
+              <span class="text-gray-800">Aracısız ithalat, rekabetçi fiyat, stoktan teslimat</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- Alt Bölümler -->
