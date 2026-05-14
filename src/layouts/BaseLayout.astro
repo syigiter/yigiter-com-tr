@@ -38,6 +38,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta property="og:locale" content="tr_TR" />
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Yiğiter Orman Ürünleri",
+      "url": "https://yigiter.com.tr",
+      "logo": "https://yigiter.com.tr/images/logo.png",
+      "description": "Kastamonu Entegre Ana Bayisi, Genç Boya Distribütörü, kapı kasası ve pervaz üreticisi, 4 kıtaya ihracatçı.",
+      "foundingDate": "2003",
+      "telephone": ["+90 212 670 2025", "+90 533 387 6756", "+90 366 313 7667"],
+      "email": "info@yigiter.com.tr",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "İkitelli Keresteciler Sitesi, Ziyagökalp Mah., 23. Sokak, 24. Blok No:38/40",
+          "addressLocality": "Başakşehir",
+          "addressRegion": "İstanbul",
+          "addressCountry": "TR"
+        }
+      ],
+      "sameAs": []
+    })} />
+
+
     <title>{fullTitle}</title>
 
     <!-- Fonts -->
