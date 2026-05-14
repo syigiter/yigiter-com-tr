@@ -98,12 +98,39 @@ const subeler = [
     renk: 'primary',
   },
 ];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@graph": subeler.map((s) => ({
+    "@type": "LocalBusiness",
+    "name": `Yiğiter Orman Ürünleri — ${s.ad}`,
+    "description": s.uzmanlik,
+    "url": "https://yigiter.com.tr/subeler",
+    "telephone": s.telefonlar[0].href.replace('tel:', ''),
+    "email": s.eposta,
+    "openingHours": ["Mo-Fr 08:30-18:00", "Sa 08:30-15:00"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": s.adres,
+      "addressLocality": s.şehir.split(' / ')[0],
+      "addressRegion": s.şehir.split(' / ')[1] ?? s.şehir,
+      "addressCountry": "TR"
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Yiğiter Orman Ürünleri",
+      "url": "https://yigiter.com.tr"
+    }
+  }))
+};
 ---
 
 <BaseLayout
   title="Şubelerimiz — 6 Lokasyonda Hizmetinizdeyiz"
   description="Yiğiter Orman Ürünleri 6 şubesi: İstanbul Avrupa Yakası (Başakşehir), Anadolu Yakası (Ümraniye) ve Tosya/Kastamonu'da uzmanlık bazlı hizmet."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
   <!-- Hero -->
   <section class="bg-gray-50 py-12 lg:py-16 border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
