@@ -348,8 +348,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       });
       const result = await res.json();
       if (result.success) {
-        form.classList.add('hidden');
-        successMsg?.classList.remove('hidden');
+        window.location.href = '/tesekkurler';
       } else {
         alert('Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin veya WhatsApp ile iletişime geçin.');
         submitBtn.disabled = false;
