@@ -44,27 +44,59 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 
-    <!-- Schema.org Organization -->
+    <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": ["Organization", "LocalBusiness", "Store"],
       "name": "Yiğiter Orman Ürünleri",
+      "alternateName": "YİGİTER ORMAN ÜRÜN.İNŞ.PAZ.SAN.TİC.LTD.ŞTİ.",
       "url": "https://yigiter.com.tr",
       "logo": "https://yigiter.com.tr/images/logo.png",
-      "description": "Kastamonu Entegre Ana Bayisi, Genç Boya Distribütörü, kapı kasası ve pervaz üreticisi, 4 kıtaya ihracatçı.",
-      "foundingDate": "2003",
-      "telephone": ["+90 212 670 2025", "+90 533 387 6756", "+90 366 313 7667"],
-      "email": "info@yigiter.com.tr",
-      "address": [
+      "image": "https://yigiter.com.tr/images/og-default.jpg",
+      "description": "Kastamonu Entegre Ana Bayisi, Genç Boya Distribütörü, melamin kapı yüzeyi ithalatçısı, kapı kasası ve pervaz üreticisi. 4 kıtaya düzenli ihracat. 20+ yıllık deneyim.",
+      "telephone": "+90 212 670 2025",
+      "email": "dilek@yigiter.com.tr",
+      "hasMap": "https://www.google.com/maps/d/viewer?mid=1EeHCH3JvvfbKZnkSh_jbVsem3NgLf-s",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "İkitelli Keresteciler Sitesi, Ziyagökalp Mah., 23. Sokak, 24. Blok No:38/40",
+        "addressLocality": "Başakşehir",
+        "addressRegion": "İstanbul",
+        "postalCode": "34490",
+        "addressCountry": "TR"
+      },
+      "openingHoursSpecification": [
         {
-          "@type": "PostalAddress",
-          "streetAddress": "İkitelli Keresteciler Sitesi, Ziyagökalp Mah., 23. Sokak, 24. Blok No:38/40",
-          "addressLocality": "Başakşehir",
-          "addressRegion": "İstanbul",
-          "addressCountry": "TR"
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "08:30",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:30",
+          "closes": "15:00"
         }
       ],
-      "sameAs": []
+      "areaServed": [
+        { "@type": "Country", "name": "Turkey" },
+        { "@type": "Place", "name": "Avrupa" },
+        { "@type": "Place", "name": "Orta Doğu" },
+        { "@type": "Place", "name": "Afrika" }
+      ],
+      "knowsAbout": [
+        "Kapı kasası üretimi",
+        "Kapı pervazı üretimi",
+        "MDF panel",
+        "Yongalevha",
+        "Melamin kapı yüzeyi",
+        "Genç Boya",
+        "Kastamonu Entegre"
+      ],
+      "sameAs": [
+        "https://www.google.com/maps/d/viewer?mid=1EeHCH3JvvfbKZnkSh_jbVsem3NgLf-s"
+      ]
     })} />
 
 
