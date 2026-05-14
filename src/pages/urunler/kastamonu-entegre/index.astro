@@ -24,14 +24,35 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
         <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-          Ana Bayi
+          Kastamonu Entegre — Ana Bayi
         </span>
-        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-3 leading-tight">
           Kastamonu Entegre Ürünleri
         </h1>
+        <p class="text-accent font-semibold text-base mb-4">Doğadan Hayata Köprü</p>
         <p class="text-gray-600 text-lg leading-relaxed">
-          Türkiye'nin lider üreticisinden, yetkili ana bayi güvencesiyle.
+          Türkiye'nin lider panel üreticisinden yetkili ana bayi güvencesiyle — yongalevha, MDF,
+          MDFLam ve kapı paneli ürünlerini stoktan sunuyoruz.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marka Güç Rozetleri -->
+  <section class="border-b border-gray-100 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { sayi: '5.000+', etiket: 'Yüzey Seçeneği' },
+          { sayi: '55+', etiket: 'Ülkeye İhracat' },
+          { sayi: 'Türkiye', etiket: 'Lider Üretici' },
+          { sayi: 'Ana Bayi', etiket: 'Yiğiter Statüsü' },
+        ].map((item) => (
+          <div class="text-center py-4">
+            <div class="text-2xl font-bold text-primary">{item.sayi}</div>
+            <div class="text-gray-500 text-xs mt-1">{item.etiket}</div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -89,6 +110,34 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
               <p class="text-gray-500 text-sm">Hazır laminat yüzeyli MDF — dekoratif ve pratik uygulamalar için.</p>
             </a>
 
+            <a href="/urunler/kastamonu-entegre/kapi-paneli" class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">Kapı Paneli</h3>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <p class="text-gray-500 text-sm">Kapı üretimi için melamin ve laminat yüzeyli panel çözümleri.</p>
+            </a>
+
+          </div>
+
+          <!-- Yüzey Teknolojileri -->
+          <h2 class="text-2xl font-bold text-primary mb-5">Öne Çıkan Yüzey Teknolojileri</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            {[
+              { ad: 'Safe Surface', tanim: 'Antibakteriyel ve hijyenik yüzey — okul, hastane, mutfak uygulamaları için.' },
+              { ad: 'QuietPan', tanim: 'Ses yalıtımlı panel teknolojisi — sessiz mekânlar için akustik çözüm.' },
+              { ad: 'Mattplus', tanim: 'Parmak izi bırakmayan mat yüzey — modern ve şık görünüm.' },
+              { ad: 'Glossmax', tanim: 'Yüksek parlaklıklı laminat yüzey — prestijli iç mekânlar için.' },
+              { ad: 'Evogloss', tanim: 'Parlak ve dirençli yüzey — yoğun kullanım ortamları için ideal.' },
+              { ad: 'Softmatt', tanim: 'Kadife dokunuşlu mat yüzey — doğal ve sıcak ambiyans.' },
+            ].map((item) => (
+              <div class="border border-gray-100 rounded-lg p-4 bg-gray-50">
+                <div class="font-semibold text-gray-900 text-sm mb-1">{item.ad}</div>
+                <div class="text-gray-500 text-xs leading-relaxed">{item.tanim}</div>
+              </div>
+            ))}
           </div>
 
           <!-- Neden Yiğiter -->
@@ -100,7 +149,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
               'Türkiye geneli sevkiyat ağı',
               'Rekabetçi ana bayi fiyatı',
               '20+ yıllık panel piyasası tecrübesi',
-              'Geniş renk ve desen seçenek kataloğu',
+              '5.000+ desen ve renk seçeneği',
             ].map((item) => (
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

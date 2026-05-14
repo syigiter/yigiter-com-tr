@@ -117,12 +117,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
           </div>
 
           <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
-            <h3 class="text-green-800 font-bold mb-3 text-sm">WhatsApp ile İletişim</h3>
+            <h3 class="text-green-800 font-bold mb-1 text-sm">WhatsApp ile İletişim</h3>
+            <p class="text-green-700 text-xs mb-3">MDF & Panel hattımıza bağlanın.</p>
             <a
-              href="https://wa.me/905418187667" target="_blank" rel="noopener noreferrer"
+              href="https://wa.me/905464886737" target="_blank" rel="noopener noreferrer"
               class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
             >
-              WhatsApp
+              WhatsApp — MDF & Panel
             </a>
           </div>
 
@@ -134,24 +135,22 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
           <!-- İlgili Ürünler -->
           <div class="border border-gray-200 rounded-2xl p-5">
-            <h3 class="font-bold text-gray-900 mb-4 text-sm">İlgili Ürünler</h3>
+            <h3 class="font-bold text-gray-900 mb-4 text-sm">Diğer KE Ürünleri</h3>
             <ul class="space-y-3">
-              <li>
-                <a href="/urunler/kastamonu-entegre/mdf" class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                  </svg>
-                  MDF
-                </a>
-              </li>
-              <li>
-                <a href="/urunler/kastamonu-entegre/mdflam" class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                  </svg>
-                  MDFLam
-                </a>
-              </li>
+              {[
+                { ad: 'MDF', href: '/urunler/kastamonu-entegre/mdf' },
+                { ad: 'MDFLam', href: '/urunler/kastamonu-entegre/mdflam' },
+                { ad: 'Kapı Paneli', href: '/urunler/kastamonu-entegre/kapi-paneli' },
+              ].map((item) => (
+                <li>
+                  <a href={item.href} class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                    </svg>
+                    {item.ad}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
