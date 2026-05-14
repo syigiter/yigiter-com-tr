@@ -286,4 +286,35 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const urun = params.get('urun');
+  if (urun) {
+    const decoded = decodeURIComponent(urun);
+
+    // Hero başlığına ürün adını ekle
+    const heroP = document.querySelector('section.bg-primary p.text-white\\/75');
+    if (heroP) heroP.textContent = `"${decoded}" için teklif talebinizi aşağıdaki formu doldurarak iletebilirsiniz.`;
+
+    // Ürün detayları textarea'sını pre-fill et
+    const details = document.getElementById('product_details') as HTMLTextAreaElement | null;
+    if (details && !details.value) details.value = decoded;
+
+    // Kategori select'ini eşleştir
+    const select = document.getElementById('product_category') as HTMLSelectElement | null;
+    if (select) {
+      const lower = decoded.toLowerCase();
+      let val = '';
+      if (lower.includes('kastamonu') || lower.includes('sunta') || lower.includes('mdf') || lower.includes('yongalevha')) val = 'kastamonu-entegre';
+      else if (lower.includes('boya') || lower.includes('vernik') || lower.includes('astar')) val = 'genc-boya';
+      else if (lower.includes('melamin')) val = 'melamin-kapi-yuzeyi';
+      else if (lower.includes('kasa') || lower.includes('pervaz')) val = 'kapi-kasasi-pervaz';
+      else if (lower.includes('kağıt') || lower.includes('honeycomb') || lower.includes('petek')) val = 'kagit-dolgu';
+      else if (lower.includes('pvc')) val = 'pvc-film';
+      else if (lower.includes('ihracat')) val = 'diger';
+      if (val) select.value = val;
+    }
+  }
+</script>
 </BaseLayout>
