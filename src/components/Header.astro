@@ -23,7 +23,15 @@ const navItems = [
   },
   { label: 'İhracat', href: '/ihracat' },
   { label: 'Hizmet Bölgesi', href: '/hizmet-bolgesi' },
-  { label: 'İletişim', href: '/iletisim' },
+  {
+    label: 'İletişim',
+    href: '/iletisim',
+    children: [
+      { label: 'İletişim Bilgileri', href: '/iletisim' },
+      { label: 'Şubelerimiz', href: '/subeler' },
+      { label: 'Teklif Al', href: '/iletisim/teklif-al' },
+    ],
+  },
 ];
 ---
 
