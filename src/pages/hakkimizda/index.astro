@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Hakkımızda"
+  description="Yiğiter Orman Ürünleri — 20+ yıllık köklü aile şirketi. Şirket hikayesi, bayilik belgeleri ve ihracat bilgileri."
+>
+  <!-- Hero Section -->
+  <section class="bg-gray-50 py-12 lg:py-16 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Kurumsal</p>
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
+          Hakkımızda
+        </h1>
+        <p class="text-gray-600 text-lg">
+          20+ yıllık tecrübeyle orman ürünleri ve kapı sanayiine hizmet veren köklü bir aile şirketi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ana İçerik -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+
+        <!-- Sol: Şirket Tanımı -->
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl font-bold text-primary mb-6">Sektörde 20 Yılı Aşkın Bir İsim</h2>
+
+          <p class="text-gray-600 text-base leading-relaxed mb-5">
+            Yiğiter Orman Ürünleri, 20 yılı aşkın süredir Türkiye'nin orman ürünleri, mobilya malzemeleri
+            ve kapı sanayii sektörlerine hizmet veren bir aile şirketidir. Kurucumuzun aktif yönetiminde
+            faaliyetini sürdürüyoruz.
+          </p>
+
+          <p class="text-gray-600 text-base leading-relaxed mb-8">
+            Aile şirketi olmanın getirdiği uzun vadeli düşünme alışkanlığı, müşterilerimizle kurduğumuz
+            ilişkilerin temelini oluşturuyor. Bizimle çalışan firmaların büyük bölümü <strong class="text-gray-800">on yılı
+            aşan iş ortaklarımızdır.</strong>
+          </p>
+
+          <!-- Hızlı Linkler -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <a
+              href="/hakkimizda/sirketimiz"
+              class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all"
+            >
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">
+                  Şirket Hikayesi
+                </h3>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <p class="text-gray-500 text-sm">Detaylı şirket tarihi ve vizyonumuz hakkında bilgi.</p>
+            </a>
+
+            <a
+              href="/hakkimizda/bayilik-belgeleri"
+              class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all"
+            >
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">
+                  Bayilik Belgeleri
+                </h3>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <p class="text-gray-500 text-sm">Yetkili bayi sertifikaları ve belgeler.</p>
+            </a>
+
+            <a
+              href="/hakkimizda/ihracat"
+              class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all"
+            >
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">
+                  İhracat Bilgileri
+                </h3>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <p class="text-gray-500 text-sm">4 kıtaya düzenli ihracat hakkında detaylar.</p>
+            </a>
+
+            <a
+              href="/ihracat"
+              class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all"
+            >
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">
+                  İhracat Sayfası
+                </h3>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <p class="text-gray-500 text-sm">Yurt dışı müşteriler için ihracat hizmetleri.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sağ: İstatistikler -->
+        <div class="space-y-6">
+          <div class="bg-primary rounded-xl p-6 text-white">
+            <div class="text-4xl font-bold mb-1">20+</div>
+            <div class="text-white/80 text-sm font-medium">Yıllık Tecrübe</div>
+            <p class="text-white/60 text-xs mt-3 leading-relaxed">
+              Sektörü tanıyor, üreticiyi de imalatçıyı da anlıyoruz.
+            </p>
+          </div>
+
+          <div class="bg-accent rounded-xl p-6 text-white">
+            <div class="text-4xl font-bold mb-1">4</div>
+            <div class="text-white/90 text-sm font-medium">Kıtaya İhracat</div>
+            <p class="text-white/70 text-xs mt-3 leading-relaxed">
+              Avrupa, Orta Doğu, Türki Cumhuriyetler, Afrika
+            </p>
+          </div>
+
+          <div class="bg-wood rounded-xl p-6 text-primary">
+            <div class="text-4xl font-bold mb-1">4</div>
+            <div class="text-primary/80 text-sm font-medium">Operasyonel Rol</div>
+            <p class="text-primary/60 text-xs mt-3 leading-relaxed">
+              Üretici · Bayi · İthalatçı · İhracatçı
+            </p>
+          </div>
+
+          <div class="bg-gray-100 rounded-xl p-6 text-gray-900">
+            <div class="text-4xl font-bold mb-1">1</div>
+            <div class="text-gray-700 text-sm font-medium">Tek Kaynak</div>
+            <p class="text-gray-500 text-xs mt-3 leading-relaxed">
+              Eksiksiz tedarik çözümleri panel levhadan boyaya kadar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alt CTA -->
+  <section class="bg-primary text-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl lg:text-3xl font-bold mb-4">Daha Fazla Bilgi Almak İçin</h2>
+      <p class="text-white/70 mb-6 max-w-xl mx-auto">
+        Sorularınız için iletişime geçin veya ürünlerimizi keşfedin.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href="/iletisim"
+          class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+        >
+          İletişim
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a
+          href="/urunler"
+          class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/25 transition-colors"
+        >
+          Ürünlerimiz
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

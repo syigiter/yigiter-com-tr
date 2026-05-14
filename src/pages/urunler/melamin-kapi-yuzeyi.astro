@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Melamin Kaplı Kapı Yüzeyleri"
+  description="Yiğiter Orman Ürünleri — Melamin kaplı kapı yüzeyi doğrudan ithalatçısı. Düz, presli ve panel desenli seçenekler. Kapı imalatçılarına aracısız tedarik, stoktan teslimat."
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="/" class="hover:text-primary transition-colors">Anasayfa</a></li>
+        <li class="text-gray-300">/</li>
+        <li><a href="/urunler" class="hover:text-primary transition-colors">Ürünler</a></li>
+        <li class="text-gray-300">/</li>
+        <li class="text-gray-800 font-medium">Melamin Kaplı Kapı Yüzeyleri</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gray-50 py-12 lg:py-16 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
+          Doğrudan İthalatçı
+        </span>
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
+          Melamin Kaplı Kapı Yüzeyleri
+        </h1>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Yurt dışından ithal, kapı sanayinin yüksek kaliteli çözümü. Aracısız, doğrudan
+          ithalatçı güvencesiyle.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ana İçerik -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+        <!-- Sol: Metin -->
+        <div class="lg:col-span-2">
+          <p class="text-gray-700 text-base leading-relaxed mb-5">
+            <strong class="text-gray-900">Yiğiter Orman Ürünleri</strong>, kapı imalatçılarının ihtiyaç
+            duyduğu <strong class="text-gray-900">melamin kaplı kapı yüzeylerini doğrudan yurt dışından
+            ithal eden</strong> uzman bir tedarikçidir. Özenle seçtiğimiz üreticilerden, kalite standartlarımıza
+            uygun ürünleri kapı üreticilerine ulaştırıyoruz.
+          </p>
+          <p class="text-gray-700 text-base leading-relaxed mb-10">
+            Geniş desen ve renk seçenekleriyle hem klasik hem modern kapı tasarımlarına uygun yüzeyler
+            sunuyoruz. İthal ürünlerimiz; düz, presli, panelli ve dekoratif desen seçenekleriyle her
+            tarz kapı imalatına çözüm üretir. Stoktan teslimatla projelerinizdeki zaman baskısını
+            ortadan kaldırıyoruz.
+          </p>
+
+          <!-- Ürün Tipleri -->
+          <h2 class="text-2xl font-bold text-primary mb-6">Ürün Çeşitleri</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            {[
+              { title: 'Düz Melamin Kapı Yüzeyleri', desc: 'Modern ve minimal tasarımlar için pürüzsüz yüzey.' },
+              { title: 'Presli / Desenli Yüzeyler', desc: 'Klasik kapı modellerine uygun kabartmalı desen.' },
+              { title: 'Panel Desenli Yüzeyler', desc: 'Geleneksel görünüm arayan projeler için.' },
+              { title: 'Ahşap Desenli Yüzeyler', desc: 'Doğal ahşap görünümlü zengin renk seçenekleri.' },
+              { title: 'Düz Renk Yüzeyler', desc: 'Beyaz, gri, renkli — modern kapı tasarımları için.' },
+              { title: 'Standart Ölçüler', desc: 'Stoktan hızlı teslimat için standart kapı boyutları.' },
+            ].map((item) => (
+              <div class="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                <p class="text-gray-500 text-xs">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Neden Yiğiter -->
+          <h2 class="text-2xl font-bold text-primary mb-5">Neden Yiğiter'den Melamin Kapı Yüzeyi?</h2>
+          <ul class="space-y-3 mb-10">
+            {[
+              'Doğrudan ithalatçı — aracısız, doğru fiyat',
+              'Yurt dışından seçilmiş kaliteli üreticiler',
+              'Stoktan hızlı teslimat',
+              'Geniş desen ve renk yelpazesi',
+              'Kapı sanayinde uzun yıllara dayanan deneyim',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-700 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- TODO: İthalat bilgisi eklenecek -->
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-5">
+            <p class="text-blue-800 text-sm">
+              <strong>Menşe:</strong>
+              <!-- TODO: İthalat yapılan ülkeler eklenecek -->
+              Yurt dışından seçilmiş üreticilerden ithalat yapılmaktadır. Detaylı menşe bilgisi için iletişime geçin.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Sağ: CTA -->
+        <div class="space-y-5">
+          <div class="bg-primary rounded-2xl p-6 text-white">
+            <h3 class="text-lg font-bold mb-2">Fiyat Teklifi Alın</h3>
+            <p class="text-white/70 text-sm mb-4">
+              İhtiyacınızı bildirin, ithalatçı fiyatıyla teklif hazırlayalım.
+            </p>
+            <a
+              href="/iletisim/teklif-al?urun=Melamin+Kap%C4%B1+Y%C3%BCzeyi"
+              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors"
+            >
+              Teklif Al
+            </a>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
+            <h3 class="text-green-800 font-bold mb-3 text-sm">WhatsApp ile İletişim</h3>
+            <a
+              href="https://wa.me/905418187667" target="_blank" rel="noopener noreferrer"
+              class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
+            >
+              WhatsApp
+            </a>
+          </div>
+
+          <div class="bg-blue-50 border border-blue-100 rounded-2xl p-5">
+            <h3 class="text-blue-800 font-bold mb-2 text-sm">Doğrudan İthalatçı</h3>
+            <p class="text-blue-700 text-xs leading-relaxed">
+              Aracı olmadan yurt dışından ithal ediyoruz. Doğru fiyat, doğrudan kaynak.
+            </p>
+          </div>
+
+          <div class="border border-gray-200 rounded-2xl p-5">
+            <h3 class="font-bold text-gray-900 mb-3 text-sm">İlgili Ürünler</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="/urunler/kapi-komponentleri" class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Kapı Kasası ve Pervaz
+                </a>
+              </li>
+              <li>
+                <a href="/urunler/kapi-imalat-malzemeleri" class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Kapı İmalat Malzemeleri
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Alt CTA -->
+  <section class="bg-primary text-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl lg:text-3xl font-bold mb-4">Melamin Kapı Yüzeyi İçin Teklif Alın</h2>
+      <p class="text-white/70 mb-6 max-w-xl mx-auto">
+        İthalatçı fiyatıyla, stoktan, hızlı teslimatla.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href="/iletisim/teklif-al?urun=Melamin+Kap%C4%B1+Y%C3%BCzeyi"
+          class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+        >
+          Teklif Al
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a
+          href="/iletisim"
+          class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/25 transition-colors"
+        >
+          İletişim
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

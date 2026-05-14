@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Kapı Kasası ve Pervaz"
+  description="Yiğiter Orman Ürünleri — Kapı kasası ve pervaz üreticisi. Kendi tesisimizde standart ve özel ölçü üretim. 4 kıtaya ihracat. Yurt içi ve uluslararası sevkiyat."
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="/" class="hover:text-primary transition-colors">Anasayfa</a></li>
+        <li class="text-gray-300">/</li>
+        <li><a href="/urunler" class="hover:text-primary transition-colors">Ürünler</a></li>
+        <li class="text-gray-300">/</li>
+        <li class="text-gray-800 font-medium">Kapı Komponentleri</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gray-50 py-12 lg:py-16 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
+          Kendi Üretimimiz — 4 Kıtaya İhracat
+        </span>
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
+          Kapı Kasası ve Pervaz
+        </h1>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Kendi tesisimizde üretim, dört kıtaya ihracat. Üreticiden direkt, ihracat
+          kalitesinde kapı komponentleri.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ana İçerik -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+        <!-- Sol: Metin -->
+        <div class="lg:col-span-2">
+          <p class="text-gray-700 text-base leading-relaxed mb-5">
+            <strong class="text-gray-900">Kapı kasası ve pervazlarını kendi tesisimizde üretiyoruz.</strong>
+            Yiğiter Orman Ürünleri, hem yurt içi kapı imalatçılarına hem de
+            <strong class="text-gray-900">Avrupa, Orta Doğu, Türki Cumhuriyetler ve Afrika</strong>
+            pazarlarına düzenli olarak kapı komponenti tedarik eden bir üreticidir.
+          </p>
+          <p class="text-gray-700 text-base leading-relaxed mb-10">
+            Üretim modelimiz iki ayak üzerinde kuruludur: <strong class="text-gray-900">standart ölçülerde
+            seri üretim</strong> ile imalatçının acil ihtiyaçlarını stoktan karşılarken,
+            <strong class="text-gray-900">müşteriye özel ölçü ve proje bazlı üretim</strong> ile özel
+            tasarım projelerinde imalatçının gereksinimlerine birebir uyum sağlıyoruz.
+          </p>
+
+          <!-- Alt Kategoriler -->
+          <h2 class="text-2xl font-bold text-primary mb-6">Ürün Kategorileri</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+
+            <a href="/urunler/kapi-komponentleri/kasa" class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">Kapı Kasası</h3>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <p class="text-gray-500 text-sm">Standart ölçü seri üretim ve müşteriye özel ölçü. Her proje için çözüm.</p>
+            </a>
+
+            <a href="/urunler/kapi-komponentleri/pervaz" class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">Kapı Pervazı</h3>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <p class="text-gray-500 text-sm">Klasik, modern ve özel profil seçenekleriyle standart ve özel ölçü üretim.</p>
+            </a>
+
+          </div>
+
+          <!-- Sunduklarımız -->
+          <h2 class="text-2xl font-bold text-primary mb-5">Sunduklarımız</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            {[
+              { label: 'Kapı Kasası', desc: 'Standart ölçü + müşteriye özel ölçü' },
+              { label: 'Kapı Pervazı', desc: 'Standart ölçü + müşteriye özel ölçü' },
+              { label: 'Çeşitli Profil Seçenekleri', desc: 'Klasik, modern, özel tasarım' },
+              { label: 'Farklı Malzeme Alternatifleri', desc: 'Proje ihtiyacına göre seçim' },
+              { label: 'Yüzey Kaplama Seçenekleri', desc: 'Melamin, lake, ham (boyaya hazır)' },
+            ].map((item) => (
+              <div class="flex items-start gap-3 py-2">
+                <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span class="text-gray-900 text-sm font-semibold">{item.label}</span>
+                  <span class="text-gray-500 text-sm"> — {item.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Neden Yiğiter -->
+          <h2 class="text-2xl font-bold text-primary mb-5">Neden Yiğiter'den Kapı Kasası ve Pervaz?</h2>
+          <ul class="space-y-3">
+            {[
+              'Üreticiden direkt — aracısız fiyat ve doğrudan iletişim',
+              'İhracat kalitesinde üretim — uluslararası standartlar',
+              'Hem standart hem özel ölçü üretim kapasitesi',
+              'Stoktan hızlı teslimat (standart ölçüler için)',
+              'Proje bazlı esnek üretim (özel ölçü için)',
+              '20+ yıllık kapı sanayii deneyimi',
+              'Yurt içi ve uluslararası sevkiyat',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-700 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Sağ: CTA -->
+        <div class="space-y-5">
+          <div class="bg-primary rounded-2xl p-6 text-white">
+            <h3 class="text-lg font-bold mb-2">Fiyat Teklifi Alın</h3>
+            <p class="text-white/70 text-sm mb-4">
+              Üreticiden direkt fiyatla teklif hazırlayalım.
+            </p>
+            <a
+              href="/iletisim/teklif-al?urun=Kap%C4%B1+Kasas%C4%B1+ve+Pervaz"
+              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors"
+            >
+              Teklif Al
+            </a>
+          </div>
+
+          <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
+            <h3 class="text-accent font-bold mb-2 text-sm">İhracat Talebi</h3>
+            <p class="text-gray-700 text-xs mb-4">
+              Yurt dışı alıcılar için ayrıca ihracat teklifi hazırlıyoruz.
+            </p>
+            <a
+              href="/iletisim/teklif-al?urun=Kap%C4%B1+Kasas%C4%B1+%28%C4%B0hracat%29"
+              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
+            >
+              İhracat Talebi
+            </a>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
+            <h3 class="text-green-800 font-bold mb-3 text-sm">WhatsApp ile İletişim</h3>
+            <a
+              href="https://wa.me/905418187667" target="_blank" rel="noopener noreferrer"
+              class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
+            >
+              WhatsApp
+            </a>
+          </div>
+
+          <!-- İhracat Bölgeleri -->
+          <div class="bg-wood rounded-2xl p-5">
+            <h3 class="text-primary font-bold mb-3 text-sm">İhracat Pazarlarımız</h3>
+            <ul class="space-y-1">
+              {['Avrupa', 'Orta Doğu', 'Türki Cumhuriyetler', 'Afrika'].map((bolge) => (
+                <li class="flex items-center gap-2 text-xs text-primary/80">
+                  <span class="w-1.5 h-1.5 bg-accent rounded-full shrink-0"></span>
+                  {bolge}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Alt CTA -->
+  <section class="bg-primary text-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl lg:text-3xl font-bold mb-4">Kapı Kasası ve Pervaz Teklifi Alın</h2>
+      <p class="text-white/70 mb-6 max-w-xl mx-auto">
+        Standart veya özel ölçü — üreticiden direkt.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href="/iletisim/teklif-al?urun=Kap%C4%B1+Kasas%C4%B1+ve+Pervaz"
+          class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+        >
+          Teklif Al
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a
+          href="/iletisim"
+          class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/25 transition-colors"
+        >
+          İletişim
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

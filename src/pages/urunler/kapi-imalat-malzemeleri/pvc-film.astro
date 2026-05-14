@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="PVC Film"
+  description="Yiğiter Orman Ürünleri — Kapı ve mobilya yüzey kaplaması için PVC film. Ahşap desenli, düz renk, parlak ve mat seçenekler. Stoktan hızlı teslimat."
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="/" class="hover:text-primary transition-colors">Anasayfa</a></li>
+        <li class="text-gray-300">/</li>
+        <li><a href="/urunler" class="hover:text-primary transition-colors">Ürünler</a></li>
+        <li class="text-gray-300">/</li>
+        <li><a href="/urunler/kapi-imalat-malzemeleri" class="hover:text-primary transition-colors">Kapı İmalat Malzemeleri</a></li>
+        <li class="text-gray-300">/</li>
+        <li class="text-gray-800 font-medium">PVC Film</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bg-gray-50 py-12 lg:py-16 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
+          Kapı İmalat Malzemesi
+        </span>
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
+          PVC Film
+        </h1>
+        <p class="text-gray-600 text-lg">
+          Kapı ve mobilya yüzey kaplama için kaliteli çözüm. Geniş desen ve renk yelpazesi,
+          stoktan hızlı teslimat.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- İçerik -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+        <div class="lg:col-span-2">
+
+          <!-- TODO: Ürün görseli eklenecek -->
+          <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center mb-8 text-gray-400 text-sm">
+            PVC film ürün görseli eklenecek
+          </div>
+
+          <p class="text-gray-700 text-base leading-relaxed mb-5">
+            <strong class="text-gray-900">Yiğiter Orman Ürünleri</strong>, kapı imalatçılarına ve mobilya
+            üreticilerine yönelik <strong class="text-gray-900">PVC film</strong> tedariği sağlamaktadır.
+            Yüzey kaplamada estetik görünüm ve dayanıklılık arayan üreticiler için geniş desen ve renk
+            yelpazesinde PVC film çözümleri sunuyoruz.
+          </p>
+
+          <p class="text-gray-700 text-base leading-relaxed mb-10">
+            Klasik ahşap desenlerinden modern düz renk seçeneklerine kadar her tasarıma uygun PVC film
+            stoğumuzla, kapı ve mobilya imalatçılarının yüzey kaplama ihtiyaçlarını eksiksiz karşılıyoruz.
+          </p>
+
+          <!-- Ürün Çeşitleri -->
+          <h2 class="text-xl font-bold text-primary mb-5">Ürün Çeşitleri</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            {[
+              { title: 'Ahşap Desenli PVC Film', desc: 'Klasik ve modern desen alternatifleri' },
+              { title: 'Düz Renk PVC Film', desc: 'Modern ve minimal tasarımlar için' },
+              { title: 'Yüksek Parlak', desc: 'Göze çarpan, parlak yüzey kalitesi' },
+              { title: 'Mat', desc: 'Soft ve modern mat yüzey görünümü' },
+            ].map((item) => (
+              <div class="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                <p class="text-gray-500 text-xs">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Ürün Özellikleri -->
+          <h2 class="text-xl font-bold text-primary mb-5">Teknik Özellikler</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            {[
+              { label: 'Malzeme', value: 'PVC (Polivinil Klorür)' },
+              { label: 'Yüzey', value: 'Parlak, Mat, İpek Mat' },
+              { label: 'Desen', value: 'Ahşap, Düz Renk, Özel' },
+              { label: 'Ölçüler', value: '<!-- TODO: En/boy seçenekleri eklenecek -->' },
+              { label: 'Teslimat', value: 'Stoktan' },
+            ].map((spec) => (
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500 text-sm">{spec.label}</span>
+                <span class="text-gray-900 text-sm font-medium" set:html={spec.value} />
+              </div>
+            ))}
+          </div>
+
+          <!-- Neden Yiğiter -->
+          <h2 class="text-xl font-bold text-primary mb-4">Neden Yiğiter'den PVC Film?</h2>
+          <ul class="space-y-2">
+            {[
+              'Geniş desen ve renk yelpazesi',
+              'Stoktan hızlı teslimat',
+              'Diğer kapı malzemeleriyle birlikte tek noktadan tedarik',
+              'Rekabetçi toptan fiyat',
+              'Kapı sanayine özel müşteri deneyimi',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-700 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+        </div>
+
+        <!-- Sağ: CTA -->
+        <div class="space-y-5">
+          <div class="bg-primary rounded-2xl p-6 text-white">
+            <h3 class="text-lg font-bold mb-2">Fiyat Teklifi Alın</h3>
+            <p class="text-white/70 text-sm mb-4">
+              PVC film ihtiyacınızı bildirin, teklif hazırlayalım.
+            </p>
+            <a
+              href="/iletisim/teklif-al?urun=PVC+Film"
+              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors"
+            >
+              Teklif Al
+            </a>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
+            <h3 class="text-green-800 font-bold mb-3 text-sm">WhatsApp ile İletişim</h3>
+            <a
+              href="https://wa.me/905418187667" target="_blank" rel="noopener noreferrer"
+              class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
+            >
+              WhatsApp
+            </a>
+          </div>
+
+          <div class="border border-gray-200 rounded-2xl p-5">
+            <h3 class="font-bold text-gray-900 mb-4 text-sm">İlgili Ürünler</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="/urunler/kapi-imalat-malzemeleri/kagit-dolgu" class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Kağıt Dolgu (Honeycomb)
+                </a>
+              </li>
+              <li>
+                <a href="/urunler/melamin-kapi-yuzeyi" class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Melamin Kapı Yüzeyi
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

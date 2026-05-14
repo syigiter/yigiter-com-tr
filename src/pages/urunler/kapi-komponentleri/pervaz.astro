@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Kapı Pervazı"
+  description="Yiğiter Orman Ürünleri — Kapı pervazı üreticisi. Standart ve özel ölçü üretim, klasik ve modern profil seçenekleri. Üreticiden direkt fiyat, ihracat kalitesi."
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="/" class="hover:text-primary transition-colors">Anasayfa</a></li>
+        <li class="text-gray-300">/</li>
+        <li><a href="/urunler" class="hover:text-primary transition-colors">Ürünler</a></li>
+        <li class="text-gray-300">/</li>
+        <li><a href="/urunler/kapi-komponentleri" class="hover:text-primary transition-colors">Kapı Komponentleri</a></li>
+        <li class="text-gray-300">/</li>
+        <li class="text-gray-800 font-medium">Kapı Pervazı</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bg-gray-50 py-12 lg:py-16 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
+          Kendi Üretimimiz
+        </span>
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
+          Kapı Pervazı
+        </h1>
+        <p class="text-gray-600 text-lg">
+          Kendi tesisimizde üretim. Klasik, modern ve özel profil seçenekleriyle standart
+          ve özel ölçü kapı pervazı.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- İçerik -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+        <div class="lg:col-span-2">
+
+          <!-- TODO: Ürün görseli eklenecek -->
+          <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center mb-8 text-gray-400 text-sm">
+            Kapı pervazı ürün görseli eklenecek
+          </div>
+
+          <p class="text-gray-700 text-base leading-relaxed mb-5">
+            Kapı pervazlarını <strong class="text-gray-900">kendi tesisimizde üretiyoruz.</strong>
+            Kasayla birlikte tamamlayıcı bir komponent olan pervaz, kapının hem işlevsel hem
+            estetik tamamlayıcısıdır. Geniş profil yelpazesiyle her tasarıma uygun seçenek sunuyoruz.
+          </p>
+
+          <p class="text-gray-700 text-base leading-relaxed mb-10">
+            Standart ölçülerde stoktan hızlı teslimat, özel ölçü ve profil gerektiren projeler için
+            proje bazlı esnek üretim kapasitesi.
+          </p>
+
+          <!-- Ürün Özellikleri -->
+          <h2 class="text-xl font-bold text-primary mb-5">Ürün Özellikleri</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            {[
+              { label: 'Üretim', value: 'Kendi Tesisimiz' },
+              { label: 'Üretim Tipi', value: 'Standart + Özel Ölçü' },
+              { label: 'Profil Seçenekleri', value: 'Klasik, Modern, Özel' },
+              { label: 'Yüzey', value: 'Melamin, Lake, Ham' },
+              { label: 'Sevkiyat', value: 'Yurt içi ve Uluslararası' },
+              { label: 'Ölçüler', value: '<!-- TODO: Ölçü aralığı eklenecek -->' },
+            ].map((spec) => (
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500 text-sm">{spec.label}</span>
+                <span class="text-gray-900 text-sm font-medium" set:html={spec.value} />
+              </div>
+            ))}
+          </div>
+
+          <!-- Profil Çeşitleri -->
+          <h2 class="text-xl font-bold text-primary mb-4">Profil Çeşitleri</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+            {[
+              { title: 'Klasik Profil', desc: 'Geleneksel kapı tasarımları için' },
+              { title: 'Modern Profil', desc: 'Düz ve minimal çizgiler' },
+              { title: 'Özel Profil', desc: 'Proje bazlı tasarım üretimi' },
+            ].map((item) => (
+              <div class="border border-gray-200 rounded-xl p-4 text-center">
+                <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                <p class="text-gray-500 text-xs">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- TODO: Profil görselleri eklenecek -->
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-400 text-sm text-center mb-8">
+            Profil kesit görselleri eklenecek
+          </div>
+
+        </div>
+
+        <!-- Sağ: CTA -->
+        <div class="space-y-5">
+          <div class="bg-primary rounded-2xl p-6 text-white">
+            <h3 class="text-lg font-bold mb-2">Fiyat Teklifi Alın</h3>
+            <p class="text-white/70 text-sm mb-4">
+              Üreticiden direkt fiyatla kapı pervazı teklifi.
+            </p>
+            <a
+              href="/iletisim/teklif-al?urun=Kap%C4%B1+Pervaz%C4%B1"
+              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors"
+            >
+              Teklif Al
+            </a>
+          </div>
+
+          <div class="bg-accent/10 border border-accent/20 rounded-2xl p-5">
+            <h3 class="text-accent font-bold mb-2 text-sm">İhracat Talebi</h3>
+            <a
+              href="/iletisim/teklif-al?urun=Kap%C4%B1+Pervaz%C4%B1+%28%C4%B0hracat%29"
+              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-4 py-2.5 rounded-lg transition-colors text-sm"
+            >
+              İhracat Talebi
+            </a>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
+            <h3 class="text-green-800 font-bold mb-3 text-sm">WhatsApp ile İletişim</h3>
+            <a
+              href="https://wa.me/905418187667" target="_blank" rel="noopener noreferrer"
+              class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
+            >
+              WhatsApp
+            </a>
+          </div>
+
+          <div class="border border-gray-200 rounded-2xl p-5">
+            <h3 class="font-bold text-gray-900 mb-4 text-sm">İlgili Ürünler</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="/urunler/kapi-komponentleri/kasa" class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Kapı Kasası
+                </a>
+              </li>
+              <li>
+                <a href="/urunler/melamin-kapi-yuzeyi" class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Melamin Kapı Yüzeyi
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

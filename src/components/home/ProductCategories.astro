@@ -1,0 +1,153 @@
+---
+const products = [
+  {
+    badge: 'Yetkili Ana Bayi',
+    badgeStyle: 'bg-blue-50 text-blue-700 border-blue-100',
+    title: 'Kastamonu Entegre Ürünleri',
+    subtitle: 'Yongalevha, MDF, MDFLam',
+    description:
+      'Türkiye\'nin lider levha üreticisinin Ana Bayisi olarak tüm portföyü stoktan sunuyoruz. Türkiye genelinde sevkiyat imkânı.',
+    icon: `<rect x="3" y="3" width="7" height="7" rx="1" stroke-width="1.5" /><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="1.5" /><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="1.5" /><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="1.5" />`,
+    href: '/urunler/kastamonu-entegre',
+    highlight: false,
+  },
+  {
+    badge: 'Yetkili Distribütör',
+    badgeStyle: 'bg-green-50 text-green-700 border-green-100',
+    title: 'Genç Boya Ürünleri',
+    subtitle: 'Mobilya ve ahşap boyama çözümleri',
+    description:
+      'Genç Boya\'nın İstanbul Anadolu Yakası Distribütörü ve Tosya Bayisiyiz. Avrupa Yakası depomuzla geniş bölge kapsamı.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />`,
+    href: '/urunler/genc-boya',
+    highlight: false,
+  },
+  {
+    badge: 'Doğrudan İthalatçı',
+    badgeStyle: 'bg-amber-50 text-amber-700 border-amber-100',
+    title: 'Melamin Kapı Yüzeyleri',
+    subtitle: 'Yurt dışından ithal, geniş desen yelpazesi',
+    description:
+      'Kapı imalatçılarına yurt dışından doğrudan ithal ettiğimiz kaliteli melamin kaplı kapı yüzeylerini sunuyoruz. Stoktan hızlı teslimat.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />`,
+    href: '/urunler/melamin-kapi-yuzeyi',
+    highlight: false,
+  },
+  {
+    badge: 'Kendi Üretimimiz',
+    badgeStyle: 'bg-orange-50 text-orange-700 border-orange-100',
+    title: 'Kapı Kasası ve Pervaz',
+    subtitle: 'Kendi tesisimizde üretim · 4 kıtaya ihracat',
+    description:
+      'Kapı kasası ve pervazlarını kendi tesisimizde üretiyoruz. Standart seri üretim + müşteriye özel ölçü üretim. İhracat kalitesi yurt içine.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`,
+    href: '/urunler/kapi-komponentleri',
+    highlight: true,
+  },
+  {
+    badge: 'Tedarikçi',
+    badgeStyle: 'bg-gray-100 text-gray-600 border-gray-200',
+    title: 'Kağıt Dolgu Malzemesi',
+    subtitle: 'Honeycomb / petek dolgu',
+    description:
+      'İç kapı imalatında kullanılan kağıt dolgu (honeycomb) malzemelerini stoktan tedarik ediyoruz. Farklı yoğunluk seçenekleri.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />`,
+    href: '/urunler/kapi-imalat-malzemeleri/kagit-dolgu',
+    highlight: false,
+  },
+  {
+    badge: 'Tedarikçi',
+    badgeStyle: 'bg-gray-100 text-gray-600 border-gray-200',
+    title: 'PVC Film',
+    subtitle: 'Kapı ve mobilya yüzey kaplama',
+    description:
+      'Kapı ve mobilya imalatçılarına yönelik geniş desen ve renk yelpazesinde PVC film çözümleri. Ahşap deseni, düz renk, mat ve parlak seçenekler.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4V2m5 2V2m5 2V2M4 8h16M4 8a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2v-8a2 2 0 00-2-2M4 8V6a2 2 0 012-2h12a2 2 0 012 2v2" />`,
+    href: '/urunler/kapi-imalat-malzemeleri/pvc-film',
+    highlight: false,
+  },
+];
+---
+
+<section class="bg-white py-16 lg:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Bölüm Başlığı -->
+    <div class="text-center mb-12 lg:mb-16">
+      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Ürün ve Hizmetlerimiz</p>
+      <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+        Tek Noktadan Eksiksiz Tedarik
+      </h2>
+      <p class="text-gray-500 text-base max-w-2xl mx-auto">
+        Panel levhadan boyaya, kapı yüzeyinden kasa ve pervaza kadar kapı sanayiinin ihtiyaç duyduğu
+        tüm malzemeleri tek çatı altında sunuyoruz.
+      </p>
+    </div>
+
+    <!-- Ürün Kartları -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+      {products.map((product) => (
+        <a
+          href={product.href}
+          class={`group relative flex flex-col bg-white border rounded-xl p-6 hover:shadow-lg transition-all duration-200 ${
+            product.highlight
+              ? 'border-accent/40 ring-1 ring-accent/20 hover:border-accent'
+              : 'border-gray-200 hover:border-primary/40'
+          }`}
+        >
+          {product.highlight && (
+            <div class="absolute -top-3 left-6">
+              <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                Kendi Üretimimiz
+              </span>
+            </div>
+          )}
+
+          <!-- Rol Rozeti + İkon -->
+          <div class="flex items-start justify-between mb-4">
+            <span class={`text-xs font-semibold px-2.5 py-1 rounded-full border ${product.badgeStyle}`}>
+              {product.badge}
+            </span>
+            <div class={`w-9 h-9 flex-shrink-0 transition-colors ${product.highlight ? 'text-accent' : 'text-primary/60 group-hover:text-primary'}`}>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-full h-full">
+                <Fragment set:html={product.icon} />
+              </svg>
+            </div>
+          </div>
+
+          <!-- İçerik -->
+          <h3 class="font-bold text-gray-900 text-base mb-1 group-hover:text-primary transition-colors">
+            {product.title}
+          </h3>
+          <p class="text-gray-400 text-xs font-medium mb-3">{product.subtitle}</p>
+          <p class="text-gray-500 text-sm leading-relaxed flex-grow">{product.description}</p>
+
+          <!-- Link -->
+          <div class={`mt-4 pt-4 border-t flex items-center gap-1.5 text-sm font-semibold transition-colors ${
+            product.highlight
+              ? 'border-accent/20 text-accent'
+              : 'border-gray-100 text-primary group-hover:text-accent'
+          }`}>
+            İncele
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Alt CTA -->
+    <div class="text-center mt-10">
+      <a
+        href="/urunler"
+        class="inline-flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm"
+      >
+        Tüm Ürün Kategorilerini Gör
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
