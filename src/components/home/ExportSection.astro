@@ -75,15 +75,69 @@ const regions = [
 
       <!-- Sağ: Bölge Kartları -->
       <div>
-        <!-- Dünya haritası placeholder -->
-        <div class="bg-white border border-gray-200 rounded-xl p-4 mb-5 aspect-video flex items-center justify-center">
-          <!-- TODO: Dünya haritası SVG veya görseli eklenecek (4 bölge vurgulanmış) -->
-          <div class="text-center">
-            <svg class="w-12 h-12 text-primary/20 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p class="text-gray-400 text-xs">Dünya haritası eklenecek</p>
-          </div>
+        <!-- Dünya Haritası -->
+        <div class="bg-white border border-gray-200 rounded-xl p-3 mb-5 overflow-hidden">
+          <svg viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+            <!-- Okyanus -->
+            <rect width="900" height="430" fill="#E8F5FE"/>
+            <!-- Izgara çizgileri -->
+            <line x1="0" y1="107" x2="900" y2="107" stroke="#BDE0F5" stroke-width="0.5" stroke-dasharray="4,10"/>
+            <line x1="0" y1="215" x2="900" y2="215" stroke="#BDE0F5" stroke-width="0.5" stroke-dasharray="4,10"/>
+            <line x1="0" y1="323" x2="900" y2="323" stroke="#BDE0F5" stroke-width="0.5" stroke-dasharray="4,10"/>
+            <line x1="225" y1="0" x2="225" y2="430" stroke="#BDE0F5" stroke-width="0.5" stroke-dasharray="4,10"/>
+            <line x1="450" y1="0" x2="450" y2="430" stroke="#BDE0F5" stroke-width="0.5" stroke-dasharray="4,10"/>
+            <line x1="675" y1="0" x2="675" y2="430" stroke="#BDE0F5" stroke-width="0.5" stroke-dasharray="4,10"/>
+            <!-- Grönland -->
+            <ellipse cx="305" cy="46" rx="52" ry="30" fill="#D5DBE3" opacity="0.8"/>
+            <!-- Kuzey Amerika -->
+            <path d="M 44,78 C 80,60 155,56 216,70 L 244,88 L 238,118 L 224,158 L 198,190 L 162,218 L 128,240 L 93,250 L 60,238 L 42,212 L 38,172 Z" fill="#D5DBE3" stroke="white" stroke-width="1.5"/>
+            <path d="M 162,218 L 208,224 L 214,244 L 178,248 L 152,237 Z" fill="#D5DBE3" stroke="white" stroke-width="1"/>
+            <!-- Güney Amerika -->
+            <path d="M 110,260 C 134,253 196,250 228,264 L 248,290 L 244,342 L 222,388 L 194,406 L 162,400 L 130,370 L 110,324 L 104,290 Z" fill="#D5DBE3" stroke="white" stroke-width="1.5"/>
+            <!-- AVRUPA (mavi vurgu) -->
+            <path d="M 346,90 C 362,70 393,62 424,66 C 450,69 466,82 470,100 L 468,128 L 453,150 L 428,160 L 398,163 L 370,158 L 354,146 L 345,126 Z" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1.5"/>
+            <path d="M 373,66 C 381,47 402,40 422,44 L 434,60 L 420,67 L 393,69 Z" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1"/>
+            <path d="M 343,96 L 358,83 L 371,89 L 366,110 L 350,114 Z" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1"/>
+            <!-- AFRİKA (yeşil vurgu) -->
+            <path d="M 336,170 C 362,162 428,158 460,165 L 480,182 L 492,212 L 490,258 L 480,304 L 464,348 L 442,388 L 412,401 L 382,397 L 353,374 L 333,333 L 321,286 L 318,236 L 324,196 Z" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1.5"/>
+            <!-- ORTA DOĞU (amber vurgu) -->
+            <path d="M 463,150 L 535,140 L 570,150 L 584,172 L 586,204 L 568,234 L 538,252 L 510,256 L 483,240 L 467,212 L 462,180 Z" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+            <!-- TÜRKİYE (özel şekil) -->
+            <path d="M 462,138 L 532,130 L 548,140 L 544,158 L 462,162 Z" fill="#FDE68A" stroke="#F59E0B" stroke-width="1.5"/>
+            <!-- TÜRKİ CUMHURİYETLER (mor vurgu) -->
+            <path d="M 575,116 C 616,106 668,105 708,112 L 740,127 L 748,152 L 738,178 L 705,193 L 662,196 L 618,190 L 578,176 L 562,157 L 568,134 Z" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+            <!-- Asya'nın geri kalanı (gri) -->
+            <path d="M 548,254 L 568,234 L 586,204 L 584,172 L 748,152 L 762,115 C 812,108 862,112 900,126 L 900,286 L 852,298 L 805,292 L 768,307 L 734,295 L 700,312 L 665,296 L 630,316 L 598,306 L 564,282 Z" fill="#D5DBE3" stroke="white" stroke-width="1"/>
+            <!-- Hindistan -->
+            <path d="M 597,202 L 648,200 L 658,243 L 638,288 L 608,295 L 580,277 L 573,250 L 566,232 L 586,204 Z" fill="#D5DBE3" stroke="white" stroke-width="1"/>
+            <!-- Japonya -->
+            <path d="M 796,136 L 816,126 L 824,144 L 813,160 L 797,158 Z" fill="#D5DBE3" stroke="white" stroke-width="0.8"/>
+            <!-- Avustralya -->
+            <path d="M 694,328 C 736,314 804,311 849,322 L 880,343 L 884,382 L 859,404 L 818,416 L 769,412 L 729,392 L 700,365 L 692,342 Z" fill="#D5DBE3" stroke="white" stroke-width="1.5"/>
+
+            <!-- Türkiye'den ihracat çizgileri -->
+            <!-- Avrupa -->
+            <line x1="495" y1="144" x2="412" y2="118" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.8"/>
+            <!-- Afrika -->
+            <line x1="495" y1="144" x2="408" y2="283" stroke="#22C55E" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.8"/>
+            <!-- Türki Cumhuriyetler -->
+            <line x1="495" y1="144" x2="650" y2="153" stroke="#8B5CF6" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.8"/>
+            <!-- Orta Doğu (kısa) -->
+            <line x1="495" y1="144" x2="524" y2="195" stroke="#D97706" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.8"/>
+
+            <!-- Türkiye nokta işareti -->
+            <circle cx="495" cy="144" r="10" fill="#E05B2D" opacity="0.15"/>
+            <circle cx="495" cy="144" r="6" fill="#E05B2D" opacity="0.3"/>
+            <circle cx="495" cy="144" r="4" fill="#E05B2D"/>
+            <circle cx="495" cy="144" r="2" fill="white"/>
+
+            <!-- Bölge etiketleri -->
+            <text x="411" y="111" text-anchor="middle" font-size="9" font-weight="700" fill="#1D4ED8" font-family="Arial, sans-serif">Avrupa</text>
+            <text x="406" y="296" text-anchor="middle" font-size="9" font-weight="700" fill="#15803D" font-family="Arial, sans-serif">Afrika</text>
+            <text x="526" y="210" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E" font-family="Arial, sans-serif">Orta Doğu</text>
+            <text x="650" y="170" text-anchor="middle" font-size="8" font-weight="700" fill="#5B21B6" font-family="Arial, sans-serif">Türki Cumh.</text>
+            <text x="508" y="134" font-size="8" font-weight="700" fill="#C2410C" font-family="Arial, sans-serif">Türkiye</text>
+          </svg>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
