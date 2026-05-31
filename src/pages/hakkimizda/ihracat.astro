@@ -166,15 +166,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           Yurt dışından kapı komponenti talep eden müşterilerimiz için özel fiyatlandırma, hızlı sevkiyat ve
           teknik destek sunuyoruz.
         </p>
-        <a
-          href="/iletisim/teklif-al"
-          class="inline-flex items-center justify-center gap-2 bg-white text-accent hover:bg-gray-50 font-bold px-6 py-3 rounded-lg transition-colors"
-        >
-          İhracat Talebi Gönder
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="/iletisim/teklif-al"
+            class="inline-flex items-center justify-center gap-2 bg-white text-accent hover:bg-gray-50 font-bold px-6 py-3 rounded-lg transition-colors"
+          >
+            İhracat Talebi Gönder
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href="mailto:export@yigiter.com.tr"
+            class="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+          >
+            export@yigiter.com.tr
+          </a>
+        </div>
       </div>
 
       <!-- İlişkili Sayfalar -->
