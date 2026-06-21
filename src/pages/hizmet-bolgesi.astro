@@ -29,13 +29,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <!-- Sol: Harita -->
         <div>
-          <h2 class="text-3xl font-bold text-primary mb-6">Depo & Bayı Lokasyonları</h2>
+          <h2 class="text-3xl font-bold text-primary mb-6">Depo & Bayi Lokasyonları</h2>
 
-          <!-- Google My Maps Embed (başlık çubuğu kırpılmış) -->
-          <div class="rounded-xl overflow-hidden border border-gray-200 mb-6" style="height: 420px; position: relative;">
+          <!-- Google My Maps Embed -->
+          <div class="google-map-frame h-[420px] mb-6">
             <iframe
               src="https://www.google.com/maps/d/embed?mid=1EeHCH3JvvfbKZnkSh_jbVsem3NgLf-s"
-              style="position: absolute; top: -56px; left: 0; width: 100%; height: calc(100% + 56px); border: 0;"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"

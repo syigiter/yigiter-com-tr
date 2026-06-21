@@ -28,26 +28,50 @@ const capabilities = [
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-      <!-- Sol: Görsel Placeholder -->
+      <!-- Sol: Görseller -->
       <div class="space-y-4">
-        <div class="relative rounded-xl overflow-hidden bg-white/5 border border-white/10 aspect-video flex items-center justify-center">
-          <!-- TODO: Üretim tesisi fotoğrafı eklenecek -->
-          <div class="text-center px-6 py-12">
-            <svg class="w-14 h-14 text-white/20 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-            <p class="text-white/30 text-sm">Üretim tesisi fotoğrafı eklenecek</p>
+        <figure class="relative rounded-xl overflow-hidden bg-white/5 border border-white/10 aspect-video shadow-lg">
+          <img
+            src="/images/yigiter-genel.jpg"
+            alt="Yiğiter Orman Ürünleri üretim tesisi"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="1717"
+            height="916"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/85 to-transparent px-5 py-4">
+            <figcaption class="text-white text-sm font-semibold">
+              Yiğiter Orman Ürünleri üretim tesisi
+            </figcaption>
           </div>
-        </div>
+        </figure>
         <div class="grid grid-cols-2 gap-4">
-          <div class="rounded-xl overflow-hidden bg-white/5 border border-white/10 aspect-square flex items-center justify-center">
-            <!-- TODO: Üretim hattı fotoğrafı 1 eklenecek -->
-            <p class="text-white/20 text-xs text-center px-3">Üretim hattı fotoğrafı eklenecek</p>
-          </div>
-          <div class="rounded-xl overflow-hidden bg-white/5 border border-white/10 aspect-square flex items-center justify-center">
-            <!-- TODO: Üretim hattı fotoğrafı 2 eklenecek -->
-            <p class="text-white/20 text-xs text-center px-3">Ürün fotoğrafı eklenecek</p>
-          </div>
+          <figure class="relative rounded-xl overflow-hidden bg-white/5 border border-white/10 aspect-square">
+            <img
+              src="/images/yigiter-uretim-hatti.jpg"
+              alt="Yiğiter Orman Ürünleri üretim hattı"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              width="1537"
+              height="1023"
+            />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/85 to-transparent px-4 py-3 text-white text-xs font-semibold">
+              Üretim hattı
+            </figcaption>
+          </figure>
+          <figure class="relative rounded-xl overflow-hidden bg-white/5 border border-white/10 aspect-square">
+            <img
+              src="/images/yigiter-fabrika-depo.jpg"
+              alt="Yiğiter Orman Ürünleri stoktaki ürünleri"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              width="1535"
+              height="1024"
+            />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/85 to-transparent px-4 py-3 text-white text-xs font-semibold">
+              Stok ve ürün alanı
+            </figcaption>
+          </figure>
         </div>
       </div>
 

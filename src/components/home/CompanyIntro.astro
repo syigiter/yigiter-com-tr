@@ -85,16 +85,21 @@ const stats = [
           ))}
         </div>
 
-        <!-- Placeholder: Şirket/tesis fotoğrafı -->
-        <div class="relative rounded-xl overflow-hidden bg-primary/10 border border-primary/20 aspect-video flex items-center justify-center">
-          <!-- TODO: Şirket veya tesis fotoğrafı eklenecek -->
-          <div class="text-center px-6 py-8">
-            <svg class="w-12 h-12 text-primary/30 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <p class="text-primary/50 text-sm">Şirket fotoğrafı eklenecek</p>
+        <figure class="relative rounded-xl overflow-hidden bg-primary/10 border border-primary/20 aspect-video shadow-sm">
+          <img
+            src="/images/yigiter-sirket-resmi.jpg"
+            alt="Yiğiter Orman Ürünleri şirket binası"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="1586"
+            height="992"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/80 to-transparent px-5 py-4">
+            <figcaption class="text-white text-sm font-semibold">
+              Yiğiter Orman Ürünleri şirket binası
+            </figcaption>
           </div>
-        </div>
+        </figure>
       </div>
     </div>
   </div>
