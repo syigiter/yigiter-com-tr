@@ -42,7 +42,7 @@ const categories = [
   <section class="bg-wood-100 border-b border-wood-300 py-12 lg:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Ürün Kataloğu</p>
+        <p class="text-accent-dark font-semibold text-sm uppercase tracking-widest mb-3">Ürün Kataloğu</p>
         <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">Ürünler</h1>
         <p class="text-gray-700 text-lg leading-relaxed">
           Kapı sanayii, mobilya üreticileri ve iç mimari projeler için MDF, panel,
@@ -56,15 +56,16 @@ const categories = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         <div class="lg:col-span-2">
+          <h2 class="sr-only">Ürün Grupları</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             {categories.map((category) => (
               <article class="border border-gray-200 rounded-lg p-6 bg-white shadow-sm">
-                <h2 class="text-xl font-bold text-primary mb-2">{category.title}</h2>
+                <h3 class="text-xl font-bold text-primary mb-2">{category.title}</h3>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">{category.summary}</p>
                 <ul class="space-y-2 mb-5">
                   {category.details.map((detail) => (
                     <li class="flex items-start gap-2 text-sm text-gray-600">
-                      <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0"></span>
+                      <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" aria-hidden="true"></span>
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -73,7 +74,7 @@ const categories = [
                   <a href={category.href} class="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-light transition-colors">
                     İncele
                   </a>
-                  <a href={`/teklif-al?urun=${encodeURIComponent(category.title)}`} class="inline-flex items-center justify-center rounded-lg border border-accent px-4 py-2.5 text-sm font-semibold text-accent hover:bg-accent hover:text-white transition-colors">
+                  <a href={`/teklif-al?urun=${encodeURIComponent(category.title)}`} class="inline-flex items-center justify-center rounded-lg border border-accent-dark px-4 py-2.5 text-sm font-semibold text-accent-dark hover:bg-accent-dark hover:text-white transition-colors">
                     Teklif Al
                   </a>
                 </div>

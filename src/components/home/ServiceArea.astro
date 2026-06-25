@@ -36,7 +36,7 @@ const depots = [
 
     <!-- Bölüm Başlığı -->
     <div class="text-center mb-12 lg:mb-16">
-      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Hizmet Bölgesi</p>
+      <p class="text-accent-dark font-semibold text-sm uppercase tracking-widest mb-3">Hizmet Bölgesi</p>
       <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
         Türkiye Geneline Hizmet
       </h2>
@@ -84,11 +84,11 @@ const depots = [
                 </svg>
               </div>
               <div>
-                <h4 class={`font-bold text-sm mb-0.5 ${depot.highlight ? 'text-primary' : 'text-gray-800'}`}>
+                <h3 class={`font-bold text-sm mb-0.5 ${depot.highlight ? 'text-primary' : 'text-gray-800'}`}>
                   {depot.name}
-                </h4>
+                </h3>
                 <p class="text-gray-500 text-xs mb-1.5">{depot.region}</p>
-                <p class="text-gray-400 text-xs leading-relaxed">{depot.products}</p>
+                <p class="text-gray-600 text-xs leading-relaxed">{depot.products}</p>
               </div>
             </div>
           </div>

@@ -4,6 +4,16 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
   }
+
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-accent-dark) !important;
+    outline-offset: 2px !important;
+  }
+
+  ::placeholder {
+    color: var(--color-neutral-600);
+    opacity: 1;
+  }
 }
 
 @layer components {
