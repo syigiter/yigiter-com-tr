@@ -75,7 +75,7 @@ const navItems = [
               </button>
               <div
                 id={`desktop-dropdown-${index}`}
-                class="absolute top-full left-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 z-50"
+                class="absolute top-full left-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150 z-50"
                 data-dropdown-menu
               >
                 {item.children.map((child) => (
@@ -179,24 +179,37 @@ const navItems = [
   const dropdownButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-dropdown-button]'));
   let pointerFocus = false;
 
+  function getDropdown(button: HTMLButtonElement) {
+    const menuId = button.getAttribute('aria-controls');
+    return menuId ? document.getElementById(menuId) : null;
+  }
+
+  function getDropdownLinks(button: HTMLButtonElement) {
+    return Array.from(getDropdown(button)?.querySelectorAll<HTMLAnchorElement>('a[href]') || []);
+  }
+
+  function focusFirstDropdownLink(button: HTMLButtonElement) {
+    getDropdownLinks(button)[0]?.focus();
+  }
+
   function closeDropdowns(except?: HTMLButtonElement) {
     dropdownButtons.forEach((button) => {
       if (button === except) return;
-      const menuId = button.getAttribute('aria-controls');
-      const dropdown = menuId ? document.getElementById(menuId) : null;
+      const dropdown = getDropdown(button);
       button.setAttribute('aria-expanded', 'false');
       dropdown?.classList.remove('opacity-100', 'visible');
       dropdown?.classList.add('opacity-0', 'invisible');
+      dropdown?.style.removeProperty('visibility');
     });
   }
 
   function openDropdown(button: HTMLButtonElement) {
-    const menuId = button.getAttribute('aria-controls');
-    const dropdown = menuId ? document.getElementById(menuId) : null;
+    const dropdown = getDropdown(button);
     closeDropdowns(button);
     button.setAttribute('aria-expanded', 'true');
     dropdown?.classList.add('opacity-100', 'visible');
     dropdown?.classList.remove('opacity-0', 'invisible');
+    dropdown?.style.setProperty('visibility', 'visible', 'important');
   }
 
   dropdownButtons.forEach((button) => {
@@ -218,6 +231,19 @@ const navItems = [
         closeDropdowns();
       } else {
         openDropdown(button);
+      }
+    });
+
+    button.addEventListener('keydown', (event) => {
+      if (['ArrowDown', 'Enter', ' '].includes(event.key)) {
+        event.preventDefault();
+        openDropdown(button);
+        focusFirstDropdownLink(button);
+      }
+
+      if (event.key === 'Tab' && !event.shiftKey && button.getAttribute('aria-expanded') === 'true') {
+        event.preventDefault();
+        focusFirstDropdownLink(button);
       }
     });
   });
