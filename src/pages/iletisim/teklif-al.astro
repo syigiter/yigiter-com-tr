@@ -11,6 +11,9 @@ const target = '/teklif-al';
     <meta http-equiv="refresh" content={`0; url=${target}`} />
     <link rel="canonical" href={`https://yigiter.com.tr${target}`} />
     <title>Teklif Al | Yiğiter Orman Ürünleri</title>
+    <script is:inline>
+      window.location.replace('/teklif-al' + window.location.search);
+    </script>
   </head>
   <body>
     <p>Teklif formuna yönlendiriliyorsunuz. <a href={target}>Devam etmek için tıklayın.</a></p>

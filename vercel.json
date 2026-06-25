@@ -59,32 +59,27 @@
     {
       "source": "/get-a-quote",
       "destination": "/teklif-al",
-      "statusCode": 301,
-      "preserveQueryParams": true
+      "permanent": true
     },
     {
       "source": "/quote",
       "destination": "/teklif-al",
-      "statusCode": 301,
-      "preserveQueryParams": true
+      "permanent": true
     },
     {
       "source": "/iletisim/teklif-al",
       "destination": "/teklif-al",
-      "statusCode": 301,
-      "preserveQueryParams": true
+      "permanent": true
     },
     {
       "source": "/product-catalog",
       "destination": "/urunler",
-      "statusCode": 301,
-      "preserveQueryParams": true
+      "permanent": true
     },
     {
       "source": "/products",
       "destination": "/urunler",
-      "statusCode": 301,
-      "preserveQueryParams": true
+      "permanent": true
     }
   ]
 }
