@@ -1,0 +1,90 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'self' data: https:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; frame-src https://www.google.com; base-uri 'self'; form-action 'self' https://api.web3forms.com"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicon(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/get-a-quote",
+      "destination": "/teklif-al",
+      "statusCode": 301,
+      "preserveQueryParams": true
+    },
+    {
+      "source": "/quote",
+      "destination": "/teklif-al",
+      "statusCode": 301,
+      "preserveQueryParams": true
+    },
+    {
+      "source": "/iletisim/teklif-al",
+      "destination": "/teklif-al",
+      "statusCode": 301,
+      "preserveQueryParams": true
+    },
+    {
+      "source": "/product-catalog",
+      "destination": "/urunler",
+      "statusCode": 301,
+      "preserveQueryParams": true
+    },
+    {
+      "source": "/products",
+      "destination": "/urunler",
+      "statusCode": 301,
+      "preserveQueryParams": true
+    }
+  ]
+}

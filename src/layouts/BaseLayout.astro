@@ -16,8 +16,9 @@ const {
 } = Astro.props;
 
 const siteName = 'Yiğiter Orman Ürünleri';
-const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const fullTitle = title === siteName ? 'Yiğiter Orman Ürünleri | Kapı ve Mobilya Yan Sanayi Tedarikçisi' : `${title} | ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const absoluteOgImage = new URL(ogImage, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -26,7 +27,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
@@ -35,14 +35,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content={siteName} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image" content={absoluteOgImage} />
     <meta property="og:locale" content="tr_TR" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+    <meta name="twitter:image" content={absoluteOgImage} />
 
     <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -109,22 +109,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 
     <title>{fullTitle}</title>
-
-    <!-- Fonts (non-blocking) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />

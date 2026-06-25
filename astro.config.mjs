@@ -10,6 +10,13 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      filter: (page) => ![
+        'https://yigiter.com.tr/get-a-quote/',
+        'https://yigiter.com.tr/quote/',
+        'https://yigiter.com.tr/iletisim/teklif-al/',
+        'https://yigiter.com.tr/product-catalog/',
+        'https://yigiter.com.tr/products/',
+      ].includes(page),
       i18n: {
         defaultLocale: 'tr',
         locales: { tr: 'tr-TR' },

@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const categories = [
+  {
+    title: 'Kastamonu Entegre Ürünleri',
+    href: '/urunler/kastamonu-entegre',
+    summary: 'Yongalevha, MDF, MDFLam ve kapı paneli ürünleri.',
+    details: ['Standart ve proje bazlı levha ölçüleri', 'Geniş renk ve yüzey seçenekleri', 'Ana bayi stok ve sevkiyat avantajı'],
+  },
+  {
+    title: 'Kapı Kasası ve Pervaz',
+    href: '/urunler/kapi-komponentleri',
+    summary: 'Kapı üreticileri için standart ve özel ölçü komponentler.',
+    details: ['Kendi üretim tesisimizde imalat', 'Ham, melamin veya boyaya hazır yüzey seçenekleri', 'Yurt içi ve ihracat sevkiyatı'],
+  },
+  {
+    title: 'Melamin Kapı Yüzeyleri',
+    href: '/urunler/melamin-kapi-yuzeyi',
+    summary: 'Kapı kanadı üretimi için melamin kaplı yüzey çözümleri.',
+    details: ['Farklı desen ve renk alternatifleri', 'Toptan satış ve proje tedariki', 'Numune ve katalog talebi'],
+  },
+  {
+    title: 'Genç Boya',
+    href: '/urunler/genc-boya',
+    summary: 'Ahşap, mobilya ve kapı üretimi için boya ve vernik ürünleri.',
+    details: ['Distribütör ve bayi tedariki', 'Astar, boya ve vernik grupları', 'Üretim ihtiyacına göre teklif'],
+  },
+  {
+    title: 'Kapı İmalat Malzemeleri',
+    href: '/urunler/kapi-imalat-malzemeleri',
+    summary: 'Kağıt dolgu, PVC film ve tamamlayıcı üretim malzemeleri.',
+    details: ['Kapı üretim hattı sarf ve yüzey ürünleri', 'Toptan satış notu ve sevkiyat bilgisi', 'Ölçü/adet bilgisiyle hızlı teklif'],
+  },
+];
+---
+
+<BaseLayout
+  title="Ürünler"
+  description="Kapı ve mobilya yan sanayii için MDF, panel, pervaz, kasa ve kapı komponentleri ürün gruplarımızı inceleyin."
+>
+  <section class="bg-wood-100 border-b border-wood-300 py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Ürün Kataloğu</p>
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">Ürünler</h1>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Kapı sanayii, mobilya üreticileri ve iç mimari projeler için MDF, panel,
+          kapı komponentleri, boya ve tamamlayıcı üretim malzemeleri tedarik ediyoruz.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div class="lg:col-span-2">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {categories.map((category) => (
+              <article class="border border-gray-200 rounded-lg p-6 bg-white shadow-sm">
+                <h2 class="text-xl font-bold text-primary mb-2">{category.title}</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">{category.summary}</p>
+                <ul class="space-y-2 mb-5">
+                  {category.details.map((detail) => (
+                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                      <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0"></span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-col sm:flex-row gap-2">
+                  <a href={category.href} class="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-light transition-colors">
+                    İncele
+                  </a>
+                  <a href={`/teklif-al?urun=${encodeURIComponent(category.title)}`} class="inline-flex items-center justify-center rounded-lg border border-accent px-4 py-2.5 text-sm font-semibold text-accent hover:bg-accent hover:text-white transition-colors">
+                    Teklif Al
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <aside class="space-y-5">
+          <div class="rounded-lg bg-primary p-6 text-white">
+            <h2 class="text-xl font-bold mb-3">Toptan ve Proje Bazlı Satış</h2>
+            <p class="text-white/75 text-sm leading-relaxed mb-5">
+              Ölçü, adet, teslimat yeri ve ürün grubunu paylaşın; stok ve sevkiyat durumuna göre teklif hazırlayalım.
+            </p>
+            <a href="/teklif-al" class="inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-3 text-sm font-bold text-white hover:bg-accent-dark transition-colors">
+              Teklif Al
+            </a>
+          </div>
+
+          <div class="rounded-lg border border-gray-200 bg-gray-50 p-6">
+            <h2 class="text-lg font-bold text-primary mb-3">Güven Unsurları</h2>
+            <ul class="space-y-3 text-sm text-gray-700">
+              <li>Kastamonu Entegre ana bayi güvencesi</li>
+              <li>20+ yıl sektör tecrübesi</li>
+              <li>Tosya OSB üretim ve tedarik altyapısı</li>
+              <li>Kapı ve mobilya üreticilerine düzenli sevkiyat</li>
+              <li>Türkiye geneli hizmet</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
