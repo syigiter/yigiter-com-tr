@@ -13,12 +13,12 @@ const stats = [
 
       <!-- Sol: Şirket Tanımı -->
       <div>
-        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Biz Kimiz</p>
+        <p class="text-accent-dark font-semibold text-sm uppercase tracking-widest mb-3">Biz Kimiz</p>
         <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6 leading-tight">
           20+ Yıllık Tecrübe,<br />Uluslararası Üretici Aile Şirketi
         </h2>
 
-        <p class="text-gray-600 text-base leading-relaxed mb-5">
+        <p class="text-gray-700 text-base leading-relaxed mb-5">
           Yiğiter Orman Ürünleri, 20 yılı aşkın süredir Türkiye'nin orman ürünleri, mobilya malzemeleri ve
           kapı sanayii sektörlerine hizmet veren köklü bir aile şirketidir. Kurucumuzun aktif yönetiminde
           faaliyetini sürdüren firmamız; <strong class="text-gray-800">yetkili bayilik ve distribütörlükleri</strong>,
@@ -32,7 +32,7 @@ const stats = [
             <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-gray-600 text-sm">
+            <span class="text-gray-700 text-sm">
               <strong class="text-gray-800">Kastamonu Entegre Ana Bayisi</strong> — Yongalevha, MDF, MDFLam; Türkiye geneli sevkiyat
             </span>
           </div>
@@ -40,7 +40,7 @@ const stats = [
             <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-gray-600 text-sm">
+            <span class="text-gray-700 text-sm">
               <strong class="text-gray-800">Genç Boya Distribütörü ve Bayisi</strong> — Anadolu Yakası Distribütör, Avrupa Yakası ve Tosya Bayi
             </span>
           </div>
@@ -48,7 +48,7 @@ const stats = [
             <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-gray-600 text-sm">
+            <span class="text-gray-700 text-sm">
               <strong class="text-gray-800">Kapı kasası ve pervaz üreticisi</strong> — Standart seri + müşteriye özel üretim
             </span>
           </div>
@@ -56,7 +56,7 @@ const stats = [
             <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-gray-600 text-sm">
+            <span class="text-gray-700 text-sm">
               <strong class="text-gray-800">Melamin kaplı kapı yüzeyi ithalatçısı</strong> — Yurt dışından özenle seçilmiş kaliteli ürünler
             </span>
           </div>
@@ -64,7 +64,7 @@ const stats = [
 
         <a
           href="/hakkimizda/sirketimiz"
-          class="inline-flex items-center gap-2 text-primary hover:text-accent font-semibold text-sm transition-colors group"
+          class="inline-flex items-center gap-2 text-primary hover:text-accent-dark font-semibold text-sm transition-colors group"
         >
           Şirket Hikayemizi Okuyun
           <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -80,7 +80,7 @@ const stats = [
           {stats.map((stat) => (
             <div class="bg-white border border-gray-200 rounded-xl p-5 text-center shadow-sm">
               <div class="text-3xl font-extrabold text-primary mb-1">{stat.value}</div>
-              <div class="text-gray-500 text-xs font-medium uppercase tracking-wide">{stat.label}</div>
+              <div class="text-gray-700 text-xs font-medium uppercase tracking-wide">{stat.label}</div>
             </div>
           ))}
         </div>

@@ -13,7 +13,7 @@ const products = [
   },
   {
     badge: 'Yetkili Distribütör',
-    badgeStyle: 'bg-green-50 text-green-700 border-green-100',
+    badgeStyle: 'bg-green-50 text-green-800 border-green-200',
     title: 'Genç Boya Ürünleri',
     subtitle: 'Mobilya ve ahşap boyama çözümleri',
     description:
@@ -24,7 +24,7 @@ const products = [
   },
   {
     badge: 'Doğrudan İthalatçı',
-    badgeStyle: 'bg-amber-50 text-amber-700 border-amber-100',
+    badgeStyle: 'bg-amber-50 text-amber-800 border-amber-200',
     title: 'Melamin Kapı Yüzeyleri',
     subtitle: 'Yurt dışından ithal, geniş desen yelpazesi',
     description:
@@ -35,7 +35,7 @@ const products = [
   },
   {
     badge: 'Kendi Üretimimiz',
-    badgeStyle: 'bg-orange-50 text-orange-700 border-orange-100',
+    badgeStyle: 'bg-orange-50 text-orange-800 border-orange-200',
     title: 'Kapı Kasası ve Pervaz',
     subtitle: 'Kendi tesisimizde üretim · 4 kıtaya ihracat',
     description:
@@ -46,7 +46,7 @@ const products = [
   },
   {
     badge: 'Tedarikçi',
-    badgeStyle: 'bg-gray-100 text-gray-600 border-gray-200',
+    badgeStyle: 'bg-gray-100 text-gray-700 border-gray-300',
     title: 'Kağıt Dolgu Malzemesi',
     subtitle: 'Honeycomb / petek dolgu',
     description:
@@ -57,7 +57,7 @@ const products = [
   },
   {
     badge: 'Tedarikçi',
-    badgeStyle: 'bg-gray-100 text-gray-600 border-gray-200',
+    badgeStyle: 'bg-gray-100 text-gray-700 border-gray-300',
     title: 'PVC Film',
     subtitle: 'Kapı ve mobilya yüzey kaplama',
     description:
@@ -78,7 +78,7 @@ const products = [
       <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
         Tek Noktadan Eksiksiz Tedarik
       </h2>
-      <p class="text-gray-500 text-base max-w-2xl mx-auto">
+      <p class="text-gray-700 text-base max-w-2xl mx-auto">
         Panel levhadan boyaya, kapı yüzeyinden kasa ve pervaza kadar kapı sanayiinin ihtiyaç duyduğu
         tüm malzemeleri tek çatı altında sunuyoruz.
       </p>
@@ -97,7 +97,7 @@ const products = [
         >
           {product.highlight && (
             <div class="absolute -top-3 left-6">
-              <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+              <span class="bg-[#9A3412] text-white text-xs font-bold px-3 py-1 rounded-full">
                 Kendi Üretimimiz
               </span>
             </div>
@@ -120,7 +120,7 @@ const products = [
             {product.title}
           </h3>
           <p class="text-gray-600 text-xs font-medium mb-3">{product.subtitle}</p>
-          <p class="text-gray-500 text-sm leading-relaxed flex-grow">{product.description}</p>
+          <p class="text-gray-700 text-sm leading-relaxed flex-grow">{product.description}</p>
 
           <!-- Link -->
           <div class={`mt-4 pt-4 border-t flex items-center gap-1.5 text-sm font-semibold transition-colors ${

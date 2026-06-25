@@ -40,7 +40,7 @@ const depots = [
       <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
         Türkiye Geneline Hizmet
       </h2>
-      <p class="text-gray-500 text-base max-w-2xl mx-auto">
+      <p class="text-gray-700 text-base max-w-2xl mx-auto">
         İstanbul'daki depolarımız ve Tosya bayimizle Türkiye'nin geniş bir coğrafyasına hizmet veriyoruz.
         Sevkiyat ağımızla siparişlerinizi Türkiye geneline ulaştırıyoruz.
       </p>
@@ -60,7 +60,7 @@ const depots = [
         </div>
 
         <!-- Türkiye geneli vurgu -->
-        <div class="mt-4 bg-primary/5 border border-primary/15 rounded-xl p-4 flex items-center gap-4">
+        <div class="mt-4 bg-primary/5 border border-primary/30 rounded-xl p-4 flex items-center gap-4">
           <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
             <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
@@ -68,7 +68,7 @@ const depots = [
           </div>
           <div>
             <p class="text-primary font-semibold text-sm">Türkiye Geneline Sevkiyat</p>
-            <p class="text-gray-500 text-xs">Kastamonu Entegre ürünlerinde Türkiye'nin her yerine sevkiyat imkânı.</p>
+            <p class="text-gray-700 text-xs">Kastamonu Entegre ürünlerinde Türkiye'nin her yerine sevkiyat imkânı.</p>
           </div>
         </div>
       </div>
@@ -76,9 +76,9 @@ const depots = [
       <!-- Sağ: Depo & Lokasyon Listesi -->
       <div class="space-y-4">
         {depots.map((depot) => (
-          <div class={`border rounded-xl p-4 lg:p-5 ${depot.highlight ? 'border-primary/30 bg-primary/5' : 'border-gray-200 bg-white'}`}>
+          <div class={`border rounded-xl p-4 lg:p-5 ${depot.highlight ? 'border-primary/50 bg-primary/5' : 'border-gray-300 bg-white'}`}>
             <div class="flex items-start gap-4">
-              <div class={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${depot.highlight ? 'bg-primary text-white' : 'bg-gray-100 text-gray-500'}`}>
+              <div class={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${depot.highlight ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'}`}>
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <Fragment set:html={depot.icon} />
                 </svg>
@@ -87,8 +87,8 @@ const depots = [
                 <h3 class={`font-bold text-sm mb-0.5 ${depot.highlight ? 'text-primary' : 'text-gray-800'}`}>
                   {depot.name}
                 </h3>
-                <p class="text-gray-500 text-xs mb-1.5">{depot.region}</p>
-                <p class="text-gray-600 text-xs leading-relaxed">{depot.products}</p>
+                <p class="text-gray-700 text-xs mb-1.5">{depot.region}</p>
+                <p class="text-gray-700 text-xs leading-relaxed">{depot.products}</p>
               </div>
             </div>
           </div>
