@@ -12,7 +12,7 @@ const navItems = [
   },
   {
     label: 'Ürünler',
-    href: '/urunler',
+    href: '/urunler/',
     children: [
       { label: 'Kastamonu Entegre', href: '/urunler/kastamonu-entegre' },
       { label: 'Genç Boya', href: '/urunler/genc-boya' },
@@ -55,24 +55,53 @@ const navItems = [
         {navItems.map((item, index) => (
           item.children ? (
             <div class="relative group">
-              <button
-                class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary rounded-md hover:bg-gray-50 transition-colors cursor-pointer"
-                type="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                aria-controls={`desktop-dropdown-${index}`}
-                data-dropdown-button
-              >
-                {item.label}
-                <svg
-                  class="w-3.5 h-3.5 text-gray-600 group-hover:rotate-180 transition-transform duration-200"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+              {item.label === 'Ürünler' ? (
+                <div class="flex items-center rounded-md hover:bg-gray-50 transition-colors">
+                  <a
+                    href={item.href}
+                    class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                  <button
+                    class="flex items-center px-1.5 py-2 text-gray-700 hover:text-primary transition-colors cursor-pointer"
+                    type="button"
+                    aria-label={`${item.label} alt menüsünü aç/kapat`}
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls={`desktop-dropdown-${index}`}
+                    data-dropdown-button
+                  >
+                    <svg
+                      class="w-3.5 h-3.5 text-gray-600 group-hover:rotate-180 transition-transform duration-200"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
+              ) : (
+                <button
+                  class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary rounded-md hover:bg-gray-50 transition-colors cursor-pointer"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls={`desktop-dropdown-${index}`}
+                  data-dropdown-button
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+                  {item.label}
+                  <svg
+                    class="w-3.5 h-3.5 text-gray-600 group-hover:rotate-180 transition-transform duration-200"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              )}
               <div
                 id={`desktop-dropdown-${index}`}
                 class="absolute top-full left-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150 z-50"
@@ -135,9 +164,18 @@ const navItems = [
       {navItems.map((item) => (
         item.children ? (
           <div class="pb-2">
-            <span class="block px-3 py-1.5 text-xs font-semibold text-gray-600 uppercase tracking-wider">
-              {item.label}
-            </span>
+            {item.label === 'Ürünler' ? (
+              <a
+                href={item.href}
+                class="block px-3 py-1.5 text-xs font-semibold text-gray-600 uppercase tracking-wider hover:text-primary transition-colors"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <span class="block px-3 py-1.5 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                {item.label}
+              </span>
+            )}
             {item.children.map((child) => (
               <a
                 href={child.href}
@@ -263,7 +301,12 @@ const navItems = [
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeDropdowns();
+    if (event.key === 'Escape') {
+      closeDropdowns();
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    }
   });
 
   btn?.addEventListener('click', () => {
