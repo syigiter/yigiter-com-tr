@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const relatedProducts = [
+  {
+    title: 'Kapı Pervazı',
+    href: '/urunler/kapi-pervazi/',
+    description: 'Kapı kasasını tamamlayan, kasa-duvar birleşimini estetik olarak bitiren yan eleman.',
+  },
+  {
+    title: 'Kapı Komponentleri',
+    href: '/teklif-al?urun=kapi-komponentleri',
+    description: 'Kapı üretiminde kullanılan tamamlayıcı komponentler için toptan teklif.',
+  },
+  {
+    title: 'Melamin Kapı Yüzeyi',
+    href: '/teklif-al?urun=melamin-kapi-yuzeyi',
+    description: 'Kapı üretimi ve yüzey uygulamalarını birlikte planlayan alımlar için.',
+  },
+];
+---
+
+<BaseLayout
+  title="Kapı Kasası | Toptan Kapı Kasası ve İç Kapı Yan Sanayi"
+  description="Kapı üreticileri, montaj bayileri ve proje müşterileri için kapı kasası tedariki. Ölçü, model, adet ve teslimat bilgilerinize göre toptan kapı kasası teklifi alın."
+>
+  <section class="bg-wood-100 border-b border-wood-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)] gap-8 lg:gap-10 items-start">
+        <div class="max-w-3xl">
+          <p class="text-accent-dark font-semibold text-sm uppercase tracking-widest mb-3">B2B Ürün Detayı</p>
+          <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">Kapı Kasası</h1>
+          <p class="text-gray-700 text-lg leading-relaxed">
+            İç kapı üreticileri, montaj bayileri ve proje müşterileri için seri üretim, toptan alım ve proje bazlı
+            kapı kasası tedarik çözümleri. Kapı kasası ve pervaz birlikte değerlendirildiğinde,
+            iç kapı üretimi ve montaj süreçlerinde tutarlı bir sonuç ve yapısal bütünlük sağlanır.
+          </p>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a
+              href="/teklif-al?urun=kapi-kasasi"
+              class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+            >
+              Teklif Al
+            </a>
+            <a
+              href="/urunler/"
+              class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+            >
+              Tüm Ürünleri İncele
+            </a>
+          </div>
+        </div>
+
+        <aside class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+          <h2 class="text-lg font-bold text-primary mb-4">Kısa Tedarik Notu</h2>
+          <ul class="space-y-3 text-sm text-gray-700">
+            <li>Kapı yan sanayi için uygun, toptan kapı kasası tedarik yaklaşımı.</li>
+            <li>Tosya OSB üretim ve tedarik altyapısı ile planlanmış sevkiyat.</li>
+            <li>Türkiye geneli sevkiyat ve proje bazlı teklif desteği.</li>
+            <li>Kapı pervazı, kapı komponentleri ve yüzey malzemeleriyle birlikte planlanabilir.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)] gap-8 lg:gap-10 items-start">
+        <div class="space-y-6">
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-3">Kapı Kasası Nedir?</h2>
+            <p class="text-gray-700 leading-relaxed">
+              Kapı kasası, kapı kanadının monte edildiği, duvar açıklığı ile kapı sistemini taşıyan ve
+              kapı montajının temelini oluşturan yapı elemanıdır. İç kapı üretiminde kapı sisteminin
+              ana taşıyıcı çerçevesi görevini üstlenir; kapı kanadı mensupları doğrudan kasaya bağlanır.
+              Yiğiter olarak kapı kasası tedarikini kapı üreticileri, montaj bayileri ve proje bazlı
+              alımlar için B2B mantıkla ele alıyoruz.
+            </p>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Kimler İçin Uygundur?</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                'İç kapı üreticileri',
+                'Kapı montaj bayileri',
+                'Proje bazlı kapı tedarikçileri',
+                'Müteahhit ve yapı firmaları',
+                'Mobilya ve dekorasyon atölyeleri',
+                'Toptan alım yapan bayiler',
+              ].map((item) => (
+                <li class="flex items-start gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent-dark shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Kullanım Alanları</h2>
+            <ul class="space-y-3 text-sm text-gray-700">
+              {[
+                'İç kapı üretimi',
+                'Konut projeleri',
+                'Otel, ofis, okul ve toplu yapı projeleri',
+                'Kapı montaj ve renovasyon işleri',
+                'Bayi ve toptan satış kanalları',
+              ].map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Teklif İçin Hangi Bilgiler Gerekir?</h2>
+            <ul class="space-y-3 text-sm text-gray-700">
+              {[
+                'Kasa model veya profil tercihi',
+                'Duvar kalınlığı / ölçü bilgisi',
+                'Renk veya yüzey tercihi',
+                'Tahmini adet',
+                'Teslimat ili',
+                'Proje veya bayi alımı bilgisi',
+                'Termin beklentisi',
+              ].map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent-dark shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-5">
+              <a
+                href="/teklif-al?urun=kapi-kasasi"
+                class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+              >
+                Kapı Kasası İçin Teklif Al
+              </a>
+            </div>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Yiğiter ile Tedarik Avantajı</h2>
+            <ul class="space-y-3 text-sm text-gray-700">
+              {[
+                'Tosya OSB üretim ve tedarik altyapısı',
+                'Kapı yan sanayi tecrübesi',
+                'Türkiye geneli sevkiyat',
+                'Toptan ve proje bazlı teklif yaklaşımı',
+                'Kapı pervazı, kapı komponentleri ve yüzey malzemeleriyle birlikte tedarik imkânı',
+              ].map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-5 text-gray-700 leading-relaxed">
+              Toptan kapı kasası tedarikçisi arayan kapı üreticileri için, düzenli sevkiyat ve proje bazlı
+              teklif süreçleriyle hareket ediyoruz. Seri üretim, bayi alımı ve iç kapı üretimi
+              ihtiyaçlarında tek noktadan çözüm sunmayı hedefliyoruz.
+            </p>
+          </section>
+        </div>
+
+        <aside class="space-y-6 lg:sticky lg:top-6">
+          <section class="rounded-xl border border-gray-200 bg-gray-50 p-6">
+            <h2 class="text-lg font-bold text-primary mb-3">İlgili Ürünler</h2>
+            <div class="space-y-3">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block rounded-lg border border-gray-200 bg-white p-4 hover:border-primary/40 hover:shadow-sm transition-all">
+                  <h3 class="font-bold text-gray-900 text-sm mb-1">{product.title}</h3>
+                  <p class="text-gray-600 text-xs leading-relaxed">{product.description}</p>
+                </a>
+              ))}
+            </div>
+            <a
+              href="/urunler/"
+              class="mt-4 inline-flex items-center justify-center rounded-lg border border-primary px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+            >
+              Tüm Ürünler
+            </a>
+          </section>
+
+          <section class="rounded-xl border border-primary/20 bg-primary p-6 text-white shadow-sm">
+            <h2 class="text-xl font-bold mb-3">Proje Bazlı Teklif İçin Hazırız</h2>
+            <p class="text-white/85 text-sm leading-relaxed mb-5">
+              Kapı kasası, kapı pervazı ve kapı komponentleri aynı talep içinde toplanabilir. Ölçü,
+              model, adet ve teslimat bilgilerini paylaşmanız yeterli.
+            </p>
+            <a
+              href="/teklif-al?urun=kapi-kasasi"
+              class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+            >
+              Teklif Al
+            </a>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
