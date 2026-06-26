@@ -2,6 +2,14 @@
 
 ## 2026-06-26
 
+### Kapı Paneli Duplicate Ayrıştırma
+
+- `/urunler/kastamonu-entegre/kapi-paneli/` sayfasının H1'i `Kastamonu Entegre Kapı Paneli` olarak ayrıştırıldı.
+- Genel `/urunler/kapi-paneli/` sayfasına bağlamlı iç link eklendi.
+- Redirect, noindex, canonical veya sitemap değişikliği yapılmadı.
+- PR #36 merge edildi.
+- Merge commit: `f2b6380`.
+
 ### Sprint 2.3G — Kapı Paneli SEO Product Page
 
 - `/urunler/kapi-paneli/` ürün detay SEO sayfası eklendi.

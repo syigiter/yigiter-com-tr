@@ -210,6 +210,18 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Production redirect testi başarılı: 308 çalışıyor.
 - Merge commit: `4a70cd8`.
 
+### Kapı Paneli Duplicate Ayrıştırma — PR #36
+
+- Yeni genel Kapı Paneli sayfası ile eski Kastamonu Entegre Kapı Paneli sayfası arasındaki orta seviye duplicate riski analiz edildi.
+- Eski sayfa marka değeri taşıdığı için redirect yerine ayrıştırma seçildi.
+- `src/pages/urunler/kastamonu-entegre/kapi-paneli.astro` içinde H1 `Kastamonu Entegre Kapı Paneli` yapıldı.
+- Genel `/urunler/kapi-paneli/` sayfasına iç link eklendi.
+- Canonical/noindex/sitemap/redirect değişmedi.
+- Merge commit: `f2b6380`.
+- Bu iki sayfa artık farklı niyete hizmet ediyor:
+  - `/urunler/kapi-paneli/` → genel kategori/tedarik sayfası
+  - `/urunler/kastamonu-entegre/kapi-paneli/` → marka/ürün grubu odaklı sayfa
+
 ## Hassas Notlar
 
 - Ürün detay SEO sayfalarında slug, CTA query ve canonical tutarlı olmalı.

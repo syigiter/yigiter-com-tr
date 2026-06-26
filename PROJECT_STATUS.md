@@ -126,11 +126,18 @@ Son production doğrulamalarına göre:
   - Query prefill çalışıyor: `MDF / MDFLAM`
   - Canonical: `https://www.yigiter.com.tr/urunler/mdflam/`
 
-- `/urunler/kapi-paneli/` — Kapı Paneli SEO sayfası yayında
+- `/urunler/kapi-paneli/` — Genel Kapı Paneli SEO sayfası yayında (canonical kategori sayfası)
   - B2B hedef: kapı üreticileri, iç kapı üretim firmaları, panel işleyen firmalar, proje bazlı kapı tedarikçileri, bayiler ve toptancılar
   - CTA: `/teklif-al?urun=kapi-paneli`
   - Query prefill çalışıyor: `Yonga levha / kapı paneli`
   - Canonical: `https://www.yigiter.com.tr/urunler/kapi-paneli/`
+
+- `/urunler/kastamonu-entegre/kapi-paneli/` — Kastamonu Entegre marka odaklı sayfa olarak korunuyor
+  - H1: `Kastamonu Entegre Kapı Paneli` (PR #36 ile ayrıştırıldı)
+  - Canonical kendine bakıyor
+  - noindex yok
+  - Genel `/urunler/kapi-paneli/` sayfasına bağlamlı iç link mevcut
+  - Duplicate risk: azaltıldı (redirect/noindex/canonical değişikliği yapılmadı)
 
 ## Son Production Durumu
 
