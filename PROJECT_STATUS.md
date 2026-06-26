@@ -111,18 +111,17 @@ Son production doğrulamalarına göre:
 
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D ve SEO Cleanup (PVC Film duplicate) tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate) ve Canonical Domain Alignment tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `4a70cd8` — PR #26: SEO cleanup old PVC film duplicate page
+- Son merge commit: `43cfde7` — PR #28: Canonical domain alignment
 
-## Son Production Commit / Son SEO Sprint
+## Son Production Commit / Son Sprint
 
-- Son SEO sprint / cleanup: PR #26 — SEO cleanup old PVC film duplicate page
-- Merge commit: `4a70cd8`
-- Silinen dosya: `src/pages/urunler/kapi-imalat-malzemeleri/pvc-film.astro`
+- Son sprint: PR #28 — Canonical domain alignment (www / no-www standardı)
+- Merge commit: `43cfde7`
+- `astro.config.mjs` site: `https://yigiter.com.tr` → `https://www.yigiter.com.tr`
 - Build: 34 sayfa
 - Production deploy: aktif
-- Production redirect doğrulandı: 308 çalışıyor
 
 ## Son Production Commit / Son Hotfix
 
@@ -133,12 +132,20 @@ Son production doğrulamalarına göre:
 
 ## Son Sprint
 
-- SEO Cleanup — Eski PVC Film duplicate sayfası temizlendi.
-- Eski URL 308 permanent redirect ile `/urunler/pvc-film/` adresine yönlendiriliyor.
-- Merge commit: `4a70cd8`
+- Canonical Domain Alignment tamamlandı.
+- Canonical standard: `https://www.yigiter.com.tr`
+- Production domain davranışı ile canonical/OG/sitemap standardı hizalandı.
+- Merge commit: `43cfde7`
 
-## Bekleyen SEO Notu
+## Canonical Domain Standardı
 
-- Production primary domain `www.yigiter.com.tr` üzerinde çalışıyor (Vercel domain yönlendirmesi).
-- Canonical URL'ler hâlâ `https://yigiter.com.tr` (no-www) üretiyor (`astro.config.mjs` → `site`).
-- Fonksiyonel sorun yok; SEO açısından ayrı sprintte www/no-www canonical standardı netleştirilmeli.
+- Site genelinde canonical domain: `https://www.yigiter.com.tr`
+- `astro.config.mjs` → `site: 'https://www.yigiter.com.tr'`
+- Sitemap URL'leri: `https://www.yigiter.com.tr/...`
+- Canonical URL'ler (tüm sayfalar):
+  - `/` → `https://www.yigiter.com.tr/`
+  - `/urunler/` → `https://www.yigiter.com.tr/urunler/`
+  - `/urunler/kapi-pervazi/` → `https://www.yigiter.com.tr/urunler/kapi-pervazi/`
+  - `/urunler/kapi-kasasi/` → `https://www.yigiter.com.tr/urunler/kapi-kasasi/`
+  - `/urunler/melamin-kapi-yuzeyi/` → `https://www.yigiter.com.tr/urunler/melamin-kapi-yuzeyi/`
+  - `/urunler/pvc-film/` → `https://www.yigiter.com.tr/urunler/pvc-film/`

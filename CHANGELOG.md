@@ -2,6 +2,15 @@
 
 ## 2026-06-26
 
+### Canonical Domain Alignment
+
+- Site canonical domain standardı `https://www.yigiter.com.tr` olarak güncellendi.
+- `astro.config.mjs` site değeri no-www'den www'ye taşındı.
+- Canonical, OG URL, Schema.org ve sitemap URL'leri production domain standardıyla hizalandı.
+- Build başarılı: 34 sayfa.
+- PR #28 merge edildi.
+- Merge commit: `43cfde7`.
+
 ### SEO Cleanup — Old PVC Film Duplicate Page
 
 - Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` duplicate sayfası kaldırıldı.

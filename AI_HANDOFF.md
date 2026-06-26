@@ -155,6 +155,16 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Query prefill `product_details` ve `product_group` alanlarını dolduruyor.
 - Merge commit: `df6e65a`.
 
+### Canonical Domain Alignment — www / no-www Standardı
+
+- Production domain davranışı ile canonical üretimi hizalandı.
+- Canonical standardı `https://www.yigiter.com.tr` olarak belirlendi.
+- `astro.config.mjs` site değeri `https://www.yigiter.com.tr` yapıldı.
+- Canonical, OG URL, Schema.org ve sitemap domain referansları www standardına taşındı.
+- No-www canonical kalıntısı temizlendi.
+- PVC eski URL redirect davranışı etkilenmedi.
+- Merge commit: `43cfde7`.
+
 ### SEO Cleanup — Eski PVC Film Duplicate Sayfası
 
 - Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` duplicate SEO riski nedeniyle kaldırıldı.
@@ -173,9 +183,9 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Canonical domain mevcut standart gereği `https://yigiter.com.tr` üzerinden üretiliyor (`astro.config.mjs` → `site: 'https://yigiter.com.tr'`); `www` değişikliği ayrı karar konusudur.
 - Header/Footer/diğer sayfalarda trailing slash'siz melamin referansları mevcut; Vercel yönetiyor, işlevsel sorun yok; ayrı temizlik sprintine bırakıldı.
 - PVC Film için standart URL: `/urunler/pvc-film/` — eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` artık kullanılmamalı.
-- Production primary domain `www.yigiter.com.tr` üzerinde çalışıyor; canonical'lar `https://yigiter.com.tr` (no-www) üretiyor — ayrı canonical domain alignment sprintinde ele alınmalı.
+- Canonical domain standardı: `https://www.yigiter.com.tr` — yeni sayfa eklenirken canonical www üzerinden kontrol edilmeli.
+- `astro.config.mjs` → `site: 'https://www.yigiter.com.tr'` — gereksiz değiştirilmemeli.
 
 ## Sonraki Mantıklı İş
 
-Canonical domain alignment: production `www.yigiter.com.tr` ile `astro.config.mjs` `site: 'https://yigiter.com.tr'` arasındaki www/no-www farkı netleştirilmeli.
 Sonraki ürün SEO sayfaları: `/urunler/mdf/`, `/urunler/mdflam/`, `/urunler/kapi-paneli/`.
