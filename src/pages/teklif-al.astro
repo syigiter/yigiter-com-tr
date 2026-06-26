@@ -33,7 +33,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- Form Section -->
   <section class="py-16 lg:py-24">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <form
         id="teklif-form"
         class="space-y-6"
@@ -60,6 +60,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
                 placeholder="Şirketinizin adı"
               />
+            </div>
+
+            <div>
+              <label for="company_type" class="block text-sm font-medium text-gray-900 mb-1">
+                Firma Türü <span class="text-accent-dark">*</span>
+              </label>
+              <select
+                id="company_type"
+                name="company_type"
+                required
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+              >
+                <option value="">Seçiniz</option>
+                <option value="Kapı üreticisi">Kapı üreticisi</option>
+                <option value="Mobilya imalatçısı">Mobilya imalatçısı</option>
+                <option value="Bayi / toptancı">Bayi / toptancı</option>
+                <option value="Müteahhit / proje firması">Müteahhit / proje firması</option>
+                <option value="Marangoz / atölye">Marangoz / atölye</option>
+                <option value="Diğer">Diğer</option>
+              </select>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -111,78 +131,65 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
 
               <div>
-            <label for="city" class="block text-sm font-medium text-gray-900 mb-1">
-                  Şehir
+                <label for="city" class="block text-sm font-medium text-gray-900 mb-1">
+                  Teslimat Şehri
                 </label>
                 <input
                   type="text"
                   id="city"
                   name="city"
                   class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="İstanbul"
+                  placeholder="İstanbul, Ankara, Bursa..."
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Ürün Bilgileri -->
+        <!-- Talep Detayları -->
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
-          <h2 class="text-lg font-bold text-primary mb-4">Ürün Bilgileri</h2>
+          <h2 class="text-lg font-bold text-primary mb-4">Talep Detayları</h2>
 
           <div class="space-y-4">
             <div>
-              <label for="product_category" class="block text-sm font-medium text-gray-900 mb-1">
-                Ürün Kategorisi <span class="text-accent-dark">*</span>
+              <label for="product_group" class="block text-sm font-medium text-gray-900 mb-1">
+                Ürün Grubu <span class="text-accent-dark">*</span>
               </label>
               <select
-                id="product_category"
-                name="product_category"
+                id="product_group"
+                name="product_group"
                 required
                 class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
               >
-                <option value="">Seçiniz...</option>
-                <option value="kastamonu-entegre">Kastamonu Entegre Ürünleri</option>
-                <option value="genc-boya">Genç Boya</option>
-                <option value="melamin-kapi-yuzeyi">Melamin Kapı Yüzeyleri</option>
-                <option value="kapi-kasasi-pervaz">Kapı Kasası & Pervaz</option>
-                <option value="kagit-dolgu">Kağıt Dolgu Malzemesi</option>
-                <option value="pvc-film">PVC Film</option>
-                <option value="diger">Diğer</option>
+                <option value="">Seçiniz</option>
+                <option value="Kapı komponentleri">Kapı komponentleri</option>
+                <option value="Kapı kasası">Kapı kasası</option>
+                <option value="Kapı pervazı">Kapı pervazı</option>
+                <option value="Melamin kapı yüzeyi">Melamin kapı yüzeyi</option>
+                <option value="PVC film">PVC film</option>
+                <option value="MDF / MDFLAM">MDF / MDFLAM</option>
+                <option value="Yonga levha / kapı paneli">Yonga levha / kapı paneli</option>
+                <option value="Boya ve yüzey çözümleri">Boya ve yüzey çözümleri</option>
+                <option value="Diğer">Diğer</option>
               </select>
-            </div>
-
-            <div>
-              <label for="product_details" class="block text-sm font-medium text-gray-900 mb-1">
-                Ürün Detayları <span class="text-accent-dark">*</span>
-              </label>
-              <textarea
-                id="product_details"
-                name="product_details"
-                required
-                rows="4"
-                maxlength="2000"
-                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                placeholder="Talep ettiğiniz ürün, miktar, özellikleri, özel gereksinimler vb. açıklayın..."
-              ></textarea>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label for="quantity" class="block text-sm font-medium text-gray-900 mb-1">
-                  Miktar
+                <label for="quantity_estimate" class="block text-sm font-medium text-gray-900 mb-1">
+                  Tahmini Miktar
                 </label>
                 <input
                   type="text"
-                  id="quantity"
-                  name="quantity"
+                  id="quantity_estimate"
+                  name="quantity_estimate"
                   class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="örn. 100 m³, 50 paket, vb."
+                  placeholder="Örn. 500 takım kapı kasası, 2.000 metre pervaz, 20 palet MDFLAM"
                 />
               </div>
 
               <div>
-            <label for="delivery_date" class="block text-sm font-medium text-gray-900 mb-1">
+                <label for="delivery_date" class="block text-sm font-medium text-gray-900 mb-1">
                   İhtiyaç Tarihi
                 </label>
                 <input
@@ -192,6 +199,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
                 />
               </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="usage_purpose" class="block text-sm font-medium text-gray-900 mb-1">
+                  Kullanım Amacı
+                </label>
+                <select
+                  id="usage_purpose"
+                  name="usage_purpose"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                >
+                  <option value="">Seçiniz</option>
+                  <option value="Üretim">Üretim</option>
+                  <option value="Bayi satışı">Bayi satışı</option>
+                  <option value="Proje / şantiye">Proje / şantiye</option>
+                  <option value="İhracat">İhracat</option>
+                  <option value="Numune / fiyat araştırması">Numune / fiyat araştırması</option>
+                  <option value="Diğer">Diğer</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="urgency" class="block text-sm font-medium text-gray-900 mb-1">
+                  Termin Durumu
+                </label>
+                <select
+                  id="urgency"
+                  name="urgency"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                >
+                  <option value="Standart">Standart</option>
+                  <option value="1 hafta içinde">1 hafta içinde</option>
+                  <option value="2-4 hafta içinde">2-4 hafta içinde</option>
+                  <option value="Planlama aşamasında">Planlama aşamasında</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="product_details" class="block text-sm font-medium text-gray-900 mb-1">
+                Ek bilgi ve teknik detaylar <span class="text-accent-dark">*</span>
+              </label>
+              <textarea
+                id="product_details"
+                name="product_details"
+                required
+                rows="4"
+                maxlength="2000"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                placeholder="Ölçü, renk/desen, kalınlık, adet, teslimat şekli, proje adı veya özel taleplerinizi yazabilirsiniz."
+              ></textarea>
             </div>
           </div>
         </div>
@@ -227,17 +286,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </fieldset>
 
             <div>
-            <label for="message" class="block text-sm font-medium text-gray-900 mb-1">
-              Mesajınız
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="3"
-              maxlength="2000"
-              class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-              placeholder="Eklemek istediğiniz başka bilgiler varsa yazabilirsiniz..."
-            ></textarea>
+              <label for="message" class="block text-sm font-medium text-gray-900 mb-1">
+                Mesajınız
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="3"
+                maxlength="2000"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                placeholder="Varsa ek iletişim notunuzu veya teklif süreciyle ilgili paylaşmak istediğiniz bilgileri yazabilirsiniz."
+              ></textarea>
             </div>
           </div>
         </div>
@@ -331,16 +390,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (heroP) heroP.textContent = `"${decoded}" için teklif talebinizi aşağıdaki formu doldurarak iletebilirsiniz.`;
     const details = document.getElementById('product_details') as HTMLTextAreaElement | null;
     if (details && !details.value) details.value = decoded;
-    const select = document.getElementById('product_category') as HTMLSelectElement | null;
+    const select = document.getElementById('product_group') as HTMLSelectElement | null;
     if (select) {
       const lower = decoded.toLowerCase();
       let val = '';
-      if (lower.includes('kastamonu') || lower.includes('sunta') || lower.includes('mdf') || lower.includes('yongalevha')) val = 'kastamonu-entegre';
-      else if (lower.includes('boya') || lower.includes('vernik') || lower.includes('astar')) val = 'genc-boya';
-      else if (lower.includes('melamin')) val = 'melamin-kapi-yuzeyi';
-      else if (lower.includes('kasa') || lower.includes('pervaz')) val = 'kapi-kasasi-pervaz';
-      else if (lower.includes('kağıt') || lower.includes('honeycomb') || lower.includes('petek')) val = 'kagit-dolgu';
-      else if (lower.includes('pvc')) val = 'pvc-film';
+      if (lower.includes('komponent')) val = 'Kapı komponentleri';
+      else if (lower.includes('kasa')) val = 'Kapı kasası';
+      else if (lower.includes('pervaz')) val = 'Kapı pervazı';
+      else if (lower.includes('melamin')) val = 'Melamin kapı yüzeyi';
+      else if (lower.includes('pvc')) val = 'PVC film';
+      else if (lower.includes('mdf')) val = 'MDF / MDFLAM';
+      else if (lower.includes('yonga') || lower.includes('panel')) val = 'Yonga levha / kapı paneli';
+      else if (lower.includes('boya') || lower.includes('yüzey')) val = 'Boya ve yüzey çözümleri';
       if (val) select.value = val;
     }
   }
