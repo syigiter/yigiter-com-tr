@@ -258,6 +258,12 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - `/urunler/kastamonu-entegre/kapi-paneli/` mevcut sitemap'te görülüyor; yeni `/urunler/kapi-paneli/` ile duplicate/legacy ilişkisi ileride değerlendirilebilir.
 - Finder kopyası kontrolü: build öncesi `find src/pages -name "* 2.astro"` çalıştırılmalı.
 
+## Ürün SEO Serisi Durumu
+
+Sprint 2.3 ürün SEO serisi tamamlandı. Kapanış raporu: `SEO_CLOSING_REPORT.md`.
+
+7 ürün SEO sayfası production'da: kapi-pervazi, kapi-kasasi, melamin-kapi-yuzeyi, pvc-film, mdf, mdflam, kapi-paneli. Tümü 200, canonical www standardında, noindex yok, sitemap'te mevcut.
+
 ## Sonraki Mantıklı İş
 
-Ürün SEO sayfaları serisi (2.3A–2.3G) tamamlandı. Sıradaki: genel iç link, sitemap, canonical ve teklif prefill tutarlılık kontrolü.
+Ürün SEO serisi ve teknik temizlik tamamlandı. Opsiyonel sonraki sprintler için `NEXT_STEPS.md` ve `SEO_CLOSING_REPORT.md` bkz.

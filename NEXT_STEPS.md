@@ -1,45 +1,36 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Ürün SEO Serisi Kapanış Raporu ve Son Yayın Kontrolü
+## Durum
 
-## Amaç
+Sprint 2.3 ürün SEO serisi tamamlandı. Kapanış raporu: `SEO_CLOSING_REPORT.md`.
 
-Sprint 2.3 ürün SEO serisinin tamamlanan işleri, yayındaki ürün sayfaları, canonical/sitemap durumu, teklif prefill durumu ve kalan küçük takip notlarını tek kapanış raporunda toplamak.
-
-## Kapanış Raporunda Yer Alacaklar
-
-- Yayındaki ürün SEO sayfaları:
-  - `/urunler/kapi-pervazi/`
-  - `/urunler/kapi-kasasi/`
-  - `/urunler/melamin-kapi-yuzeyi/`
-  - `/urunler/pvc-film/`
-  - `/urunler/mdf/`
-  - `/urunler/mdflam/`
-  - `/urunler/kapi-paneli/`
-- Kastamonu Entegre Kapı Paneli ayrıştırması
-- Header/Footer trailing slash temizliği
-- `/urunler` kart linkleri
-- Query prefill durumu
-- Sitemap ve canonical durumu
-- Kalan riskler: yok
-- İleriye dönük opsiyonel işler:
-  - Kapı Komponentleri SEO sayfası
-  - Genç Boya SEO/marka sayfası
-  - Kapı İmalat Malzemeleri kategori sayfası
-  - Yurt dışı pazarı için İngilizce landing page
+Kalan kritik iş yok.
 
 ---
 
-## Tamamlanan: Header/Footer Trailing Slash ve Fallback Link Temizliği
+## Opsiyonel Sonraki Sprintler
 
-- Header, footer, home CTA ve ürün kartlarındaki iç linklerde trailing slash standardizasyonu yapıldı.
-- `/urunler/kapi-komponentleri/` ve `/urunler/genc-boya/` fallback kart linkleri düzeltildi.
-- Kastamonu Entegre alt sayfası breadcrumbleri düzeltildi.
-- Query'li teklif linkleri ve `quoteHref` değerleri korunmuştur.
-- PR #38 merge edildi. Merge commit: `8887207`.
+### 1. Kapı Komponentleri SEO Sayfası
+Mevcut `/urunler/kapi-komponentleri/` sayfası eski şablonla. Kapı kasası ve pervazı kapsayan B2B SEO şablonuyla güçlendirilebilir.
 
-## Daha Sonra
+### 2. Genç Boya SEO/Marka Sayfası
+Mevcut `/urunler/genc-boya/` sayfası B2B SEO şablonuyla yeniden yazılabilir. Distribütörlük ve bayilik rolü ön plana çıkartılabilir.
 
+### 3. Kapı İmalat Malzemeleri Kategori Sayfası
+Honeycomb dolgu ve PVC film için `/urunler/kapi-imalat-malzemeleri/` kategori sayfası güçlendirilebilir.
+
+### 4. İngilizce Landing Page
+Yurt dışı pazarı için `/en/` ihracat landing page. "Door frame manufacturer Turkey", "door architrave supplier Turkey" gibi ihracat anahtar kelimeleri hedefi.
+
+### 5. Search Console Takip ve Performans Raporu
+7 ürün SEO sayfası yayında; Google Search Console üzerinden anahtar kelime sıralaması ve organik trafik takibi başlatılmalı. En yüksek öncelik.
+
+---
+
+## Uzun Vadeli
+
+- Ürün görselleri ve katalog içerikleri (gerçek fotoğraflar)
 - KVKK metni hukuki kontrol
-- Ürün sayfaları için schema/structured data değerlendirmesi
-- B2B teklif dönüşüm takibi ve CRM akışı değerlendirmesi
+- Schema.org structured data (Product, LocalBusiness)
+- B2B teklif dönüşüm takibi / CRM akışı
+- Blog / haberler bölümü
