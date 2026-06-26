@@ -2,6 +2,15 @@
 
 ## 2026-06-26
 
+### Sprint 2.3B — Kapı Kasası SEO Product Page
+
+- `/urunler/kapi-kasasi/` ürün detay SEO sayfası eklendi.
+- Kapı kasası için B2B hedef kitle, kullanım alanları, teklif için gerekli bilgiler ve tedarik avantajları anlatıldı.
+- `/urunler` sayfasındaki Kapı Kasası kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=kapi-kasasi` olarak ayarlandı.
+- PR #20 merge edildi.
+- Merge commit: `dad10cd`.
+
 ### Sprint 2.3A — Kapı Pervazı SEO Product Page
 
 - `/urunler/kapi-pervazi/` ürün detay SEO sayfası eklendi.

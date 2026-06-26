@@ -29,6 +29,7 @@ Son production doğrulamalarına göre:
 - `/urunler` -> 200
 - `/urunler/` -> 200
 - `/urunler/kapi-pervazi/` -> 200
+- `/urunler/kapi-kasasi/` -> 200
 - `/teklif-al` -> 200
 - `/kvkk` -> 200
 - `/hizmet-bolgesi` -> 200
@@ -67,9 +68,10 @@ Son production doğrulamalarına göre:
 
 - `git status` temiz.
 - `npm run build` başarılı.
-- 33 sayfa üretiliyor.
+- 34 sayfa üretiliyor.
 - `/kvkk/index.html` dahil.
 - `/urunler/kapi-pervazi/index.html` dahil.
+- `/urunler/kapi-kasasi/index.html` dahil.
 - Önceden build'i bozan untracked `"... 2"` kopya dosyalar temizlendi.
 - Tracked dosyalara temizlik sırasında dokunulmadı.
 
@@ -81,18 +83,24 @@ Son production doğrulamalarına göre:
   - Query prefill çalışıyor: `product_details` ve `product_group = Kapı pervazı`
   - Canonical: `https://yigiter.com.tr/urunler/kapi-pervazi/`
 
+- `/urunler/kapi-kasasi/` — Kapı Kasası SEO sayfası yayında
+  - B2B hedef: iç kapı üreticileri, montaj bayileri, proje firmaları, toptan kapı malzemesi alıcıları
+  - CTA: `/teklif-al?urun=kapi-kasasi`
+  - Query prefill çalışıyor: `product_details` ve `product_group = Kapı kasası`
+  - Canonical: `https://yigiter.com.tr/urunler/kapi-kasasi/`
+
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C ve Sprint 2.3A tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A ve Sprint 2.3B tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `f448650` — PR #18: Sprint 2.3A Kapı Pervazı SEO product page
+- Son merge commit: `dad10cd` — PR #20: Sprint 2.3B Kapı Kasası SEO product page
 
 ## Son Production Commit / Son SEO Sprint
 
-- Son SEO sprint: PR #18 — Sprint 2.3A Kapı Pervazı SEO product page
-- Merge commit: `f448650`
-- Yeni sayfa: `/urunler/kapi-pervazi/`
-- Build: 33 sayfa
+- Son SEO sprint: PR #20 — Sprint 2.3B Kapı Kasası SEO product page
+- Merge commit: `dad10cd`
+- Yeni sayfa: `/urunler/kapi-kasasi/`
+- Build: 34 sayfa
 - Production deploy: aktif
 
 ## Son Production Commit / Son Hotfix
@@ -104,6 +112,6 @@ Son production doğrulamalarına göre:
 
 ## Son Sprint
 
-- Sprint 2.3A — Kapı Pervazı SEO Ürün Detay Sayfası tamamlandı.
-- İlk ürün detay SEO sayfası `/urunler/kapi-pervazi/` production'a alındı.
-- Merge commit: `f448650`
+- Sprint 2.3B — Kapı Kasası SEO Ürün Detay Sayfası tamamlandı.
+- İkinci ürün detay SEO sayfası `/urunler/kapi-kasasi/` production'a alındı.
+- Merge commit: `dad10cd`
