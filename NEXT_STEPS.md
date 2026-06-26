@@ -8,6 +8,15 @@ Kalan kritik iş yok.
 
 ---
 
+## Bekleyen Aksiyon (Bu Hafta)
+
+- [ ] Search Console URL Denetimi → 7 ürün SEO sayfası için "Dizine ekle" talebi gönder
+- [ ] www property'de sitemap okunma tarihini takip et (birkaç gün içinde güncellenmeli)
+
+Detaylı audit raporu: `SEARCH_CONSOLE_AUDIT.md`
+
+---
+
 ## Opsiyonel Sonraki Sprintler
 
 ### 1. Kapı Komponentleri SEO Sayfası
