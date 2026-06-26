@@ -1,32 +1,31 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Sprint 2.3C — Melamin Kapı Yüzeyi SEO Ürün Detay Sayfası
+## Sıradaki Sprint: Sprint 2.3D — PVC Film SEO Ürün Detay Sayfası
 
 ## Amaç
 
-Kapı pervazı ve kapı kasası sayfalarında oluşturulan ürün detay SEO şablonunu kullanarak `/urunler/melamin-kapi-yuzeyi/` sayfasını oluşturmak.
+Mevcut ürün detay SEO şablonunu kullanarak `/urunler/pvc-film/` sayfasını oluşturmak.
 
 ## Önerilen Yapı
 
-- H1: Melamin Kapı Yüzeyi
-- URL: `/urunler/melamin-kapi-yuzeyi/`
-- CTA: `/teklif-al?urun=melamin-kapi-yuzeyi`
+- H1: PVC Film
+- URL: `/urunler/pvc-film/`
+- CTA: `/teklif-al?urun=pvc-film`
 - Hedef kitle:
   - Kapı kanadı üreticileri
-  - Seri üretim yapan kapı firmaları
+  - Kapı kaplama yapan firmalar
   - Toptan kapı malzemesi alıcıları
   - Bayiler
 - Bölümler:
-  - Melamin kapı yüzeyi nedir?
+  - PVC film nedir?
   - Kimler için uygundur?
   - Kullanım alanları
   - Teklif için hangi bilgiler gerekir?
-  - Yiğiter ile melamin kapı yüzeyi tedarik avantajı
+  - Yiğiter ile PVC film tedarik avantajı
   - İlgili ürünler
 
 ## Daha Sonraki Ürün SEO Sayfaları
 
-- `/urunler/pvc-film/`
 - `/urunler/mdf/`
 - `/urunler/mdflam/`
 - `/urunler/kapi-paneli/`
@@ -38,7 +37,11 @@ Kapı pervazı ve kapı kasası sayfalarında oluşturulan ürün detay SEO şab
 - KVKK checkbox korunmalıdır.
 - Mevcut query prefill davranışı korunmalıdır.
 - CSP, header, footer ve route altyapısına gereksiz dokunulmamalıdır.
-- Canonical domain `https://yigiter.com.tr` standardı korunmalıdır (`www` değişikliği ayrı karar konusudur).
+- Canonical domain `https://yigiter.com.tr` standardı korunmalıdır.
+
+## Bekleyen Temizlik
+
+- Header/Footer/diğer sayfalardaki trailing slash'siz `/urunler/melamin-kapi-yuzeyi` referansları — Vercel şu an yönetiyor, işlevsel sorun yok; ayrı temizlik sprintine bırakıldı.
 
 ## Daha Sonra
 
