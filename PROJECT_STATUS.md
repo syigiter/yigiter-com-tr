@@ -34,6 +34,7 @@ Son production doğrulamalarına göre:
 - `/urunler/pvc-film/` -> 200
 - `/urunler/mdf/` -> 200
 - `/urunler/mdflam/` -> 200
+- `/urunler/kapi-paneli/` -> 200
 - `/urunler/kapi-imalat-malzemeleri/pvc-film/` -> 308 -> `/urunler/pvc-film/`
 - `/teklif-al` -> 200
 - `/kvkk` -> 200
@@ -73,7 +74,7 @@ Son production doğrulamalarına göre:
 
 - `git status` temiz.
 - `npm run build` başarılı.
-- 36 sayfa üretiliyor.
+- 37 sayfa üretiliyor.
 - `/kvkk/index.html` dahil.
 - `/urunler/kapi-pervazi/index.html` dahil.
 - `/urunler/kapi-kasasi/index.html` dahil.
@@ -81,6 +82,7 @@ Son production doğrulamalarına göre:
 - `/urunler/pvc-film/index.html` dahil.
 - `dist/urunler/kapi-imalat-malzemeleri/pvc-film/` artık üretilmiyor.
 - `/urunler/mdflam/index.html` dahil.
+- `/urunler/kapi-paneli/index.html` dahil.
 - Önceden build'i bozan untracked `"... 2"` kopya dosyalar temizlendi.
 - Tracked dosyalara temizlik sırasında dokunulmadı.
 
@@ -124,18 +126,24 @@ Son production doğrulamalarına göre:
   - Query prefill çalışıyor: `MDF / MDFLAM`
   - Canonical: `https://www.yigiter.com.tr/urunler/mdflam/`
 
+- `/urunler/kapi-paneli/` — Kapı Paneli SEO sayfası yayında
+  - B2B hedef: kapı üreticileri, iç kapı üretim firmaları, panel işleyen firmalar, proje bazlı kapı tedarikçileri, bayiler ve toptancılar
+  - CTA: `/teklif-al?urun=kapi-paneli`
+  - Query prefill çalışıyor: `Yonga levha / kapı paneli`
+  - Canonical: `https://www.yigiter.com.tr/urunler/kapi-paneli/`
+
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E ve Sprint 2.3F tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E, Sprint 2.3F ve Sprint 2.3G tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `998bf15` — PR #32: Sprint 2.3F MDFLAM SEO product page
+- Son merge commit: `9f12720` — PR #34: Sprint 2.3G Kapı Paneli SEO product page
 
 ## Son Production Commit / Son Sprint
 
-- Son sprint: PR #32 — Sprint 2.3F MDFLAM SEO Ürün Detay Sayfası
-- Merge commit: `998bf15`
-- Yeni sayfa: `/urunler/mdflam/`
-- Build: 36 sayfa
+- Son sprint: PR #34 — Sprint 2.3G Kapı Paneli SEO Ürün Detay Sayfası
+- Merge commit: `9f12720`
+- Yeni sayfa: `/urunler/kapi-paneli/`
+- Build: 37 sayfa
 - Production deploy: aktif
 
 ## Son Production Commit / Son Hotfix
@@ -147,9 +155,9 @@ Son production doğrulamalarına göre:
 
 ## Son Sprint
 
-- Sprint 2.3F — MDFLAM SEO Ürün Detay Sayfası tamamlandı.
-- Altıncı ürün detay SEO sayfası `/urunler/mdflam/` production'a alındı.
-- Merge commit: `998bf15`
+- Sprint 2.3G — Kapı Paneli SEO Ürün Detay Sayfası tamamlandı.
+- Yedinci ürün detay SEO sayfası `/urunler/kapi-paneli/` production'a alındı.
+- Merge commit: `9f12720`
 
 ## Canonical Domain Standardı
 

@@ -166,6 +166,19 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Canonical: `https://www.yigiter.com.tr/urunler/mdf/`
 - Merge commit: `e41e953`.
 
+### Sprint 2.3G — Kapı Paneli SEO Ürün Detay Sayfası
+
+- Yedinci ürün detay SEO sayfası production'a alındı.
+- URL: `/urunler/kapi-paneli/`
+- B2B içerik: Kapı paneli nedir, kimler için uygundur, kullanım alanları, teklif için gerekli bilgiler, Yiğiter tedarik avantajları.
+- `/urunler` Yonga Levha / Kapı Paneli kartına `Detaylı İncele` linki eklendi.
+- Kartın mevcut quoteHref değeri korundu.
+- CTA `/teklif-al?urun=kapi-paneli` olarak çalışıyor.
+- Query prefill mevcut mapping ile `Yonga levha / kapı paneli` seçiyor.
+- Canonical www standardında: `https://www.yigiter.com.tr/urunler/kapi-paneli/`
+- Sitemap içinde Kapı Paneli URL mevcut.
+- Merge commit: `9f12720`.
+
 ### Sprint 2.3F — MDFLAM SEO Ürün Detay Sayfası
 
 - Altıncı ürün detay SEO sayfası production'a alındı.
@@ -210,9 +223,11 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - `astro.config.mjs` → `site: 'https://www.yigiter.com.tr'` — gereksiz değiştirilmemeli.
 - MDF için standart slug: `mdf`.
 - MDFLAM için standart slug: `mdflam`.
+- Kapı Paneli için standart slug: `kapi-paneli`.
 - Canonical domain standardı: `https://www.yigiter.com.tr` — yeni sayfa eklenirken canonical www üzerinden kontrol edilmeli.
+- `/urunler/kastamonu-entegre/kapi-paneli/` mevcut sitemap'te görülüyor; yeni `/urunler/kapi-paneli/` ile duplicate/legacy ilişkisi ileride değerlendirilebilir.
 - Finder kopyası kontrolü: build öncesi `find src/pages -name "* 2.astro"` çalıştırılmalı.
 
 ## Sonraki Mantıklı İş
 
-Sonraki ürün SEO sayfası: `/urunler/kapi-paneli/`.
+Ürün SEO sayfaları serisi (2.3A–2.3G) tamamlandı. Sıradaki: genel iç link, sitemap, canonical ve teklif prefill tutarlılık kontrolü.

@@ -1,29 +1,38 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Sprint 2.3G — Kapı Paneli SEO Ürün Detay Sayfası
+## Sıradaki Sprint: Ürün SEO Serisi Son Kontrol ve İç Link Temizliği
 
 ## Amaç
 
-Mevcut ürün detay SEO şablonunu kullanarak `/urunler/kapi-paneli/` sayfasını oluşturmak veya mevcut sayfa varsa B2B SEO şablonuyla güncellemek.
+Yayına alınan ürün SEO sayfalarının genel iç link, sitemap, canonical, route ve teklif prefill tutarlılığını toplu kontrol etmek.
 
-## Önerilen Yapı
+## Kontrol Edilecek Ürün SEO Sayfaları
 
-- H1: Kapı Paneli
-- URL: `/urunler/kapi-paneli/`
-- CTA: `/teklif-al?urun=kapi-paneli`
-- Hedef kitle:
-  - Kapı üreticileri
-  - İç kapı üretim firmaları
-  - Panel işleyen firmalar
-  - Proje bazlı kapı tedarikçileri
-  - Bayiler / toptancılar
-- Bölümler:
-  - Kapı paneli nedir?
-  - Kimler için uygundur?
-  - Kullanım alanları
-  - Teklif için hangi bilgiler gerekir?
-  - Yiğiter ile kapı paneli tedarik avantajı
-  - İlgili ürünler
+- `/urunler/kapi-pervazi/`
+- `/urunler/kapi-kasasi/`
+- `/urunler/melamin-kapi-yuzeyi/`
+- `/urunler/pvc-film/`
+- `/urunler/mdf/`
+- `/urunler/mdflam/`
+- `/urunler/kapi-paneli/`
+
+## Kontrol Başlıkları
+
+- Her sayfa 200 dönüyor mu?
+- Canonical `https://www.yigiter.com.tr/...` standardında mı?
+- Sitemap'te var mı?
+- noindex yok mu?
+- H1 count 1 mi?
+- Title/meta description doğru mu?
+- `/urunler` kart detay linkleri doğru mu?
+- Teklif CTA query parametreleri doğru mu?
+- Query prefill doğru ürün grubunu seçiyor mu?
+- Eski/legacy duplicate URL riski var mı?
+- Header/Footer trailing slash standardizasyonu ayrı mini sprint gerektiriyor mu?
+
+## Ayrı Not
+
+- `/urunler/kastamonu-entegre/kapi-paneli/` mevcut sitemap'te görülüyor; yeni `/urunler/kapi-paneli/` ile duplicate/legacy ilişkisi ileride değerlendirilebilir.
 
 ## Korunması Gerekenler
 

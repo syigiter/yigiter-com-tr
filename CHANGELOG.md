@@ -2,6 +2,18 @@
 
 ## 2026-06-26
 
+### Sprint 2.3G — Kapı Paneli SEO Product Page
+
+- `/urunler/kapi-paneli/` ürün detay SEO sayfası eklendi.
+- Kapı paneli için B2B hedef kitle, kullanım alanları, teklif için gerekli bilgiler ve tedarik avantajları anlatıldı.
+- `/urunler` sayfasındaki Yonga Levha / Kapı Paneli kartına `Detaylı İncele` linki eklendi.
+- Mevcut quoteHref korundu.
+- CTA `/teklif-al?urun=kapi-paneli` olarak çalışıyor.
+- Canonical `https://www.yigiter.com.tr/urunler/kapi-paneli/` olarak doğrulandı.
+- Sitemap içinde Kapı Paneli URL doğrulandı.
+- PR #34 merge edildi.
+- Merge commit: `9f12720`.
+
 ### Sprint 2.3F — MDFLAM SEO Product Page
 
 - `/urunler/mdflam/` ürün detay SEO sayfası eklendi.
