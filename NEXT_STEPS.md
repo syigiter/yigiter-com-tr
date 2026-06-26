@@ -1,56 +1,37 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Sprint 2.2B — Ürünler Sayfası B2B Katalog İyileştirmesi
+## Sıradaki Sprint: Sprint 2.2C — Teklif Formu B2B İyileştirmesi
 
 ## Amaç
 
-Ürünler sayfasını sadece listeleme sayfası olmaktan çıkarıp, B2B müşterinin hangi ürünü neden alacağını, kimler için uygun olduğunu ve nasıl teklif isteyeceğini anlatan katalog yapısına dönüştürmek.
+Teklif formunu B2B müşteri talebini daha iyi toplayacak hale getirmek.
 
-## Hedef Ürün Grupları
+## Önerilen Alanlar
 
-- Kapı komponentleri
-- Kapı kasası
-- Kapı pervazı
-- Melamin kapı yüzeyi
-- PVC film
-- MDF
-- MDFLAM
-- Yonga levha
-- Kapı paneli
-- Boya ve yüzey çözümleri
+- Firma tipi
+- Ürün grubu
+- Tahmini adet/metraj
+- Teslimat ili
+- Kullanım amacı: üretim / bayi / proje / ihracat
+- Aciliyet
+- Açıklama alanı yönlendirici metni
 
-## Ana Prensip
+## Korunması Gerekenler
 
-Her ürün kartında şunlar net olmalı:
+- Form submit akışı bozulmamalıdır.
+- Web3Forms entegrasyonu bozulmamalıdır.
+- KVKK checkbox korunmalıdır.
+- Mevcut query prefill davranışı korunmalıdır.
+- CSP, header, footer ve route altyapısına gereksiz dokunulmamalıdır.
 
-- Ürün nedir?
-- Kimler için uygundur?
-- Nerede kullanılır?
-- Toptan/proje alımı için teklif alınabilir mi?
-- CTA: `/teklif-al?urun=...`
+## Önce Yapılacak Küçük Kontrol
 
-## Önerilen CTA
-
-- Teklif Al
-- Ürünleri İncele
-- Proje / toptan alım için bilgi iste
-
-## Sonraki SEO Sprintleri
-
-Ayrı sayfa olarak düşünülebilecek hedefler:
-
-- `/urunler/kapi-pervazi`
-- `/urunler/kapi-kasasi`
-- `/urunler/melamin-kapi-yuzeyi`
-- `/urunler/pvc-film`
-- `/urunler/mdf`
-- `/urunler/mdflam`
-- `/urunler/kapi-paneli`
+- PageSpeed ana sayfa ve `/urunler/` canlı ölçümü zaman zaman tekrar alınabilir.
+- Son bilinen ölçüm: ana sayfa ve `/urunler/` Performance 100, Accessibility 95, Best Practices 100, SEO 100.
 
 ## Daha Sonra
 
-- PageSpeed canlı tekrar ölçümü
 - KVKK metni hukuki kontrol
 - Web3Forms canlı mail testi
 - Ürün sayfaları için schema/structured data değerlendirmesi
-- B2B teklif formu alanlarını daha ticari hale getirme
+- B2B teklif formu gönderim sonrası takip/CRM akışı değerlendirmesi

@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-06-26
+
+### Hotfix — Products Navigation Link
+
+- Header'daki Ürünler öğesinin sadece dropdown button olması nedeniyle `/urunler` sayfasına gitmemesi sorunu düzeltildi.
+- Desktop Header "Ürünler" linki `/urunler/` olarak çalışır hale getirildi.
+- Mobil menüde Ürünler parent linki `/urunler/` olarak çalışır hale getirildi.
+- Dropdown ok butonu, Enter ve Escape davranışı korundu.
+- Ana sayfa ürün CTA linkleri `/urunler/` ile tutarlı hale getirildi.
+- PR #14 merge edildi.
+- Merge commit: `93e81c0`.
+
+### Sprint 2.2B — Products B2B Catalog Messaging
+
+- Sprint 2.2B ürünler sayfası B2B katalog iyileştirmesi production'a alındı.
+- `/urunler` sayfasındaki ürün grupları kullanım alanı, uygun müşteri profili ve teklif CTA'larıyla güçlendirildi.
+- PR #13 merge edildi.
+- Merge commit: `81d03ea`.
+
 ## 2026-06-25
 
 ### Sprint 2.2A — Homepage B2B Conversion

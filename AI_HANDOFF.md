@@ -36,6 +36,10 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - KVKK sayfası hukuki ön taslak olarak eklendi.
 - Web3Forms canlıda kullanıcı tarafından test edildi ve teklif maili geldiği doğrulandı.
 - PageSpeed Accessibility 95 kabul edilebilir; daha fazla kontrast koyulaştırma tasarımı bozabilir.
+- Header'da "Ürünler" artık gerçek parent link olarak `/urunler/` sayfasına gider.
+- Ürünler dropdown aç/kapat davranışı ayrı ok butonu ile korunur.
+- Mobil menüde "Ürünler" parent linki `/urunler/` sayfasına gider.
+- Bundan sonra Header/navigation değişikliklerinde hem parent link hem dropdown butonu ayrı ayrı test edilmelidir.
 
 ## Tamamlanan Sprintler
 
@@ -79,6 +83,21 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Production başarılı.
 - Son merge commit: `4d90a60`
 
+### Sprint 2.2B — Products B2B Catalog Messaging
+
+- `/urunler` sayfası B2B katalog mantığıyla güçlendirildi.
+- 8 ürün grubu için uygun müşteri profili, kullanım alanı ve teklif CTA'ları netleştirildi.
+- `/teklif-al?urun=...` query linkleri ürün kartlarında güçlendirildi.
+- Production başarılı.
+- Merge commit: `81d03ea`
+
+### Hotfix PR #14 — Products Navigation Link
+
+- Canlıda Ürünler menü öğesine tıklanınca sayfanın açılmaması sorunu düzeltildi.
+- Header desktop ve mobil Ürünler linkleri `/urunler/` olarak çalışır hale getirildi.
+- Dropdown ok butonu ve klavye davranışı korundu.
+- Merge commit: `93e81c0`.
+
 ## Sonraki Mantıklı İş
 
-Sprint 2.2B: Ürünler sayfasını B2B katalog mantığına yaklaştırmak.
+Sprint 2.2C: Teklif formunu B2B müşteri talebini daha iyi toplayacak hale getirmek.
