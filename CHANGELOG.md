@@ -2,6 +2,16 @@
 
 ## 2026-06-26
 
+### Sprint 2.3E — MDF SEO Product Page
+
+- `/urunler/mdf/` ürün detay SEO sayfası eklendi.
+- MDF için B2B hedef kitle, kullanım alanları, teklif için gerekli bilgiler ve tedarik avantajları anlatıldı.
+- `/urunler` sayfasındaki MDF kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=mdf` olarak ayarlandı.
+- Canonical `https://www.yigiter.com.tr/urunler/mdf/` olarak doğrulandı.
+- PR #30 merge edildi.
+- Merge commit: `e41e953`.
+
 ### Canonical Domain Alignment
 
 - Site canonical domain standardı `https://www.yigiter.com.tr` olarak güncellendi.
