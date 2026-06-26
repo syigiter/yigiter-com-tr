@@ -31,6 +31,7 @@ Son production doğrulamalarına göre:
 - `/urunler/kapi-pervazi/` -> 200
 - `/urunler/kapi-kasasi/` -> 200
 - `/urunler/melamin-kapi-yuzeyi/` -> 200
+- `/urunler/pvc-film/` -> 200
 - `/teklif-al` -> 200
 - `/kvkk` -> 200
 - `/hizmet-bolgesi` -> 200
@@ -69,11 +70,12 @@ Son production doğrulamalarına göre:
 
 - `git status` temiz.
 - `npm run build` başarılı.
-- 34 sayfa üretiliyor.
+- 35 sayfa üretiliyor.
 - `/kvkk/index.html` dahil.
 - `/urunler/kapi-pervazi/index.html` dahil.
 - `/urunler/kapi-kasasi/index.html` dahil.
 - `/urunler/melamin-kapi-yuzeyi/index.html` dahil.
+- `/urunler/pvc-film/index.html` dahil.
 - Önceden build'i bozan untracked `"... 2"` kopya dosyalar temizlendi.
 - Tracked dosyalara temizlik sırasında dokunulmadı.
 
@@ -98,18 +100,25 @@ Son production doğrulamalarına göre:
   - Canonical: `https://yigiter.com.tr/urunler/melamin-kapi-yuzeyi/`
   - Not: Header/Footer/diğer sayfalardaki trailing slash'siz referanslar ayrı temizlik sprintine bırakıldı.
 
+- `/urunler/pvc-film/` — PVC Film SEO sayfası yayında
+  - B2B hedef: kapı üreticileri, mobilya üreticileri, membran pres kullanan firmalar, yüzey kaplama atölyeleri, bayiler ve toptancılar
+  - CTA: `/teklif-al?urun=pvc-film`
+  - Query prefill çalışıyor: `product_details` ve `product_group = PVC film`
+  - Canonical: `https://yigiter.com.tr/urunler/pvc-film/`
+  - Not: Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası hâlâ 200 dönüyor, canonical kendisine bakıyor, noindex yok — duplicate SEO cleanup ayrı sprint.
+
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B ve Sprint 2.3C tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C ve Sprint 2.3D tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `5cc3db3` — PR #22: Sprint 2.3C Melamin Kapı Yüzeyi SEO product page
+- Son merge commit: `df6e65a` — PR #24: Sprint 2.3D PVC Film SEO product page
 
 ## Son Production Commit / Son SEO Sprint
 
-- Son SEO sprint: PR #22 — Sprint 2.3C Melamin Kapı Yüzeyi SEO product page
-- Merge commit: `5cc3db3`
-- Yeni sayfa: `/urunler/melamin-kapi-yuzeyi/`
-- Build: 34 sayfa
+- Son SEO sprint: PR #24 — Sprint 2.3D PVC Film SEO product page
+- Merge commit: `df6e65a`
+- Yeni sayfa: `/urunler/pvc-film/`
+- Build: 35 sayfa
 - Production deploy: aktif
 
 ## Son Production Commit / Son Hotfix
@@ -121,6 +130,6 @@ Son production doğrulamalarına göre:
 
 ## Son Sprint
 
-- Sprint 2.3C — Melamin Kapı Yüzeyi SEO Ürün Detay Sayfası tamamlandı.
-- Üçüncü ürün detay SEO sayfası `/urunler/melamin-kapi-yuzeyi/` production'a alındı.
-- Merge commit: `5cc3db3`
+- Sprint 2.3D — PVC Film SEO Ürün Detay Sayfası tamamlandı.
+- Dördüncü ürün detay SEO sayfası `/urunler/pvc-film/` production'a alındı.
+- Merge commit: `df6e65a`

@@ -2,6 +2,16 @@
 
 ## 2026-06-26
 
+### Sprint 2.3D — PVC Film SEO Product Page
+
+- `/urunler/pvc-film/` ürün detay SEO sayfası eklendi.
+- PVC film için B2B hedef kitle, kullanım alanları, teklif için gerekli bilgiler ve tedarik avantajları anlatıldı.
+- `/urunler` sayfasındaki PVC Film kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=pvc-film` olarak ayarlandı.
+- PR #24 merge edildi.
+- Merge commit: `df6e65a`.
+- Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası için duplicate SEO cleanup ayrı sprint olarak not edildi.
+
 ### Sprint 2.3C — Melamin Kapı Yüzeyi SEO Product Page
 
 - `/urunler/melamin-kapi-yuzeyi/` ürün detay SEO sayfası B2B şablonuyla yeniden yazıldı.
