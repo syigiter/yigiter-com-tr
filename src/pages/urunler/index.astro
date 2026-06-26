@@ -22,8 +22,9 @@ const productGroups = [
   },
   {
     title: 'Kapı Pervazı',
-    href: '/urunler/kapi-komponentleri/pervaz',
+    href: '/urunler/kapi-pervaz/',
     quoteHref: '/teklif-al?urun=kapi-pervazi',
+    detailLabel: 'Detaylı İncele',
     summary: 'Kapı üretiminde ve montajında kullanılan pervaz çözümleri. Seri üretim, bayi satışı ve proje bazlı alımlar için uygundur.',
     audiences: ['Kapı üreticileri', 'Mobilya / dekorasyon atölyeleri', 'Bayiler', 'Montaj ekipleri'],
     supplyType: 'Toptan satış, seri üretim ve proje alımı',
@@ -148,7 +149,7 @@ const productGroups = [
                   Teklif Al
                 </a>
                 <a href={group.href} class="inline-flex items-center justify-center rounded-lg border border-primary px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors">
-                  Detaylı Bilgi İste
+                  {group.detailLabel ?? 'Detaylı Bilgi İste'}
                 </a>
               </div>
             </div>
