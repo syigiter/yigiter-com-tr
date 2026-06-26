@@ -2,6 +2,17 @@
 
 ## 2026-06-26
 
+### Header/Footer Trailing Slash ve Fallback Link Temizliği
+
+- Header, footer, home CTA ve ürün kartlarındaki iç linkler trailing slash standardına getirildi.
+- `/urunler/kapi-komponentleri/` ve `/urunler/genc-boya/` fallback kart linkleri düzeltildi.
+- Kastamonu Entegre alt sayfalarındaki breadcrumb linkleri düzeltildi.
+- Query'li teklif linkleri ve `quoteHref` değerleri korunmuştur.
+- Build 37 sayfa olarak doğrulandı.
+- Canlıda 24 route ve 7 query teklif linki 200 döndü.
+- PR #38 merge edildi.
+- Merge commit: `8887207`.
+
 ### Kapı Paneli Duplicate Ayrıştırma
 
 - `/urunler/kastamonu-entegre/kapi-paneli/` sayfasının H1'i `Kastamonu Entegre Kapı Paneli` olarak ayrıştırıldı.
