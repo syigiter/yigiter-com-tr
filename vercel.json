@@ -80,6 +80,16 @@
       "source": "/products",
       "destination": "/urunler",
       "permanent": true
+    },
+    {
+      "source": "/urunler/kapi-imalat-malzemeleri/pvc-film",
+      "destination": "/urunler/pvc-film/",
+      "permanent": true
+    },
+    {
+      "source": "/urunler/kapi-imalat-malzemeleri/pvc-film/",
+      "destination": "/urunler/pvc-film/",
+      "permanent": true
     }
   ]
 }
