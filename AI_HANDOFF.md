@@ -40,6 +40,12 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Ürünler dropdown aç/kapat davranışı ayrı ok butonu ile korunur.
 - Mobil menüde "Ürünler" parent linki `/urunler/` sayfasına gider.
 - Bundan sonra Header/navigation değişikliklerinde hem parent link hem dropdown butonu ayrı ayrı test edilmelidir.
+- `/teklif-al` formunda Web3Forms submit akışı korunuyor.
+- Teklif formunda yeni B2B alanlar var: firma türü, ürün grubu, tahmini miktar, kullanım amacı, termin durumu ve teslimat şehri.
+- `?urun=...` query prefill hem `product_details` hem `product_group` alanlarını dolduruyor.
+- KVKK checkbox required kalmalı ve KVKK linki yeni sekmede açılmalı.
+- Form alanlarında değişiklik yapılacaksa gerçek canlı mail testi tekrar önerilir.
+- Canlı Web3Forms mail testi kullanıcı tarafından başarılı doğrulandı.
 
 ## Tamamlanan Sprintler
 
@@ -91,6 +97,17 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Production başarılı.
 - Merge commit: `81d03ea`
 
+### Sprint 2.2C — Quote Form B2B Lead Fields
+
+- `/teklif-al` formu B2B teklif taleplerini daha iyi toplamak için genişletildi.
+- Firma türü, ürün grubu, tahmini miktar, kullanım amacı, termin durumu ve teslimat şehri alanları eklendi/güçlendirildi.
+- Teknik detay textarea etiketi ve placeholder'ı daha yönlendirici hale getirildi.
+- `?urun=...` query prefill ile `product_details` ve `product_group` eşlemesi korunup doğrulandı.
+- KVKK required checkbox ve `_blank` link davranışı korunuyor.
+- Web3Forms submit akışı ve `/tesekkurler` redirect korunuyor.
+- Canlı Web3Forms mail testi kullanıcı tarafından başarılı doğrulandı.
+- Merge commit: `6c9cf84`
+
 ### Hotfix PR #14 — Products Navigation Link
 
 - Canlıda Ürünler menü öğesine tıklanınca sayfanın açılmaması sorunu düzeltildi.
@@ -100,4 +117,4 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 
 ## Sonraki Mantıklı İş
 
-Sprint 2.2C: Teklif formunu B2B müşteri talebini daha iyi toplayacak hale getirmek.
+Sprint 2.3: Ürün detay SEO sayfaları veya B2B teklif dönüşüm takibi.
