@@ -166,6 +166,18 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Canonical: `https://www.yigiter.com.tr/urunler/mdf/`
 - Merge commit: `e41e953`.
 
+### Sprint 2.3F — MDFLAM SEO Ürün Detay Sayfası
+
+- Altıncı ürün detay SEO sayfası production'a alındı.
+- URL: `/urunler/mdflam/`
+- B2B içerik: MDFLAM nedir, kimler için uygundur, kullanım alanları, teklif için gerekli bilgiler, Yiğiter tedarik avantajları.
+- CTA `/teklif-al?urun=mdflam` olarak çalışıyor.
+- Query prefill mevcut mapping ile `MDF / MDFLAM` seçiyor.
+- Canonical www standardında: `https://www.yigiter.com.tr/urunler/mdflam/`
+- Sitemap içinde MDFLAM URL mevcut.
+- `/urunler/index.astro` değiştirilmedi; mevcut MDF detay linki korundu.
+- Merge commit: `998bf15`.
+
 ### Canonical Domain Alignment — www / no-www Standardı
 
 - Production domain davranışı ile canonical üretimi hizalandı.
@@ -197,8 +209,10 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Canonical domain standardı: `https://www.yigiter.com.tr` — yeni sayfa eklenirken canonical www üzerinden kontrol edilmeli.
 - `astro.config.mjs` → `site: 'https://www.yigiter.com.tr'` — gereksiz değiştirilmemeli.
 - MDF için standart slug: `mdf`.
-- MDFLAM ayrı SEO sayfası sonraki sprintte açılacak.
+- MDFLAM için standart slug: `mdflam`.
+- Canonical domain standardı: `https://www.yigiter.com.tr` — yeni sayfa eklenirken canonical www üzerinden kontrol edilmeli.
+- Finder kopyası kontrolü: build öncesi `find src/pages -name "* 2.astro"` çalıştırılmalı.
 
 ## Sonraki Mantıklı İş
 
-Sonraki ürün SEO sayfaları: `/urunler/mdflam/`, `/urunler/kapi-paneli/`.
+Sonraki ürün SEO sayfası: `/urunler/kapi-paneli/`.
