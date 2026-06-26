@@ -30,6 +30,7 @@ Son production doğrulamalarına göre:
 - `/urunler/` -> 200
 - `/urunler/kapi-pervazi/` -> 200
 - `/urunler/kapi-kasasi/` -> 200
+- `/urunler/melamin-kapi-yuzeyi/` -> 200
 - `/teklif-al` -> 200
 - `/kvkk` -> 200
 - `/hizmet-bolgesi` -> 200
@@ -72,6 +73,7 @@ Son production doğrulamalarına göre:
 - `/kvkk/index.html` dahil.
 - `/urunler/kapi-pervazi/index.html` dahil.
 - `/urunler/kapi-kasasi/index.html` dahil.
+- `/urunler/melamin-kapi-yuzeyi/index.html` dahil.
 - Önceden build'i bozan untracked `"... 2"` kopya dosyalar temizlendi.
 - Tracked dosyalara temizlik sırasında dokunulmadı.
 
@@ -89,17 +91,24 @@ Son production doğrulamalarına göre:
   - Query prefill çalışıyor: `product_details` ve `product_group = Kapı kasası`
   - Canonical: `https://yigiter.com.tr/urunler/kapi-kasasi/`
 
+- `/urunler/melamin-kapi-yuzeyi/` — Melamin Kapı Yüzeyi SEO sayfası yayında
+  - B2B hedef: kapı kanadı üreticileri, seri üretim yapan firmalar, toptan alıcılar, bayiler
+  - CTA: `/teklif-al?urun=melamin-kapi-yuzeyi`
+  - Query prefill çalışıyor: `product_details` ve `product_group = Melamin kapı yüzeyi`
+  - Canonical: `https://yigiter.com.tr/urunler/melamin-kapi-yuzeyi/`
+  - Not: Header/Footer/diğer sayfalardaki trailing slash'siz referanslar ayrı temizlik sprintine bırakıldı.
+
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A ve Sprint 2.3B tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B ve Sprint 2.3C tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `dad10cd` — PR #20: Sprint 2.3B Kapı Kasası SEO product page
+- Son merge commit: `5cc3db3` — PR #22: Sprint 2.3C Melamin Kapı Yüzeyi SEO product page
 
 ## Son Production Commit / Son SEO Sprint
 
-- Son SEO sprint: PR #20 — Sprint 2.3B Kapı Kasası SEO product page
-- Merge commit: `dad10cd`
-- Yeni sayfa: `/urunler/kapi-kasasi/`
+- Son SEO sprint: PR #22 — Sprint 2.3C Melamin Kapı Yüzeyi SEO product page
+- Merge commit: `5cc3db3`
+- Yeni sayfa: `/urunler/melamin-kapi-yuzeyi/`
 - Build: 34 sayfa
 - Production deploy: aktif
 
@@ -112,6 +121,6 @@ Son production doğrulamalarına göre:
 
 ## Son Sprint
 
-- Sprint 2.3B — Kapı Kasası SEO Ürün Detay Sayfası tamamlandı.
-- İkinci ürün detay SEO sayfası `/urunler/kapi-kasasi/` production'a alındı.
-- Merge commit: `dad10cd`
+- Sprint 2.3C — Melamin Kapı Yüzeyi SEO Ürün Detay Sayfası tamamlandı.
+- Üçüncü ürün detay SEO sayfası `/urunler/melamin-kapi-yuzeyi/` production'a alındı.
+- Merge commit: `5cc3db3`

@@ -135,13 +135,25 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Query prefill `product_details` ve `product_group` alanlarını dolduruyor.
 - Merge commit: `dad10cd`.
 
+### Sprint 2.3C — Melamin Kapı Yüzeyi SEO Ürün Detay Sayfası
+
+- Üçüncü ürün detay SEO sayfası production'a alındı (mevcut dosya B2B şablonuyla yeniden yazıldı).
+- URL: `/urunler/melamin-kapi-yuzeyi/`
+- B2B içerik: melamin kapı yüzeyi nedir, kimler için uygundur, kullanım alanları, teklif için gerekli bilgiler, Yiğiter tedarik avantajları.
+- `/urunler` Melamin Kapı Yüzeyi kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=melamin-kapi-yuzeyi` olarak çalışıyor.
+- Query prefill `product_details` ve `product_group` alanlarını dolduruyor.
+- Merge commit: `5cc3db3`.
+
 ## Hassas Notlar
 
 - Ürün detay SEO sayfalarında slug, CTA query ve canonical tutarlı olmalı.
 - Kapı pervazı için standart slug: `kapi-pervazi` — yanlış `kapi-pervaz` kullanılmamalı.
 - Kapı kasası için standart slug: `kapi-kasasi`.
+- Melamin kapı yüzeyi için standart slug: `melamin-kapi-yuzeyi`.
 - Canonical domain mevcut standart gereği `https://yigiter.com.tr` üzerinden üretiliyor (`astro.config.mjs` → `site: 'https://yigiter.com.tr'`); `www` değişikliği ayrı karar konusudur.
+- Header/Footer/diğer sayfalarda trailing slash'siz melamin referansları mevcut; Vercel yönetiyor, işlevsel sorun yok; ayrı temizlik sprintine bırakıldı.
 
 ## Sonraki Mantıklı İş
 
-Sprint 2.3C: `/urunler/melamin-kapi-yuzeyi/` SEO ürün detay sayfası.
+Sprint 2.3D: `/urunler/pvc-film/` SEO ürün detay sayfası.

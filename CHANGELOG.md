@@ -2,6 +2,15 @@
 
 ## 2026-06-26
 
+### Sprint 2.3C — Melamin Kapı Yüzeyi SEO Product Page
+
+- `/urunler/melamin-kapi-yuzeyi/` ürün detay SEO sayfası B2B şablonuyla yeniden yazıldı.
+- Melamin kapı yüzeyi için B2B hedef kitle, kullanım alanları, teklif için gerekli bilgiler ve tedarik avantajları anlatıldı.
+- `/urunler` sayfasındaki Melamin Kapı Yüzeyi kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=melamin-kapi-yuzeyi` olarak ayarlandı.
+- PR #22 merge edildi.
+- Merge commit: `5cc3db3`.
+
 ### Sprint 2.3B — Kapı Kasası SEO Product Page
 
 - `/urunler/kapi-kasasi/` ürün detay SEO sayfası eklendi.
