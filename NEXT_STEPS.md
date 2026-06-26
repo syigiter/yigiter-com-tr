@@ -1,33 +1,33 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Sprint 2.3E — MDF SEO Ürün Detay Sayfası
+## Sıradaki Sprint: Sprint 2.3F — MDFLAM SEO Ürün Detay Sayfası
 
 ## Amaç
 
-Mevcut ürün detay SEO şablonunu kullanarak `/urunler/mdf/` sayfasını oluşturmak veya mevcut sayfa varsa B2B SEO şablonuyla güncellemek.
+Mevcut ürün detay SEO şablonunu kullanarak `/urunler/mdflam/` sayfasını oluşturmak veya mevcut sayfa varsa B2B SEO şablonuyla güncellemek.
 
 ## Önerilen Yapı
 
-- H1: MDF
-- URL: `/urunler/mdf/`
-- CTA: `/teklif-al?urun=mdf`
+- H1: MDFLAM
+- URL: `/urunler/mdflam/`
+- CTA: `/teklif-al?urun=mdflam`
 - Hedef kitle:
-  - Kapı üreticileri
   - Mobilya üreticileri
+  - Kapı üreticileri
   - Panel işleyen firmalar
+  - Dekoratif yüzey kullanan üreticiler
   - Toptan levha alıcıları
   - Bayiler / toptancılar
 - Bölümler:
-  - MDF nedir?
+  - MDFLAM nedir?
   - Kimler için uygundur?
   - Kullanım alanları
   - Teklif için hangi bilgiler gerekir?
-  - Yiğiter ile MDF tedarik avantajı (Kastamonu Entegre ana bayi vurgusu)
+  - Yiğiter ile MDFLAM tedarik avantajı (Kastamonu Entegre ana bayi vurgusu)
   - İlgili ürünler
 
-## Daha Sonraki Ürün SEO Sayfaları
+## Sonraki Ürün SEO Sayfası
 
-- `/urunler/mdflam/`
 - `/urunler/kapi-paneli/`
 
 ## Korunması Gerekenler

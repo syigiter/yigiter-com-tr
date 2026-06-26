@@ -32,6 +32,7 @@ Son production doğrulamalarına göre:
 - `/urunler/kapi-kasasi/` -> 200
 - `/urunler/melamin-kapi-yuzeyi/` -> 200
 - `/urunler/pvc-film/` -> 200
+- `/urunler/mdf/` -> 200
 - `/urunler/kapi-imalat-malzemeleri/pvc-film/` -> 308 -> `/urunler/pvc-film/`
 - `/teklif-al` -> 200
 - `/kvkk` -> 200
@@ -109,18 +110,24 @@ Son production doğrulamalarına göre:
   - Canonical: `https://yigiter.com.tr/urunler/pvc-film/`
   - Eski duplicate: `/urunler/kapi-imalat-malzemeleri/pvc-film/` → 308 permanent redirect → `/urunler/pvc-film/` (PR #26 ile temizlendi).
 
+- `/urunler/mdf/` — MDF SEO sayfası yayında
+  - B2B hedef: kapı üreticileri, mobilya üreticileri, panel işleyen firmalar, CNC kesim ve üretim atölyeleri, bayiler ve toptancılar
+  - CTA: `/teklif-al?urun=mdf`
+  - Query prefill çalışıyor: `MDF / MDFLAM`
+  - Canonical: `https://www.yigiter.com.tr/urunler/mdf/`
+
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate) ve Canonical Domain Alignment tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment ve Sprint 2.3E tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `43cfde7` — PR #28: Canonical domain alignment
+- Son merge commit: `e41e953` — PR #30: Sprint 2.3E MDF SEO product page
 
 ## Son Production Commit / Son Sprint
 
-- Son sprint: PR #28 — Canonical domain alignment (www / no-www standardı)
-- Merge commit: `43cfde7`
-- `astro.config.mjs` site: `https://yigiter.com.tr` → `https://www.yigiter.com.tr`
-- Build: 34 sayfa
+- Son sprint: PR #30 — Sprint 2.3E MDF SEO Ürün Detay Sayfası
+- Merge commit: `e41e953`
+- Yeni sayfa: `/urunler/mdf/`
+- Build: 35 sayfa
 - Production deploy: aktif
 
 ## Son Production Commit / Son Hotfix
@@ -132,10 +139,9 @@ Son production doğrulamalarına göre:
 
 ## Son Sprint
 
-- Canonical Domain Alignment tamamlandı.
-- Canonical standard: `https://www.yigiter.com.tr`
-- Production domain davranışı ile canonical/OG/sitemap standardı hizalandı.
-- Merge commit: `43cfde7`
+- Sprint 2.3E — MDF SEO Ürün Detay Sayfası tamamlandı.
+- Beşinci ürün detay SEO sayfası `/urunler/mdf/` production'a alındı.
+- Merge commit: `e41e953`
 
 ## Canonical Domain Standardı
 

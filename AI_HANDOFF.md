@@ -155,6 +155,17 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Query prefill `product_details` ve `product_group` alanlarını dolduruyor.
 - Merge commit: `df6e65a`.
 
+### Sprint 2.3E — MDF SEO Ürün Detay Sayfası
+
+- Beşinci ürün detay SEO sayfası production'a alındı.
+- URL: `/urunler/mdf/`
+- B2B içerik: MDF nedir, kimler için uygundur, kullanım alanları, teklif için gerekli bilgiler, Yiğiter tedarik avantajları.
+- `/urunler` MDF kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=mdf` olarak çalışıyor.
+- Query prefill mevcut mapping ile `MDF / MDFLAM` seçiyor.
+- Canonical: `https://www.yigiter.com.tr/urunler/mdf/`
+- Merge commit: `e41e953`.
+
 ### Canonical Domain Alignment — www / no-www Standardı
 
 - Production domain davranışı ile canonical üretimi hizalandı.
@@ -185,7 +196,9 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - PVC Film için standart URL: `/urunler/pvc-film/` — eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` artık kullanılmamalı.
 - Canonical domain standardı: `https://www.yigiter.com.tr` — yeni sayfa eklenirken canonical www üzerinden kontrol edilmeli.
 - `astro.config.mjs` → `site: 'https://www.yigiter.com.tr'` — gereksiz değiştirilmemeli.
+- MDF için standart slug: `mdf`.
+- MDFLAM ayrı SEO sayfası sonraki sprintte açılacak.
 
 ## Sonraki Mantıklı İş
 
-Sonraki ürün SEO sayfaları: `/urunler/mdf/`, `/urunler/mdflam/`, `/urunler/kapi-paneli/`.
+Sonraki ürün SEO sayfaları: `/urunler/mdflam/`, `/urunler/kapi-paneli/`.
