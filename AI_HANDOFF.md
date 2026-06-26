@@ -191,6 +191,16 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - `/urunler/index.astro` değiştirilmedi; mevcut MDF detay linki korundu.
 - Merge commit: `998bf15`.
 
+### Header/Footer Trailing Slash ve Fallback Link Temizliği — PR #38
+
+- Header, footer, home CTA ve `/urunler` kart linklerindeki eksik trailing slash'lar düzeltildi.
+- Değişiklikler sadece `href` string seviyesinde yapıldı.
+- Tasarım, component mantığı, form, canonical, noindex, sitemap ve redirect davranışı değiştirilmedi.
+- `/teklif-al/` route'u 200 doğrulandı.
+- Query'li teklif linkleri korunmuştur: `/teklif-al?urun=...`
+- 24 canlı route testi ve 7 query teklif linki 200 döndü.
+- Merge commit: `8887207`.
+
 ### Canonical Domain Alignment — www / no-www Standardı
 
 - Production domain davranışı ile canonical üretimi hizalandı.
@@ -221,6 +231,14 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Bu iki sayfa artık farklı niyete hizmet ediyor:
   - `/urunler/kapi-paneli/` → genel kategori/tedarik sayfası
   - `/urunler/kastamonu-entegre/kapi-paneli/` → marka/ürün grubu odaklı sayfa
+
+## Trailing Slash Standartları
+
+- Tüm iç nav linkleri (Header, Footer, home component CTA'ları) trailing slash'lı olmalı.
+- Ürün kart `href` değerleri trailing slash'lı: `/urunler/kapi-komponentleri/`, `/urunler/genc-boya/` vb.
+- `quoteHref` değerleri query string içerdiğinden trailing slash kullanılmaz: `/teklif-al?urun=...`
+- Düz CTA linkleri: `/teklif-al/` (trailing slash'lı).
+- Yeni iç link eklenirken trailing slash standardı korunmalı.
 
 ## Hassas Notlar
 

@@ -139,17 +139,33 @@ Son production doğrulamalarına göre:
   - Genel `/urunler/kapi-paneli/` sayfasına bağlamlı iç link mevcut
   - Duplicate risk: azaltıldı (redirect/noindex/canonical değişikliği yapılmadı)
 
+## Trailing Slash Temizliği Durumu
+
+PR #38 ile Header/Footer ve fallback link trailing slash temizliği tamamlandı.
+
+- Header ve footer'daki iç linkler trailing slash standardına getirildi.
+- `/urunler` kart linkleri temizlendi:
+  - `/urunler/kapi-komponentleri/`
+  - `/urunler/genc-boya/`
+  - Tüm ürün detay SEO linkleri trailing slash'lı.
+- Kastamonu Entegre alt sayfalarındaki breadcrumb linkleri düzeltildi.
+- Home component CTA linkleri trailing slash standardına getirildi.
+- `quoteHref` ve query'li teklif linkleri korunmuştur.
+- Production doğrulama: 24 route → 200, 7 query teklif linki → 200.
+- Build: 37 sayfa.
+- Merge commit: `8887207`.
+
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E, Sprint 2.3F ve Sprint 2.3G tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E, Sprint 2.3F, Sprint 2.3G, Kapı Paneli Duplicate Ayrıştırma ve Header/Footer Trailing Slash Temizliği tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `9f12720` — PR #34: Sprint 2.3G Kapı Paneli SEO product page
+- Son merge commit: `8887207` — PR #38: Clean up header footer fallback links
 
 ## Son Production Commit / Son Sprint
 
-- Son sprint: PR #34 — Sprint 2.3G Kapı Paneli SEO Ürün Detay Sayfası
-- Merge commit: `9f12720`
-- Yeni sayfa: `/urunler/kapi-paneli/`
+- Son sprint: PR #38 — Header/Footer Trailing Slash ve Fallback Link Temizliği
+- Merge commit: `8887207`
+- Kapsam: Header, Footer, home CTA, /urunler kart linkleri, KE alt sayfa breadcrumbleri
 - Build: 37 sayfa
 - Production deploy: aktif
 
