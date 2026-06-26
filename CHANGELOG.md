@@ -2,6 +2,17 @@
 
 ## 2026-06-26
 
+### Sprint 2.2C — Quote Form B2B Lead Fields
+
+- `/teklif-al` formu B2B teklif taleplerini daha iyi toplamak için genişletildi.
+- Firma türü, ürün grubu, tahmini miktar, kullanım amacı, termin durumu ve teslimat şehri alanları eklendi/güçlendirildi.
+- Teknik detay textarea metni daha yönlendirici hale getirildi.
+- `?urun=...` query prefill ile `product_details` ve `product_group` eşlemesi korundu.
+- KVKK required checkbox ve yeni sekme link davranışı korundu.
+- Web3Forms submit akışı ve `/tesekkurler` redirect korunuyor.
+- PR #16 merge edildi.
+- Merge commit: `6c9cf84`.
+
 ### Hotfix — Products Navigation Link
 
 - Header'daki Ürünler öğesinin sadece dropdown button olması nedeniyle `/urunler` sayfasına gitmemesi sorunu düzeltildi.

@@ -1,20 +1,16 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Sprint 2.2C — Teklif Formu B2B İyileştirmesi
+## Sıradaki Sprint: Sprint 2.3 — Ürün detay SEO sayfaları veya B2B teklif dönüşüm takibi
 
 ## Amaç
 
-Teklif formunu B2B müşteri talebini daha iyi toplayacak hale getirmek.
+Ürün detay sayfalarının SEO değerini artırmak veya teklif akışındaki dönüşümü daha iyi izlemek.
 
-## Önerilen Alanlar
+## Olası Alt Başlıklar
 
-- Firma tipi
-- Ürün grubu
-- Tahmini adet/metraj
-- Teslimat ili
-- Kullanım amacı: üretim / bayi / proje / ihracat
-- Aciliyet
-- Açıklama alanı yönlendirici metni
+- Ürün detay SEO sayfaları
+- B2B teklif dönüşüm takibi
+- CTA ve form analiz iyileştirmeleri
 
 ## Korunması Gerekenler
 
@@ -32,6 +28,5 @@ Teklif formunu B2B müşteri talebini daha iyi toplayacak hale getirmek.
 ## Daha Sonra
 
 - KVKK metni hukuki kontrol
-- Web3Forms canlı mail testi
 - Ürün sayfaları için schema/structured data değerlendirmesi
-- B2B teklif formu gönderim sonrası takip/CRM akışı değerlendirmesi
+- B2B teklif dönüşüm takibi ve CRM akışı değerlendirmesi

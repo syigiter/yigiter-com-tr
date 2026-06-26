@@ -54,11 +54,12 @@ Son production doğrulamalarına göre:
 ## Form Durumu
 
 - `/teklif-al` formu canlıda görünüyor.
+- Sprint 2.2C sonrası form, B2B teklif taleplerini daha iyi toplamak için ek alanlarla güçlendirildi.
 - `?urun=kapi-pervazi` gibi query parametreleri form alanına doluyor.
 - KVKK checkbox required.
 - KVKK linki `/kvkk` sayfasını yeni sekmede açıyor.
-- Kullanıcı daha önce canlı teklif mailinin geldiğini doğruladı.
-- Son sprintlerde gerçek Web3Forms mail testi yapılmadı.
+- Kullanıcı canlı Web3Forms mail testinin başarılı olduğunu ve mailin ulaştığını doğruladı.
+- Son sprintlerde Web3Forms entegrasyon akışı değiştirilmedi.
 - Form submit akışına son sprintlerde dokunulmadı.
 
 ## Repo Durumu
@@ -73,8 +74,9 @@ Son production doğrulamalarına göre:
 ## Son Production Durumu
 
 - Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A ve Sprint 2.2B tamamlandı.
+- Sprint 2.2C tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `93e81c0` - Merge PR #14: Hotfix products navigation link
+- Son merge commit: `6c9cf84` - Merge PR #16: Sprint 2.2C Quote form B2B lead fields
 
 ## Son Production Commit / Son Hotfix
 
@@ -82,3 +84,10 @@ Son production doğrulamalarına göre:
 - Merge commit: `93e81c0`
 - Amaç: Header ve mobil menüde Ürünler linkinin gerçek `/urunler/` linki olarak çalışmasını sağlamak.
 - Production deploy: success
+
+## Son Sprint
+
+- Sprint 2.2C — Teklif Formu B2B İyileştirmesi tamamlandı.
+- Teklif formu B2B alanları ile güçlendirildi ve `?urun=...` query prefill davranışı korundu.
+- Canlı Web3Forms mail testi kullanıcı tarafından doğrulandı.
+- Merge commit: `6c9cf84c5c9e33d12f2644c3ef4acb1b1788f88c`
