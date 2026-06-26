@@ -27,11 +27,20 @@ Son production doğrulamalarına göre:
 
 - `/` -> 200
 - `/urunler` -> 200
+- `/urunler/` -> 200
 - `/teklif-al` -> 200
 - `/kvkk` -> 200
 - `/hizmet-bolgesi` -> 200
 - `/subeler` -> 200
 - invalid route -> custom 404
+
+## Navigasyon Durumu
+
+- Desktop Header "Ürünler" tıklanınca `/urunler/` açılıyor.
+- Mobil menü "Ürünler" tıklanınca `/urunler/` açılıyor.
+- Ürünler yanındaki ok butonu dropdown açma/kapatma davranışını koruyor.
+- Klavye Enter ile açma ve Escape ile kapama davranışı korunmuş.
+- Ana sayfa ürün CTA'ları `/urunler/` sayfasına gidiyor.
 
 ## Header / Güvenlik / SEO Durumu
 
@@ -63,6 +72,13 @@ Son production doğrulamalarına göre:
 
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1 ve Sprint 2.2A tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A ve Sprint 2.2B tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `4d90a60` - Merge PR #11: Sprint 2.2 Homepage B2B conversion messaging
+- Son merge commit: `93e81c0` - Merge PR #14: Hotfix products navigation link
+
+## Son Production Commit / Son Hotfix
+
+- Son hotfix: PR #14 — Hotfix products navigation link
+- Merge commit: `93e81c0`
+- Amaç: Header ve mobil menüde Ürünler linkinin gerçek `/urunler/` linki olarak çalışmasını sağlamak.
+- Production deploy: success
