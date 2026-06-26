@@ -1,30 +1,23 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Sprint 2.3D — PVC Film SEO Ürün Detay Sayfası
+## Sıradaki Sprint: SEO Cleanup — Eski PVC Film Sayfası Duplicate Temizliği
 
 ## Amaç
 
-Mevcut ürün detay SEO şablonunu kullanarak `/urunler/pvc-film/` sayfasını oluşturmak.
+Yeni standart PVC Film sayfası `/urunler/pvc-film/` yayına alındığı için eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfasının SEO durumunu temizlemek.
 
-## Önerilen Yapı
+## Değerlendirilecek Seçenekler
 
-- H1: PVC Film
-- URL: `/urunler/pvc-film/`
-- CTA: `/teklif-al?urun=pvc-film`
-- Hedef kitle:
-  - Kapı kanadı üreticileri
-  - Kapı kaplama yapan firmalar
-  - Toptan kapı malzemesi alıcıları
-  - Bayiler
-- Bölümler:
-  - PVC film nedir?
-  - Kimler için uygundur?
-  - Kullanım alanları
-  - Teklif için hangi bilgiler gerekir?
-  - Yiğiter ile PVC film tedarik avantajı
-  - İlgili ürünler
+- Eski URL'den yeni URL'ye 301 redirect (SEO açısından en temiz yaklaşım)
+- Eski sayfada canonical'ı `/urunler/pvc-film/` sayfasına çevirmek
+- Eski sayfaya noindex eklemek
+- Eski sayfayı tamamen kaldırmak
 
-## Daha Sonraki Ürün SEO Sayfaları
+## Tercih Edilecek Yaklaşım
+
+SEO açısından en temiz yaklaşım muhtemelen eski URL'den yeni URL'ye 301 redirect olacaktır; ancak uygulamadan önce mevcut routing ve Vercel/Astro yapısına göre kontrol edilmeli.
+
+## Sonraki Ürün SEO Sayfaları
 
 - `/urunler/mdf/`
 - `/urunler/mdflam/`
@@ -41,6 +34,7 @@ Mevcut ürün detay SEO şablonunu kullanarak `/urunler/pvc-film/` sayfasını o
 
 ## Bekleyen Temizlik
 
+- Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası — 200 dönüyor, canonical kendisine bakıyor, noindex yok; yeni SEO sayfasıyla duplicate risk oluşturabilir.
 - Header/Footer/diğer sayfalardaki trailing slash'siz `/urunler/melamin-kapi-yuzeyi` referansları — Vercel şu an yönetiyor, işlevsel sorun yok; ayrı temizlik sprintine bırakıldı.
 
 ## Daha Sonra

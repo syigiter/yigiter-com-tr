@@ -145,6 +145,16 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Query prefill `product_details` ve `product_group` alanlarını dolduruyor.
 - Merge commit: `5cc3db3`.
 
+### Sprint 2.3D — PVC Film SEO Ürün Detay Sayfası
+
+- Dördüncü ürün detay SEO sayfası production'a alındı.
+- URL: `/urunler/pvc-film/`
+- B2B içerik: PVC film nedir, kimler için uygundur, kullanım alanları, teklif için gerekli bilgiler, Yiğiter tedarik avantajları.
+- `/urunler` PVC Film kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=pvc-film` olarak çalışıyor.
+- Query prefill `product_details` ve `product_group` alanlarını dolduruyor.
+- Merge commit: `df6e65a`.
+
 ## Hassas Notlar
 
 - Ürün detay SEO sayfalarında slug, CTA query ve canonical tutarlı olmalı.
@@ -153,7 +163,10 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Melamin kapı yüzeyi için standart slug: `melamin-kapi-yuzeyi`.
 - Canonical domain mevcut standart gereği `https://yigiter.com.tr` üzerinden üretiliyor (`astro.config.mjs` → `site: 'https://yigiter.com.tr'`); `www` değişikliği ayrı karar konusudur.
 - Header/Footer/diğer sayfalarda trailing slash'siz melamin referansları mevcut; Vercel yönetiyor, işlevsel sorun yok; ayrı temizlik sprintine bırakıldı.
+- PVC Film için standart slug: `pvc-film`.
+- Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası hâlâ 200 dönüyor; canonical kendisine bakıyor, noindex yok — duplicate SEO cleanup için ayrı sprint gerekmekte.
 
 ## Sonraki Mantıklı İş
 
-Sprint 2.3D: `/urunler/pvc-film/` SEO ürün detay sayfası.
+SEO Cleanup: Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası için 301 redirect, canonical veya noindex uygulanmalı.
+Sonraki ürün SEO sayfaları: `/urunler/mdf/`, `/urunler/mdflam/`, `/urunler/kapi-paneli/`.
