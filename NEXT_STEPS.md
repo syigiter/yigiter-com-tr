@@ -1,29 +1,32 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Canonical Domain Alignment — www / no-www Standardı
+## Sıradaki Sprint: Sprint 2.3E — MDF SEO Ürün Detay Sayfası
 
 ## Amaç
 
-Production domain davranışı ile canonical URL üretimini aynı standarda getirmek.
+Mevcut ürün detay SEO şablonunu kullanarak `/urunler/mdf/` sayfasını oluşturmak veya mevcut sayfa varsa B2B SEO şablonuyla güncellemek.
 
-## Mevcut Gözlem
+## Önerilen Yapı
 
-- `yigiter.com.tr` production'da önce `www.yigiter.com.tr` adresine yönleniyor (Vercel domain yönlendirmesi).
-- Astro canonical üretimi `https://yigiter.com.tr` (no-www) üzerinden yapılıyor (`astro.config.mjs` → `site: 'https://yigiter.com.tr'`).
-- Bu durum fonksiyonel sorun yaratmıyor ama SEO açısından canonical domain standardı netleştirilmeli.
+- H1: MDF
+- URL: `/urunler/mdf/`
+- CTA: `/teklif-al?urun=mdf`
+- Hedef kitle:
+  - Kapı üreticileri
+  - Mobilya üreticileri
+  - Panel işleyen firmalar
+  - Toptan levha alıcıları
+  - Bayiler / toptancılar
+- Bölümler:
+  - MDF nedir?
+  - Kimler için uygundur?
+  - Kullanım alanları
+  - Teklif için hangi bilgiler gerekir?
+  - Yiğiter ile MDF tedarik avantajı (Kastamonu Entegre ana bayi vurgusu)
+  - İlgili ürünler
 
-## Değerlendirilecek Seçenekler
+## Daha Sonraki Ürün SEO Sayfaları
 
-1. Production primary domain no-www olacaksa Vercel domain ayarı buna göre düzeltilmeli.
-2. Production primary domain www kalacaksa `astro.config.mjs` içindeki `site` değeri `https://www.yigiter.com.tr` olarak güncellenmeli.
-
-## Tercih
-
-Production şu anda www üzerinde çalıştığı için pratik çözüm muhtemelen canonical'ları `https://www.yigiter.com.tr` standardına taşımaktır. Ancak uygulanmadan önce tüm canonical/head/OG/sitemap etkileri kontrol edilmeli.
-
-## Sonraki Ürün SEO Sayfaları
-
-- `/urunler/mdf/`
 - `/urunler/mdflam/`
 - `/urunler/kapi-paneli/`
 
@@ -34,6 +37,8 @@ Production şu anda www üzerinde çalıştığı için pratik çözüm muhtemel
 - KVKK checkbox korunmalıdır.
 - Mevcut query prefill davranışı korunmalıdır.
 - CSP, header, footer ve route altyapısına gereksiz dokunulmamalıdır.
+- Canonical domain standardı `https://www.yigiter.com.tr` korunmalıdır.
+- `astro.config.mjs` değiştirilmemelidir.
 
 ## Bekleyen Temizlik
 
