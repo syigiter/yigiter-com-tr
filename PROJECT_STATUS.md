@@ -28,6 +28,7 @@ Son production doğrulamalarına göre:
 - `/` -> 200
 - `/urunler` -> 200
 - `/urunler/` -> 200
+- `/urunler/kapi-pervazi/` -> 200
 - `/teklif-al` -> 200
 - `/kvkk` -> 200
 - `/hizmet-bolgesi` -> 200
@@ -66,17 +67,33 @@ Son production doğrulamalarına göre:
 
 - `git status` temiz.
 - `npm run build` başarılı.
-- 32 sayfa üretiliyor.
+- 33 sayfa üretiliyor.
 - `/kvkk/index.html` dahil.
+- `/urunler/kapi-pervazi/index.html` dahil.
 - Önceden build'i bozan untracked `"... 2"` kopya dosyalar temizlendi.
 - Tracked dosyalara temizlik sırasında dokunulmadı.
 
+## Ürün Detay SEO Sayfaları
+
+- `/urunler/kapi-pervazi/` — Kapı Pervazı SEO sayfası yayında
+  - B2B hedef: kapı üreticileri, bayiler, proje müşterileri, montaj ekipleri
+  - CTA: `/teklif-al?urun=kapi-pervazi`
+  - Query prefill çalışıyor: `product_details` ve `product_group = Kapı pervazı`
+  - Canonical: `https://yigiter.com.tr/urunler/kapi-pervazi/`
+
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A ve Sprint 2.2B tamamlandı.
-- Sprint 2.2C tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C ve Sprint 2.3A tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `6c9cf84` - Merge PR #16: Sprint 2.2C Quote form B2B lead fields
+- Son merge commit: `f448650` — PR #18: Sprint 2.3A Kapı Pervazı SEO product page
+
+## Son Production Commit / Son SEO Sprint
+
+- Son SEO sprint: PR #18 — Sprint 2.3A Kapı Pervazı SEO product page
+- Merge commit: `f448650`
+- Yeni sayfa: `/urunler/kapi-pervazi/`
+- Build: 33 sayfa
+- Production deploy: aktif
 
 ## Son Production Commit / Son Hotfix
 
@@ -87,7 +104,6 @@ Son production doğrulamalarına göre:
 
 ## Son Sprint
 
-- Sprint 2.2C — Teklif Formu B2B İyileştirmesi tamamlandı.
-- Teklif formu B2B alanları ile güçlendirildi ve `?urun=...` query prefill davranışı korundu.
-- Canlı Web3Forms mail testi kullanıcı tarafından doğrulandı.
-- Merge commit: `6c9cf84c5c9e33d12f2644c3ef4acb1b1788f88c`
+- Sprint 2.3A — Kapı Pervazı SEO Ürün Detay Sayfası tamamlandı.
+- İlk ürün detay SEO sayfası `/urunler/kapi-pervazi/` production'a alındı.
+- Merge commit: `f448650`

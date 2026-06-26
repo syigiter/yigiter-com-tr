@@ -115,6 +115,22 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Dropdown ok butonu ve klavye davranışı korundu.
 - Merge commit: `93e81c0`.
 
+### Sprint 2.3A — Kapı Pervazı SEO Ürün Detay Sayfası
+
+- İlk ürün detay SEO sayfası production'a alındı.
+- URL: `/urunler/kapi-pervazi/`
+- B2B içerik: kapı pervazı nedir, kimler için uygundur, kullanım alanları, teklif için gerekli bilgiler, Yiğiter tedarik avantajları.
+- `/urunler` Kapı Pervazı kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=kapi-pervazi` olarak çalışıyor.
+- Query prefill `product_details` ve `product_group` alanlarını dolduruyor.
+- Merge commit: `f448650`.
+
+## Hassas Notlar
+
+- Ürün detay SEO sayfalarında slug, CTA query ve canonical tutarlı olmalı.
+- Kapı pervazı için standart slug: `kapi-pervazi` — yanlış `kapi-pervaz` kullanılmamalı.
+- Canonical domain mevcut standart gereği `https://yigiter.com.tr` üzerinden üretiliyor (`astro.config.mjs` → `site: 'https://yigiter.com.tr'`); `www` değişikliği ayrı karar konusudur.
+
 ## Sonraki Mantıklı İş
 
-Sprint 2.3: Ürün detay SEO sayfaları veya B2B teklif dönüşüm takibi.
+Sprint 2.3B: `/urunler/kapi-kasasi/` SEO ürün detay sayfası.

@@ -2,6 +2,16 @@
 
 ## 2026-06-26
 
+### Sprint 2.3A — Kapı Pervazı SEO Product Page
+
+- `/urunler/kapi-pervazi/` ürün detay SEO sayfası eklendi.
+- Kapı pervazı için B2B hedef kitle, kullanım alanları, teklif için gerekli bilgiler ve tedarik avantajları anlatıldı.
+- `/urunler` sayfasındaki Kapı Pervazı kartına `Detaylı İncele` linki eklendi.
+- CTA `/teklif-al?urun=kapi-pervazi` olarak ayarlandı.
+- Slug tutarlılığı düzeltildi: `kapi-pervaz` yerine `kapi-pervazi` kullanıldı.
+- PR #18 merge edildi.
+- Merge commit: `f448650`.
+
 ### Sprint 2.2C — Quote Form B2B Lead Fields
 
 - `/teklif-al` formu B2B teklif taleplerini daha iyi toplamak için genişletildi.
