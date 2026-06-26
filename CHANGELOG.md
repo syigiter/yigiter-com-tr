@@ -2,6 +2,16 @@
 
 ## 2026-06-26
 
+### Sprint 2.3F — MDFLAM SEO Product Page
+
+- `/urunler/mdflam/` ürün detay SEO sayfası eklendi.
+- MDFLAM için B2B hedef kitle, kullanım alanları, teklif için gerekli bilgiler ve tedarik avantajları anlatıldı.
+- CTA `/teklif-al?urun=mdflam` olarak ayarlandı.
+- Canonical `https://www.yigiter.com.tr/urunler/mdflam/` olarak doğrulandı.
+- Sitemap içinde MDFLAM URL doğrulandı.
+- PR #32 merge edildi.
+- Merge commit: `998bf15`.
+
 ### Sprint 2.3E — MDF SEO Product Page
 
 - `/urunler/mdf/` ürün detay SEO sayfası eklendi.
