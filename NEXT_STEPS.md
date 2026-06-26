@@ -1,21 +1,25 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: SEO Cleanup — Eski PVC Film Sayfası Duplicate Temizliği
+## Sıradaki Sprint: Canonical Domain Alignment — www / no-www Standardı
 
 ## Amaç
 
-Yeni standart PVC Film sayfası `/urunler/pvc-film/` yayına alındığı için eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfasının SEO durumunu temizlemek.
+Production domain davranışı ile canonical URL üretimini aynı standarda getirmek.
+
+## Mevcut Gözlem
+
+- `yigiter.com.tr` production'da önce `www.yigiter.com.tr` adresine yönleniyor (Vercel domain yönlendirmesi).
+- Astro canonical üretimi `https://yigiter.com.tr` (no-www) üzerinden yapılıyor (`astro.config.mjs` → `site: 'https://yigiter.com.tr'`).
+- Bu durum fonksiyonel sorun yaratmıyor ama SEO açısından canonical domain standardı netleştirilmeli.
 
 ## Değerlendirilecek Seçenekler
 
-- Eski URL'den yeni URL'ye 301 redirect (SEO açısından en temiz yaklaşım)
-- Eski sayfada canonical'ı `/urunler/pvc-film/` sayfasına çevirmek
-- Eski sayfaya noindex eklemek
-- Eski sayfayı tamamen kaldırmak
+1. Production primary domain no-www olacaksa Vercel domain ayarı buna göre düzeltilmeli.
+2. Production primary domain www kalacaksa `astro.config.mjs` içindeki `site` değeri `https://www.yigiter.com.tr` olarak güncellenmeli.
 
-## Tercih Edilecek Yaklaşım
+## Tercih
 
-SEO açısından en temiz yaklaşım muhtemelen eski URL'den yeni URL'ye 301 redirect olacaktır; ancak uygulamadan önce mevcut routing ve Vercel/Astro yapısına göre kontrol edilmeli.
+Production şu anda www üzerinde çalıştığı için pratik çözüm muhtemelen canonical'ları `https://www.yigiter.com.tr` standardına taşımaktır. Ancak uygulanmadan önce tüm canonical/head/OG/sitemap etkileri kontrol edilmeli.
 
 ## Sonraki Ürün SEO Sayfaları
 
@@ -30,12 +34,10 @@ SEO açısından en temiz yaklaşım muhtemelen eski URL'den yeni URL'ye 301 red
 - KVKK checkbox korunmalıdır.
 - Mevcut query prefill davranışı korunmalıdır.
 - CSP, header, footer ve route altyapısına gereksiz dokunulmamalıdır.
-- Canonical domain `https://yigiter.com.tr` standardı korunmalıdır.
 
 ## Bekleyen Temizlik
 
-- Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası — 200 dönüyor, canonical kendisine bakıyor, noindex yok; yeni SEO sayfasıyla duplicate risk oluşturabilir.
-- Header/Footer/diğer sayfalardaki trailing slash'siz `/urunler/melamin-kapi-yuzeyi` referansları — Vercel şu an yönetiyor, işlevsel sorun yok; ayrı temizlik sprintine bırakıldı.
+- Header/Footer ve bazı eski internal linklerde trailing slash standardizasyonu ileride ayrı mini sprint olarak yapılabilir.
 
 ## Daha Sonra
 

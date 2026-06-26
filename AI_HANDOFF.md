@@ -155,6 +155,15 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Query prefill `product_details` ve `product_group` alanlarını dolduruyor.
 - Merge commit: `df6e65a`.
 
+### SEO Cleanup — Eski PVC Film Duplicate Sayfası
+
+- Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` duplicate SEO riski nedeniyle kaldırıldı.
+- Eski URL slash'li ve slash'siz olarak `/urunler/pvc-film/` adresine permanent redirect edildi (308).
+- Eski iç linkler yeni URL'ye çevrildi (ProductCategories, kapi-imalat-malzemeleri/index, kagit-dolgu).
+- Yeni `/urunler/pvc-film/` sayfası canonical ürün sayfası olarak korunuyor.
+- Production redirect testi başarılı: 308 çalışıyor.
+- Merge commit: `4a70cd8`.
+
 ## Hassas Notlar
 
 - Ürün detay SEO sayfalarında slug, CTA query ve canonical tutarlı olmalı.
@@ -163,10 +172,10 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Melamin kapı yüzeyi için standart slug: `melamin-kapi-yuzeyi`.
 - Canonical domain mevcut standart gereği `https://yigiter.com.tr` üzerinden üretiliyor (`astro.config.mjs` → `site: 'https://yigiter.com.tr'`); `www` değişikliği ayrı karar konusudur.
 - Header/Footer/diğer sayfalarda trailing slash'siz melamin referansları mevcut; Vercel yönetiyor, işlevsel sorun yok; ayrı temizlik sprintine bırakıldı.
-- PVC Film için standart slug: `pvc-film`.
-- Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası hâlâ 200 dönüyor; canonical kendisine bakıyor, noindex yok — duplicate SEO cleanup için ayrı sprint gerekmekte.
+- PVC Film için standart URL: `/urunler/pvc-film/` — eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` artık kullanılmamalı.
+- Production primary domain `www.yigiter.com.tr` üzerinde çalışıyor; canonical'lar `https://yigiter.com.tr` (no-www) üretiyor — ayrı canonical domain alignment sprintinde ele alınmalı.
 
 ## Sonraki Mantıklı İş
 
-SEO Cleanup: Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası için 301 redirect, canonical veya noindex uygulanmalı.
+Canonical domain alignment: production `www.yigiter.com.tr` ile `astro.config.mjs` `site: 'https://yigiter.com.tr'` arasındaki www/no-www farkı netleştirilmeli.
 Sonraki ürün SEO sayfaları: `/urunler/mdf/`, `/urunler/mdflam/`, `/urunler/kapi-paneli/`.

@@ -32,6 +32,7 @@ Son production doğrulamalarına göre:
 - `/urunler/kapi-kasasi/` -> 200
 - `/urunler/melamin-kapi-yuzeyi/` -> 200
 - `/urunler/pvc-film/` -> 200
+- `/urunler/kapi-imalat-malzemeleri/pvc-film/` -> 308 -> `/urunler/pvc-film/`
 - `/teklif-al` -> 200
 - `/kvkk` -> 200
 - `/hizmet-bolgesi` -> 200
@@ -70,12 +71,13 @@ Son production doğrulamalarına göre:
 
 - `git status` temiz.
 - `npm run build` başarılı.
-- 35 sayfa üretiliyor.
+- 34 sayfa üretiliyor.
 - `/kvkk/index.html` dahil.
 - `/urunler/kapi-pervazi/index.html` dahil.
 - `/urunler/kapi-kasasi/index.html` dahil.
 - `/urunler/melamin-kapi-yuzeyi/index.html` dahil.
 - `/urunler/pvc-film/index.html` dahil.
+- `dist/urunler/kapi-imalat-malzemeleri/pvc-film/` artık üretilmiyor.
 - Önceden build'i bozan untracked `"... 2"` kopya dosyalar temizlendi.
 - Tracked dosyalara temizlik sırasında dokunulmadı.
 
@@ -105,21 +107,22 @@ Son production doğrulamalarına göre:
   - CTA: `/teklif-al?urun=pvc-film`
   - Query prefill çalışıyor: `product_details` ve `product_group = PVC film`
   - Canonical: `https://yigiter.com.tr/urunler/pvc-film/`
-  - Not: Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` sayfası hâlâ 200 dönüyor, canonical kendisine bakıyor, noindex yok — duplicate SEO cleanup ayrı sprint.
+  - Eski duplicate: `/urunler/kapi-imalat-malzemeleri/pvc-film/` → 308 permanent redirect → `/urunler/pvc-film/` (PR #26 ile temizlendi).
 
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C ve Sprint 2.3D tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D ve SEO Cleanup (PVC Film duplicate) tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `df6e65a` — PR #24: Sprint 2.3D PVC Film SEO product page
+- Son merge commit: `4a70cd8` — PR #26: SEO cleanup old PVC film duplicate page
 
 ## Son Production Commit / Son SEO Sprint
 
-- Son SEO sprint: PR #24 — Sprint 2.3D PVC Film SEO product page
-- Merge commit: `df6e65a`
-- Yeni sayfa: `/urunler/pvc-film/`
-- Build: 35 sayfa
+- Son SEO sprint / cleanup: PR #26 — SEO cleanup old PVC film duplicate page
+- Merge commit: `4a70cd8`
+- Silinen dosya: `src/pages/urunler/kapi-imalat-malzemeleri/pvc-film.astro`
+- Build: 34 sayfa
 - Production deploy: aktif
+- Production redirect doğrulandı: 308 çalışıyor
 
 ## Son Production Commit / Son Hotfix
 
@@ -130,6 +133,12 @@ Son production doğrulamalarına göre:
 
 ## Son Sprint
 
-- Sprint 2.3D — PVC Film SEO Ürün Detay Sayfası tamamlandı.
-- Dördüncü ürün detay SEO sayfası `/urunler/pvc-film/` production'a alındı.
-- Merge commit: `df6e65a`
+- SEO Cleanup — Eski PVC Film duplicate sayfası temizlendi.
+- Eski URL 308 permanent redirect ile `/urunler/pvc-film/` adresine yönlendiriliyor.
+- Merge commit: `4a70cd8`
+
+## Bekleyen SEO Notu
+
+- Production primary domain `www.yigiter.com.tr` üzerinde çalışıyor (Vercel domain yönlendirmesi).
+- Canonical URL'ler hâlâ `https://yigiter.com.tr` (no-www) üretiyor (`astro.config.mjs` → `site`).
+- Fonksiyonel sorun yok; SEO açısından ayrı sprintte www/no-www canonical standardı netleştirilmeli.

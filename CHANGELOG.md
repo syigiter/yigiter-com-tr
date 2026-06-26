@@ -2,6 +2,16 @@
 
 ## 2026-06-26
 
+### SEO Cleanup — Old PVC Film Duplicate Page
+
+- Eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` duplicate sayfası kaldırıldı.
+- Eski URL'ler (slash'li ve slash'siz) `/urunler/pvc-film/` adresine permanent redirect edildi (308).
+- Eski iç linkler yeni standart URL'ye çevrildi.
+- Build sayfa sayısı 35'ten 34'e düştü.
+- Production redirect testi başarılı: 308 çalışıyor.
+- PR #26 merge edildi.
+- Merge commit: `4a70cd8`.
+
 ### Sprint 2.3D — PVC Film SEO Product Page
 
 - `/urunler/pvc-film/` ürün detay SEO sayfası eklendi.
