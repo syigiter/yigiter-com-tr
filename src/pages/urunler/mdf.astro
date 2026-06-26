@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const relatedProducts = [
+  {
+    title: 'MDFLAM',
+    href: '/teklif-al?urun=mdflam',
+    description: 'Melamin kaplı MDF panel. Kapı, mobilya ve dekoratif yüzey uygulamaları için toptan teklif.',
+  },
+  {
+    title: 'PVC Film',
+    href: '/urunler/pvc-film/',
+    description: 'Kapı ve mobilya yüzey kaplaması için PVC film tedariki.',
+  },
+  {
+    title: 'Melamin Kapı Yüzeyi',
+    href: '/urunler/melamin-kapi-yuzeyi/',
+    description: 'Kapı kanadı üretiminde kullanılan melamin kaplama malzemesi tedariki.',
+  },
+  {
+    title: 'Kapı Pervazı',
+    href: '/urunler/kapi-pervazi/',
+    description: 'Kapı kasasını tamamlayan, kasa-duvar birleşimini estetik olarak bitiren yan eleman.',
+  },
+  {
+    title: 'Kapı Kasası',
+    href: '/urunler/kapi-kasasi/',
+    description: 'İç kapı üretiminde kullanılan kasa çözümleri. Toptan ve proje bazlı teklif.',
+  },
+];
+---
+
+<BaseLayout
+  title="MDF | Toptan MDF Levha ve Kapı Üretim Malzemeleri"
+  description="Kapı, mobilya ve panel işleme üreticileri için MDF levha tedariki. Ölçü, kalınlık, adet ve teslimat bilgilerinize göre toptan MDF teklifi alın."
+>
+  <section class="bg-wood-100 border-b border-wood-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)] gap-8 lg:gap-10 items-start">
+        <div class="max-w-3xl">
+          <p class="text-accent-dark font-semibold text-sm uppercase tracking-widest mb-3">B2B Ürün Detayı</p>
+          <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">MDF</h1>
+          <p class="text-gray-700 text-lg leading-relaxed">
+            Kapı, mobilya ve panel işleme üreticileri için toptan MDF levha ve üretim malzemesi
+            tedarik çözümleri. Kastamonu Entegre ana bayiliği kapsamında düzenli tedarik ve
+            Türkiye geneli sevkiyat altyapısıyla hizmet veriyoruz.
+          </p>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a
+              href="/teklif-al?urun=mdf"
+              class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+            >
+              Teklif Al
+            </a>
+            <a
+              href="/urunler/"
+              class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+            >
+              Tüm Ürünleri İncele
+            </a>
+          </div>
+        </div>
+
+        <aside class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+          <h2 class="text-lg font-bold text-primary mb-4">Kısa Tedarik Notu</h2>
+          <ul class="space-y-3 text-sm text-gray-700">
+            <li>Kastamonu Entegre ana bayiliği kapsamında MDF tedariki.</li>
+            <li>Tosya OSB tedarik ve sevkiyat altyapısı ile planlanmış teslimat.</li>
+            <li>Türkiye geneli sevkiyat ve proje bazlı teklif desteği.</li>
+            <li>MDFLAM, PVC film, melamin kapı yüzeyi ve kapı komponentleriyle birlikte planlanabilir.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)] gap-8 lg:gap-10 items-start">
+        <div class="space-y-6">
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-3">MDF Nedir?</h2>
+            <p class="text-gray-700 leading-relaxed">
+              MDF (Medium Density Fiberboard — Orta Yoğunluklu Lif Levha), ahşap liflerinin
+              yüksek basınç ve sıcaklıkta preslenmesiyle üretilen homojen yapılı bir levha
+              malzemesidir. İşlenebilirliği, pürüzsüz yüzeyi ve boyutsal kararlılığı sayesinde
+              kapı üretiminden mobilyaya, panel uygulamalarından dekoratif kaplama çalışmalarına
+              kadar geniş bir kullanım alanına sahiptir. Yiğiter olarak MDF tedarikini kapı
+              üreticileri, mobilya firmaları ve proje bazlı alımlar için B2B mantıkla ele alıyoruz.
+            </p>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Kimler İçin Uygundur?</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                'Kapı üreticileri',
+                'Mobilya üreticileri',
+                'Panel işleyen firmalar',
+                'CNC kesim ve üretim atölyeleri',
+                'Bayiler ve toptancılar',
+                'Proje bazlı tedarik yapan firmalar',
+              ].map((item) => (
+                <li class="flex items-start gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent-dark shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Kullanım Alanları</h2>
+            <ul class="space-y-3 text-sm text-gray-700">
+              {[
+                'İç kapı üretimi',
+                'Kapı kasası ve kapı komponentleri',
+                'Mobilya üretimi',
+                'Panel ve dekoratif yüzey uygulamaları',
+                'CNC kesim ve işleme',
+                'Seri üretim hatları',
+                'Bayi ve toptan satış kanalları',
+              ].map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Teklif İçin Hangi Bilgiler Gerekir?</h2>
+            <ul class="space-y-3 text-sm text-gray-700">
+              {[
+                'Ölçü ihtiyacı',
+                'Kalınlık tercihi',
+                'Tahmini adet veya metreküp / metrekare ihtiyacı',
+                'Kullanım alanı (kapı, mobilya, panel vb.)',
+                'Teslimat ili',
+                'Proje veya bayi alımı bilgisi',
+                'Termin beklentisi',
+              ].map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent-dark shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-5">
+              <a
+                href="/teklif-al?urun=mdf"
+                class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+              >
+                MDF İçin Teklif Al
+              </a>
+            </div>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Yiğiter ile Tedarik Avantajı</h2>
+            <ul class="space-y-3 text-sm text-gray-700">
+              {[
+                'Kastamonu Entegre ana bayiliği kapsamında güvenilir MDF tedariki',
+                'Kapı ve mobilya üretim malzemeleri tecrübesi',
+                'Tosya OSB tedarik ve sevkiyat altyapısı',
+                'Türkiye geneli sevkiyat',
+                'Toptan ve proje bazlı teklif yaklaşımı',
+                'MDFLAM, PVC film, melamin kapı yüzeyi, kapı kasası ve pervazıyla birlikte tedarik imkânı',
+              ].map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-5 text-gray-700 leading-relaxed">
+              Toptan MDF tedarikçisi arayan kapı ve mobilya üreticileri için, düzenli sevkiyat
+              ve proje bazlı teklif süreçleriyle hareket ediyoruz. Seri üretim, bayi alımı ve
+              kapı yan sanayi ihtiyaçlarında tek noktadan çözüm sunmayı hedefliyoruz.
+            </p>
+          </section>
+        </div>
+
+        <aside class="space-y-6 lg:sticky lg:top-6">
+          <section class="rounded-xl border border-gray-200 bg-gray-50 p-6">
+            <h2 class="text-lg font-bold text-primary mb-3">İlgili Ürünler</h2>
+            <div class="space-y-3">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block rounded-lg border border-gray-200 bg-white p-4 hover:border-primary/40 hover:shadow-sm transition-all">
+                  <h3 class="font-bold text-gray-900 text-sm mb-1">{product.title}</h3>
+                  <p class="text-gray-600 text-xs leading-relaxed">{product.description}</p>
+                </a>
+              ))}
+            </div>
+            <a
+              href="/urunler/"
+              class="mt-4 inline-flex items-center justify-center rounded-lg border border-primary px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+            >
+              Tüm Ürünler
+            </a>
+          </section>
+
+          <section class="rounded-xl border border-primary/20 bg-primary p-6 text-white shadow-sm">
+            <h2 class="text-xl font-bold mb-3">Proje Bazlı Teklif İçin Hazırız</h2>
+            <p class="text-white/85 text-sm leading-relaxed mb-5">
+              MDF, MDFLAM, kapı kasası, kapı pervazı ve diğer kapı komponentleri aynı talep
+              içinde toplanabilir. Ölçü, kalınlık, adet ve teslimat bilgilerini paylaşmanız yeterli.
+            </p>
+            <a
+              href="/teklif-al?urun=mdf"
+              class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+            >
+              Teklif Al
+            </a>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
