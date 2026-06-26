@@ -1,16 +1,36 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Sprint 2.3 — Ürün detay SEO sayfaları veya B2B teklif dönüşüm takibi
+## Sıradaki Sprint: Sprint 2.3B — Kapı Kasası SEO Ürün Detay Sayfası
 
 ## Amaç
 
-Ürün detay sayfalarının SEO değerini artırmak veya teklif akışındaki dönüşümü daha iyi izlemek.
+Kapı pervazı sayfasında oluşturulan ürün detay SEO şablonunu kullanarak `/urunler/kapi-kasasi/` sayfasını oluşturmak.
 
-## Olası Alt Başlıklar
+## Önerilen Yapı
 
-- Ürün detay SEO sayfaları
-- B2B teklif dönüşüm takibi
-- CTA ve form analiz iyileştirmeleri
+- H1: Kapı Kasası
+- URL: `/urunler/kapi-kasasi/`
+- CTA: `/teklif-al?urun=kapi-kasasi`
+- Hedef kitle:
+  - İç kapı üreticileri
+  - Kapı montaj bayileri
+  - Müteahhit / proje firmaları
+  - Toptan kapı malzemesi alıcıları
+- Bölümler:
+  - Kapı kasası nedir?
+  - Kimler için uygundur?
+  - Kullanım alanları
+  - Teklif için hangi bilgiler gerekir?
+  - Yiğiter ile kapı kasası tedarik avantajı
+  - İlgili ürünler
+
+## Daha Sonraki Ürün SEO Sayfaları
+
+- `/urunler/melamin-kapi-yuzeyi/`
+- `/urunler/pvc-film/`
+- `/urunler/mdf/`
+- `/urunler/mdflam/`
+- `/urunler/kapi-paneli/`
 
 ## Korunması Gerekenler
 
@@ -19,11 +39,7 @@
 - KVKK checkbox korunmalıdır.
 - Mevcut query prefill davranışı korunmalıdır.
 - CSP, header, footer ve route altyapısına gereksiz dokunulmamalıdır.
-
-## Önce Yapılacak Küçük Kontrol
-
-- PageSpeed ana sayfa ve `/urunler/` canlı ölçümü zaman zaman tekrar alınabilir.
-- Son bilinen ölçüm: ana sayfa ve `/urunler/` Performance 100, Accessibility 95, Best Practices 100, SEO 100.
+- Canonical domain `https://yigiter.com.tr` standardı korunmalıdır (`www` değişikliği ayrı karar konusudur).
 
 ## Daha Sonra
 
