@@ -1,6 +1,30 @@
 # Next Steps — Yiğiter Sitesi
 
-## Sıradaki Sprint: Ürün SEO Serisi Son Kontrol ve İç Link Temizliği
+## Sıradaki Sprint: Header/Footer Trailing Slash ve Eski Fallback Link Temizliği
+
+## Amaç
+
+Site genelinde header, footer ve ürün kartlarındaki eski/fallback linklerin trailing slash ve route tutarlılığını küçük, risksiz bir temizlik sprintiyle kontrol etmek.
+
+## Kontrol Edilecek Başlıklar
+
+- Header linkleri
+- Footer linkleri
+- `/urunler` fallback kart linkleri:
+  - `/urunler/kapi-komponentleri`
+  - `/urunler/genc-boya`
+- Trailing slash standardı
+- 200/308 davranışları
+- SEO ürün sayfalarının etkilenmediği doğrulaması
+
+## Not
+
+Bu sprintte yeni sayfa eklenmeyecek.
+Redirect veya route silme kararı ayrı onay gerektirir.
+
+---
+
+## Tamamlanan: Ürün SEO Serisi Son Kontrol ve İç Link Temizliği
 
 ## Amaç
 
