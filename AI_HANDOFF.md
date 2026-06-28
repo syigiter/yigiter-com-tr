@@ -46,6 +46,8 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - KVKK checkbox required kalmalı ve KVKK linki yeni sekmede açılmalı.
 - Form alanlarında değişiklik yapılacaksa gerçek canlı mail testi tekrar önerilir.
 - Canlı Web3Forms mail testi kullanıcı tarafından başarılı doğrulandı.
+- Vercel Web Analytics ve Speed Insights `BaseLayout.astro` üzerinden tüm sayfalara eklendi.
+- Analytics/Speed Insights metrikleri Vercel panelinde gerçek ziyaretlerden sonra dolacaktır.
 
 ## Tamamlanan Sprintler
 
@@ -219,6 +221,16 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Yeni `/urunler/pvc-film/` sayfası canonical ürün sayfası olarak korunuyor.
 - Production redirect testi başarılı: 308 çalışıyor.
 - Merge commit: `4a70cd8`.
+
+### Vercel Analytics ve Speed Insights Entegrasyonu — 2026-06-28
+
+- `@vercel/analytics` ve `@vercel/speed-insights` paketleri eklendi.
+- `src/layouts/BaseLayout.astro` içinde `<Analytics />` ve `<SpeedInsights />` tüm sayfalara dahil edildi.
+- İlk named import denemesi build'de hata verdi; Astro paketleri default export kullandığı için default import'a çevrildi.
+- `npm run build` başarılı: 37 sayfa üretildi.
+- Commit: `b51408f`.
+- Production deploy Vercel'de `Ready`.
+- Canlı kontrol: `https://www.yigiter.com.tr` HTTP/2 200.
 
 ### Kapı Paneli Duplicate Ayrıştırma — PR #36
 

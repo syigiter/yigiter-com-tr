@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-06-28
+
+### Vercel Analytics ve Speed Insights Entegrasyonu
+
+- `@vercel/analytics` ve `@vercel/speed-insights` paketleri eklendi.
+- `BaseLayout.astro` üzerinden tüm sayfalara Vercel Web Analytics ve Speed Insights componentleri yerleştirildi.
+- `npm run build` başarılı: 37 sayfa üretildi.
+- Production deploy Vercel'de `Ready` durumunda.
+- Canlı kontrol: `https://www.yigiter.com.tr` HTTP/2 200 döndü.
+- Commit: `b51408f`.
+
 ## 2026-06-26
 
 ### Ürün SEO Serisi Kapanış Raporu

@@ -58,6 +58,7 @@ Son production doğrulamalarına göre:
 - Canonical, meta description, OG/Twitter bilgileri `BaseLayout` üzerinden geliyor.
 - KVKK sayfası noindex değil.
 - Sitemap üretimi mevcut Astro yapısına göre devam ediyor.
+- Vercel Web Analytics ve Speed Insights `BaseLayout` üzerinden tüm sayfalara eklendi.
 
 ## Form Durumu
 
@@ -167,9 +168,19 @@ PR #38 ile Header/Footer ve fallback link trailing slash temizliği tamamlandı.
 
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E, Sprint 2.3F, Sprint 2.3G, Kapı Paneli Duplicate Ayrıştırma ve Header/Footer Trailing Slash Temizliği tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E, Sprint 2.3F, Sprint 2.3G, Kapı Paneli Duplicate Ayrıştırma, Header/Footer Trailing Slash Temizliği ve Vercel Analytics/Speed Insights entegrasyonu tamamlandı.
 - Son production deploy başarılı.
-- Son merge commit: `8887207` — PR #38: Clean up header footer fallback links
+- Son commit: `b51408f` — Add Vercel analytics integrations
+
+## Vercel Analytics / Speed Insights Durumu
+
+- Vercel Web Analytics ve Speed Insights entegrasyonu tamamlandı.
+- Paketler: `@vercel/analytics`, `@vercel/speed-insights`.
+- Entegrasyon noktası: `src/layouts/BaseLayout.astro`.
+- `npm run build` başarılı.
+- Production deploy Vercel'de `Ready`.
+- Canlı kontrol: `https://www.yigiter.com.tr` HTTP/2 200.
+- Not: Vercel metrikleri gerçek ziyaretler geldikçe panelde dolacaktır.
 
 ## Son Production Commit / Son Sprint
 
