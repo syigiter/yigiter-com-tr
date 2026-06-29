@@ -394,7 +394,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (select) {
       const lower = decoded.toLowerCase();
       let val = '';
-      if (lower.includes('komponent')) val = 'Kapı komponentleri';
+      if (lower.includes('komponent') || lower === 'interior-door-components') val = 'Kapı komponentleri';
       else if (lower.includes('kasa')) val = 'Kapı kasası';
       else if (lower.includes('pervaz')) val = 'Kapı pervazı';
       else if (lower.includes('melamin')) val = 'Melamin kapı yüzeyi';
