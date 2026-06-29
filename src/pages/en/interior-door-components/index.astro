@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const productGroups = [
+  {
+    title: 'Door jambs',
+    href: '/urunler/kapi-kasasi/',
+    description: 'Interior door frame components for manufacturers, distributors and project-based supply.',
+  },
+  {
+    title: 'Door casings',
+    href: '/urunler/kapi-pervazi/',
+    description: 'Door casing and trim solutions for interior door systems and millwork applications.',
+  },
+  {
+    title: 'Door panels',
+    href: '/urunler/kapi-paneli/',
+    description: 'Door panel supply for interior door production, wholesale buyers and project tenders.',
+  },
+  {
+    title: 'MDF',
+    href: '/urunler/mdf/',
+    description: 'MDF boards for door, panel and furniture production with B2B supply planning.',
+  },
+  {
+    title: 'MDFLAM',
+    href: '/urunler/mdflam/',
+    description: 'Decorative melamine faced MDF panels for door and furniture manufacturing.',
+  },
+  {
+    title: 'PVC film',
+    href: '/urunler/pvc-film/',
+    description: 'PVC film for door surfaces, furniture surfaces and membrane press applications.',
+  },
+  {
+    title: 'Melamine door skins',
+    href: '/urunler/melamin-kapi-yuzeyi/',
+    description: 'Melamine door surface materials for door skin and interior door production.',
+  },
+  {
+    title: 'Door production materials',
+    href: '/urunler/kapi-komponentleri/',
+    description: 'A combined supply range for interior door components and wood-based door materials.',
+  },
+];
+
+const serveGroups = [
+  'Door distributors',
+  'Millwork companies',
+  'Interior door manufacturers',
+  'Building material importers',
+  'Wholesale suppliers',
+  'Project-based buyers',
+];
+
+const advantages = [
+  'Production and supply experience',
+  'B2B focused product range',
+  'Istanbul sales and distribution points',
+  'Tosya production connection',
+  'Experience in door components and wood-based panels',
+  'Project-based and wholesale supply',
+  'Export-oriented communication',
+];
+
+const supplyModel = [
+  'Wholesale supply',
+  'Project-based supply',
+  'Container-based export planning',
+  'Product group-based quotation',
+  'Custom quantities and delivery planning',
+];
+
+const quoteDetails = [
+  'Product group',
+  'Required quantity',
+  'Dimensions or technical specifications',
+  'Surface/finish preference',
+  'Delivery country/city',
+  'Target delivery date',
+  'Packaging or container requirements',
+];
+
+const faqs = [
+  {
+    question: 'Do you supply door components for distributors?',
+    answer: 'Yes. Yigiter works with B2B buyers such as door distributors, wholesale suppliers and building material companies that need regular product group-based supply.',
+  },
+  {
+    question: 'Can you quote for container-based orders?',
+    answer: 'Yes. Container-based export planning can be discussed according to product group, quantity, packaging expectations and delivery destination.',
+  },
+  {
+    question: 'Which product groups do you supply?',
+    answer: 'The supply range includes door jambs, door casings, door panels, MDF, MDFLAM, PVC film, melamine door skins and related door production materials.',
+  },
+  {
+    question: 'Do you work with millwork companies?',
+    answer: 'Yes. Millwork companies can request quotations for interior door components, wood-based panels and surface materials according to their production needs.',
+  },
+  {
+    question: 'Can you support project-based supply?',
+    answer: 'Yes. Project-based buyers can share specifications, estimated quantities, delivery location and target delivery dates for a structured quotation.',
+  },
+  {
+    question: 'Where is Yigiter located?',
+    answer: 'Yigiter has sales and distribution points in Istanbul and a production connection in Tosya, Türkiye.',
+  },
+  {
+    question: 'Do you export from Türkiye?',
+    answer: 'Yes. Yigiter is positioned to support export-oriented communication for B2B buyers seeking interior door components from Türkiye.',
+  },
+];
+---
+
+<BaseLayout
+  title="Interior Door Components Manufacturer from Türkiye | Yigiter"
+  description="Yigiter supplies interior door components from Türkiye, including door jambs, casings, panels, MDF, MDFLAM, PVC film and melamine door skins for distributors, millwork companies and door manufacturers."
+  lang="en"
+  ogLocale="en_US"
+  appendSiteName={false}
+>
+  <section class="bg-wood-100 border-b border-wood-300 py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <p class="text-accent-dark font-semibold text-sm uppercase tracking-widest mb-4">
+          B2B Export Supply from Türkiye
+        </p>
+        <h1 class="text-4xl lg:text-6xl font-bold text-primary mb-5 leading-tight">
+          Interior Door Components from Türkiye
+        </h1>
+        <p class="text-gray-700 text-lg lg:text-xl leading-relaxed max-w-3xl">
+          Yigiter supplies door jambs, casings, panels, MDF, MDFLAM, PVC film and melamine door
+          surfaces for distributors, millwork companies and interior door manufacturers.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a
+            href="/teklif-al?urun=interior-door-components"
+            class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+          >
+            Request a Quote
+          </a>
+          <a
+            href="#product-groups"
+            class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+          >
+            View Product Groups
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.8fr)] gap-10 lg:gap-14 items-start">
+        <div class="space-y-10">
+          <section>
+            <h2 class="text-2xl lg:text-3xl font-bold text-primary mb-4">Who We Serve</h2>
+            <p class="text-gray-700 leading-relaxed mb-5">
+              Yigiter serves B2B customers in the interior door and building materials supply chain.
+              The page is designed for companies looking for structured product group-based supply
+              from Türkiye rather than retail purchasing.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {serveGroups.map((item) => (
+                <li class="flex items-start gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent-dark shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section id="product-groups" class="scroll-mt-24">
+            <h2 class="text-2xl lg:text-3xl font-bold text-primary mb-4">Product Groups</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              The product range covers interior door components and wood-based materials commonly
+              used by door manufacturers, distributors and project-based buyers.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {productGroups.map((product) => (
+                <a
+                  href={product.href}
+                  class="group block rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-sm transition-all"
+                >
+                  <div class="flex items-start justify-between gap-4 mb-2">
+                    <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">{product.title}</h3>
+                    <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed">{product.description}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl lg:text-3xl font-bold text-primary mb-4">Why Work with Yigiter?</h2>
+            <p class="text-gray-700 leading-relaxed mb-5">
+              Yigiter is positioned as a practical B2B supplier for companies that need dependable
+              communication, product range clarity and export-oriented quotation support.
+            </p>
+            <ul class="space-y-3">
+              {advantages.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-gray-700">
+                  <svg class="w-5 h-5 text-accent-dark shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl lg:text-3xl font-bold text-primary mb-4">Supply Model</h2>
+            <p class="text-gray-700 leading-relaxed mb-5">
+              The supply model is built around wholesale and project-based purchasing. Quotations can
+              be prepared according to product group, dimensions, surface preferences, quantities and
+              delivery planning.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {supplyModel.map((item) => (
+                <div class="rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-800">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="rounded-xl border border-primary/20 bg-primary p-6 lg:p-8 text-white">
+            <h2 class="text-2xl lg:text-3xl font-bold mb-4">Request a Quote for Interior Door Components</h2>
+            <p class="text-white/85 leading-relaxed mb-5">
+              To prepare a clear quotation, share the product group, required quantity, technical
+              details and delivery expectations. This helps the team evaluate product availability,
+              packaging needs and export planning.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {quoteDetails.map((item) => (
+                <li class="flex items-start gap-2 text-sm text-white/85">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/teklif-al?urun=interior-door-components"
+              class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+            >
+              Request a Quote
+            </a>
+          </section>
+
+          <section>
+            <h2 class="text-2xl lg:text-3xl font-bold text-primary mb-5">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+              {faqs.map((faq) => (
+                <article class="rounded-xl border border-gray-200 bg-white p-5">
+                  <h3 class="font-bold text-gray-900 mb-2">{faq.question}</h3>
+                  <p class="text-gray-700 text-sm leading-relaxed">{faq.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <aside class="space-y-5 lg:sticky lg:top-28">
+          <section class="rounded-xl border border-gray-200 bg-gray-50 p-6">
+            <h2 class="text-lg font-bold text-primary mb-3">Export Supply Focus</h2>
+            <p class="text-gray-700 text-sm leading-relaxed mb-4">
+              For distributors, millwork companies and importers looking for interior door components
+              from Türkiye.
+            </p>
+            <a
+              href="/teklif-al?urun=interior-door-components"
+              class="block text-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+            >
+              Request a Quote
+            </a>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6">
+            <h2 class="text-lg font-bold text-primary mb-3">Core Product Range</h2>
+            <ul class="space-y-2">
+              {['Door jambs', 'Door casings', 'Door panels', 'MDF', 'MDFLAM', 'PVC film', 'Melamine door skins'].map((item) => (
+                <li class="flex items-center gap-2 text-sm text-gray-700">
+                  <span class="h-1.5 w-1.5 rounded-full bg-accent-dark shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-wood p-6">
+            <h2 class="text-lg font-bold text-primary mb-3">Location</h2>
+            <p class="text-gray-700 text-sm leading-relaxed">
+              Istanbul sales and distribution points, with a Tosya production connection for door
+              components and wood-based product supply.
+            </p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
