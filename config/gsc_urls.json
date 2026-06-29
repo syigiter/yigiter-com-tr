@@ -1,0 +1,24 @@
+{
+  "property": "https://www.yigiter.com.tr/",
+  "inspectionUrls": [
+    "https://www.yigiter.com.tr/urunler/kapi-pervazi/",
+    "https://www.yigiter.com.tr/urunler/kapi-kasasi/",
+    "https://www.yigiter.com.tr/urunler/melamin-kapi-yuzeyi/",
+    "https://www.yigiter.com.tr/urunler/pvc-film/",
+    "https://www.yigiter.com.tr/urunler/mdf/",
+    "https://www.yigiter.com.tr/urunler/mdflam/",
+    "https://www.yigiter.com.tr/urunler/kapi-paneli/"
+  ],
+  "performancePages": [
+    "https://www.yigiter.com.tr/urunler/kapi-pervazi/",
+    "https://www.yigiter.com.tr/urunler/kapi-kasasi/",
+    "https://www.yigiter.com.tr/urunler/melamin-kapi-yuzeyi/",
+    "https://www.yigiter.com.tr/urunler/pvc-film/",
+    "https://www.yigiter.com.tr/urunler/mdf/",
+    "https://www.yigiter.com.tr/urunler/mdflam/",
+    "https://www.yigiter.com.tr/urunler/kapi-paneli/",
+    "https://www.yigiter.com.tr/urunler/kapi-komponentleri/",
+    "https://www.yigiter.com.tr/subeler/",
+    "https://www.yigiter.com.tr/iletisim/"
+  ]
+}
