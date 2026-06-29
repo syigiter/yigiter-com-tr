@@ -9,22 +9,32 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  lang?: string;
+  ogLocale?: string;
+  appendSiteName?: boolean;
 }
 
 const {
   title,
   description = 'Yiğiter Orman Ürünleri — Kastamonu Entegre Ana Bayisi, kapı kasası ve pervaz üreticisi, 4 kıtaya ihracatçı.',
   ogImage = '/images/og-default.jpg',
+  lang = 'tr',
+  ogLocale = 'tr_TR',
+  appendSiteName = true,
 } = Astro.props;
 
 const siteName = 'Yiğiter Orman Ürünleri';
-const fullTitle = title === siteName ? 'Yiğiter Orman Ürünleri | Kapı ve Mobilya Yan Sanayi Tedarikçisi' : `${title} | ${siteName}`;
+const fullTitle = appendSiteName
+  ? title === siteName
+    ? 'Yiğiter Orman Ürünleri | Kapı ve Mobilya Yan Sanayi Tedarikçisi'
+    : `${title} | ${siteName}`
+  : title;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const absoluteOgImage = new URL(ogImage, Astro.site);
 ---
 
 <!DOCTYPE html>
-<html lang="tr">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,7 +48,7 @@ const absoluteOgImage = new URL(ogImage, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:image" content={absoluteOgImage} />
-    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale" content={ogLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
