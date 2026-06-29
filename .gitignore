@@ -5,4 +5,12 @@ dist/
 .env.*
 !.env.example
 *.log
+__pycache__/
+*.py[cod]
 eccentric-ephemera/
+credentials.json
+client_secret*.json
+service-account.json
+token.json
+.gsc/
+reports/*.raw.json
