@@ -8,6 +8,23 @@ Ana öneri: **Bekle ve ölç**.
 
 Sprint 2.7 ile İngilizce ihracat sayfası artık site içinde görünür iç linkler alıyor. Sprint 2.5B ve Sprint 2.5C ile GSC + Vercel Analytics takip hattı hazır. Bir sonraki adım, 7-14 gün veri biriktikten sonra birleşik takip raporu almaktır.
 
+## Bekleme Dönemi Notu
+
+Sprint 2.7, Sprint 2.5B ve Sprint 2.5C sonrası proje ölçüm dönemine geçti.
+
+7-14 gün veri birikmeden yeni SEO içerik sprinti veya İngilizce sayfa genişletmesi açılmamalı.
+
+Bu dönemde yapılmayacaklar:
+
+- Yeni İngilizce ürün alt sayfası açma
+- Header'a dil seçici ekleme
+- Form akışını değiştirme
+- Web3Forms / KVKK / CSP / canonical / sitemap tarafına dokunma
+- Büyük tasarım veya görsel revizyon yapma
+- GA4, Plausible, Umami veya Web Analytics Drains gibi yeni analytics sistemi kurma
+
+Önce GSC + Vercel Analytics birleşik verisi okunmalı.
+
 ## 7-14 Gün Sonra Alınacak Birleşik Rapor
 
 Kontrol kaynakları:
@@ -28,6 +45,46 @@ Kontrol edilecek ana sorular:
 - Google/Bing referrer sinyali büyüyor mu?
 - Genç Boya / Melamin / Kastamonu Entegre tarafındaki iç pazar sinyalleri büyümüş mü?
 - Ürün sayfası → teklif formu yolu Vercel Analytics'te görünür hale geliyor mu?
+
+## Bir Sonraki Karar Eşiği
+
+Bir sonraki GSC + Vercel Analytics birleşik raporunda karar şu kurala göre verilecek:
+
+### İngilizce ihracat tarafı
+
+Eğer `/en/interior-door-components/`:
+
+- Google tarafından bilinir hale gelirse,
+- index'e girerse,
+- impression almaya başlarsa,
+- ancak CTR veya `/teklif-al/` geçişi zayıf kalırsa,
+
+Sprint 2.6B açılabilir:
+
+- İngilizce FAQ ekleme
+- Door jamb / door casing / MDF / melamine / PVC terimlerini güçlendirme
+- Request Quote CTA metnini iyileştirme
+
+### Türkiye iç pazar tarafı
+
+Eğer `Genç Boya`, `Melamin kapı yüzeyi`, `Kastamonu Entegre` veya benzer Türkçe sorgular daha hızlı büyürse,
+
+Sprint 2.8 açılabilir:
+
+- Genç Boya SEO sayfası güçlendirme
+- Melamin kapı yüzeyi fiyat/teklif dili iyileştirme
+- Kastamonu Entegre bayi/tedarik mesajı güçlendirme
+- Kapı imalat malzemeleri kategori sayfası güçlendirme
+
+### Ölçüm tarafı
+
+Eğer `/teklif-al/` ziyaret almaya başlarsa,
+
+dönüşüm yolu ayrıca incelenecek:
+
+- Hangi sayfadan teklif formuna gidiliyor?
+- Hangi ülke/kanal teklif formuna trafik getiriyor?
+- Ürün sayfası → teklif formu akışı güçlendirilmeli mi?
 
 ## Mevcut Ölçüm Notları
 
