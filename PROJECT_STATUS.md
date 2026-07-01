@@ -65,6 +65,7 @@ Son production doğrulamalarına göre:
 - `/teklif-al` formu canlıda görünüyor.
 - Sprint 2.2C sonrası form, B2B teklif taleplerini daha iyi toplamak için ek alanlarla güçlendirildi.
 - `?urun=kapi-pervazi` gibi query parametreleri form alanına doluyor.
+- `/teklif-al?urun=interior-door-components` İngilizce ihracat landing page CTA'sından geliyor ve `product_group = Kapı komponentleri` seçiyor.
 - KVKK checkbox required.
 - KVKK linki `/kvkk` sayfasını yeni sekmede açıyor.
 - Kullanıcı canlı Web3Forms mail testinin başarılı olduğunu ve mailin ulaştığını doğruladı.
@@ -73,9 +74,11 @@ Son production doğrulamalarına göre:
 
 ## Repo Durumu
 
-- `git status` temiz.
+- Tracked dosyalar açısından çalışma ağacı temiz.
+- `SEARCH_CONSOLE_AUDIT 2.md` ve `reports/` commit dışı/untracked takip dosyaları olarak durabilir.
 - `npm run build` başarılı.
-- 37 sayfa üretiliyor.
+- 38 sayfa üretiliyor.
+- `/en/interior-door-components/index.html` dahil.
 - `/kvkk/index.html` dahil.
 - `/urunler/kapi-pervazi/index.html` dahil.
 - `/urunler/kapi-kasasi/index.html` dahil.
@@ -93,26 +96,26 @@ Son production doğrulamalarına göre:
   - B2B hedef: kapı üreticileri, bayiler, proje müşterileri, montaj ekipleri
   - CTA: `/teklif-al?urun=kapi-pervazi`
   - Query prefill çalışıyor: `product_details` ve `product_group = Kapı pervazı`
-  - Canonical: `https://yigiter.com.tr/urunler/kapi-pervazi/`
+  - Canonical: `https://www.yigiter.com.tr/urunler/kapi-pervazi/`
 
 - `/urunler/kapi-kasasi/` — Kapı Kasası SEO sayfası yayında
   - B2B hedef: iç kapı üreticileri, montaj bayileri, proje firmaları, toptan kapı malzemesi alıcıları
   - CTA: `/teklif-al?urun=kapi-kasasi`
   - Query prefill çalışıyor: `product_details` ve `product_group = Kapı kasası`
-  - Canonical: `https://yigiter.com.tr/urunler/kapi-kasasi/`
+  - Canonical: `https://www.yigiter.com.tr/urunler/kapi-kasasi/`
 
 - `/urunler/melamin-kapi-yuzeyi/` — Melamin Kapı Yüzeyi SEO sayfası yayında
   - B2B hedef: kapı kanadı üreticileri, seri üretim yapan firmalar, toptan alıcılar, bayiler
   - CTA: `/teklif-al?urun=melamin-kapi-yuzeyi`
   - Query prefill çalışıyor: `product_details` ve `product_group = Melamin kapı yüzeyi`
-  - Canonical: `https://yigiter.com.tr/urunler/melamin-kapi-yuzeyi/`
+  - Canonical: `https://www.yigiter.com.tr/urunler/melamin-kapi-yuzeyi/`
   - Not: Header/Footer/diğer sayfalardaki trailing slash'siz referanslar ayrı temizlik sprintine bırakıldı.
 
 - `/urunler/pvc-film/` — PVC Film SEO sayfası yayında
   - B2B hedef: kapı üreticileri, mobilya üreticileri, membran pres kullanan firmalar, yüzey kaplama atölyeleri, bayiler ve toptancılar
   - CTA: `/teklif-al?urun=pvc-film`
   - Query prefill çalışıyor: `product_details` ve `product_group = PVC film`
-  - Canonical: `https://yigiter.com.tr/urunler/pvc-film/`
+  - Canonical: `https://www.yigiter.com.tr/urunler/pvc-film/`
   - Eski duplicate: `/urunler/kapi-imalat-malzemeleri/pvc-film/` → 308 permanent redirect → `/urunler/pvc-film/` (PR #26 ile temizlendi).
 
 - `/urunler/mdf/` — MDF SEO sayfası yayında
@@ -166,11 +169,37 @@ PR #38 ile Header/Footer ve fallback link trailing slash temizliği tamamlandı.
 - Build: 37 sayfa.
 - Merge commit: `8887207`.
 
+## Sprint 2.4 / 2.5 / 2.6 Durumu
+
+- Sprint 2.4 Search Visibility ve B2B Door Components SEO tamamlandı.
+  - `/subeler/` ve `/iletisim/` metadata güncellendi.
+  - `/urunler/kapi-komponentleri/` B2B SEO odağında güçlendirildi.
+  - 7 ürün detay sayfasından `/urunler/kapi-komponentleri/` sayfasına doğal iç linkler eklendi veya güncellendi.
+  - Merge commit: `1060780`.
+- Sprint 2.5A Google Search Console yerel raporlama script'i eklendi.
+  - `scripts/gsc_check.py`, `config/gsc_urls.json`, `requirements-gsc.txt` ve secret korumalı `.gitignore` güncellendi.
+  - Script read-only GSC scope kullanır: `https://www.googleapis.com/auth/webmasters.readonly`.
+  - Merge commit: `96300e8`.
+- Sprint 2.5 GSC raporu üretildi: `reports/gsc-sprint-2-5-2026-06-29.md`.
+  - 7 ürün SEO sayfası URL Inspection sonucunda indexed/canonical match durumunda.
+  - Sitemap status başarılı.
+  - İlk görünürlük sinyali çok sınırlı; ihracat/uluslararası sayfa ihtiyacı doğrulandı.
+- Sprint 2.6 İngilizce ihracat landing page production'a alındı.
+  - URL: `/en/interior-door-components/`
+  - Title: `Interior Door Components Manufacturer from Türkiye | Yigiter`
+  - Canonical: `https://www.yigiter.com.tr/en/interior-door-components/`
+  - `lang="en"` ve `og:locale="en_US"` kullanılıyor.
+  - Merge commit: `deae0a4`.
+- Sprint 2.6A teklif formu mapping hotfix production'a alındı.
+  - `/teklif-al?urun=interior-door-components` artık `product_group = Kapı komponentleri` seçiyor.
+  - Web3Forms, KVKK, redirect ve form submit akışı değiştirilmedi.
+  - Merge commit: `a0d8319`.
+
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E, Sprint 2.3F, Sprint 2.3G, Kapı Paneli Duplicate Ayrıştırma, Header/Footer Trailing Slash Temizliği ve Vercel Analytics/Speed Insights entegrasyonu tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A-G, SEO Cleanup, Canonical Domain Alignment, Header/Footer Trailing Slash Temizliği, Vercel Analytics/Speed Insights, Sprint 2.4, Sprint 2.5A, Sprint 2.6 ve Sprint 2.6A tamamlandı.
 - Son production deploy başarılı.
-- Son commit: `b51408f` — Add Vercel analytics integrations
+- Son commit: `a0d8319` — Merge pull request #45 from syigiter/codex/sprint-2-6a-quote-form-mapping
 
 ## Vercel Analytics / Speed Insights Durumu
 
@@ -184,13 +213,13 @@ PR #38 ile Header/Footer ve fallback link trailing slash temizliği tamamlandı.
 
 ## Son Production Commit / Son Sprint
 
-- Son sprint: PR #38 — Header/Footer Trailing Slash ve Fallback Link Temizliği
-- Merge commit: `8887207`
-- Kapsam: Header, Footer, home CTA, /urunler kart linkleri, KE alt sayfa breadcrumbleri
-- Build: 37 sayfa
+- Son sprint: PR #45 — Sprint 2.6A Quote Form Mapping Enhancement
+- Merge commit: `a0d8319`
+- Kapsam: İngilizce ihracat CTA query mapping'i
+- Build: 38 sayfa
 - Production deploy: aktif
 
-## Son Production Commit / Son Hotfix
+## Önemli Hotfix Notları
 
 - Son hotfix: PR #14 — Hotfix products navigation link
 - Merge commit: `93e81c0`
@@ -199,9 +228,9 @@ PR #38 ile Header/Footer ve fallback link trailing slash temizliği tamamlandı.
 
 ## Son Sprint
 
-- Sprint 2.3G — Kapı Paneli SEO Ürün Detay Sayfası tamamlandı.
-- Yedinci ürün detay SEO sayfası `/urunler/kapi-paneli/` production'a alındı.
-- Merge commit: `9f12720`
+- Sprint 2.6A — Quote Form Mapping Enhancement tamamlandı.
+- İngilizce ihracat landing page CTA'sından gelen `/teklif-al?urun=interior-door-components` query'si artık `Kapı komponentleri` ürün grubuna eşleniyor.
+- Merge commit: `a0d8319`
 
 ## Canonical Domain Standardı
 
@@ -215,3 +244,4 @@ PR #38 ile Header/Footer ve fallback link trailing slash temizliği tamamlandı.
   - `/urunler/kapi-kasasi/` → `https://www.yigiter.com.tr/urunler/kapi-kasasi/`
   - `/urunler/melamin-kapi-yuzeyi/` → `https://www.yigiter.com.tr/urunler/melamin-kapi-yuzeyi/`
   - `/urunler/pvc-film/` → `https://www.yigiter.com.tr/urunler/pvc-film/`
+  - `/en/interior-door-components/` → `https://www.yigiter.com.tr/en/interior-door-components/`
