@@ -29,6 +29,32 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Eğer İngilizce sayfa index'e girip impression alır ama CTR zayıf kalırsa Sprint 2.6B düşünülebilir.
 - Eğer Türkiye iç pazar sinyali daha güçlü büyürse Genç Boya / Melamin / Kastamonu Entegre odaklı SEO sprinti önceliklendirilebilir.
 
+## Ölçüm Dönemi Kararı
+
+Sprint 2.7, Sprint 2.5B, Sprint 2.5C ve PR #49 sonrası yeni kod işi açılmamalı.
+
+Bir sonraki aktif operasyon 7-14 gün sonra alınacak birleşik takip raporudur:
+
+- GSC URL Inspection
+- GSC Search Analytics
+- Vercel Analytics
+- Speed Insights
+
+Bu veri gelmeden aşağıdaki işler yapılmamalı:
+
+- Yeni İngilizce ürün alt sayfaları
+- Header dil seçici
+- İngilizce sayfa FAQ genişletmesi
+- Form akışı değişikliği
+- Yeni analytics sistemi
+- Büyük tasarım/görsel revizyon
+
+Karar kuralı:
+
+- İngilizce sayfa index + impression alır ama CTR veya teklif formu geçişi zayıf kalırsa Sprint 2.6B açılabilir.
+- Türkçe iç pazar sinyalleri daha hızlı büyürse Sprint 2.8 açılabilir.
+- `/teklif-al/` ziyaretleri oluşursa dönüşüm yolu ayrıca analiz edilir.
+
 ## Hassas Alanlar
 
 - `src/layouts/BaseLayout.astro`
