@@ -1,45 +1,86 @@
 # Next Steps — Yiğiter Sitesi
 
-## Durum
+## Güncel Karar
 
-Sprint 2.3 ürün SEO serisi tamamlandı. Kapanış raporu: `SEO_CLOSING_REPORT.md`.
+Şu an yeni kod işi açılmayacak.
 
-Kalan kritik iş yok.
+Ana öneri: **Bekle ve ölç**.
 
----
+Sprint 2.7 ile İngilizce ihracat sayfası artık site içinde görünür iç linkler alıyor. Sprint 2.5B ve Sprint 2.5C ile GSC + Vercel Analytics takip hattı hazır. Bir sonraki adım, 7-14 gün veri biriktikten sonra birleşik takip raporu almaktır.
 
-## Bekleyen Aksiyon (Bu Hafta)
+## 7-14 Gün Sonra Alınacak Birleşik Rapor
 
-- [ ] Search Console URL Denetimi → 7 ürün SEO sayfası için "Dizine ekle" talebi gönder
-- [ ] www property'de sitemap okunma tarihini takip et (birkaç gün içinde güncellenmeli)
+Kontrol kaynakları:
 
-Detaylı audit raporu: `SEARCH_CONSOLE_AUDIT.md`
+- GSC URL Inspection
+- GSC Search Analytics
+- Vercel Analytics
+- Vercel Speed Insights
 
----
+Kontrol edilecek ana sorular:
 
-## Opsiyonel Sonraki Sprintler
+- `/en/interior-door-components/` Google tarafından biliniyor mu?
+- İngilizce sayfa index'e girmiş mi?
+- İngilizce sayfa impression almaya başlamış mı?
+- İngilizce sayfa pageview artışı gösteriyor mu?
+- ABD trafiği İngilizce sayfaya düşmeye başlamış mı?
+- `/teklif-al/` ziyaret almaya başlamış mı?
+- Google/Bing referrer sinyali büyüyor mu?
+- Genç Boya / Melamin / Kastamonu Entegre tarafındaki iç pazar sinyalleri büyümüş mü?
+- Ürün sayfası → teklif formu yolu Vercel Analytics'te görünür hale geliyor mu?
 
-### 1. Kapı Komponentleri SEO Sayfası
-Mevcut `/urunler/kapi-komponentleri/` sayfası eski şablonla. Kapı kasası ve pervazı kapsayan B2B SEO şablonuyla güçlendirilebilir.
+## Mevcut Ölçüm Notları
 
-### 2. Genç Boya SEO/Marka Sayfası
-Mevcut `/urunler/genc-boya/` sayfası B2B SEO şablonuyla yeniden yazılabilir. Distribütörlük ve bayilik rolü ön plana çıkartılabilir.
+- Sprint 2.5B GSC raporuna göre 7 ürün SEO sayfası indexed/canonical match durumda.
+- `/en/interior-door-components/` sitemap'te ve canlı canonical doğru; GSC'de henüz `URL Google tarafından bilinmiyor`.
+- Sprint 2.5C ilk Vercel Analytics raporu:
+  - Son 7 gün pageviews: 112
+  - `/en/interior-door-components/`: 1 pageview
+  - `/teklif-al/`: 0 pageview
+  - United States: 76 pageview
+  - Referrer: direct / empty 91, bing.com 10, google.com 10
+  - p75 LCP: `/` 1240ms, `/en/interior-door-components` 431ms, `/urunler` 704ms
+- Vercel `request_path` query string'i ayrı kırılım olarak vermeyebilir; `/teklif-al?urun=...` ana `/teklif-al` path'i altında değerlendirilmelidir.
 
-### 3. Kapı İmalat Malzemeleri Kategori Sayfası
-Honeycomb dolgu ve PVC film için `/urunler/kapi-imalat-malzemeleri/` kategori sayfası güçlendirilebilir.
+## Olası Sonraki Sprintler
 
-### 4. İngilizce Landing Page
-Yurt dışı pazarı için `/en/` ihracat landing page. "Door frame manufacturer Turkey", "door architrave supplier Turkey" gibi ihracat anahtar kelimeleri hedefi.
+### 1. Sprint 2.6B — İngilizce İhracat Sayfası Güçlendirme
 
-### 5. Search Console Takip ve Performans Raporu
-7 ürün SEO sayfası yayında; Google Search Console üzerinden anahtar kelime sıralaması ve organik trafik takibi başlatılmalı. En yüksek öncelik.
+Sadece İngilizce sayfa index'e girip impression alır ama CTR zayıf kalırsa açılmalı.
 
----
+Olası kapsam:
+
+- FAQ ekleme
+- Door jamb / casing / MDF / melamine / PVC terimlerini doğal şekilde güçlendirme
+- Request Quote CTA mikro kopyası
+- İngilizce sayfadaki B2B güven unsurlarını derinleştirme
+
+### 2. Sprint 2.8 — Türkiye İç Pazar SEO
+
+GSC ve Vercel Analytics iç pazar sinyalleri daha güçlü büyürse açılmalı.
+
+Olası odaklar:
+
+- Genç Boya
+- Melamin kapı yüzeyi
+- Kastamonu Entegre
+- Kapı imalat malzemeleri
+
+### 3. Analytics Dönüşüm Takibi
+
+`/teklif-al/` ziyaretleri ve ürün sayfası → teklif formu yolu görünür hale gelirse açılmalı.
+
+Olası kapsam:
+
+- `/teklif-al/` ziyaretleri
+- Ürün sayfası → teklif formu yolu
+- ABD trafiği → İngilizce sayfa yolu
+- Vercel Analytics raporunun düzenli karşılaştırmalı kullanımı
 
 ## Uzun Vadeli
 
-- Ürün görselleri ve katalog içerikleri (gerçek fotoğraflar)
+- Ürün görselleri ve katalog içerikleri
 - KVKK metni hukuki kontrol
-- Schema.org structured data (Product, LocalBusiness)
+- Schema.org structured data genişletmesi
 - B2B teklif dönüşüm takibi / CRM akışı
 - Blog / haberler bölümü
