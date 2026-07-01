@@ -1,5 +1,49 @@
 # Changelog
 
+## 2026-07-01
+
+### Sprint 2.7 — English Export Internal Link & Discovery
+
+- `/en/interior-door-components/` İngilizce ihracat landing page'i site içinde keşfedilebilir hale getirildi.
+- Footer'a `English Export` linki eklendi.
+- Ana sayfa ihracat alanından ve `/ihracat/` sayfasından İngilizce sayfaya düşük riskli iç linkler eklendi.
+- `/teklif-al?urun=interior-door-components` form mapping'i korundu: `product_details = interior-door-components`, `product_group = Kapı komponentleri`.
+- Header, form submit, Web3Forms, KVKK, CSP, canonical, sitemap, `astro.config.mjs`, `vercel.json` ve query mapping akışlarına dokunulmadı.
+- Production route/browser testleri temiz geçti.
+- PR #47 merge edildi.
+- Merge commit: `d386df9647b89079b469b311bf2e424bc394f3f0`.
+
+### Sprint 2.5B — Search Console Follow-up Report
+
+- Kod değişikliği yapılmadan Search Console takip raporu üretildi.
+- Rapor: `reports/gsc-sprint-2-5b-2026-07-01.md`.
+- CSV: `reports/gsc-sprint-2-5b-2026-07-01.csv`.
+- 17 URL kontrol edildi.
+- 7 ürün SEO sayfası indexed/canonical match durumda.
+- Sitemap sağlıklı: warning 0, error 0.
+- `/en/interior-door-components/` sitemap'te, canlı canonical doğru ve noindex yok; GSC'de henüz `URL Google tarafından bilinmiyor`.
+- Karar: yeni teknik müdahale değil, 7-14 gün bekle ve ölç.
+
+### Vercel CLI / Local Ignore Cleanup
+
+- Local repo Vercel projesine bağlandı: `sakiryigiter-1012s-projects/yigiter-com-tr`.
+- Vercel project ID: `prj_GvrEwz9NKvYFnGw2PR3yP8VKBcoY`.
+- Production deploy listesinde `Ready` doğrulandı.
+- `.vercel/` ve `.env.local` commit dışında tutuldu.
+- `.DS_Store` temizlendi ve ignore edildi.
+- `.env`, `.env.*`, `!.env.example` düzeni korundu.
+
+### Sprint 2.5C — Vercel Analytics Local Report Script
+
+- Read-only lokal Vercel Analytics / Speed Insights rapor script'i eklendi: `scripts/vercel_analytics_report.py`.
+- Script `vercel metrics` üzerinden Markdown rapor üretir.
+- Raw JSON, token veya secret commit edilmedi.
+- Raporlar `reports/` altında commit dışında bırakıldı.
+- İlk rapor: `reports/vercel-analytics-2026-07-01.md`.
+- İlk metrikler: son 7 gün 112 pageview, United States 76, `/en/interior-door-components/` 1, `/teklif-al/` 0.
+- PR #48 merge edildi.
+- Merge commit: `fea8f72d6f12b86a4d170cf4b107dcd52c9c0f58`.
+
 ## 2026-06-28
 
 ### Vercel Analytics ve Speed Insights Entegrasyonu

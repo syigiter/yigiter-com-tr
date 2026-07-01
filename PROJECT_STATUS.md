@@ -9,6 +9,65 @@
 - Teknoloji: Astro tabanlı statik site
 - Ana hedef: Yiğiter Orman Ürünleri için hızlı, güvenilir, SEO uyumlu ve B2B teklif talebi üreten kurumsal web sitesi
 
+## Güncel Durum — 2026-07-01
+
+- Son production-impact sprint: Sprint 2.7 — English Export Internal Link & Discovery, PR #47.
+- Sprint 2.7 merge commit: `d386df9647b89079b469b311bf2e424bc394f3f0`.
+- Sprint 2.7 production deploy: success / completed.
+- Son tooling/reporting sprint: Sprint 2.5C — Vercel Analytics Local Report Script, PR #48.
+- Sprint 2.5C merge commit: `fea8f72d6f12b86a4d170cf4b107dcd52c9c0f58`.
+- Vercel CLI bağlantısı aktif: `sakiryigiter-1012s-projects/yigiter-com-tr`.
+- Vercel project ID: `prj_GvrEwz9NKvYFnGw2PR3yP8VKBcoY`.
+- Local Vercel dosyaları `.vercel/` ve `.env.local` commit dışında tutuluyor.
+
+## İngilizce İhracat Sayfası Durumu
+
+- Canlı sayfa: `/en/interior-door-components/`.
+- Sayfa sitemap içinde ve canlıda 200 dönüyor.
+- Sprint 2.7 sonrası site içinde doğal iç link alıyor:
+  - Footer: `English Export`
+  - Ana sayfa ihracat / international buyers linki
+  - `/ihracat/` sayfası international buyers linki
+- Header dil seçici eklenmedi; bu bilinçli olarak kapsam dışında bırakıldı.
+- `/teklif-al?urun=interior-door-components` form mapping korunuyor:
+  - `product_details = interior-door-components`
+  - `product_group = Kapı komponentleri`
+- Sprint 2.7 canlı browser kontrolü: console error 0, failed request 0, CSP error 0.
+
+## GSC ve Analytics Takip Durumu
+
+- Sprint 2.5B Search Console takip raporu üretildi:
+  - `reports/gsc-sprint-2-5b-2026-07-01.md`
+  - `reports/gsc-sprint-2-5b-2026-07-01.csv`
+- Kod değişikliği, commit ve PR yapılmadı.
+- Kontrol edilen URL sayısı: 17.
+- Kritik index/canonical sorunu yok.
+- 7 ürün SEO sayfası indexed/canonical match durumda.
+- Sitemap sağlıklı: warning 0, error 0.
+- `/en/interior-door-components/` GSC durumu:
+  - Sitemap'te var.
+  - Canlı canonical doğru.
+  - Noindex yok.
+  - GSC'de henüz `URL Google tarafından bilinmiyor`.
+  - Sayfa yeni olduğu için beklenen durum; karar: bekle ve ölç.
+- Bazı eski sayfalarda GSC no-www canonical geçmişi görünebilir; canlı canonical www olduğu için şimdilik teknik müdahale değil takip öneriliyor.
+
+## Vercel Analytics Local Raporlama Durumu
+
+- Sprint 2.5C ile read-only lokal rapor script'i eklendi:
+  - `scripts/vercel_analytics_report.py`
+- Script Vercel CLI `vercel metrics` üzerinden Web Analytics ve Speed Insights verisi okur.
+- Raw JSON diske yazılmaz; Markdown rapor `reports/` altında üretilir ve commit dışı kalır.
+- İlk rapor: `reports/vercel-analytics-2026-07-01.md`.
+- İlk Vercel Analytics bulguları:
+  - Son 7 gün pageviews: 112.
+  - `/en/interior-door-components/` pageviews: 1.
+  - `/teklif-al/` pageviews: 0.
+  - En yüksek ülke: United States, 76 pageview.
+  - Referrer: direct / empty 91, bing.com 10, google.com 10.
+  - Speed Insights p75 LCP: `/` 1240ms, `/en/interior-door-components` 431ms, `/urunler` 704ms.
+- Vercel `request_path` query string'i ayrı kırılım olarak vermeyebilir; `/teklif-al?urun=...` ana `/teklif-al` path'i üzerinden değerlendirilir.
+
 ## Canlı Kalite Durumu
 
 Son bilinen sonuçlar:
@@ -168,9 +227,10 @@ PR #38 ile Header/Footer ve fallback link trailing slash temizliği tamamlandı.
 
 ## Son Production Durumu
 
-- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E, Sprint 2.3F, Sprint 2.3G, Kapı Paneli Duplicate Ayrıştırma, Header/Footer Trailing Slash Temizliği ve Vercel Analytics/Speed Insights entegrasyonu tamamlandı.
+- Sprint 1, Sprint 1.1, Sprint 1.2, Sprint 2.1, Sprint 2.2A, Sprint 2.2B, Sprint 2.2C, Sprint 2.3A, Sprint 2.3B, Sprint 2.3C, Sprint 2.3D, SEO Cleanup (PVC Film duplicate), Canonical Domain Alignment, Sprint 2.3E, Sprint 2.3F, Sprint 2.3G, Kapı Paneli Duplicate Ayrıştırma, Header/Footer Trailing Slash Temizliği, Vercel Analytics/Speed Insights entegrasyonu, Sprint 2.7 ve Sprint 2.5C tamamlandı.
 - Son production deploy başarılı.
-- Son commit: `b51408f` — Add Vercel analytics integrations
+- Son production-impact sprint: Sprint 2.7 — English Export Internal Link & Discovery, PR #47.
+- Son tooling/reporting sprint: Sprint 2.5C — Vercel Analytics Local Report Script, PR #48.
 
 ## Vercel Analytics / Speed Insights Durumu
 
@@ -180,15 +240,22 @@ PR #38 ile Header/Footer ve fallback link trailing slash temizliği tamamlandı.
 - `npm run build` başarılı.
 - Production deploy Vercel'de `Ready`.
 - Canlı kontrol: `https://www.yigiter.com.tr` HTTP/2 200.
-- Not: Vercel metrikleri gerçek ziyaretler geldikçe panelde dolacaktır.
+- Local raporlama script'i: `scripts/vercel_analytics_report.py`.
+- Not: Vercel metrikleri artık panel yanında CLI/script ile de okunabilir.
 
 ## Son Production Commit / Son Sprint
 
-- Son sprint: PR #38 — Header/Footer Trailing Slash ve Fallback Link Temizliği
-- Merge commit: `8887207`
-- Kapsam: Header, Footer, home CTA, /urunler kart linkleri, KE alt sayfa breadcrumbleri
-- Build: 37 sayfa
-- Production deploy: aktif
+- Son production-impact sprint: PR #47 — Sprint 2.7 English Export Internal Link & Discovery
+- Merge commit: `d386df9647b89079b469b311bf2e424bc394f3f0`
+- Kapsam: Footer, ana sayfa ve `/ihracat/` üzerinden `/en/interior-door-components/` sayfasına düşük riskli iç linkler
+- Production deploy: success
+
+## Son Tooling / Reporting Sprint
+
+- Son tooling sprint: PR #48 — Sprint 2.5C Vercel Analytics Local Report Script
+- Merge commit: `fea8f72d6f12b86a4d170cf4b107dcd52c9c0f58`
+- Kapsam: read-only Vercel Analytics / Speed Insights Markdown rapor script'i
+- Site davranışı: değişmedi
 
 ## Son Production Commit / Son Hotfix
 
