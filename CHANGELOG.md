@@ -1,5 +1,60 @@
 # Changelog
 
+## 2026-06-29
+
+### Sprint 2.6A — Quote Form Mapping Enhancement
+
+- İngilizce ihracat landing page CTA'sından gelen `/teklif-al?urun=interior-door-components` query'si teklif formu mapping'ine eklendi.
+- Canlı doğrulamada `product_details = interior-door-components` ve `product_group = Kapı komponentleri` olarak çalıştığı görüldü.
+- `/teklif-al?urun=kapi-pervazi` davranışı korundu.
+- Web3Forms submit akışı, KVKK checkbox, `/tesekkurler` redirect, Header/Footer, CSP, canonical ve sitemap tarafına dokunulmadı.
+- `npm run build` başarılı: 38 sayfa üretildi.
+- PR #45 merge edildi.
+- Merge commit: `a0d8319`.
+
+### Sprint 2.6 — English Export Landing Page
+
+- `/en/interior-door-components/` İngilizce B2B ihracat landing page'i eklendi.
+- Hedef kitle: door distributors, millwork companies, interior door manufacturers, importers ve project-based buyers.
+- SEO bilgileri:
+  - Title: `Interior Door Components Manufacturer from Türkiye | Yigiter`
+  - H1: `Interior Door Components from Türkiye`
+  - Canonical: `https://www.yigiter.com.tr/en/interior-door-components/`
+  - `lang="en"` ve `og:locale="en_US"`
+- `BaseLayout.astro` sayfa bazlı `lang`, `ogLocale` ve exact title desteği için geriye uyumlu prop'larla güncellendi.
+- Yeni language selector, English menu, yeni font, yeni görsel veya ağır JS eklenmedi.
+- `npm run build` başarılı: 38 sayfa üretildi.
+- PR #44 merge edildi.
+- Merge commit: `deae0a4`.
+
+### Sprint 2.5A — Local GSC Reporting Script
+
+- Google Search Console verilerini yerelde read-only çekmek için raporlama script'i eklendi.
+- Eklenen/güncellenen dosyalar: `.gitignore`, `config/gsc_urls.json`, `requirements-gsc.txt`, `scripts/gsc_check.py`.
+- Script Search Analytics, URL Inspection ve sitemap durumunu Markdown rapora yazacak şekilde hazırlandı.
+- Read-only scope kullanılıyor: `https://www.googleapis.com/auth/webmasters.readonly`.
+- Secret dosyalar `.gitignore` ile korunuyor.
+- PR #43 merge edildi.
+- Merge commit: `96300e8`.
+
+### Sprint 2.5 — Search Console Takip Raporu
+
+- `reports/gsc-sprint-2-5-2026-06-29.md` raporu üretildi.
+- 7 ürün SEO sayfasının index/canonical durumu GSC URL Inspection ile kontrol edildi.
+- 7 ürün SEO sayfası indexed/canonical match durumunda raporlandı.
+- Sitemap durumu başarılı göründü.
+- Search Analytics sinyalleri henüz sınırlı; international impression var ama tıklama yok.
+- Bu bulgu Sprint 2.6 İngilizce ihracat landing page kararını destekledi.
+
+### Sprint 2.4 — Search Visibility and B2B Door Components SEO
+
+- `/subeler/` metadata güncellendi.
+- `/iletisim/` metadata güncellendi.
+- `/urunler/kapi-komponentleri/` B2B SEO içeriği güçlendirildi.
+- 7 ürün detay sayfasından `/urunler/kapi-komponentleri/` sayfasına doğal iç linkler eklendi veya güncellendi.
+- PR #42 merge edildi.
+- Merge commit: `1060780`.
+
 ## 2026-06-28
 
 ### Vercel Analytics ve Speed Insights Entegrasyonu

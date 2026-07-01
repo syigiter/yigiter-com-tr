@@ -48,6 +48,11 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Canlı Web3Forms mail testi kullanıcı tarafından başarılı doğrulandı.
 - Vercel Web Analytics ve Speed Insights `BaseLayout.astro` üzerinden tüm sayfalara eklendi.
 - Analytics/Speed Insights metrikleri Vercel panelinde gerçek ziyaretlerden sonra dolacaktır.
+- `BaseLayout.astro` sayfa bazlı `lang`, `ogLocale` ve `appendSiteName` prop'larını destekler; varsayılanlar Türkçe sayfaların eski davranışını korur.
+- İngilizce ihracat landing page yayında: `/en/interior-door-components/`.
+- İngilizce sayfa site menüsüne veya dil seçiciye bağlanmadı; şu an SEO landing page ve doğrudan URL olarak çalışıyor.
+- `/teklif-al?urun=interior-door-components` prefill akışı `product_details = interior-door-components` ve `product_group = Kapı komponentleri` olarak doğrulandı.
+- GSC yerel raporlama script'i read-only çalışır; credentials/token dosyaları commit edilmemelidir.
 
 ## Tamamlanan Sprintler
 
@@ -232,6 +237,56 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Production deploy Vercel'de `Ready`.
 - Canlı kontrol: `https://www.yigiter.com.tr` HTTP/2 200.
 
+### Sprint 2.4 — Search Visibility and B2B Door Components SEO
+
+- `/subeler/` ve `/iletisim/` metadata güncellendi.
+- `/urunler/kapi-komponentleri/` B2B SEO içeriği güçlendirildi.
+- 7 ürün detay sayfasından `/urunler/kapi-komponentleri/` sayfasına doğal iç linkler eklendi veya güncellendi.
+- Production doğrulama temiz geçti: route 200, console/failed/CSP error 0.
+- Merge commit: `1060780`.
+
+### Sprint 2.5A — Local GSC Reporting Script
+
+- Google Search Console verilerini yerelde read-only çekmek için script eklendi.
+- Değişen dosyalar: `.gitignore`, `config/gsc_urls.json`, `requirements-gsc.txt`, `scripts/gsc_check.py`.
+- Scope: `https://www.googleapis.com/auth/webmasters.readonly`.
+- Script "Dizine ekle" veya sitemap submit gibi yazma işlemleri yapmaz.
+- Secret dosyalar `.gitignore` ile korunur: `credentials.json`, `client_secret*.json`, `service-account.json`, `token.json`, `.gsc/`, `reports/*.raw.json`.
+- Merge commit: `96300e8`.
+
+### Sprint 2.5 — Search Console Follow-up
+
+- Local/commit dışı rapor dosyası: `reports/gsc-sprint-2-5-2026-06-29.md`.
+- 7 ürün SEO sayfası URL Inspection sonucunda indexed/canonical match durumunda.
+- Sitemap durumu başarılı.
+- Search Analytics sinyali henüz çok sınırlı; international impression var ama tıklama yok.
+- Bu veri Sprint 2.6 İngilizce ihracat landing page kararını destekledi.
+
+### Sprint 2.6 — English Export Landing Page
+
+- Yeni sayfa: `/en/interior-door-components/`.
+- Hedef: Yurt dışı B2B alıcılar, kapı komponentleri ihracat görünürlüğü.
+- SEO:
+  - Title: `Interior Door Components Manufacturer from Türkiye | Yigiter`
+  - Canonical: `https://www.yigiter.com.tr/en/interior-door-components/`
+  - H1: `Interior Door Components from Türkiye`
+  - `lang="en"`, `og:locale="en_US"`.
+- Yeni çok dillilik altyapısı, language selector veya English menu eklenmedi.
+- `BaseLayout.astro` sadece geriye uyumlu dil/meta prop'ları için değişti.
+- Build: 38 sayfa.
+- Merge commit: `deae0a4`.
+
+### Sprint 2.6A — Quote Form Mapping Enhancement
+
+- İngilizce landing page CTA query mapping'i eklendi.
+- `/teklif-al?urun=interior-door-components` canlıda:
+  - `product_details = interior-door-components`
+  - `product_group = Kapı komponentleri`
+- `/teklif-al?urun=kapi-pervazi` ve mevcut Türkçe mapping'ler korundu.
+- Web3Forms, KVKK, redirect, header/footer, CSP, canonical ve sitemap değişmedi.
+- Build: 38 sayfa.
+- Merge commit: `a0d8319`.
+
 ### Kapı Paneli Duplicate Ayrıştırma — PR #36
 
 - Yeni genel Kapı Paneli sayfası ile eski Kastamonu Entegre Kapı Paneli sayfası arasındaki orta seviye duplicate riski analiz edildi.
@@ -258,7 +313,6 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Kapı pervazı için standart slug: `kapi-pervazi` — yanlış `kapi-pervaz` kullanılmamalı.
 - Kapı kasası için standart slug: `kapi-kasasi`.
 - Melamin kapı yüzeyi için standart slug: `melamin-kapi-yuzeyi`.
-- Canonical domain mevcut standart gereği `https://yigiter.com.tr` üzerinden üretiliyor (`astro.config.mjs` → `site: 'https://yigiter.com.tr'`); `www` değişikliği ayrı karar konusudur.
 - Header/Footer/diğer sayfalarda trailing slash'siz melamin referansları mevcut; Vercel yönetiyor, işlevsel sorun yok; ayrı temizlik sprintine bırakıldı.
 - PVC Film için standart URL: `/urunler/pvc-film/` — eski `/urunler/kapi-imalat-malzemeleri/pvc-film/` artık kullanılmamalı.
 - Canonical domain standardı: `https://www.yigiter.com.tr` — yeni sayfa eklenirken canonical www üzerinden kontrol edilmeli.
@@ -278,4 +332,4 @@ Sprint 2.3 ürün SEO serisi tamamlandı. Kapanış raporu: `SEO_CLOSING_REPORT.
 
 ## Sonraki Mantıklı İş
 
-Ürün SEO serisi ve teknik temizlik tamamlandı. Opsiyonel sonraki sprintler için `NEXT_STEPS.md` ve `SEO_CLOSING_REPORT.md` bkz.
+Ürün SEO serisi, GSC raporlama, İngilizce ihracat landing page ve quote form mapping tamamlandı. Sıradaki mantıklı iş için `NEXT_STEPS.md` ve varsa local/commit dışı `reports/gsc-sprint-2-5-2026-06-29.md` raporuna bak.
