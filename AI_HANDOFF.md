@@ -55,6 +55,28 @@ Karar kuralı:
 - Türkçe iç pazar sinyalleri daha hızlı büyürse Sprint 2.8 açılabilir.
 - `/teklif-al/` ziyaretleri oluşursa dönüşüm yolu ayrıca analiz edilir.
 
+### B2B Alıcı Değerlendirme Notları — 2026-07-05
+
+Kullanıcı, siteyi Türk kapı imalatçısı / potansiyel B2B alıcı gözüyle değerlendirdi.
+
+Bu notlar ilk ölçüm dönemi sonrasında sprint seçimi yapılırken dikkate alınmalı.
+
+Ana bulgular:
+
+- Kasa/pervaz için gerçek ürün fotoğrafı, profil kesiti ve ölçü tablosu eksik.
+- Teknik veri eksik: ölçüler, malzeme türü, MOQ, teslim süresi, stok, melamin ve honeycomb gramaj bilgisi.
+- İndirilebilir katalog/föy yok.
+- Sertifika ve ihracat kanıtları zayıf.
+- “Tedarikçiyiz, kapı üreticisi müşterilerimizle rekabet etmeyiz” mesajı netleştirilmeli.
+- İhracat haritasındaki “Kaynak: TİM 2025” ibaresi yanlış anlaşılabilir; harita firma ihracat pazarlarını gösteriyor ama kaynak ibaresi harita görseli/altlığı olarak ayrılmalı.
+- Kuruluş yılı, kurucu/yönetim yüzü ve ekip fotoğrafı değerlendirilmeli.
+- Metinlerde tekrar azaltılıp teknik veri ve kanıt artırılmalı.
+- E-posta, URL, canonical ve telif yılı hijyen maddeleri canlı sitede doğrulanmalı.
+
+Karar:
+
+Bu notlar yeni sprint açmak için tek başına yeterli değildir. Önce 7–14 günlük GSC + Vercel Analytics + Speed Insights birleşik ölçüm raporu alınacak. Sonra içerik/asset/hotfix önceliği veriye göre belirlenecek.
+
 ## Hassas Alanlar
 
 - `src/layouts/BaseLayout.astro`
