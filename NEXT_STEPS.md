@@ -25,6 +25,23 @@ Bu dönemde yapılmayacaklar:
 
 Önce GSC + Vercel Analytics birleşik verisi okunmalı.
 
+### B2B Buyer Review Notu
+
+2026-07-05 tarihinde Türk kapı imalatçısı / potansiyel B2B alıcı gözüyle anasayfa ve kapı komponentleri sayfası için değerlendirme notları alındı.
+
+Bu notlar ilk GSC + Vercel Analytics + Speed Insights birleşik ölçüm raporu sonrasında karar verirken dikkate alınacak.
+
+Özellikle şu başlıklar değerlendirilecek:
+
+- Ürün fotoğrafı, profil kesiti ve ölçü tablosu eksikliği
+- İndirilebilir katalog / ürün föyü / melamin desen PDF’i ihtiyacı
+- Sertifika ve ihracat kanıtı eksikliği
+- “Kapı üreticisinin rakibi değil, yan sanayi tedarikçisi” konumlandırması
+- İhracat haritası metninin yanlış anlaşılma riski
+- E-posta, URL, canonical ve telif yılı hijyen kontrolü
+
+Bu notlara rağmen yeni içerik veya kod sprinti hemen açılmayacak. Önce ölçüm dönemi tamamlanacak ve birleşik rapor okunacak.
+
 ## 7-14 Gün Sonra Alınacak Birleşik Rapor
 
 Kontrol kaynakları:
