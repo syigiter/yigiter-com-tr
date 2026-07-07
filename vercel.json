@@ -90,6 +90,26 @@
       "source": "/urunler/kapi-imalat-malzemeleri/pvc-film/",
       "destination": "/urunler/pvc-film/",
       "permanent": true
+    },
+    {
+      "source": "/urunler/kapi-komponentleri/kasa",
+      "destination": "/urunler/kapi-kasasi/",
+      "permanent": true
+    },
+    {
+      "source": "/urunler/kapi-komponentleri/kasa/",
+      "destination": "/urunler/kapi-kasasi/",
+      "permanent": true
+    },
+    {
+      "source": "/urunler/kapi-komponentleri/pervaz",
+      "destination": "/urunler/kapi-pervazi/",
+      "permanent": true
+    },
+    {
+      "source": "/urunler/kapi-komponentleri/pervaz/",
+      "destination": "/urunler/kapi-pervazi/",
+      "permanent": true
     }
   ]
 }
