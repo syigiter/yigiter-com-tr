@@ -29,6 +29,32 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Eğer İngilizce sayfa index'e girip impression alır ama CTR zayıf kalırsa Sprint 2.6B düşünülebilir.
 - Eğer Türkiye iç pazar sinyali daha güçlü büyürse Genç Boya / Melamin / Kastamonu Entegre odaklı SEO sprinti önceliklendirilebilir.
 
+## Ölçüm Dönemi Kararı
+
+Sprint 2.7, Sprint 2.5B, Sprint 2.5C ve PR #49 sonrası yeni kod işi açılmamalı.
+
+Bir sonraki aktif operasyon 7-14 gün sonra alınacak birleşik takip raporudur:
+
+- GSC URL Inspection
+- GSC Search Analytics
+- Vercel Analytics
+- Speed Insights
+
+Bu veri gelmeden aşağıdaki işler yapılmamalı:
+
+- Yeni İngilizce ürün alt sayfaları
+- Header dil seçici
+- İngilizce sayfa FAQ genişletmesi
+- Form akışı değişikliği
+- Yeni analytics sistemi
+- Büyük tasarım/görsel revizyon
+
+Karar kuralı:
+
+- İngilizce sayfa index + impression alır ama CTR veya teklif formu geçişi zayıf kalırsa Sprint 2.6B açılabilir.
+- Türkçe iç pazar sinyalleri daha hızlı büyürse Sprint 2.8 açılabilir.
+- `/teklif-al/` ziyaretleri oluşursa dönüşüm yolu ayrıca analiz edilir.
+
 ## Hassas Alanlar
 
 - `src/layouts/BaseLayout.astro`
@@ -80,6 +106,10 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - Sprint 2.5B GSC raporunda `/en/interior-door-components/` henüz Google tarafından bilinmiyor; sayfa yeni olduğu için bekle ve ölç kararı verildi.
 - Sprint 2.5C ile `scripts/vercel_analytics_report.py` eklendi; Vercel Analytics / Speed Insights raporu read-only üretilebiliyor.
 - İlk Vercel Analytics sinyali: son 7 gün 112 pageview, United States 76, `/en/interior-door-components/` 1, `/teklif-al/` 0.
+- 2026-07-03: Kod tabanı ve canlı site üzerinde genel SEO denetimi yapıldı. Tam rapor: `SEO_AUDIT_2026-07-03.md`.
+- Denetimde apex→www redirect'inin 307 (geçici) olduğu tespit edildi — Google'ın www property'de sayfa index'lememesinin muhtemel nedeni. Kullanıcı Vercel panelinden 308'e (kalıcı) çevirdi.
+- Denetim sonrası 7 ürün SEO sayfası için GSC "Dizine ekle" talepleri kullanıcı tarafından gönderildi.
+- Denetimde bulunan diğer maddeler (title/description kısaltma, kasa/pervaz keyword cannibalization, hreflang, schema genişletme, dosya temizliği) ölçüm dönemi bitene kadar açılmayacak; `NEXT_STEPS.md` → Sprint 2.9 adayı olarak eklendi.
 
 ## Tamamlanan Sprintler
 
