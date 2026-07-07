@@ -110,6 +110,12 @@ Karar kuralı:
 - Denetimde apex→www redirect'inin 307 (geçici) olduğu tespit edildi — Google'ın www property'de sayfa index'lememesinin muhtemel nedeni. Kullanıcı Vercel panelinden 308'e (kalıcı) çevirdi.
 - Denetim sonrası 7 ürün SEO sayfası için GSC "Dizine ekle" talepleri kullanıcı tarafından gönderildi.
 - Denetimde bulunan diğer maddeler (title/description kısaltma, kasa/pervaz keyword cannibalization, hreflang, schema genişletme, dosya temizliği) ölçüm dönemi bitene kadar açılmayacak; `NEXT_STEPS.md` → Sprint 2.9 adayı olarak eklendi.
+- 2026-07-07: Ölçüm dönemi kapandı. Birleşik GSC + Vercel raporu alındı (`reports/gsc-sprint-2-5-2026-07-07.md`, `reports/vercel-analytics-2026-07-07.md`).
+- Rapor sonucu: 7 ürün sayfası index sağlıklı; gerçek arama sinyali ince ve tümü Türkçe/ticari (28g ~32 impression, 1 klik); 4 sayfa 0 impression (kapi-kasasi, pvc-film, mdflam, kapi-paneli); sayfalar 7-16. pozisyonda, CTR ~0.
+- İngilizce arama talebi sıfır: GSC'de tek İngilizce sorgu yok, `/en/` impression almamış. Vercel'deki ABD ~350 pv organik-arama-dışı (Linux %27 + saçık datacenter coğrafyası → muhtemelen bot; kesin ayrım için Vercel referrer/UA kırılımına bakılabilir).
+- Script'in otomatik "Recommend Sprint 2.6: build /en" önerisi reddedildi: gömülü naif heuristik, bot/arama-dışı trafiği ihracat talebi sanıyor. Gerçek veri sıfır İngilizce arama sinyali gösteriyor.
+- KARAR: Sprint 2.9 (on-page/teknik SEO) açılıyor. 2.6B (İngilizce) sıfır arama sinyali nedeniyle hayır; 2.8 (Türkçe iç pazar) 32 impression çok ince olduğu için henüz değil.
+- Sprint 2.9 PR sırası (`NEXT_STEPS.md`): ①a kasa/pervaz cannibalization → ② 7 sayfa title/description → ①b 4 ölü sayfa içerik → ③ schema. Cannibalization önce çünkü ②'nin önkoşulu.
 
 ## Tamamlanan Sprintler
 
