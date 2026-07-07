@@ -141,6 +141,31 @@ Bu notlar yeni sprint açmak için tek başına yeterli değildir. Önce 7–14 
 - KARAR: Sprint 2.9 (on-page/teknik SEO) açılıyor. 2.6B (İngilizce) sıfır arama sinyali nedeniyle hayır; 2.8 (Türkçe iç pazar) 32 impression çok ince olduğu için henüz değil.
 - Sprint 2.9 PR sırası (`NEXT_STEPS.md`): ①a kasa/pervaz cannibalization → ② 7 sayfa title/description → ①b 4 ölü sayfa içerik → ③ schema. Cannibalization önce çünkü ②'nin önkoşulu.
 
+## Sprint 2.9 ①a — Kasa/Pervaz Cannibalization Konsolidasyonu (2026-07-07)
+
+Durum: **Kod tarafı KAPANDI ve production'da doğrulandı. GSC yansıması BEKLİYOR (manuel adımlar + Google crawl süresi).**
+
+Yapılan (PR #53, merge commit `a8167d8`; kod commit `2ff07b4`):
+
+- İki duplicate alt sayfa silindi: `urunler/kapi-komponentleri/kasa.astro`, `.../pervaz.astro`.
+- `vercel.json`'a 4 kalıcı 301 (pvc-film precedent'i): `komponentleri/kasa[/]` → `/urunler/kapi-kasasi/`, `komponentleri/pervaz[/]` → `/urunler/kapi-pervazi/`.
+- `ihracat.astro`'da 2 iç link doğrudan slash'lı top-level'a repointlendi (zincirsiz).
+- Parent hub `kapi-komponentleri/index.astro` dokunulmadı (indexli, inbound link var, çocuklarına link vermiyordu).
+
+Production doğrulaması (2026-07-07, `curl -sIL` hop testi, deploy `a8167d8` canlıyken):
+
+- `komponentleri/kasa` (slash'sız + slash'lı) → **1 hop** → `kapi-kasasi/` → 200
+- `komponentleri/pervaz` (slash'sız + slash'lı) → **1 hop** → `kapi-pervazi/` → 200
+- `kapi-kasasi/`, `kapi-pervazi/` → **0 hop** → 200
+- Zincir yok, yanlış hedef yok. (Davranış testi deploy-doğruluğunun da kanıtı: eski deploy canlı olsaydı çocuklar 0-hop-200 dönerdi.)
+
+Rollback (gerekirse): `vercel.json`'daki ilgili redirect satırını düzelt + redeploy; ya da `git revert 2ff07b4` (SHA korundu, merge/rebase yapılmadı).
+
+BEKLEYEN manuel GSC adımları (kod değil, kullanıcı tarafında — henüz YAPILMADI):
+
+- Kazanan `kapi-kasasi/` + `kapi-pervazi/` için GSC reindex talebi gönder.
+- Kaybeden 2 eski URL'yi (`komponentleri/kasa`, `komponentleri/pervaz`) manuel URL Inspection'dan geçir → "Taranmış, yönlendirilmiş" statüsünü tetikle. Bu URL'ler GSC izlenen sette değildi (`config/gsc_urls.json`), crawl kuyruğunda olmadıkları için Google 301'i kendiliğinden görmesi haftalar alabilir.
+
 ## Tamamlanan Sprintler
 
 ### Sprint 1 — Teknik Sağlamlaştırma
