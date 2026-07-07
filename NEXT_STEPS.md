@@ -20,13 +20,15 @@
 
 Her iş ayrı küçük branch/PR. Her PR sonrası stop-report-wait: build + route smoke test + console/CSP kontrolü, sonra ölç.
 
-## Bekleme Dönemi Notu
+## Bekleme Dönemi Notu (kapandı — 2026-07-07)
 
-Sprint 2.7, Sprint 2.5B ve Sprint 2.5C sonrası proje ölçüm dönemine geçti.
+> Bu dönem kapandı: birleşik GSC + Vercel raporu 2026-07-07'de alındı ve Sprint 2.9 seçildi (bkz. yukarıdaki "Güncel Karar"). Aşağıdaki freeze kuralları geçmiş kayıt olarak tutuluyor; artık aktif değil.
 
-7-14 gün veri birikmeden yeni SEO içerik sprinti veya İngilizce sayfa genişletmesi açılmamalı.
+Sprint 2.7, Sprint 2.5B ve Sprint 2.5C sonrası proje ölçüm dönemine geçmişti.
 
-Bu dönemde yapılmayacaklar:
+7-14 gün veri birikmeden yeni SEO içerik sprinti veya İngilizce sayfa genişletmesi açılmıyordu.
+
+O dönemde yapılmayanlar:
 
 - Yeni İngilizce ürün alt sayfası açma
 - Header'a dil seçici ekleme
@@ -35,7 +37,22 @@ Bu dönemde yapılmayacaklar:
 - Büyük tasarım veya görsel revizyon yapma
 - GA4, Plausible, Umami veya Web Analytics Drains gibi yeni analytics sistemi kurma
 
-Önce GSC + Vercel Analytics birleşik verisi okunmalı.
+### B2B Buyer Review Notu
+
+2026-07-05 tarihinde Türk kapı imalatçısı / potansiyel B2B alıcı gözüyle anasayfa ve kapı komponentleri sayfası için değerlendirme notları alındı.
+
+Bu notlar ilk GSC + Vercel Analytics + Speed Insights birleşik ölçüm raporu sonrasında karar verirken dikkate alınacak.
+
+Özellikle şu başlıklar değerlendirilecek:
+
+- Ürün fotoğrafı, profil kesiti ve ölçü tablosu eksikliği
+- İndirilebilir katalog / ürün föyü / melamin desen PDF’i ihtiyacı
+- Sertifika ve ihracat kanıtı eksikliği
+- “Kapı üreticisinin rakibi değil, yan sanayi tedarikçisi” konumlandırması
+- İhracat haritası metninin yanlış anlaşılma riski
+- E-posta, URL, canonical ve telif yılı hijyen kontrolü
+
+> Güncelleme (2026-07-07): Ölçüm dönemi tamamlandı ve birleşik rapor okundu; Sprint 2.9 (on-page/teknik SEO) seçildi. Bu B2B alıcı notları artık 2.9 sonrası içerik/asset/hotfix önceliklendirmesi için aday havuzda tutuluyor.
 
 ## 7-14 Gün Sonra Alınacak Birleşik Rapor
 
