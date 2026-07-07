@@ -140,6 +140,7 @@ Bu notlar yeni sprint açmak için tek başına yeterli değildir. Önce 7–14 
 - Script'in otomatik "Recommend Sprint 2.6: build /en" önerisi reddedildi: gömülü naif heuristik, bot/arama-dışı trafiği ihracat talebi sanıyor. Gerçek veri sıfır İngilizce arama sinyali gösteriyor.
 - KARAR: Sprint 2.9 (on-page/teknik SEO) açılıyor. 2.6B (İngilizce) sıfır arama sinyali nedeniyle hayır; 2.8 (Türkçe iç pazar) 32 impression çok ince olduğu için henüz değil.
 - Sprint 2.9 PR sırası (`NEXT_STEPS.md`): ①a kasa/pervaz cannibalization → ② 7 sayfa title/description → ①b 4 ölü sayfa içerik → ③ schema. Cannibalization önce çünkü ②'nin önkoşulu.
+- ②'nin önkoşulu: ①a GSC yansıması + reindex. ②'yi açmadan önce (a) kazanan `kapi-kasasi`/`kapi-pervazi` reindex talebi gönderilmiş, (b) bu iki sayfanın konsolidasyon-sonrası GSC impression/pozisyonu birkaç gün oturmuş olmalı — çünkü sinyal onlarda toplandı ve title önceliği bu veriye göre değişebilir. Beklemek veri toplamadır, gecikme değil.
 
 ## Sprint 2.9 ①a — Kasa/Pervaz Cannibalization Konsolidasyonu (2026-07-07)
 
