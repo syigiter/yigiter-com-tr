@@ -1,20 +1,34 @@
 # Next Steps — Yiğiter Sitesi
 
-## Güncel Karar
+## Güncel Karar (2026-07-07)
 
-Şu an yeni kod işi açılmayacak.
+Ölçüm dönemi tamamlandı. Birleşik GSC + Vercel raporu alındı ve karar verildi: **Sprint 2.9 (on-page/teknik SEO)** açılıyor. 2.6B ve 2.8 şu an açılmıyor.
 
-Ana öneri: **Bekle ve ölç**.
+### Rapor bulguları
 
-Sprint 2.7 ile İngilizce ihracat sayfası artık site içinde görünür iç linkler alıyor. Sprint 2.5B ve Sprint 2.5C ile GSC + Vercel Analytics takip hattı hazır. Bir sonraki adım, 7-14 gün veri biriktikten sonra birleşik takip raporu almaktır.
+- GSC index sağlığı kusursuz: 7 ürün sayfası da indexed, canonical match, sitemap 0 hata.
+- Gerçek arama sinyali ince ama tümü Türkçe ve ticari: 28 günde ~32 impression, 1 klik. En iyi: `melamin-kapi-yuzeyi` (11 impr, 1 klik, poz 6-16), `kapi-pervazi` (10 impr, poz ~10), `mdf` ("mdf bayilik veren firmalar", poz 8).
+- 4 sayfa 0 impression: `kapi-kasasi`, `pvc-film`, `mdflam`, `kapi-paneli`.
+- Sayfalar 7-16. pozisyonda (2. sayfa civarı), CTR ~0. Tek klik 6. sıradaki melamin sayfasından geldi → top-6'ya çıkmak klik getiriyor.
+- İngilizce **arama** talebi sıfır: GSC'de tek İngilizce sorgu yok, `/en/` impression almamış. Vercel'deki ABD 350 pv organik-arama-dışı (Linux %27, saçık datacenter coğrafyası → muhtemelen bot; kesinleştirmek için Vercel referrer/UA kırılımına bakılabilir ama sprint kararını bekletmez). Her halükârda İngilizce arama talebi olmadığı için 2.6B yine hayır.
 
-## Bekleme Dönemi Notu
+### Karar gerekçesi
 
-Sprint 2.7, Sprint 2.5B ve Sprint 2.5C sonrası proje ölçüm dönemine geçti.
+- **2.6B (İngilizce) → HAYIR**: sıfır İngilizce arama sinyali.
+- **2.8 (Türkçe iç pazar) → henüz değil**: gerçek Türkçe ticari sinyal var ama 32 impression "ikiye katla" demek için çok ince.
+- **2.9 (on-page/teknik) → EVET**: index sağlam, sayfalar 2. sayfada takılı + 4 ölü sayfa. Yeni içerik üretmeden mevcut sayfaların on-page'i düzeltilmeli — bu hem teknik düzeltme hem filizlenen Türkçe sinyali hasat etme yolu.
 
-7-14 gün veri birikmeden yeni SEO içerik sprinti veya İngilizce sayfa genişletmesi açılmamalı.
+Her iş ayrı küçük branch/PR. Her PR sonrası stop-report-wait: build + route smoke test + console/CSP kontrolü, sonra ölç.
 
-Bu dönemde yapılmayacaklar:
+## Bekleme Dönemi Notu (kapandı — 2026-07-07)
+
+> Bu dönem kapandı: birleşik GSC + Vercel raporu 2026-07-07'de alındı ve Sprint 2.9 seçildi (bkz. yukarıdaki "Güncel Karar"). Aşağıdaki freeze kuralları geçmiş kayıt olarak tutuluyor; artık aktif değil.
+
+Sprint 2.7, Sprint 2.5B ve Sprint 2.5C sonrası proje ölçüm dönemine geçmişti.
+
+7-14 gün veri birikmeden yeni SEO içerik sprinti veya İngilizce sayfa genişletmesi açılmıyordu.
+
+O dönemde yapılmayanlar:
 
 - Yeni İngilizce ürün alt sayfası açma
 - Header'a dil seçici ekleme
@@ -22,8 +36,6 @@ Bu dönemde yapılmayacaklar:
 - Web3Forms / KVKK / CSP / canonical / sitemap tarafına dokunma
 - Büyük tasarım veya görsel revizyon yapma
 - GA4, Plausible, Umami veya Web Analytics Drains gibi yeni analytics sistemi kurma
-
-Önce GSC + Vercel Analytics birleşik verisi okunmalı.
 
 ### B2B Buyer Review Notu
 
@@ -40,7 +52,7 @@ Bu notlar ilk GSC + Vercel Analytics + Speed Insights birleşik ölçüm raporu 
 - İhracat haritası metninin yanlış anlaşılma riski
 - E-posta, URL, canonical ve telif yılı hijyen kontrolü
 
-Bu notlara rağmen yeni içerik veya kod sprinti hemen açılmayacak. Önce ölçüm dönemi tamamlanacak ve birleşik rapor okunacak.
+> Güncelleme (2026-07-07): Ölçüm dönemi tamamlandı ve birleşik rapor okundu; Sprint 2.9 (on-page/teknik SEO) seçildi. Bu B2B alıcı notları artık 2.9 sonrası içerik/asset/hotfix önceliklendirmesi için aday havuzda tutuluyor.
 
 ## 7-14 Gün Sonra Alınacak Birleşik Rapor
 
@@ -115,6 +127,45 @@ dönüşüm yolu ayrıca incelenecek:
   - Referrer: direct / empty 91, bing.com 10, google.com 10
   - p75 LCP: `/` 1240ms, `/en/interior-door-components` 431ms, `/urunler` 704ms
 - Vercel `request_path` query string'i ayrı kırılım olarak vermeyebilir; `/teklif-al?urun=...` ana `/teklif-al` path'i altında değerlendirilmelidir.
+
+## SEO Denetimi — 2026-07-03
+
+Kod tabanı ve canlı site üzerinde genel bir SEO denetimi yapıldı. Tam rapor: `SEO_AUDIT_2026-07-03.md`.
+
+Denetimde bulunan iki madde ölçüm dönemini bozmadan hemen uygulandı:
+
+- Apex→www redirect'i 307'den 308'e (kalıcı) çevrildi (Vercel panel ayarı, kod değişikliği değil).
+- 7 ürün SEO sayfası için GSC "Dizine ekle" talepleri gönderildi.
+
+Kalan maddeler ölçüm dönemi bitene kadar açılmayacak, aday sprint olarak aşağıya eklendi.
+
+### 4. Sprint 2.9 — On-page/Teknik SEO (AKTİF — 2026-07-07 raporuyla seçildi)
+
+Kapsam `SEO_AUDIT_2026-07-03.md`'de detaylı. Aşağıdaki sıra 2026-07-07 GSC+Vercel raporuna göre önceliklendirildi: aktif zararı önce çöz, sonra mevcut impression'ı hasat et, en son gecikmeli getirili işler. Her madde ayrı branch/PR.
+
+**①a — Kasa/pervaz cannibalization çöz (önce — ②'nin önkoşulu)**
+- `kapi-komponentleri/kasa.astro` ↔ `kapi-kasasi.astro` ve `kapi-komponentleri/pervaz.astro` ↔ `kapi-pervazi.astro` aynı keyword için yarışıyor.
+- Karar: her çift için tek canonical sayfa belirle; ötekini 301 ile birleştir **veya** niyeti net ayrıştır (marka/grup vs genel SEO).
+- Neden önce: hangi sayfanın title'ını optimize edeceğimiz buna bağlı; çözülmeden ② belirsiz.
+- Not: `kapi-pervazi` şu an 10 impression alan aktif sayfa — sinyali bölmemeye dikkat.
+
+**② — 7 sayfa title/description kısaltma (en hızlı ölçülebilir getiri)**
+- Zaten impression alan sayfaların CTR'ını kıpırdatmak için: `appendSiteName={false}` ile ~55 karakter title, ~150-155 karakter description.
+- Kapsam: 7 ürün SEO sayfası + `/subeler/` + `/iletisim/`.
+- Hedef: 7-16. pozisyondaki sayfaları top-6'ya taşıyıp klik almak (melamin tek kliği bu tezi destekliyor).
+
+**①b — 4 ölü sayfa içerik güçlendirme (getirisi gecikmeli)**
+- 0 impression alan sayfalar: `kapi-kasasi`, `pvc-film`, `mdflam`, `kapi-paneli`.
+- İçerik zayıf/ince; yeniden index + sıralama oturması haftalar alır, o yüzden ②'den sonra.
+
+**③ — Schema genişletme (en son)**
+- Product/BreadcrumbList schema, `sameAs`'e sosyal profil ekleme.
+
+**Dosya temizliği (yan iş, herhangi bir PR'a iliştirilebilir)**
+- Redirect-only sayfalar: `quote.astro`, `products.astro`, `product-catalog.astro` kaldırma değerlendirmesi.
+- `dist/` içindeki stray Finder kopyaları.
+
+**Ölçüm dönemi dışında bırakılanlar:** hreflang + İngilizce ürün alt sayfa genişlemesi — İngilizce arama sinyali oluşana kadar ertelendi (bkz. yukarıdaki karar; şu an sıfır sinyal).
 
 ## Olası Sonraki Sprintler
 
