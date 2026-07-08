@@ -37,6 +37,8 @@ O dönemde yapılmayanlar:
 - Büyük tasarım veya görsel revizyon yapma
 - GA4, Plausible, Umami veya Web Analytics Drains gibi yeni analytics sistemi kurma
 
+**Not (2026-07-07):** Bu "yeni analytics kurma yasağı" freeze dönemine aitti. Freeze sonrası Clarity kuruldu (davranış analitiği, ID xirpsgg0ls). Yasak tarihsel; yeni analytics kararları artık serbest ama aşağıdaki GA4 notundaki gibi ihtiyaç-tetikli değerlendirilmeli.
+
 ### B2B Buyer Review Notu
 
 2026-07-05 tarihinde Türk kapı imalatçısı / potansiyel B2B alıcı gözüyle anasayfa ve kapı komponentleri sayfası için değerlendirme notları alındı.
@@ -166,6 +168,8 @@ Kapsam `SEO_AUDIT_2026-07-03.md`'de detaylı. Aşağıdaki sıra 2026-07-07 GSC+
 - `dist/` içindeki stray Finder kopyaları.
 
 **Ölçüm dönemi dışında bırakılanlar:** hreflang + İngilizce ürün alt sayfa genişlemesi — İngilizce arama sinyali oluşana kadar ertelendi (bkz. yukarıdaki karar; şu an sıfır sinyal).
+
+**GA4 — ertelendi, karar bekliyor.** Mevcut yığın: Clarity + Vercel Analytics + Speed Insights + GSC. GA4'ün ekleyeceği: kanal/kaynak kırılımı + olay/dönüşüm takibi (ör. teklif-al conversion) + Clarity↔GA4 bağlantısı + "ABD trafiği bot mu insan mı" belirsizliğini kesinleştirme. Şu anki trafik (~1 gerçek tık, çoğu bot) GA4'ün zengin verisini beslemez. Tetikleyici: Clarity/GSC 14-28 gün veri topladıktan sonra (2.9 + ①a etkisi oturunca) trafik anlamlı hacme ulaştıysa VE kanal ayrımı/dönüşüm takibi gerekliyse kur. Süre değil, hacim+ihtiyaç tetikler. Kurulumda: CSP'ye googletagmanager.com + google-analytics.com ekle, KVKK'yı Clarity ile birlikte tek seferde ele al (GA4 çerez koyar).
 
 ## Olası Sonraki Sprintler
 

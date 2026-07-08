@@ -16,7 +16,9 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - CSP, header/dropdown, form submit gibi hassas alanlara gereksiz dokunma.
 - Gerçek test yapılmadan "çalışıyor" deme.
 
-## Güncel Handoff — 2026-07-01
+## Güncel Handoff — 2026-07-01 (SUPERSEDE — bkz. 2026-07-07)
+
+**Not (2026-07-07):** Bu bölüm ölçüm freeze'i aktifken yazıldı. Freeze o dönemdeydi; sonrasında iki iş açıldı ve merge edildi — Sprint 2.9 ①a (kasa/pervaz konsolidasyonu) ve Clarity kurulumu. Aşağıdaki "yeni kod açılmamalı" kuralı artık geçerli değil, tarihsel kayıt olarak duruyor.
 
 - Şu an yeni kod işi açılmamalı.
 - Sıradaki mantıklı iş: 7-14 gün sonra GSC + Vercel Analytics birleşik takip raporu almak.
@@ -141,6 +143,7 @@ Bu notlar yeni sprint açmak için tek başına yeterli değildir. Önce 7–14 
 - KARAR: Sprint 2.9 (on-page/teknik SEO) açılıyor. 2.6B (İngilizce) sıfır arama sinyali nedeniyle hayır; 2.8 (Türkçe iç pazar) 32 impression çok ince olduğu için henüz değil.
 - Sprint 2.9 PR sırası (`NEXT_STEPS.md`): ①a kasa/pervaz cannibalization → ② 7 sayfa title/description → ①b 4 ölü sayfa içerik → ③ schema. Cannibalization önce çünkü ②'nin önkoşulu.
 - ②'nin önkoşulu: ①a GSC yansıması + reindex. ②'yi açmadan önce (a) kazanan `kapi-kasasi`/`kapi-pervazi` reindex talebi gönderilmiş, (b) bu iki sayfanın konsolidasyon-sonrası GSC impression/pozisyonu birkaç gün oturmuş olmalı — çünkü sinyal onlarda toplandı ve title önceliği bu veriye göre değişebilir. Beklemek veri toplamadır, gecikme değil.
+- **2026-07-07:** Microsoft Clarity kuruldu (davranış analitiği — ısı haritası + oturum kaydı, proje ID xirpsgg0ls). BaseLayout `<head>`'e script; CSP'de script-src + connect-src'ye `https://*.clarity.ms` + `https://c.bing.com` eklendi. PR #54, merge `1feab4f`. Production'da doğrulandı (aşağıda Clarity bölümü).
 
 ## Sprint 2.9 ①a — Kasa/Pervaz Cannibalization Konsolidasyonu (2026-07-07)
 
@@ -166,6 +169,22 @@ BEKLEYEN manuel GSC adımları (kod değil, kullanıcı tarafında — henüz YA
 
 - Kazanan `kapi-kasasi/` + `kapi-pervazi/` için GSC reindex talebi gönder.
 - Kaybeden 2 eski URL'yi (`komponentleri/kasa`, `komponentleri/pervaz`) manuel URL Inspection'dan geçir → "Taranmış, yönlendirilmiş" statüsünü tetikle. Bu URL'ler GSC izlenen sette değildi (`config/gsc_urls.json`), crawl kuyruğunda olmadıkları için Google 301'i kendiliğinden görmesi haftalar alabilir.
+
+## Clarity Analitik Kurulumu (2026-07-07)
+
+**Durum:** Kuruldu, production'da doğrulandı, çalışıyor.
+
+**Yapılan:** Microsoft Clarity (proje ID xirpsgg0ls) — BaseLayout `<head>`'e inline tag script (apple-touch-icon'dan sonra, `</head>`'den önce); vercel.json CSP'de script-src + connect-src'ye `https://*.clarity.ms` + `https://c.bing.com`. PR #54 → main (`1feab4f`). Not: CSP'de her iki direktife de eklenmesi zorunluydu — default-src fallback'i açık script-src/connect-src varken devreye girmez.
+
+**Doğrulama (üç katman, hepsi yeşil):**
+
+- CSP header (production curl): her iki direktifte de clarity domainleri canlı, mevcut token'lar korunmuş.
+- Network (incognito): `https://www.clarity.ms/tag/xirpsgg0ls` = 200, ardından *.clarity.ms'e /collect XHR'ları veri gönderiyor.
+- Clarity dashboard: oturum kaydı göründü — uçtan uca (veri Microsoft'a ulaştı + kaydedildi) teyit edildi.
+
+**Rollback:** `git revert 1feab4f` (PR #54 merge'i). CSP tek yerde (vercel.json), site kırılmaz — geri alınırsa Clarity susar, başka bir şey etkilenmez.
+
+**Beklenti notu:** Trafik hâlâ ince (çoğu bot); anlamlı ısı haritası/oturum verisi 2.9 sonrası gerçek trafikle oluşur. Kurulum tek seferlik, değeri ertelenmiş.
 
 ## Tamamlanan Sprintler
 
@@ -417,6 +436,7 @@ BEKLEYEN manuel GSC adımları (kod değil, kullanıcı tarafında — henüz YA
 - Canonical domain standardı: `https://www.yigiter.com.tr` — yeni sayfa eklenirken canonical www üzerinden kontrol edilmeli.
 - `/urunler/kastamonu-entegre/kapi-paneli/` mevcut sitemap'te görülüyor; yeni `/urunler/kapi-paneli/` ile duplicate/legacy ilişkisi ileride değerlendirilebilir.
 - Finder kopyası kontrolü: build öncesi `find src/pages -name "* 2.astro"` çalıştırılmalı.
+- **CSP düzenlerken Clarity domainleri korunmalı:** vercel.json CSP'sinin script-src VE connect-src'sinde `https://*.clarity.ms` + `https://c.bing.com` bulunmalı. Silinirse Clarity sessizce bloklanır (script yüklenmez/veri gitmez, hata görünmez).
 
 ## Ürün SEO Serisi Durumu
 
