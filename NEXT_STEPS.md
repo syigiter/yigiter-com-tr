@@ -213,3 +213,15 @@ Olası kapsam:
 - Schema.org structured data genişletmesi
 - B2B teklif dönüşüm takibi / CRM akışı
 - Blog / haberler bölümü
+
+## Harici SEO Denetimi Katkısı — 2026-07-15 (claude-seo, GSC+PageSpeed bağlı)
+
+İkinci bir SEO denetimi (claude-seo, 7 ajan; GSC + PageSpeed API bağlı) Sprint 2.9 kapsamını büyük ölçüde **doğruladı**. Aşağıdakiler mevcut planda açıkça yer almayan yeni/incelenecek maddeler; gerisi ①a/②/③ ile örtüşüyor.
+
+- **MDF/mdflam/kapi-paneli cannibalization:** `/urunler/mdf` ↔ `/urunler/kastamonu-entegre/mdf` (mdflam, kapi-paneli için de aynı) iki ayrı URL "MDF" için yarışıyor. ①a'daki kasa/pervaz pattern'i bunlara da uygulanabilir — ①b'deki "ölü sayfa" çerçevesiyle birlikte değerlendir.
+- **Görsel/logo ağırlığı:** `logo-amblem.png` 538KB (37×40'ta gösteriliyor), tesis fotoğrafları WebP değil. → PR #55 (WebP dönüşümü, %84 azalma). Not: saha p75 LCP zaten iyi (1240ms); bu bir hijyen iyileştirmesi, LCP acil durumu değil.
+- **/tesekkurler/ noindex + sitemap'ten çıkar:** indexlenebilir, değersiz onay sayfası (`meta robots noindex,follow`).
+- **GSC sitemap hijyeni:** 2021-2023 eski `.aspx` sitemap girişleri Sitemaps raporunu kirletiyor → GSC arayüzünden kaldır.
+- **non-www genc-boya kanonik uyumsuzluğu:** URL Inspection'da Google non-www'yi kanonik seçmiş; apex→www 308 zaten var (2.5B), etkilenen sayfalar için yeniden index talebi yeterli olabilir.
+
+Tam denetim çıktısı repo dışında tutuldu (yerel PDF: `SEO-Denetim-Raporu-Yigiter-2026-07-15-Tur2.pdf`). Bu katkı, mevcut sprint akışını değiştirmez; aday havuza girdi olarak eklenmiştir.
