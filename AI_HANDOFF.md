@@ -104,6 +104,19 @@ Bu notlar yeni sprint açmak için tek başına yeterli değildir. Önce 7–14 
 - GSC raporları `reports/gsc-...` altında lokal kalabilir.
 - Vercel Analytics raporları `reports/vercel-analytics-...` altında lokal kalabilir.
 
+## Ara Ölçüm — 2026-07-10
+
+Amaç: Sprint 2.9 ①a ve Clarity merge'inden kısa süre sonra enstrümantasyon sağlık kontrolü yapmak. Bu ölçüm nihai SEO sonucu değildir; 3 gün SEO etkisi okumak için erkendir.
+
+- GSC + Vercel raporlama script'leri hatasız çalıştı; token geçerli, ölçüm hattı sağlıklı.
+- ①a index/canonical tarafı temiz oturdu: `kapi-kasasi/` ve `kapi-pervazi/` self-canonical, son crawl 2026-07-07, reindex talebi işlemiş görünüyor.
+- Kaybeden URL'ler raporda görünmüyor; eski `kapi-komponentleri/kasa` ve `.../pervaz` URL'leri 301 ile birleştirildi.
+- Arama görünürlüğü hâlâ erken: `kapi-kasasi` ticari impression üretmiyor; `kapi-pervazi` ağırlıkla bilgi amaçlı `kapı pervazı nedir` sorgularında görünüyor.
+- Vercel'deki ABD trafiği tek başına ihracat talebi sayılmamalı; GSC'de İngilizce sorgu yoksa ve Linux/datacenter benzeri kırılımlar yüksekse bot/referrer yanılsaması ihtimali var.
+- O tarihteki en net ticari sinyal `melamin-kapi-yuzeyi` tarafında görüldü: üretici/fiyat odaklı sorgular ve tek gerçek klik bu sayfadan geldi.
+- Sprint 2.9 ② için acele edilmemeli: ①a'nın arama sinyali birkaç gün daha oturmalı; title/description optimizasyonu yeni veriyle seçilmeli.
+- Clarity için manuel dashboard işleri: kendi IP'lerini blockla, teklif formu alanlarının maskeli olduğunu kontrol et, GA4 bağlantısını trafik hacmi anlamlı olana kadar ertele.
+
 ## Önemli Kararlar
 
 - Vercel'de `_headers` / `_redirects` yerine `vercel.json` kullanıldı.
