@@ -18,6 +18,51 @@ const relatedProducts = [
     description: 'Kapı üretimi ve yüzey uygulamalarını birlikte planlayan alımlar için.',
   },
 ];
+
+const measurementFamilies = [
+  {
+    thickness: '6 mm',
+    specialLengths: 'Siparişe göre',
+    note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+  },
+  {
+    thickness: '8 mm',
+    specialLengths: '120 / 183 / 230 / 240 / 244 / 250 / 280 cm',
+    note: '210 / 220 cm’de dönemsel stok bulunabilir; kesin stok teklifte doğrulanır.',
+  },
+  {
+    thickness: '10 mm',
+    specialLengths: 'Siparişe göre',
+    note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+  },
+  {
+    thickness: '12 mm',
+    specialLengths: 'Siparişe göre',
+    note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+  },
+  {
+    thickness: '16 mm',
+    specialLengths: 'Siparişe göre',
+    note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+  },
+  {
+    thickness: '18 mm',
+    specialLengths: 'Siparişe göre',
+    note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+  },
+  {
+    thickness: '25 mm',
+    specialLengths: 'Siparişe göre',
+    note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+  },
+  {
+    thickness: '30 mm',
+    specialLengths: 'Siparişe göre',
+    note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+  },
+];
+
+const surfaceAndProfileOptions = 'Lake / lakelik, hareli, çizgili, bombeli, L / Uzun L / L.UL, Taç';
 ---
 
 <BaseLayout
@@ -159,6 +204,73 @@ const relatedProducts = [
               class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
             >
               Teknik Bilgi ve Teklif İste
+            </a>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-3">Pervaz Ölçü Aileleri ve Üretim Seçenekleri</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Pervaz ölçü ailelerimiz, üretim geçmişimizde yer alan ve siparişe göre değerlendirilebilen
+              seçeneklerden oluşur. 210 cm ve 220 cm boylar standart üretim içinde değerlendirilir;
+              diğer boylar özel imalat kapsamında planlanır. 8 cm pervazlarda 210 cm ve 220 cm
+              ölçülerde dönemsel stok bulunabilir, ancak güncel stok ve termin teklif aşamasında doğrulanır.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Lake / lakelik yüzey seçenekleri aynı ürün ailesi içinde değerlendirilir. L, Uzun L,
+              L.UL ve Taç profil gibi seçenekler sipariş detayına göre netleştirilir. Minimum sipariş
+              genel olarak bir palet üzerinden değerlendirilir; termin stok ve üretim planına göre değişebilir.
+            </p>
+
+            <div class="overflow-x-auto rounded-xl border border-gray-200">
+              <table class="min-w-[900px] w-full text-left text-sm">
+                <caption class="sr-only">Pervaz kalınlık, boy, yüzey ve profil seçenekleri</caption>
+                <thead class="bg-gray-50 text-gray-900">
+                  <tr>
+                    <th scope="col" class="px-4 py-3 font-semibold">Kalınlık</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Standart boy</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Özel imalat boyları</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Yüzey / profil seçenekleri</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Not</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 text-gray-700">
+                  {measurementFamilies.map((family) => (
+                    <tr>
+                      <th scope="row" class="whitespace-nowrap px-4 py-4 font-semibold text-gray-900">
+                        {family.thickness}
+                      </th>
+                      <td class="whitespace-nowrap px-4 py-4">210 / 220 cm</td>
+                      <td class="px-4 py-4">{family.specialLengths}</td>
+                      <td class="px-4 py-4">{surfaceAndProfileOptions}</td>
+                      <td class="px-4 py-4">{family.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="mt-5 rounded-lg border border-amber-200 bg-amber-50 p-4">
+              <p class="text-sm font-semibold text-amber-950 mb-1">Stok ve üretim notu</p>
+              <p class="text-sm leading-relaxed text-amber-900">
+                Bu tablo stok beyanı değildir. Ölçüler üretim kabiliyeti ve geçmiş üretim seçeneklerini
+                gösterir. Güncel stok, aktif kombinasyon, termin ve minimum sipariş bilgisi teklif
+                aşamasında doğrulanır.
+              </p>
+            </div>
+
+            <div class="mt-5 rounded-lg border border-primary/15 bg-primary/5 p-4">
+              <p class="text-sm leading-relaxed text-gray-700">
+                <strong class="text-gray-900">Minimum sipariş ve termin:</strong> Minimum sipariş
+                genellikle bir palet üzerinden değerlendirilir. Termin; stok, üretim yoğunluğu ve
+                sipariş detayına göre değişebilir. Güncel termin teklif aşamasında paylaşılır.
+              </p>
+            </div>
+
+            <a
+              href="/teklif-al?urun=kapi-pervazi"
+              class="mt-5 inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+            >
+              Pervaz Ölçüsü İçin Teklif İste
             </a>
           </section>
 
