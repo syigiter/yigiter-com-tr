@@ -61,6 +61,8 @@ Karar kuralı:
 
 Kullanıcı, siteyi Türk kapı imalatçısı / potansiyel B2B alıcı gözüyle değerlendirdi.
 
+Ayrıntılı ve sınıflandırılmış kayıt: [`B2B_BUYER_REVIEW_NOTES_2026-07-05.md`](B2B_BUYER_REVIEW_NOTES_2026-07-05.md).
+
 Bu notlar ilk ölçüm dönemi sonrasında sprint seçimi yapılırken dikkate alınmalı.
 
 Ana bulgular:
