@@ -43,6 +43,8 @@ O dönemde yapılmayanlar:
 
 2026-07-05 tarihinde Türk kapı imalatçısı / potansiyel B2B alıcı gözüyle anasayfa ve kapı komponentleri sayfası için değerlendirme notları alındı.
 
+Ayrıntılı ve sınıflandırılmış kayıt: [`B2B_BUYER_REVIEW_NOTES_2026-07-05.md`](B2B_BUYER_REVIEW_NOTES_2026-07-05.md).
+
 Bu notlar ilk GSC + Vercel Analytics + Speed Insights birleşik ölçüm raporu sonrasında karar verirken dikkate alınacak.
 
 Özellikle şu başlıklar değerlendirilecek:
