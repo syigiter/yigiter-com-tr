@@ -54,15 +54,17 @@ const measurementFamilies = [
     thickness: '25 mm',
     specialLengths: 'Siparişe göre',
     note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+    hasCrownProfile: true,
   },
   {
     thickness: '30 mm',
     specialLengths: 'Siparişe göre',
     note: 'Güncel kombinasyon teklif aşamasında netleşir.',
+    hasCrownProfile: true,
   },
 ];
 
-const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L, Taç';
+const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L';
 ---
 
 <BaseLayout
@@ -216,8 +218,8 @@ const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L, Ta
               ölçülerde dönemsel stok bulunabilir, ancak güncel stok ve termin teklif aşamasında doğrulanır.
             </p>
             <p class="text-gray-700 leading-relaxed mb-6">
-              Lakelik yüzey seçeneği ile hareli, çizgili, bombeli, Uzun L ve Taç profil gibi seçenekler
-              sipariş detayına göre netleştirilir. Minimum sipariş
+              Lakelik yüzey seçeneği ile hareli, çizgili, bombeli ve Uzun L gibi profil seçenekleri
+              sipariş detayına göre netleştirilir. Taç profil yalnızca 25 mm ve 30 mm kalınlıklarda sunulur. Minimum sipariş
               genel olarak bir palet üzerinden değerlendirilir; termin stok ve üretim planına göre değişebilir.
             </p>
 
@@ -241,7 +243,9 @@ const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L, Ta
                       </th>
                       <td class="whitespace-nowrap px-4 py-4">210 / 220 cm</td>
                       <td class="px-4 py-4">{family.specialLengths}</td>
-                      <td class="px-4 py-4">{surfaceAndProfileOptions}</td>
+                      <td class="px-4 py-4">
+                        {surfaceAndProfileOptions}{family.hasCrownProfile ? ', Taç' : ''}
+                      </td>
                       <td class="px-4 py-4">{family.note}</td>
                     </tr>
                   ))}
