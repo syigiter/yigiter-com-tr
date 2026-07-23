@@ -18,6 +18,47 @@ const relatedProducts = [
     description: 'Kapı üretimi ve yüzey uygulamalarını birlikte planlayan alımlar için.',
   },
 ];
+
+const createProfileImages = (slug: string, total: number) =>
+  Array.from(
+    { length: total },
+    (_, index) => `/images/products/pervaz/pervaz-${slug}-profil-${String(index + 1).padStart(2, '0')}.webp`,
+  );
+
+const pervazProfileGroups = [
+  {
+    title: 'Bombeli Pervaz',
+    images: createProfileImages('bombeli', 2),
+  },
+  {
+    title: 'PVC Dekoratif Pervaz',
+    images: createProfileImages('pvc-dekoratif', 4),
+  },
+  {
+    title: 'Ham Dekoratif Pervaz',
+    images: createProfileImages('ham-dekoratif', 3),
+  },
+  {
+    title: 'Dekoratif Pervaz',
+    images: createProfileImages('dekoratif', 1),
+  },
+  {
+    title: 'Hareli Pervaz',
+    images: createProfileImages('hareli', 4),
+  },
+  {
+    title: 'Hareli Kanallı Pervaz',
+    images: createProfileImages('hareli-kanalli', 4),
+  },
+  {
+    title: 'Lakelik Ham Pervaz',
+    images: createProfileImages('lakelik-ham', 11),
+  },
+  {
+    title: 'Taç Pervaz',
+    images: createProfileImages('tac', 4),
+  },
+];
 ---
 
 <BaseLayout
@@ -199,6 +240,69 @@ const relatedProducts = [
             </a>
           </section>
         </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-gray-200 bg-gray-50 py-12 lg:py-20" aria-labelledby="pervaz-profil-ornekleri">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-accent-dark font-semibold text-sm uppercase tracking-widest mb-3">Profil Aileleri</p>
+        <h2 id="pervaz-profil-ornekleri" class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+          Pervaz Profil Örnekleri
+        </h2>
+        <p class="text-gray-700 leading-relaxed">
+          Aşağıdaki görseller, üretim geçmişimizde yer alan pervaz profil ailelerinden örnekleri
+          göstermektedir. Güncel profil, yüzey, ölçü, stok ve termin bilgileri teklif aşamasında
+          netleştirilir.
+        </p>
+      </div>
+
+      <div class="mt-10 space-y-12">
+        {pervazProfileGroups.map((group, groupIndex) => {
+          const headingId = `pervaz-profil-grubu-${groupIndex + 1}`;
+
+          return (
+            <section aria-labelledby={headingId}>
+              <div class="mb-5 flex items-center gap-4">
+                <h3 id={headingId} class="shrink-0 text-xl font-bold text-gray-900">{group.title}</h3>
+                <span class="h-px w-full bg-gray-300" aria-hidden="true"></span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+                {group.images.map((src) => (
+                  <figure class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+                    <img
+                      src={src}
+                      alt={`${group.title} profil örneği`}
+                      width="640"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      class="aspect-square w-full object-cover"
+                    />
+                    <figcaption class="border-t border-gray-100 px-3 py-3 text-sm font-medium text-gray-700">
+                      {group.title}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+
+      <div class="mt-12 rounded-xl border border-amber-200 bg-amber-50 p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
+        <p class="text-sm leading-relaxed text-amber-950">
+          Bu görseller stok listesi veya kesin teknik katalog değildir. Aktif profil, yüzey ve ölçü
+          kombinasyonları sipariş detayına göre teklif aşamasında doğrulanır.
+        </p>
+        <a
+          href="/teklif-al?urun=kapi-pervazi"
+          class="mt-4 inline-flex shrink-0 items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#7C2D12] sm:mt-0"
+        >
+          Pervaz için teklif alın
+        </a>
       </div>
     </div>
   </section>
