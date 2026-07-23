@@ -71,6 +71,97 @@ const serenPreviewImages = [
             tutarlı bir tedarik düzeni oluşturuyoruz.
           </p>
 
+          <section class="rounded-xl border border-primary/20 bg-primary/5 p-6 mb-10">
+            <h2 class="text-2xl font-bold text-primary mb-3">Kapı Üreticisinin Tedarik Ortağı</h2>
+            <p class="text-gray-700 leading-relaxed">
+              Kapı üreticileri için yan sanayi ve komponent tedarikçisi olarak çalışırız;
+              müşterilerimizin son pazardaki satış kanalına rakip olacak şekilde konumlanmayız.
+              Kasa, pervaz, kapı yüzeyi ve yardımcı malzemeleri aynı tedarik planında ele alarak
+              üretim hattının ihtiyaç duyduğu kalemleri tek noktadan koordine etmeye odaklanırız.
+            </p>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm mb-10">
+            <h2 class="text-2xl font-bold text-primary mb-3">Teklif Öncesi Netleştirilecek Teknik Bilgiler</h2>
+            <p class="text-gray-700 leading-relaxed mb-5">
+              Profil, ölçü ve tedarik koşulları kullanım alanına ve sipariş yapısına göre değişebilir.
+              Doğru ürün eşleştirmesi ve termin planı için aşağıdaki bilgileri teklif talebinizde paylaşın.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                'Kasa / pervaz profili veya kullanım alanı',
+                'Duvar kalınlığı ve ilgili ölçüler',
+                'Yüzey / kaplama tercihi',
+                'Değerlendirilecek malzeme alternatifi',
+                'Sipariş miktarı ve sipariş tipi',
+                'Teslimat şehri ve teslimat yeri',
+                'Termin beklentisi',
+                'Paketleme / sevkiyat ihtiyacı',
+              ].map((item) => (
+                <li class="flex items-start gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="mb-10">
+            <h2 class="text-2xl font-bold text-primary mb-3">Ölçü ve Seçenekler Nasıl Belirlenir?</h2>
+            <p class="text-gray-700 leading-relaxed mb-5">
+              Aşağıdaki çerçeve ürün seçimi sırasında değerlendirilen başlıkları gösterir. Kesin profil,
+              ölçü, yüzey ve termin bilgileri proje ve sipariş detayları incelendikten sonra teklifte
+              doğrulanır.
+            </p>
+            <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+              <table class="min-w-[760px] w-full text-left text-sm">
+                <thead class="bg-gray-50 text-gray-900">
+                  <tr>
+                    <th scope="col" class="px-4 py-3 font-semibold">Ürün grubu</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Profil / kullanım</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Duvar kalınlığı</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Yüzey / kaplama</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Sipariş tipi</th>
+                    <th scope="col" class="px-4 py-3 font-semibold">Not</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 text-gray-700">
+                  <tr>
+                    <th scope="row" class="px-4 py-4 font-semibold text-gray-900">Kapı kasası</th>
+                    <td class="px-4 py-4">İç kapı üretimi ve proje uygulaması</td>
+                    <td class="px-4 py-4">Proje / siparişe göre netleştirilir</td>
+                    <td class="px-4 py-4">Alternatifler teklif aşamasında paylaşılır</td>
+                    <td class="px-4 py-4">Seri üretim / proje bazlı</td>
+                    <td class="px-4 py-4">Ölçü ve termin teklifte doğrulanır</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="px-4 py-4 font-semibold text-gray-900">Kapı pervazı</th>
+                    <td class="px-4 py-4">Kasa tamamlayıcı profil</td>
+                    <td class="px-4 py-4">Kasa ve uygulama ölçüsüne göre değerlendirilir</td>
+                    <td class="px-4 py-4">Alternatifler teklif aşamasında paylaşılır</td>
+                    <td class="px-4 py-4">Seri üretim / proje bazlı</td>
+                    <td class="px-4 py-4">Profil detayı teklifte doğrulanır</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="rounded-xl border border-accent/20 bg-accent/5 p-6 mb-10">
+            <h2 class="text-2xl font-bold text-primary mb-3">Profil Detayı ve Teknik Föy Talebi</h2>
+            <p class="text-gray-700 leading-relaxed mb-5">
+              Kasa ve pervaz profil kesitleri, ölçü detayları, yüzey seçenekleri ve güncel tedarik
+              koşulları sipariş tipine göre paylaşılır. Kullanım alanını, tahmini miktarı ve teslimat
+              şehrini belirterek teknik föy ve güncel profil bilgisi isteyebilirsiniz.
+            </p>
+            <a
+              href="/teklif-al?urun=kapi-komponentleri"
+              class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+            >
+              Teknik Bilgi ve Teklif İste
+            </a>
+          </section>
+
           <h2 class="text-2xl font-bold text-primary mb-6">Kapı Üreticileri İçin Komple Tedarik</h2>
           <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm mb-5">
             <p class="text-gray-700 leading-relaxed">
@@ -89,6 +180,25 @@ const serenPreviewImages = [
               ihtiyaçları birlikte değerlendirir. İç mekân kapı sistemlerinde kasa-pervaz uyumunu
               gözeten çözümler sunarız.
             </p>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+              Kapı pervazlarında 210 cm ve 220 cm standart boylar, farklı kalınlık ve profil
+              seçenekleriyle değerlendirilebilir. Özel boy ve profil seçenekleri siparişe göre
+              planlanır; güncel stok ve termin teklif aşamasında doğrulanır.
+            </p>
+            <div class="mt-5 flex flex-col sm:flex-row gap-3">
+              <a
+                href="/urunler/kapi-pervazi/"
+                class="inline-flex items-center justify-center rounded-lg border border-primary px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+              >
+                Pervaz Ölçü Ailelerini İncele
+              </a>
+              <a
+                href="/teklif-al?urun=kapi-pervazi"
+                class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
+              >
+                Pervaz Teklifi İste
+              </a>
+            </div>
           </section>
 
           <h2 class="text-2xl font-bold text-primary mb-5">Pervaz ve Seren Profil Aileleri</h2>
