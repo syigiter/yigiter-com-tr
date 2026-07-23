@@ -1,5 +1,22 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pervazPreviewImages = [
+  {
+    src: '/images/products/pervaz/pervaz-bombeli-profil-01.webp',
+    alt: 'Bombeli pervaz profil örneği',
+  },
+  {
+    src: '/images/products/pervaz/pervaz-pvc-dekoratif-profil-01.webp',
+    alt: 'Dekoratif pervaz profil örneği',
+  },
+];
+
+const serenPreviewImages = [
+  '/images/products/seren/seren-profil-01.webp',
+  '/images/products/seren/seren-profil-02.webp',
+  '/images/products/seren/seren-profil-03.webp',
+];
 ---
 
 <BaseLayout
@@ -180,6 +197,66 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
                 class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#7C2D12] transition-colors"
               >
                 Pervaz Teklifi İste
+              </a>
+            </div>
+          </section>
+
+          <h2 class="text-2xl font-bold text-primary mb-5">Pervaz ve Seren Profil Aileleri</h2>
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm mb-5">
+            <p class="text-gray-700 leading-relaxed">
+              Kapı üreticileri için pervaz, kasa ve seren gibi tamamlayıcı komponentlerde farklı profil
+              aileleri siparişe göre değerlendirilebilir. Detaylı profil örnekleri ve ölçü seçenekleri
+              teklif aşamasında paylaşılır.
+            </p>
+
+            <div class="mt-6 grid grid-cols-2 gap-4">
+              {pervazPreviewImages.map((image) => (
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  width="640"
+                  height="640"
+                  loading="lazy"
+                  decoding="async"
+                  class="aspect-square w-full rounded-lg border border-gray-200 object-cover"
+                />
+              ))}
+            </div>
+
+            <a
+              href="/urunler/kapi-pervazi/"
+              class="mt-5 inline-flex items-center gap-2 font-semibold text-accent-dark hover:underline"
+            >
+              Pervaz profil örneklerini inceleyin
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <div class="mt-8 border-t border-gray-200 pt-6">
+              <h3 class="text-xl font-bold text-primary mb-3">Seren Profil Örnekleri</h3>
+              <p class="text-gray-700 leading-relaxed">
+                Seren örnekleri kapı üretim sürecindeki komponent ihtiyaçlarına göre değerlendirilir.
+                Güncel profil, ölçü ve termin bilgileri teklif aşamasında netleştirilir.
+              </p>
+
+              <div class="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                {serenPreviewImages.map((src) => (
+                  <img
+                    src={src}
+                    alt="Seren profil örneği"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                    class="aspect-square w-full rounded-lg border border-gray-200 object-cover"
+                  />
+                ))}
+              </div>
+
+              <a
+                href="/teklif-al?urun=kapi-komponentleri"
+                class="mt-5 inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#7C2D12]"
+              >
+                Kapı komponentleri için teklif alın
               </a>
             </div>
           </section>
