@@ -16,6 +16,44 @@ Yiğiter Orman Ürünleri sitesini teknik olarak hızlı, güvenli, erişilebili
 - CSP, header/dropdown, form submit gibi hassas alanlara gereksiz dokunma.
 - Gerçek test yapılmadan "çalışıyor" deme.
 
+## Güncel Handoff — 2026-07-23
+
+### Kapı Pervazı / Profil Görselleri — Güncel Durum
+
+Sprint 2.8D ve 2.8F tamamlandı. Kapı Pervazı sayfasında artık ölçü ailesi / üretim kabiliyeti tablosu ve gerçek pervaz profil örnekleri var. Kapı Komponentleri sayfasında kısa pervaz ölçü özeti ile 2 pervaz + 3 seren örneği içeren profil aileleri özeti var.
+
+- Sprint 2.8D: PR #61, merge `b8239f1057a1ce2b5160442dc264c4d166fbcbed`.
+- Sprint 2.8F: PR #62, merge `9e33e7306035a0bcd54814e82982619964a7d4dd`.
+- Kapı Pervazı profil gridi: 33 adet 640×640 WebP; mobil 2, tablet 3, masaüstü 4 kolon.
+- Public asset seti: 33 pervaz + 5 seren WebP, toplam `416.192 byte` / yaklaşık 406 KiB.
+- Kapı Komponentleri özeti: 2 pervaz + 3 seren örneği, Kapı Pervazı linki ve teklif CTA'sı.
+- Build başarılı: 36 statik sayfa.
+- Production route, form/query mapping, console, failed request ve CSP kontrolleri temiz.
+
+Dikkat:
+
+- Excel miktarları siteye konmadı ve konmamalı.
+- Ürün kodu, adet, stok veya iç envanter bilgisi müşteriye gösterilmemeli.
+- `envanter.csv` public'e konmamalı.
+- Uzun PNG katalog görselleri production'da kullanılmamalı.
+- Seren için şimdilik ayrı sayfa açılmadı.
+- Stok, termin ve aktif ölçü/profil kombinasyonlarının teklif aşamasında doğrulandığı dil korunmalı.
+- Minimum sipariş için “Minimum sipariş genellikle bir palet üzerinden değerlendirilir.” güvenli ifadesi korunmalı.
+- `/teklif-al?urun=kapi-pervazi` ve `/teklif-al?urun=kapi-komponentleri` query mapping'i korunmalı.
+
+Sıradaki gerçek ihtiyaç:
+
+- Ölçülü profil kesit çizimleri
+- Gerçek kasa/pervaz ürün fotoğrafları
+- Üretim hattı ile ambalaj/palet/sevkiyat fotoğrafları
+- Teknik föy veya PDF katalog
+- Sertifika/test belgeleri
+- Aktif ölçü kombinasyonları ile yüzey/profil örneklerinin firma onayı
+
+Yeni kod sprintinden önce doğrulanmış teknik asset ve belgeler toplanmalı. Bunlar geldikten sonra `Sprint 2.9A — Teknik Föy / Profil Kesit / Sertifika Entegrasyonu` açılabilir.
+
+Production testlerinde Microsoft Clarity'nin proje ayarları nedeniyle veri toplamadığını bildiren uyarı görülüyor. Site davranışını bozmuyor ve yeni sprinti engelleyen kritik hata değildir; ayrı analytics/ölçüm kontrolünde değerlendirilmelidir.
+
 ## Güncel Handoff — 2026-07-01 (SUPERSEDE — bkz. 2026-07-07)
 
 **Not (2026-07-07):** Bu bölüm ölçüm freeze'i aktifken yazıldı. Freeze o dönemdeydi; sonrasında iki iş açıldı ve merge edildi — Sprint 2.9 ①a (kasa/pervaz konsolidasyonu) ve Clarity kurulumu. Aşağıdaki "yeni kod açılmamalı" kuralı artık geçerli değil, tarihsel kayıt olarak duruyor.

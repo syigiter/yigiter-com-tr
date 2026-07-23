@@ -1,5 +1,49 @@
 # Next Steps — Yiğiter Sitesi
 
+## Güncel Yön — 2026-07-23
+
+Sprint 2.8D ve Sprint 2.8F tamamlandı. Kapı Pervazı sayfasında ölçü ailesi / üretim kabiliyeti tablosu ile gerçek pervaz profil örnekleri; Kapı Komponentleri sayfasında ise kısa pervaz ölçü özeti ve pervaz/seren profil aileleri bloğu yayında.
+
+Kapı Pervazı sayfası artık B2B alıcı için yalnızca pazarlama metni değil; ölçü ailesi, üretim kabiliyeti ve gerçek profil örnekleri içeren teknik içerik seviyesine yükseldi.
+
+**Yeni kod sprintinden önce teknik asset ve belge toplama yapılmalı.** Bundan sonraki öncelik yeni tablo veya teyitsiz içerik üretmek değil; doğrulanmış teknik asset ve belgeleri toplamaktır.
+
+### Öncelik 1 — Teknik asset toplama
+
+Toplanacak ve firma tarafından doğrulanacak materyaller:
+
+- Ölçülü profil kesit çizimleri
+- Gerçek kasa/pervaz ürün fotoğrafları
+- Üretim hattı fotoğrafları
+- Ambalaj/palet/sevkiyat fotoğrafları
+- Teknik föy veya PDF katalog
+- Sertifika/test belgeleri
+- Aktif ölçü kombinasyonlarının firma onayı
+- Yüzey/profil örnek görsellerinin firma onayı
+
+### Öncelik 2 — Asset geldikten sonra uygulama sprinti
+
+Doğrulanmış asset ve belgeler geldikten sonra şu potansiyel sprint açılabilir:
+
+`Sprint 2.9A — Teknik Föy / Profil Kesit / Sertifika Entegrasyonu`
+
+Olası kapsam:
+
+- Kapı Pervazı sayfasına ölçülü profil kesit çizimleri
+- Kapı Kasası sayfasına gerçek kasa/profil görselleri
+- Kapı Komponentleri sayfasına teknik belge yönlendirmesi
+- Sertifika/test belgeleri varsa güvenli şekilde yayınlama
+- PDF varsa indirme CTA'sı
+- Stok/termin/ölçü uyarılarının korunması
+
+Bu sprint assetler gelmeden açılmamalı; teyitsiz teknik içerik, stok garantisi veya kesin termin bilgisi üretilmemeli.
+
+### Öncelik 3 — Analytics kontrol notu
+
+Production testlerinde Microsoft Clarity'nin proje ayarları nedeniyle veri toplamadığını bildiren uyarı görülüyor. Site davranışını bozmuyor; ayrı bir analytics/ölçüm kontrolünde değerlendirilmeli.
+
+Bu uyarı kritik site hatası veya `Sprint 2.9A` için engelleyici olarak değerlendirilmemelidir.
+
 ## Güncel Karar (2026-07-07)
 
 Ölçüm dönemi tamamlandı. Birleşik GSC + Vercel raporu alındı ve karar verildi: **Sprint 2.9 (on-page/teknik SEO)** açılıyor. 2.6B ve 2.8 şu an açılmıyor.
