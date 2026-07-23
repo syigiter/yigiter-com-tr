@@ -9,6 +9,36 @@
 - Teknoloji: Astro tabanlı statik site
 - Ana hedef: Yiğiter Orman Ürünleri için hızlı, güvenilir, SEO uyumlu ve B2B teklif talebi üreten kurumsal web sitesi
 
+## Güncel Durum — 2026-07-23
+
+- Sprint 2.8D — Pervaz Ölçü Tablosu tamamlandı:
+  - PR #61
+  - Merge commit: `b8239f1057a1ce2b5160442dc264c4d166fbcbed`
+  - `src/pages/urunler/kapi-pervazi.astro` sayfasına ölçü ailesi / üretim kabiliyeti tablosu eklendi.
+  - `src/pages/urunler/kapi-komponentleri/index.astro` sayfasına kısa pervaz ölçü özeti eklendi.
+  - Excel miktarları siteye konmadı; stok garantisi ve kesin termin verilmedi.
+  - Minimum sipariş dili güvenli tutuldu: “Minimum sipariş genellikle bir palet üzerinden değerlendirilir.”
+  - `/teklif-al?urun=kapi-pervazi` ve `/teklif-al?urun=kapi-komponentleri` query mapping'i korundu.
+- Sprint 2.8F — Pervaz / Seren Profil Örnekleri tamamlandı:
+  - PR #62
+  - Merge commit: `9e33e7306035a0bcd54814e82982619964a7d4dd`
+  - 2 Astro sayfası ve 38 adet 640×640 WebP asset güncellendi/eklendi.
+  - 33 pervaz ve 5 seren görselinin toplam boyutu `416.192 byte` / yaklaşık 406 KiB.
+  - Kapı Pervazı sayfasına ailelere ayrılmış “Pervaz Profil Örnekleri” bölümü eklendi; grid mobilde 2, tablette 3, masaüstünde 4 kolon.
+  - Kapı Komponentleri sayfasına 2 pervaz + 3 seren örneği, Kapı Pervazı yönlendirmesi ve teklif CTA'sı içeren kısa özet eklendi.
+  - Seren için ayrı ürün sayfası açılmadı.
+  - Görsellerde `loading="lazy"`, `decoding="async"`, `width="640"` ve `height="640"` kullanıldı.
+  - Uzun PNG katalog görselleri ve `envanter.csv` production'a alınmadı.
+  - Ürün kodu, adet, stok ve iç envanter bilgisi müşteriye gösterilmedi.
+- Kapı Pervazı sayfası artık B2B alıcı için yalnızca pazarlama metni değil; ölçü ailesi, üretim kabiliyeti ve gerçek profil örnekleri içeren teknik içerik seviyesine yükseldi.
+- Her iki sprintte build başarılı oldu ve 36 statik sayfa üretildi.
+- Production deploy `Ready`; `/urunler/kapi-pervazi/`, `/urunler/kapi-komponentleri/` ve ilgili teklif rotaları 200 dönüyor.
+- Form/query mapping korunuyor: “Kapı pervazı” ve “Kapı komponentleri”.
+- Console, failed request veya CSP kaynaklı kritik uygulama hatası yok.
+- Microsoft Clarity'nin proje ayarları nedeniyle veri toplamadığını bildiren uyarı site davranışını bozmuyor; ayrı analytics/ölçüm kontrolünde ele alınmalı.
+- Yeni geliştirme için ana bekleyen unsur doğrulanmış teknik belge ve assetlerdir.
+- Bundan sonraki öncelik yeni tablo veya teyitsiz içerik üretmek değil; ölçülü profil kesit çizimleri, teknik föy/PDF katalog, sertifika/test belgeleri ve gerçek ürün/üretim/ambalaj görsellerini toplamaktır.
+
 ## Güncel Durum — 2026-07-01
 
 - Son production-impact sprint: Sprint 2.7 — English Export Internal Link & Discovery, PR #47.

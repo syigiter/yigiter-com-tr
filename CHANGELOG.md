@@ -1,5 +1,40 @@
 # Changelog
 
+## 2026-07-23
+
+### Sprint 2.8D — Pervaz Ölçü Tablosu
+
+- Kapı Pervazı sayfasına ölçü ailesi / üretim kabiliyeti tablosu eklendi.
+- Kapı Komponentleri sayfasına kısa pervaz ölçü özeti eklendi.
+- Excel miktarları, stok garantisi ve kesin termin bilgisi siteye konmadı.
+- Minimum sipariş “Minimum sipariş genellikle bir palet üzerinden değerlendirilir.” güvenli ifadesiyle yazıldı.
+- Teklif formu query mapping'i korundu.
+- Build başarılı: 36 statik sayfa.
+- PR #61 merge edildi.
+- Merge commit: `b8239f1057a1ce2b5160442dc264c4d166fbcbed`.
+
+### Sprint 2.8F — Pervaz / Seren Profil Örnekleri
+
+- Kapı Pervazı sayfasına 33 pervaz profil örneğinden oluşan responsive WebP grid eklendi.
+- Grid mobilde 2, tablette 3, masaüstünde 4 kolon olarak doğrulandı.
+- Kapı Komponentleri sayfasına 2 pervaz + 3 seren örnekli kısa görsel blok eklendi.
+- 33 pervaz ve 5 seren olmak üzere 38 adet 640×640 WebP asset eklendi; toplam asset boyutu `416.192 byte` / yaklaşık 406 KiB.
+- Görsellerde lazy loading, async decoding ve 640×640 boyut nitelikleri kullanıldı.
+- Uzun PNG katalog görselleri ve `envanter.csv` production'a alınmadı.
+- Ürün kodu, adet, stok ve iç envanter bilgisi müşteriye gösterilmedi.
+- Seren için ayrı ürün sayfası açılmadı.
+- Form/query mapping korundu; production route ve browser kontrolleri temiz geçti.
+- Build başarılı: 36 statik sayfa.
+- PR #62 merge edildi.
+- Merge commit: `9e33e7306035a0bcd54814e82982619964a7d4dd`.
+
+### Dokümantasyon ve Sonraki Öncelik
+
+- Kapı Pervazı sayfasının ölçü ailesi, üretim kabiliyeti ve gerçek profil örnekleri içeren güncel B2B teknik içerik seviyesi kaydedildi.
+- Yeni kod sprintinden önce doğrulanmış teknik asset ve belge toplama kararı kaydedildi.
+- Potansiyel `Sprint 2.9A — Teknik Föy / Profil Kesit / Sertifika Entegrasyonu` assetlerin gelmesi koşuluna bağlandı.
+- Microsoft Clarity veri-toplamama uyarısı, site davranışını bozmayan ayrı analytics/ölçüm kontrol notu olarak kaydedildi.
+
 ## 2026-07-01
 
 ### Sprint 2.7 — English Export Internal Link & Discovery
