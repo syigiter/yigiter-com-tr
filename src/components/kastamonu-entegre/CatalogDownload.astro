@@ -18,6 +18,9 @@ const versionLabel = catalog.version.startsWith('v')
 <a
   href={catalog.localPath}
   download={catalog.fileName}
+  data-analytics-event="Catalog Download"
+  data-analytics-catalog={catalog.title}
+  data-analytics-product={catalog.productFamilyIds.join(', ')}
   class:list={[
     'group inline-flex items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white text-primary transition-colors hover:border-primary/30 hover:bg-gray-50',
     compact ? 'px-4 py-3 text-sm' : 'w-full px-5 py-4',

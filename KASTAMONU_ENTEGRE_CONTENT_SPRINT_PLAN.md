@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Uygulamada — `2.10A–2.10G` tamamlandı, `2.10H` sırada
+Durum: Uygulamada — `2.10A–2.10H` tamamlandı, `2.10I` sırada
 
 ## 1. Karar ve Dayanak
 
@@ -436,6 +436,17 @@ Kabul kriterleri:
 - Canonical ve sitemap doğru.
 - Teklif formu doğru ürün grubunu seçiyor.
 - Generic sayfalar marka-agnostik schema; Kastamonu sayfaları marka odaklı schema kullanıyor.
+
+Sonuç:
+
+- `2.10H` 2026-07-26 tarihinde tamamlandı.
+- Kastamonu Entegre hub ve dekoratif panel sayfalarının marka/ürün niyetine göre ayrışan title-description metinleri denetlendi; tek H1, self-canonical ve sitemap kayıtları korundu.
+- Hub için 5 ürün grubunu, dekoratif panel için 10 ürün ailesini bağlayan `CollectionPage` + `ItemList` şemaları eklendi.
+- MDF ve Medelam/MDFLam sayfaları `Product`; ham yonga levha/Teknolam ile Doorpan/Doorlam sayfaları ikişer varyantlı `ProductGroup` olarak modellendi.
+- Marka ürün şemalarında `Kastamonu Entegre` marka bağlantısı ve fiyat yayınlamadan `Offer.seller → Yiğiter Organization` ilişkisi kuruldu; mevcut `BreadcrumbList` ve Organization `@id` bağlantıları doğrulandı.
+- Teklif query eşlemesi 13 temsilî ürün sorgusuyla doğrulandı; Medelam'ın “melamin kapı yüzeyi” grubuna yanlış düşmesine neden olan öncelik sırası düzeltildi.
+- Katalog indirme, teklif ve WhatsApp aksiyonları Vercel Analytics özel olaylarına bağlandı; başarılı teklif gönderimi ayrıca kişisel veri taşımayan `Quote Submitted` olayıyla işaretlendi.
+- Üretim derlemesi 38 sayfayla tamamlandı; 6 Kastamonu rotasında schema, canonical, sitemap, tek H1 ve 2.421 yerel hedefte sıfır eksik doğrulandı.
 
 ### Sprint 2.10I — Yayın, Kalite ve Ölçüm
 

@@ -1,0 +1,19 @@
+<script>
+  import { track } from '@vercel/analytics';
+
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+
+    const target = event.target.closest<HTMLElement>('[data-analytics-event]');
+    const eventName = target?.dataset.analyticsEvent;
+    if (!target || !eventName) return;
+
+    track(eventName, {
+      page: window.location.pathname,
+      destination: target.getAttribute('href') ?? undefined,
+      product: target.dataset.analyticsProduct,
+      catalog: target.dataset.analyticsCatalog,
+      placement: target.dataset.analyticsPlacement,
+    });
+  });
+</script>
