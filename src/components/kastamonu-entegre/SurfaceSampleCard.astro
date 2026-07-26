@@ -1,0 +1,32 @@
+---
+import type { SurfaceSample } from '../../data/kastamonu-entegre';
+
+interface Props {
+  sample: SurfaceSample;
+}
+
+const { sample } = Astro.props;
+---
+
+<figure class="overflow-hidden rounded-xl border border-gray-200 bg-white">
+  <img
+    src={sample.src}
+    width={sample.width}
+    height={sample.height}
+    alt={sample.alt}
+    loading="lazy"
+    decoding="async"
+    class="aspect-square w-full object-cover"
+  />
+  <figcaption class="p-3">
+    <div class="flex items-baseline justify-between gap-2">
+      <span class="font-semibold text-gray-900">{sample.name}</span>
+      {sample.code && <span class="text-xs font-medium text-gray-500">{sample.code}</span>}
+    </div>
+    {
+      sample.synchronized && (
+        <span class="mt-1 block text-xs text-gray-500">Senkronize yüzey</span>
+      )
+    }
+  </figcaption>
+</figure>

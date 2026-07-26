@@ -313,7 +313,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 **Alt sprint sırası:**
 
 1. `2.10A` — Asset ve iddia envanteri — **TAMAMLANDI 2026-07-26**
-2. `2.10B` — Ürün veri modeli ve asset pipeline
+2. `2.10B` — Ürün veri modeli ve asset pipeline — **TAMAMLANDI 2026-07-26**
 3. `2.10C` — Kastamonu hub + yeni dekoratif panel sayfası
 4. `2.10D` — MDF / MDFLam / yongalevha marka sayfaları
 5. `2.10E` — Doorpan / Doorlam kapı paneli
@@ -336,7 +336,15 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - `docs/kastamonu-entegre-asset-manifest.csv` — kaynak URL, ürün ailesi, izin dayanağı, hedef yol ve yayın durumu.
 - `docs/kastamonu-entegre-claims-audit.md` — mevcut teknik/ticari iddiaların `resmî kaynak`, `Yiğiter teyidi`, `kaldırılacak` sınıflandırması.
 
-**Sıradaki iş:** `2.10B` — `onaylı` varlıkları yerel arşive al, dosya hash/metadata kaydını tamamla, `src/data/kastamonu-entegre.ts` veri modelini ve tekrar kullanılabilir ürün/katalog bileşenlerini kur.
+**2.10B çıktıları:**
+
+- `src/data/kastamonu-entegre.ts` — 14 ürün ailesi, 25 yüzey, katalog ve kaynak modeli.
+- `src/components/kastamonu-entegre/` — ortak ürün kartı, katalog indirme ve yüzey kartı.
+- `scripts/sync-kastamonu-assets.mjs` — kaynak arşivi, WebP, PDF ve hash pipeline'ı.
+- `docs/kastamonu-entegre-asset-pipeline.md` — dosya standardı, bütçeler ve kullanım akışı.
+- 30 optimize görsel/yüzey ve Compactlam, Doorlam, Doorpan resmî katalogları.
+
+**Sıradaki iş:** `2.10C` — Kastamonu hub'ı veri modeline geçir, yeni `/urunler/kastamonu-entegre/dekoratif-panel/` rotasını oluştur, ürün aileleri/yüzeyler/kataloglar ile teklif akışını production sayfalarına uygula.
 
 **Mimari kararlar:**
 

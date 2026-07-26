@@ -1,0 +1,40 @@
+---
+import type { CatalogDocument } from '../../data/kastamonu-entegre';
+
+interface Props {
+  catalog: CatalogDocument & { localPath: string };
+  compact?: boolean;
+}
+
+const { catalog, compact = false } = Astro.props;
+const sizeLabel = catalog.fileBytes
+  ? `${(catalog.fileBytes / 1_000_000).toLocaleString('tr-TR', { maximumFractionDigits: 1 })} MB`
+  : undefined;
+---
+
+<a
+  href={catalog.localPath}
+  download={catalog.fileName}
+  class:list={[
+    'group inline-flex items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white text-primary transition-colors hover:border-primary/30 hover:bg-gray-50',
+    compact ? 'px-4 py-3 text-sm' : 'w-full px-5 py-4',
+  ]}
+>
+  <span class="min-w-0">
+    <span class="block font-semibold">{catalog.title}</span>
+    <span class="mt-0.5 block text-xs font-normal text-gray-500">
+      Resmî ürün kataloğunu indir
+      {catalog.year && ` · ${catalog.year}`}
+      {sizeLabel && ` · ${sizeLabel}`}
+    </span>
+  </span>
+  <svg
+    class="h-5 w-5 shrink-0 text-accent transition-transform group-hover:translate-y-0.5"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" />
+  </svg>
+</a>
