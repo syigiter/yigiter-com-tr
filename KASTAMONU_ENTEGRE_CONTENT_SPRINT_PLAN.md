@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Planlandı, uygulama başlamadı
+Durum: Uygulamada — `2.10A` tamamlandı, `2.10B` sırada
 
 ## 1. Karar ve Dayanak
 
@@ -216,6 +216,18 @@ Kabul kriterleri:
 - Kullanılacak her assetin kaynak URL'si ve ürün ailesi kayıtlı.
 - Teyitsiz kalınlık, ebat, stok, termin ve performans iddiası listelenmiş.
 - Görsel/PDF kullanım izni dayanağı manifestte belirtilmiş.
+
+Çıktılar:
+
+- [`docs/kastamonu-entegre-asset-manifest.csv`](docs/kastamonu-entegre-asset-manifest.csv)
+- [`docs/kastamonu-entegre-claims-audit.md`](docs/kastamonu-entegre-claims-audit.md)
+
+Sonuç:
+
+- `2.10A` 2026-07-26 tarihinde tamamlandı.
+- Üretici gamı ile Yiğiter tedarik/stok bilgisi ayrıştırıldı.
+- `Softmatt`, `5.000+`, `55+`, “Türkiye lider”, mutlak stok/termin ve teyitsiz teknik değerler sonraki veri modeline taşınmayacak.
+- `2.10B`, manifestte `onaylı` olan varlıkların yerel arşive alınması, hash/metadata kaydı ve ürün veri modeliyle başlayabilir.
 
 ### Sprint 2.10B — Veri Modeli ve Asset Pipeline
 
