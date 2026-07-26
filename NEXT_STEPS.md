@@ -271,3 +271,33 @@ Olası kapsam:
 - **non-www genc-boya kanonik uyumsuzluğu:** URL Inspection'da Google non-www'yi kanonik seçmiş; apex→www 308 zaten var (2.5B), etkilenen sayfalar için yeniden index talebi yeterli olabilir.
 
 Tam denetim çıktısı repo dışında tutuldu (yerel PDF: `SEO-Denetim-Raporu-Yigiter-2026-07-15-Tur2.pdf`). Bu katkı, mevcut sprint akışını değiştirmez; aday havuza girdi olarak eklenmiştir.
+
+## Panel Ürünleri — İki Katmanlı Mimari (çok-marka + Kastamonu Ana Bayi) — 2026-07-25
+
+**İş gerçeği (user teyidi):** Yiğiter panel ürünlerinde **çok-markalı tedarikçi** — Kastamonu Entegre Ana Bayisi olmanın yanında **Kronospan** (MDF), **Çamsan** (MDFLam) gibi başka fabrikaların ürünlerini de satıyor. Bu yüzden mdf/mdflam/kapi-paneli "duplike" çiftleri **cannibalization değil, farklılaştırılması gereken iki katman.** → **301 birleştirme YAPMA** (kasa/pervaz 2.9①a'dan farklı; orada tek kaynak vardı, burada iki gerçek teklif var).
+
+**Katmanlar:**
+- Generic `/urunler/{mdf,mdflam,kapi-paneli,yongalevha}` → çok-marka, marka-agnostik. Niyet: "mdf/panel bayilik veren firmalar", "toptan mdf/panel". (GSC: "mdf bayilik veren firmalar" pos ~7.7)
+- `/urunler/kastamonu-entegre/{...}` → Kastamonu'ya özel, Ana Bayi. Niyet: "kastamonu entegre mdf bayileri" (GSC 32 imp, pos ~10.8)
+
+Her satır **iki ayrı query kümesini** yakalar; ikisinde de zaten gösterim var.
+
+| Ürün | Ana satış | Tedarik markaları | Generic sayfa |
+|---|---|---|---|
+| MDF | dengeli | Kastamonu, Kronospan, + | var |
+| MDFLam | Kastamonu | Kastamonu, Çamsan | var |
+| Kapı Paneli | Kastamonu | çok marka | var |
+| Yonga Levha | Kastamonu | çok marka | **YOK → açılmalı** |
+| Melamin kapı yüzeyi | — | ithal + diğer | var (tek sayfa) |
+
+**İçerik farklılaştırma mantığı:**
+- Generic sayfa: "Hangi markaları tedarik ediyoruz" (Kastamonu + Kronospan + Çamsan…), marka-agnostik, genel ürün bilgisi.
+- Kastamonu sayfası: Ana Bayi konumu, Kastamonu'nun kendi ürün gamı/teknolojisi.
+- Ana satış Kastamonu olanlarda (mdflam, kapı paneli, yonga levha) Kastamonu sayfası birincil.
+
+**Yapılacaklar (içerik lane — sprint):**
+1. Generic sayfaları çok-marka olacak şekilde farklılaştır. Marka/ürün detayı (hangi Kronospan/Çamsan ürünleri, kalınlıklar, stok) içerik sahibinden — uydurma yok.
+2. **Eksik: generic `/urunler/yongalevha/` sayfası aç** (başka marka sunta satılıyor, generic sayfa yok).
+3. Farklılaşınca her iki sayfa da self-canonical kalabilir (farklı içerik = meşru ayrı sayfalar).
+
+**Schema (follow-up, ayrı PR — claude-seo lane):** Farklılaşınca duplike çifte Product eklenebilir — generic marka-agnostik (seller), Kastamonu `brand: Kastamonu Entegre`. Rakip-entity sorunu kalmaz. PR #64 bu çifti bilinçli erteledi (BreadcrumbList eklendi, Product beklemede).
