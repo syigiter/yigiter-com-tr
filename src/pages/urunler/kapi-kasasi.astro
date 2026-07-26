@@ -1,5 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildProduct } from '../../lib/schema';
+
+const productSchema = buildProduct({
+  name: 'Kapı Kasası',
+  description:
+    'Kendi tesisimizde üretilen kapı kasası; standart ölçü seri üretim ve projeye özel ölçü seçenekleriyle kapı üreticileri, bayiler ve projeler için toptan tedarik.',
+  url: '/urunler/kapi-kasasi/',
+  category: 'Kapı Komponentleri',
+  manufacturedByYigiter: true,
+});
 
 const relatedProducts = [
   {
@@ -21,6 +31,7 @@ const relatedProducts = [
 ---
 
 <BaseLayout
+  structuredData={productSchema}
   title="Kapı Kasası Tedariki"
   description="Kapı kasası nedir, hangi ölçü ve model seçenekleri vardır? Kapı üreticileri, montaj bayileri ve projeler için toptan kapı kasası tedariki ve teklif alın."
 >

@@ -1,5 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildProduct } from '../../lib/schema';
+
+const productSchema = buildProduct({
+  name: 'Melamin Kapı Yüzeyi',
+  description:
+    'İthal melamin kaplı kapı yüzeyleri; kapı imalatçıları için farklı desen ve ölçü seçenekleriyle toptan tedarik.',
+  url: '/urunler/melamin-kapi-yuzeyi/',
+  category: 'Kapı Yüzey Malzemeleri',
+});
 
 const relatedProducts = [
   {
@@ -26,6 +35,7 @@ const relatedProducts = [
 ---
 
 <BaseLayout
+  structuredData={productSchema}
   title="Melamin Kapı Yüzeyi Üreticisi"
   description="Melamin kapı yüzeyi üreticisi ve toptan tedarikçisi. Kapı kanadı üreticileri için renk, desen, adet ve teslimat ihtiyacına uygun melamin kapı yüzeyi teklifi alın."
 >

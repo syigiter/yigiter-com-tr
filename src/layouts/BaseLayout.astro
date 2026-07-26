@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/global.css';
+import { breadcrumbFromPath } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -12,6 +13,7 @@ interface Props {
   lang?: string;
   ogLocale?: string;
   appendSiteName?: boolean;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -21,6 +23,7 @@ const {
   lang = 'tr',
   ogLocale = 'tr_TR',
   appendSiteName = true,
+  structuredData,
 } = Astro.props;
 
 const siteName = 'Yiğiter Orman Ürünleri';
@@ -31,6 +34,16 @@ const fullTitle = appendSiteName
   : title;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const absoluteOgImage = new URL(ogImage, Astro.site);
+
+// Per-page JSON-LD: auto BreadcrumbList for /urunler/** pages + any page-supplied schema.
+const extraStructuredData: Record<string, unknown>[] = [];
+const path = Astro.url.pathname;
+if (path.startsWith('/urunler/') && path.replace(/\/+$/, '') !== '/urunler') {
+  extraStructuredData.push(breadcrumbFromPath(path));
+}
+if (structuredData) {
+  extraStructuredData.push(...(Array.isArray(structuredData) ? structuredData : [structuredData]));
+}
 ---
 
 <!DOCTYPE html>
@@ -59,6 +72,7 @@ const absoluteOgImage = new URL(ogImage, Astro.site);
     <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
+      "@id": "https://www.yigiter.com.tr/#organization",
       "@type": ["Organization", "LocalBusiness", "Store"],
       "name": "Yiğiter Orman Ürünleri",
       "alternateName": "YİGİTER ORMAN ÜRÜN.İNŞ.PAZ.SAN.TİC.LTD.ŞTİ.",
@@ -134,6 +148,11 @@ const absoluteOgImage = new URL(ogImage, Astro.site);
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xirpsgg0ls");
     </script>
+
+    <!-- Per-page structured data: BreadcrumbList (auto) + Product (product pages) -->
+    {extraStructuredData.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))}
   </head>
   <body class="font-sans bg-white text-neutral-800 antialiased">
     <Header />

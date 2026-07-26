@@ -1,5 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildProduct } from '../../lib/schema';
+
+const productSchema = buildProduct({
+  name: 'Kapı Pervazı',
+  description:
+    'Kendi tesisimizde üretilen kapı pervazı; standart ölçü seri üretim ve projeye özel ölçü seçenekleriyle kapı üreticileri, bayiler ve projeler için toptan tedarik.',
+  url: '/urunler/kapi-pervazi/',
+  category: 'Kapı Komponentleri',
+  manufacturedByYigiter: true,
+});
 
 const relatedProducts = [
   {
@@ -109,6 +119,7 @@ const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L';
 ---
 
 <BaseLayout
+  structuredData={productSchema}
   title="Kapı Pervazı Tedariki"
   description="Kapı pervazı nedir, hangi ölçü ve model seçenekleri vardır? Kapı üreticileri, bayiler ve projeler için toptan kapı pervazı tedariki ve teklif alın."
 >

@@ -1,8 +1,19 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { buildProduct } from '../../../lib/schema';
+
+const productSchema = buildProduct({
+  name: 'Yonga Levha',
+  description:
+    'Kastamonu Entegre Ana Bayisi olarak yonga levha (sunta) toptan tedariki; Türkiye geneli sevkiyat.',
+  url: '/urunler/kastamonu-entegre/yongalevha/',
+  category: 'Kastamonu Entegre Paneller',
+  brandName: 'Kastamonu Entegre',
+});
 ---
 
 <BaseLayout
+  structuredData={productSchema}
   title="Yongalevha (Sunta)"
   description="Kastamonu Entegre yongalevha (sunta) — Yiğiter Orman Ürünleri Ana Bayi. Mobilya ve genel imalat için geniş stok, Türkiye geneli sevkiyat."
 >

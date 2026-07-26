@@ -1,8 +1,18 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { buildProduct } from '../../../lib/schema';
+
+const productSchema = buildProduct({
+  name: 'Kağıt Dolgu (Honeycomb)',
+  description:
+    'Kapı imalatında kullanılan petek (honeycomb) kağıt dolgu malzemesi; kapı üreticileri için toptan tedarik.',
+  url: '/urunler/kapi-imalat-malzemeleri/kagit-dolgu/',
+  category: 'Kapı İmalat Malzemeleri',
+});
 ---
 
 <BaseLayout
+  structuredData={productSchema}
   title="Kağıt Dolgu Malzemesi (Honeycomb)"
   description="Yiğiter Orman Ürünleri — Kapı imalatı için kağıt dolgu (honeycomb / petek dolgu). Farklı yoğunluk ve kalınlık seçenekleri. Stoktan hızlı teslimat."
 >
