@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Uygulamada — `2.10A` tamamlandı, `2.10B` sırada
+Durum: Uygulamada — `2.10A` ve `2.10B` tamamlandı, `2.10C` sırada
 
 ## 1. Karar ve Dayanak
 
@@ -248,6 +248,23 @@ Kabul kriterleri:
 - Kırık asset/PDF bağlantısı yok.
 - Görsel bütçeleri sağlanıyor.
 - Mevcut sayfaların görünümü bozulmuyor.
+
+Çıktılar:
+
+- [`src/data/kastamonu-entegre.ts`](src/data/kastamonu-entegre.ts)
+- [`src/components/kastamonu-entegre/`](src/components/kastamonu-entegre/)
+- [`scripts/sync-kastamonu-assets.mjs`](scripts/sync-kastamonu-assets.mjs)
+- [`scripts/validate-kastamonu-data.mjs`](scripts/validate-kastamonu-data.mjs)
+- [`docs/kastamonu-entegre-asset-pipeline.md`](docs/kastamonu-entegre-asset-pipeline.md)
+
+Sonuç:
+
+- `2.10B` 2026-07-26 tarihinde tamamlandı.
+- 30 görsel/yüzey WebP olarak optimize edildi; her biri tanımlı bütçenin altında.
+- 3 çekirdek resmî katalog değiştirilmeden yerel ve sürümlü olarak eklendi.
+- Diğer onaylı katalogların SHA-256 ve boyut metadata'sı kaydedildi; büyük PDF paketi ilgili ürün sprintlerine bölündü.
+- 14 ürün ailesi tek veri dosyasında, üretici iddiası ile Yiğiter stok/termin iddiası ayrılarak modellendi.
+- Mevcut production sayfaları değiştirilmedi. Tek kaynak modeline sayfa geçişi `2.10C–2.10E` içinde yapılacak.
 
 ### Sprint 2.10C — Kastamonu Hub ve Dekoratif Panel Sayfası
 
