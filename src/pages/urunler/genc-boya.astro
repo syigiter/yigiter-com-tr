@@ -134,12 +134,12 @@ const gencBoyaLocations = [
               { title: 'Asit Kürlenmeli (AC)', img: 'asit-kurlenmeli', desc: 'Sert, dayanıklı yüzey. Klasik mobilya ve doğrama uygulamaları için.' },
               { title: 'UV Curing', img: 'uv', desc: 'Anlık kuruma teknolojisi. Seri üretim hatları için yüksek verimlilik.' },
             ].map((item) => (
-              <div class="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors flex items-center gap-3">
-                <img src={`/images/products/genc-boya/${item.img}.webp`} alt={`Genç Boya ${item.title}`} width="56" height="56" loading="lazy" class="w-14 h-14 object-contain shrink-0" />
-                <div>
-                  <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
-                  <p class="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+              <div class="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors text-center">
+                <div class="bg-gray-50 rounded-lg mb-3 flex items-center justify-center h-32">
+                  <img src={`/images/products/genc-boya/${item.img}.webp`} alt={`Genç Boya ${item.title}`} width="220" height="174" loading="lazy" class="max-h-28 w-auto object-contain" />
                 </div>
+                <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
