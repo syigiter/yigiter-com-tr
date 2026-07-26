@@ -317,7 +317,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 3. `2.10C` — Kastamonu hub + yeni dekoratif panel sayfası — **TAMAMLANDI 2026-07-26**
 4. `2.10D` — MDF / MDFLam / yongalevha marka sayfaları — **TAMAMLANDI 2026-07-26**
 5. `2.10E` — Doorpan / Doorlam kapı paneli — **TAMAMLANDI 2026-07-26**
-6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha
+6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha — **TAMAMLANDI 2026-07-26**
 7. `2.10G` — Katalog merkezi + yüzey galerisi
 8. `2.10H` — SEO / schema / teklif ve ölçüm etiketleri
 9. `2.10I` — Production QA + 14/28/56 gün ölçüm
@@ -369,7 +369,17 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - Yerel Doorpan ve Doorlam resmî katalog indirmeleri; güvenli stok, ölçü ve termin dili.
 - 37 sayfalık başarılı build; self-canonical, tek H1, Product schema, sitemap, 7 yüzey ve 7 dekor doğrulaması.
 
-**Sıradaki iş:** `2.10F` — Generic MDF, MDFLam ve kapı paneli sayfalarını çok markalı tedarik niyetiyle farklılaştır; yeni generic `/urunler/yongalevha/` sayfasını oluştur ve generic ↔ Kastamonu bağlamlı iç linklerini tamamla.
+**2.10F çıktıları:**
+
+- Generic MDF, MDFLam ve kapı paneli sayfalarında ortak çok markalı B2B tedarik yapısı.
+- Ham ve melamin kaplı ürün ayrımıyla yeni `/urunler/yongalevha/` rotası.
+- Teyitli kapsamla MDF'de Kastamonu Entegre + Kronospan, MDFLam'da Kastamonu Entegre Medelam + Çamsan tedarik seçenekleri; teyitsiz seri/ölçü/stok ayrıntısı yok.
+- Dört generic ve dört Kastamonu sayfası arasında çift yönlü bağlamlı iç linkler.
+- Ürünler sayfasında MDF, MDFLam, yonga levha ve kapı paneli için dört ayrı katalog kartı.
+- Teklif formunda dört panel ürün grubunun ayrı query mapping'i.
+- 38 sayfalık başarılı build; dört generic rotada tek H1, self-canonical, farklı marka/genel içerik açısı, sitemap ve yerel hedef doğrulaması.
+
+**Sıradaki iş:** `2.10G` — Kastamonu Entegre hub içinde güncel katalog merkezi ve ürün ailesi filtreli yüzey galerisi oluştur; PDF sürüm/tarih ve fiziksel numune uyarılarını tamamla.
 
 **Mimari kararlar:**
 
