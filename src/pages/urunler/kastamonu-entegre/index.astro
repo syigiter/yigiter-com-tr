@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import CatalogDownload from '../../../components/kastamonu-entegre/CatalogDownload.astro';
-import SurfaceSampleCard from '../../../components/kastamonu-entegre/SurfaceSampleCard.astro';
+import CatalogCenter from '../../../components/kastamonu-entegre/CatalogCenter.astro';
+import SurfaceGallery from '../../../components/kastamonu-entegre/SurfaceGallery.astro';
 import {
   decorativeSurfaceSamples,
   doorpanSurfaceSamples,
@@ -24,8 +24,8 @@ function getImage(id: string) {
 }
 
 const heroImage = getImage('ke-img-001');
-const featuredSurfaces = decorativeSurfaceSamples.slice(0, 6);
 const surfaceCount = decorativeSurfaceSamples.length + doorpanSurfaceSamples.length;
+const surfaceSamples = [...decorativeSurfaceSamples, ...doorpanSurfaceSamples];
 
 const hubGroups = [
   {
@@ -180,6 +180,24 @@ const hubGroups = [
     </div>
   </section>
 
+  <nav aria-label="Kastamonu Entegre sayfa bölümleri" class="border-b border-gray-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-wrap gap-2 px-4 py-4 sm:px-6 lg:px-8">
+      {[
+        ['Ürün Aileleri', '#urun-aileleri'],
+        ['Katalog Merkezi', '#kataloglar'],
+        ['Yüzey Galerisi', '#yuzeyler'],
+        ['Teklif', '#teklif'],
+      ].map(([label, href]) => (
+        <a
+          href={href}
+          class="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-semibold text-primary hover:border-primary/30 hover:bg-white"
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </nav>
+
   <section id="urun-aileleri" class="scroll-mt-24 py-14 lg:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
@@ -227,46 +245,9 @@ const hubGroups = [
     </div>
   </section>
 
-  <section class="border-y border-gray-200 bg-gray-50 py-14 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
-        <div class="max-w-3xl">
-          <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Yüzey Kütüphanesi</p>
-          <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">Yüzey ve doku örnekleri</h2>
-          <p class="mt-4 leading-7 text-gray-700">
-            Kodlar renk kartelası değil, yüzey ve doku karakterini gösteren resmî örneklerdir.
-            Fiziksel numune ve ekran görünümü arasında fark olabilir.
-          </p>
-        </div>
-        <a
-          href="/urunler/kastamonu-entegre/dekoratif-panel/#yuzeyler"
-          class="text-sm font-bold text-primary underline decoration-accent/50 underline-offset-4 hover:text-accent-dark"
-        >
-          Tüm {decorativeSurfaceSamples.length} yüzeyi gör →
-        </a>
-      </div>
+  <CatalogCenter catalogs={localCatalogs} />
 
-      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-        {featuredSurfaces.map((sample) => <SurfaceSampleCard sample={sample} />)}
-      </div>
-    </div>
-  </section>
-
-  <section class="py-14 lg:py-20">
-    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-      <div>
-        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Resmî Dokümanlar</p>
-        <h2 class="mt-3 text-3xl font-bold text-primary">Yerel ve sürümlü kataloglar</h2>
-        <p class="mt-4 leading-7 text-gray-700">
-          Yayına alınan kataloglar resmî dosyanın değiştirilmemiş kopyasıdır. Diğer ürün aileleri
-          için güncel katalog sürümü teklif aşamasında paylaşılır.
-        </p>
-      </div>
-      <div class="grid gap-3">
-        {localCatalogs.map((catalog) => <CatalogDownload catalog={catalog} />)}
-      </div>
-    </div>
-  </section>
+  <SurfaceGallery samples={surfaceSamples} />
 
   <section class="bg-wood-100 py-14 lg:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

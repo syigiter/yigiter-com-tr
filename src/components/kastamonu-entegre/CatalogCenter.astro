@@ -1,0 +1,159 @@
+---
+import type { CatalogDocument } from '../../data/kastamonu-entegre';
+import CatalogDownload from './CatalogDownload.astro';
+
+interface Props {
+  catalogs: Array<CatalogDocument & { localPath: string }>;
+}
+
+const { catalogs } = Astro.props;
+
+const familyConfig = {
+  'compact-panel-lam': {
+    filter: 'compact-panel',
+    label: 'Compact Panel',
+    href: '/urunler/kastamonu-entegre/dekoratif-panel/',
+    linkLabel: 'Compact Panel ürünlerini incele',
+  },
+  doorpan: {
+    filter: 'doorpan',
+    label: 'Doorpan',
+    href: '/urunler/kastamonu-entegre/kapi-paneli/',
+    linkLabel: 'Doorpan yüzeylerini incele',
+  },
+  doorlam: {
+    filter: 'doorlam',
+    label: 'Doorlam',
+    href: '/urunler/kastamonu-entegre/kapi-paneli/',
+    linkLabel: 'Doorlam dekorlarını incele',
+  },
+} as const;
+
+const catalogItems = catalogs
+  .map((catalog) => {
+    const familyId = catalog.productFamilyIds.find((id) => id in familyConfig);
+    if (!familyId) return undefined;
+    return {
+      catalog,
+      family: familyConfig[familyId as keyof typeof familyConfig],
+    };
+  })
+  .filter((item): item is NonNullable<typeof item> => Boolean(item))
+  .sort((a, b) => (b.catalog.year ?? 0) - (a.catalog.year ?? 0));
+
+const filters = [
+  { id: 'all', label: 'Tüm kataloglar', count: catalogItems.length },
+  ...Object.values(familyConfig).map((family) => ({
+    id: family.filter,
+    label: family.label,
+    count: catalogItems.filter((item) => item.family.filter === family.filter).length,
+  })),
+].filter((filter) => filter.id === 'all' || filter.count > 0);
+---
+
+<section id="kataloglar" class="scroll-mt-24 border-y border-gray-200 bg-gray-50 py-14 lg:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" data-catalog-filter-root>
+    <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Katalog Merkezi</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          Güncel ve yerel resmî kataloglar
+        </h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Yalnızca sürümü ve yerel dosyası doğrulanmış kataloglar listelenir. Yıl, sürüm ve dosya
+          boyutunu kontrol ederek indirin; eski ve güncelliği belirsiz belgeler bu alanda yayınlanmaz.
+        </p>
+      </div>
+      <a
+        href="/teklif-al?urun=Kastamonu%20Entegre%20g%C3%BCncel%20katalog"
+        class="inline-flex shrink-0 items-center justify-center rounded-lg border border-primary px-5 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+      >
+        Başka Bir Katalog İste
+      </a>
+    </div>
+
+    <div class="mt-7 flex flex-wrap gap-2" aria-label="Katalog ürün ailesi filtresi">
+      {filters.map((filter, index) => (
+        <button
+          type="button"
+          class:list={[
+            'rounded-full border px-4 py-2 text-sm font-semibold transition-colors',
+            index === 0
+              ? 'border-primary bg-primary text-white'
+              : 'border-gray-300 bg-white text-gray-700 hover:border-primary/40 hover:text-primary',
+          ]}
+          data-catalog-filter={filter.id}
+          aria-pressed={index === 0 ? 'true' : 'false'}
+        >
+          {filter.label} ({filter.count})
+        </button>
+      ))}
+    </div>
+
+    <p class="sr-only" aria-live="polite" data-catalog-filter-status>
+      {catalogItems.length} katalog gösteriliyor.
+    </p>
+
+    <div class="mt-8 grid gap-5 lg:grid-cols-3">
+      {catalogItems.map(({ catalog, family }) => (
+        <article
+          class="flex h-full min-w-0 flex-col rounded-2xl border border-gray-200 bg-white p-5"
+          data-catalog-item
+          data-catalog-family={family.filter}
+        >
+          <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+            <span class="rounded-full bg-wood-100 px-3 py-1 text-xs font-bold text-primary">
+              {family.label}
+            </span>
+            <span class="text-xs font-medium text-gray-500">
+              {catalog.year} · Sürüm {catalog.version}
+            </span>
+          </div>
+          <CatalogDownload catalog={catalog} />
+          <a
+            href={family.href}
+            class="mt-auto pt-5 text-sm font-semibold text-primary underline decoration-primary/25 underline-offset-4 hover:decoration-primary"
+          >
+            {family.linkLabel} →
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-catalog-filter-root]').forEach((root) => {
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-filter]'));
+    const items = Array.from(root.querySelectorAll<HTMLElement>('[data-catalog-item]'));
+    const status = root.querySelector<HTMLElement>('[data-catalog-filter-status]');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selected = button.dataset.catalogFilter ?? 'all';
+        let visibleCount = 0;
+
+        items.forEach((item) => {
+          const visible = selected === 'all' || item.dataset.catalogFamily === selected;
+          item.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+
+        buttons.forEach((candidate) => {
+          const active = candidate === button;
+          candidate.setAttribute('aria-pressed', String(active));
+          candidate.classList.toggle('border-primary', active);
+          candidate.classList.toggle('bg-primary', active);
+          candidate.classList.toggle('text-white', active);
+          candidate.classList.toggle('border-gray-300', !active);
+          candidate.classList.toggle('bg-white', !active);
+          candidate.classList.toggle('text-gray-700', !active);
+          candidate.classList.toggle('hover:border-primary/40', !active);
+          candidate.classList.toggle('hover:text-primary', !active);
+        });
+
+        if (status) status.textContent = `${visibleCount} katalog gösteriliyor.`;
+      });
+    });
+  });
+</script>

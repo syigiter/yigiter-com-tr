@@ -1,0 +1,114 @@
+---
+import type { SurfaceSample } from '../../data/kastamonu-entegre';
+import SurfaceSampleCard from './SurfaceSampleCard.astro';
+
+interface Props {
+  samples: SurfaceSample[];
+}
+
+const { samples } = Astro.props;
+
+const filterLabels: Record<SurfaceSample['group'], string> = {
+  'decorative-panel': 'Dekoratif Panel',
+  doorpan: 'Doorpan',
+};
+
+const filters = [
+  { id: 'all', label: 'Tüm yüzeyler', count: samples.length },
+  ...(['decorative-panel', 'doorpan'] as const).map((group) => ({
+    id: group,
+    label: filterLabels[group],
+    count: samples.filter((sample) => sample.group === group).length,
+  })),
+].filter((filter) => filter.id === 'all' || filter.count > 0);
+---
+
+<section id="yuzeyler" class="scroll-mt-24 py-14 lg:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" data-surface-filter-root>
+    <div class="max-w-3xl">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Yüzey Galerisi</p>
+      <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+        Ürün ailesine göre yüzey ve doku örnekleri
+      </h2>
+      <p class="mt-4 leading-7 text-gray-700">
+        Dekoratif panel dokuları ile Doorpan yüzey biçimlerini aynı merkezde inceleyin. Filtreler
+        yalnızca resmî kaynakla eşlenmiş yerel örnekleri gösterir.
+      </p>
+    </div>
+
+    <div class="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950">
+      <p class="font-bold">Fiziksel numune uyarısı</p>
+      <p class="mt-1">
+        Ekran ayarı, ışık ve görüntü sıkıştırması nedeniyle renk ve doku fiziksel numuneden farklı
+        görünebilir. Nihai seçimde güncel katalog kodunu ve fiziksel numuneyi birlikte teyit edin.
+        Doorpan örneklerindeki renklendirme yüzey biçimini anlatır; ürün beyaz astarlı sunulur.
+      </p>
+    </div>
+
+    <div class="mt-7 flex flex-wrap gap-2" aria-label="Yüzey ürün ailesi filtresi">
+      {filters.map((filter, index) => (
+        <button
+          type="button"
+          class:list={[
+            'rounded-full border px-4 py-2 text-sm font-semibold transition-colors',
+            index === 0
+              ? 'border-primary bg-primary text-white'
+              : 'border-gray-300 bg-white text-gray-700 hover:border-primary/40 hover:text-primary',
+          ]}
+          data-surface-filter={filter.id}
+          aria-pressed={index === 0 ? 'true' : 'false'}
+        >
+          {filter.label} ({filter.count})
+        </button>
+      ))}
+    </div>
+
+    <p class="mt-4 text-sm text-gray-600" aria-live="polite" data-surface-filter-status>
+      {samples.length} yüzey örneği gösteriliyor.
+    </p>
+
+    <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      {samples.map((sample) => (
+        <div class="min-w-0" data-surface-item data-surface-group={sample.group}>
+          <SurfaceSampleCard sample={sample} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-surface-filter-root]').forEach((root) => {
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-surface-filter]'));
+    const items = Array.from(root.querySelectorAll<HTMLElement>('[data-surface-item]'));
+    const status = root.querySelector<HTMLElement>('[data-surface-filter-status]');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selected = button.dataset.surfaceFilter ?? 'all';
+        let visibleCount = 0;
+
+        items.forEach((item) => {
+          const visible = selected === 'all' || item.dataset.surfaceGroup === selected;
+          item.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+
+        buttons.forEach((candidate) => {
+          const active = candidate === button;
+          candidate.setAttribute('aria-pressed', String(active));
+          candidate.classList.toggle('border-primary', active);
+          candidate.classList.toggle('bg-primary', active);
+          candidate.classList.toggle('text-white', active);
+          candidate.classList.toggle('border-gray-300', !active);
+          candidate.classList.toggle('bg-white', !active);
+          candidate.classList.toggle('text-gray-700', !active);
+          candidate.classList.toggle('hover:border-primary/40', !active);
+          candidate.classList.toggle('hover:text-primary', !active);
+        });
+
+        if (status) status.textContent = `${visibleCount} yüzey örneği gösteriliyor.`;
+      });
+    });
+  });
+</script>

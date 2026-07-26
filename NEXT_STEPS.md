@@ -318,7 +318,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 4. `2.10D` — MDF / MDFLam / yongalevha marka sayfaları — **TAMAMLANDI 2026-07-26**
 5. `2.10E` — Doorpan / Doorlam kapı paneli — **TAMAMLANDI 2026-07-26**
 6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha — **TAMAMLANDI 2026-07-26**
-7. `2.10G` — Katalog merkezi + yüzey galerisi
+7. `2.10G` — Katalog merkezi + yüzey galerisi — **TAMAMLANDI 2026-07-26**
 8. `2.10H` — SEO / schema / teklif ve ölçüm etiketleri
 9. `2.10I` — Production QA + 14/28/56 gün ölçüm
 
@@ -379,7 +379,17 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - Teklif formunda dört panel ürün grubunun ayrı query mapping'i.
 - 38 sayfalık başarılı build; dört generic rotada tek H1, self-canonical, farklı marka/genel içerik açısı, sitemap ve yerel hedef doğrulaması.
 
-**Sıradaki iş:** `2.10G` — Kastamonu Entegre hub içinde güncel katalog merkezi ve ürün ailesi filtreli yüzey galerisi oluştur; PDF sürüm/tarih ve fiziksel numune uyarılarını tamamla.
+**2.10G çıktıları:**
+
+- Kastamonu Entegre hub içinde Compactlam 2026, Doorlam 2024 ve Doorpan 2024 için ürün ailesi filtreli katalog merkezi.
+- Katalog kartlarında görünür yıl, sürüm ve dosya boyutu; metadata-only/eski dokümanlar yayına kapalı.
+- 18 dekoratif panel dokusu ve 7 Doorpan yüzeyini kapsayan Tümü / Dekoratif Panel / Doorpan filtreli galeri.
+- `aria-pressed`, canlı sonuç sayısı ve JavaScript olmadan görünür içerikle erişilebilir filtre davranışı.
+- Fiziksel numune/ekran rengi ve Doorpan beyaz astar uyarıları.
+- Mobilde satır kıran filtreler, minimum genişlik dayatmayan kartlar ve yatay taşmasız grid.
+- 38 sayfalık başarılı build; 14 ürün ailesi, 25 yüzey, 3 yerel katalog ve 63 yerel hedef doğrulaması.
+
+**Sıradaki iş:** `2.10H` — Marka/genel niyete göre title-description denetimi, Kastamonu hub/dekoratif panel ItemList şeması, ürün sayfalarında uygun Product/ProductGroup bağlantıları ve teklif/katalog/WhatsApp ölçüm etiketleri.
 
 **Mimari kararlar:**
 
