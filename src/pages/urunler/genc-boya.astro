@@ -104,9 +104,8 @@ const gencBoyaLocations = [
 
         <div class="lg:col-span-2">
 
-          <!-- TODO: Ürün görseli eklenecek -->
-          <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center mb-8 text-gray-400 text-sm">
-            Genç Boya ürün görseli eklenecek
+          <div class="bg-white rounded-2xl border border-gray-200 flex items-center justify-center mb-8 py-10 px-6">
+            <img src="/images/products/genc-boya/genc-boya-logo.svg" alt="Genç Boya logosu" width="240" height="80" class="h-16 w-auto" />
           </div>
 
           <p class="text-gray-700 text-base leading-relaxed mb-5">
@@ -127,23 +126,27 @@ const gencBoyaLocations = [
           <h2 class="text-xl font-bold text-primary mb-5">Boya Sistemleri</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {[
-              { title: 'Poliüretan (PU)', desc: 'Yüksek dayanıklılık ve mükemmel yüzey kalitesi. Mobilya sektörünün tercihi.' },
-              { title: 'Akrilik', desc: 'Hızlı kuruma, kolay uygulama. Su bazlı ve solvent bazlı seçenekler.' },
-              { title: 'Poliester', desc: 'Derin parlak yüzeyler için. Yüksek dolum gücü ve üstün görünüm.' },
-              { title: 'Selülozik', desc: 'Klasik ve güvenilir sistem. Hızlı kuruma, kolay tamir edilebilirlik.' },
-              { title: 'Su Bazlı', desc: 'Çevre dostu formül. Düşük VOC, iç mekân uygulamaları için ideal.' },
-              { title: 'Asit Kürlenmeli (AC)', desc: 'Sert, dayanıklı yüzey. Klasik mobilya ve doğrama uygulamaları için.' },
-              { title: 'UV Curing', desc: 'Anlık kuruma teknolojisi. Seri üretim hatları için yüksek verimlilik.' },
+              { title: 'Poliüretan (PU)', img: 'poliuretan', desc: 'Yüksek dayanıklılık ve mükemmel yüzey kalitesi. Mobilya sektörünün tercihi.' },
+              { title: 'Akrilik', img: 'akrilik', desc: 'Hızlı kuruma, kolay uygulama. Su bazlı ve solvent bazlı seçenekler.' },
+              { title: 'Poliester', img: 'poliester', desc: 'Derin parlak yüzeyler için. Yüksek dolum gücü ve üstün görünüm.' },
+              { title: 'Selülozik', img: 'selulozik', desc: 'Klasik ve güvenilir sistem. Hızlı kuruma, kolay tamir edilebilirlik.' },
+              { title: 'Su Bazlı', img: 'su-bazli', desc: 'Çevre dostu formül. Düşük VOC, iç mekân uygulamaları için ideal.' },
+              { title: 'Asit Kürlenmeli (AC)', img: 'asit-kurlenmeli', desc: 'Sert, dayanıklı yüzey. Klasik mobilya ve doğrama uygulamaları için.' },
+              { title: 'UV Curing', img: 'uv', desc: 'Anlık kuruma teknolojisi. Seri üretim hatları için yüksek verimlilik.' },
             ].map((item) => (
-              <div class="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors">
-                <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+              <div class="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors flex items-center gap-3">
+                <img src={`/images/products/genc-boya/${item.img}.webp`} alt={`Genç Boya ${item.title}`} width="56" height="56" loading="lazy" class="w-14 h-14 object-contain shrink-0" />
+                <div>
+                  <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                  <p class="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
 
           <!-- Renk / Tinting -->
           <h2 class="text-xl font-bold text-primary mb-4">Renk Kartelası ve Sınırsız Renk</h2>
+          <img src="/images/products/genc-boya/tinting.webp" alt="Genç Boya GENÇ Tinting renklendirme sistemi" width="500" height="395" loading="lazy" class="rounded-xl border border-gray-200 mb-4 w-full max-w-sm" />
           <p class="text-gray-700 text-base leading-relaxed mb-4">
             <strong class="text-gray-900">GENÇ Tinting</strong> renklendirme sistemiyle çalışıyoruz:
             sabit bir renk kartelasıyla sınırlı kalmadan <strong>istediğiniz her tonu</strong> üretiyoruz.
