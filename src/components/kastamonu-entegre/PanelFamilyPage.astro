@@ -1,0 +1,309 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildProduct } from '../../lib/schema';
+import type {
+  KastamonuProductFamily,
+  ProductImage,
+  SurfaceSample,
+} from '../../data/kastamonu-entegre';
+import SurfaceSampleCard from './SurfaceSampleCard.astro';
+
+interface SelectionPoint {
+  title: string;
+  description: string;
+}
+
+interface RelatedLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  pageLabel: string;
+  heading: string;
+  lead: string;
+  product: KastamonuProductFamily;
+  heroImage: ProductImage;
+  imageFit?: 'cover' | 'contain';
+  overview: string[];
+  comparisonTitle: string;
+  comparisonDescription: string;
+  comparedProducts: KastamonuProductFamily[];
+  selectionPoints: SelectionPoint[];
+  quoteProduct: string;
+  catalogTitle: string;
+  catalogDescription: string;
+  relatedLinks: RelatedLink[];
+  surfaceSamples?: SurfaceSample[];
+  surfaceHeading?: string;
+}
+
+const {
+  title,
+  description,
+  pageLabel,
+  heading,
+  lead,
+  product,
+  heroImage,
+  imageFit = 'cover',
+  overview,
+  comparisonTitle,
+  comparisonDescription,
+  comparedProducts,
+  selectionPoints,
+  quoteProduct,
+  catalogTitle,
+  catalogDescription,
+  relatedLinks,
+  surfaceSamples = [],
+  surfaceHeading = 'Yüzey ve doku örnekleri',
+} = Astro.props;
+
+const quoteHref = `/teklif-al?urun=${encodeURIComponent(quoteProduct)}`;
+const catalogHref = `/teklif-al?urun=${encodeURIComponent(`${quoteProduct} güncel katalog ve numune`)}`;
+const productSchema = buildProduct({
+  name: heading,
+  description,
+  url: product.route,
+  category: 'Kastamonu Entegre Paneller',
+  brandName: 'Kastamonu Entegre',
+});
+---
+
+<BaseLayout title={title} description={description} structuredData={productSchema}>
+  <nav aria-label="Sayfa yolu" class="border-b border-gray-200 bg-gray-50 py-3">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary">Ana Sayfa</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li><a href="/urunler/" class="hover:text-primary">Ürünler</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li><a href="/urunler/kastamonu-entegre/" class="hover:text-primary">Kastamonu Entegre</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li aria-current="page" class="font-medium text-gray-900">{pageLabel}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="overflow-hidden border-b border-wood-300 bg-wood-100">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:py-20">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-accent-dark">
+          Kastamonu Entegre Ana Bayisi
+        </p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-5xl lg:text-6xl">
+          {heading}
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-gray-700">{lead}</p>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-gray-600">
+          Stok, ölçü, ürün tipi ve termin bilgisi güncel teklif sırasında teyit edilir.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={quoteHref}
+            class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+          >
+            Teklif Al
+          </a>
+          <a
+            href="#urun-bilgisi"
+            class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+          >
+            Ürünü İncele
+          </a>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-wood-300 bg-white p-3 shadow-lg">
+        <img
+          src={heroImage.src}
+          width={heroImage.width}
+          height={heroImage.height}
+          alt={heroImage.alt}
+          decoding="async"
+          class:list={[
+            'aspect-[4/3] w-full rounded-xl bg-gray-50',
+            imageFit === 'contain' ? 'object-contain' : 'object-cover',
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Ürün özeti" class="border-b border-gray-200 bg-white">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-gray-200 sm:grid-cols-4">
+      {[
+        ['Ana Bayi', 'Yiğiter statüsü'],
+        [product.displayName, 'Resmî ürün ailesi'],
+        ['Teklif', 'Stok ve ölçü teyidi'],
+        ['Yerel', 'Optimize resmî görsel'],
+      ].map(([value, label]) => (
+        <div class="bg-white px-4 py-6 text-center">
+          <p class="text-lg font-bold text-primary sm:text-xl">{value}</p>
+          <p class="mt-1 text-xs text-gray-600">{label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="urun-bilgisi" class="scroll-mt-24 py-14 lg:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Ürün Bilgisi</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">{product.displayName} nedir?</h2>
+        <div class="mt-5 space-y-4 text-base leading-7 text-gray-700">
+          {overview.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+
+      <aside class="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+        <p class="text-xs font-bold uppercase tracking-widest text-accent-dark">Öne Çıkanlar</p>
+        <ul class="mt-5 space-y-3">
+          {product.highlights.map((highlight) => (
+            <li class="flex items-start gap-3 text-sm leading-6 text-gray-700">
+              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-gray-600">
+          {product.availability.label}
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="border-y border-gray-200 bg-gray-50 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Ürün Ayrımı</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">{comparisonTitle}</h2>
+        <p class="mt-4 leading-7 text-gray-700">{comparisonDescription}</p>
+      </div>
+
+      <div class:list={['mt-8 grid gap-5', comparedProducts.length > 1 && 'md:grid-cols-2']}>
+        {comparedProducts.map((item) => (
+          <article class="rounded-2xl border border-gray-200 bg-white p-6">
+            <h3 class="text-xl font-bold text-primary">{item.displayName}</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-700">{item.summary}</p>
+            <ul class="mt-5 flex flex-wrap gap-2" aria-label={`${item.displayName} kullanım alanları`}>
+              {item.useCases.map((useCase) => (
+                <li class="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs text-gray-700">
+                  {useCase}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Teklif Hazırlığı</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">Doğru teklifi üç bilgiyle hızlandırın</h2>
+      </div>
+      <ol class="mt-8 grid gap-5 md:grid-cols-3">
+        {selectionPoints.map((point, index) => (
+          <li class="rounded-2xl border border-gray-200 bg-white p-6">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+              {index + 1}
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-primary">{point.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-700">{point.description}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {
+    surfaceSamples.length > 0 && (
+      <section class="border-y border-gray-200 bg-gray-50 py-14 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Yüzey Kütüphanesi</p>
+            <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">{surfaceHeading}</h2>
+            <p class="mt-4 leading-7 text-gray-700">
+              Bunlar renk kartelası değil, yüzey ve doku karakterini gösteren örneklerdir.
+              Ekran görünümü fiziksel numuneden farklı olabilir.
+            </p>
+          </div>
+          <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {surfaceSamples.map((sample) => <SurfaceSampleCard sample={sample} />)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="bg-primary-900 py-14 text-white lg:py-20">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:items-center lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-400">Katalog ve Numune</p>
+        <h2 class="mt-3 text-3xl font-bold lg:text-4xl">{catalogTitle}</h2>
+        <p class="mt-4 max-w-3xl leading-7 text-white/75">{catalogDescription}</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <a
+          href={catalogHref}
+          class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+        >
+          Güncel Katalog ve Numune İste
+        </a>
+        <a
+          href={product.source.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-lg border border-white/35 px-6 py-3 text-sm font-semibold text-white hover:bg-white hover:text-primary"
+        >
+          Resmî Ürün Kaynağını Aç
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="teklif" class="scroll-mt-24 bg-wood-100 py-14 lg:py-20">
+    <div class="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Teklif</p>
+      <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+        Ürün, ölçü, miktar ve teslimat şehrini paylaşın
+      </h2>
+      <p class="mx-auto mt-4 max-w-3xl leading-7 text-gray-700">
+        Güncel stok ve tedarik durumu teyit edildikten sonra ihtiyacınıza uygun teklif hazırlayalım.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <a
+          href={quoteHref}
+          class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+        >
+          Teklif Formunu Aç
+        </a>
+        <a
+          href={`https://wa.me/905464886737?text=${encodeURIComponent(`Merhaba, ${quoteProduct} için bilgi almak istiyorum.`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+        >
+          WhatsApp ile Sor
+        </a>
+      </div>
+
+      <nav aria-label="İlgili ürün sayfaları" class="mt-8 flex flex-wrap justify-center gap-3">
+        {relatedLinks.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-full border border-wood-300 bg-white/70 px-4 py-2 text-sm font-semibold text-primary hover:border-primary/30"
+          >
+            {link.label} →
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

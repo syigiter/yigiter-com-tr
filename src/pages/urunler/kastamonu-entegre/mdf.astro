@@ -1,175 +1,55 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PanelFamilyPage from '../../../components/kastamonu-entegre/PanelFamilyPage.astro';
+import {
+  productFamiliesById,
+  productImagesById,
+} from '../../../data/kastamonu-entegre';
+
+const product = productFamiliesById.get('raw-mdf');
+const heroImage = productImagesById.get('ke-img-003');
+
+if (!product || !heroImage) {
+  throw new Error('Kastamonu Entegre MDF sayfası verisi bulunamadı.');
+}
 ---
 
-<BaseLayout
-  title="MDF"
-  description="Kastamonu Entegre MDF — Yiğiter Orman Ürünleri Ana Bayi. Hassas işçilik gerektiren projeler için yüksek kaliteli MDF. Stoktan, Türkiye geneli sevkiyat."
->
-  <!-- Breadcrumb -->
-  <nav class="bg-gray-50 border-b border-gray-200 py-3">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <ol class="flex items-center gap-2 text-sm text-gray-500">
-        <li><a href="/" class="hover:text-primary transition-colors">Anasayfa</a></li>
-        <li class="text-gray-300">/</li>
-        <li><a href="/urunler/" class="hover:text-primary transition-colors">Ürünler</a></li>
-        <li class="text-gray-300">/</li>
-        <li><a href="/urunler/kastamonu-entegre/" class="hover:text-primary transition-colors">Kastamonu Entegre</a></li>
-        <li class="text-gray-300">/</li>
-        <li class="text-gray-800 font-medium">MDF</li>
-      </ol>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="bg-wood-100 py-12 lg:py-16 border-b border-wood-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-          Kastamonu Entegre — Ana Bayi
-        </span>
-        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
-          MDF
-        </h1>
-        <p class="text-gray-600 text-lg">
-          Hassas işçilik gerektiren mobilya, dekorasyon ve kapı projelerinin vazgeçilmez
-          panel çözümü. Ana bayi güvencesiyle stoktan teslimat.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- İçerik -->
-  <section class="py-16 lg:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-
-        <div class="lg:col-span-2">
-
-          <!-- TODO: Ürün görseli eklenecek -->
-          <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center mb-8 text-gray-400 text-sm">
-            MDF ürün görseli eklenecek
-          </div>
-
-          <p class="text-gray-700 text-base leading-relaxed mb-5">
-            MDF (Orta Yoğunluklu Lif Levha), pürüzsüz yüzey yapısı ve homojen dokusuyla
-            hassas işçilik gerektiren her türlü mobilya ve dekorasyon projesinde tercih edilen
-            bir panel türüdür.
-          </p>
-
-          <p class="text-gray-700 text-base leading-relaxed mb-10">
-            Kastamonu Entegre'nin Ana Bayisi olarak standart ve lamine MDF ürünlerinin tümünü
-            stoktan sunuyoruz. Freskeleme, oyma, boyama ve kaplama uygulamalarında üstün performans.
-          </p>
-
-          <!-- Ürün Özellikleri -->
-          <h2 class="text-xl font-bold text-primary mb-5">Ürün Özellikleri</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-            {[
-              { label: 'Marka', value: 'Kastamonu Entegre' },
-              { label: 'Bayi Statüsü', value: 'Ana Bayi' },
-              { label: 'Sevkiyat', value: 'Türkiye Geneli' },
-              { label: 'Teslimat', value: 'Stoktan' },
-              { label: 'Kalınlık', value: '3, 4, 6, 8, 10, 12, 15, 18, 22, 25, 30 mm' },
-              { label: 'Yoğunluk', value: '650–750 kg/m³' },
-            ].map((spec) => (
-              <div class="flex justify-between py-3 border-b border-gray-100">
-                <span class="text-gray-500 text-sm">{spec.label}</span>
-                <span class="text-gray-900 text-sm font-medium" set:html={spec.value} />
-              </div>
-            ))}
-          </div>
-
-          <!-- Özel Yüzey Seçenekleri -->
-          <h2 class="text-xl font-bold text-primary mb-4">Özel Yüzey Teknolojileri</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-            {[
-              { ad: 'Safe Surface', tanim: 'Antibakteriyel yüzey — hijyenik ortamlar için.' },
-              { ad: 'QuietPan', tanim: 'Akustik yalıtımlı panel — ses azaltma uygulamaları.' },
-              { ad: 'Mattplus', tanim: 'Parmak izi tutmayan mat yüzey.' },
-              { ad: 'Glossmax', tanim: 'Yüksek parlaklıklı yüzey.' },
-              { ad: 'Evogloss', tanim: 'Parlak ve çizilmeye dayanıklı yüzey.' },
-              { ad: 'Softmatt', tanim: 'Kadife dokunuşlu mat yüzey.' },
-            ].map((item) => (
-              <div class="border border-gray-100 rounded-lg p-3 bg-gray-50 flex gap-3 items-start">
-                <div class="w-2 h-2 rounded-full bg-accent shrink-0 mt-1.5"></div>
-                <div>
-                  <div class="font-semibold text-gray-900 text-xs">{item.ad}</div>
-                  <div class="text-gray-500 text-xs">{item.tanim}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <!-- Kullanım Alanları -->
-          <h2 class="text-xl font-bold text-primary mb-4">Kullanım Alanları</h2>
-          <ul class="space-y-2 mb-10">
-            {[
-              'Mobilya ön yüzleri ve kapı kapakları',
-              'Freskeleme ve oyma uygulamaları',
-              'Kaplama ve boyama için yüzey malzemesi',
-              'İç mekan dekorasyon profilleri',
-              'Sunta alternatifi yüksek kaliteli panel gerektiren projeler',
-            ].map((item) => (
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                </svg>
-                <span class="text-gray-700 text-sm">{item}</span>
-              </li>
-            ))}
-          </ul>
-
-        </div>
-
-        <!-- Sağ: CTA -->
-        <div class="space-y-5">
-          <div class="bg-primary rounded-2xl p-6 text-white">
-            <h3 class="text-lg font-bold mb-2">Fiyat Teklifi Alın</h3>
-            <p class="text-white/70 text-sm mb-4">
-              MDF ihtiyacınızı bildirin, teklif hazırlayalım.
-            </p>
-            <a
-              href="/teklif-al?urun=MDF+%28Kastamonu+Entegre%29"
-              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors"
-            >
-              Teklif Al
-            </a>
-          </div>
-
-          <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
-            <h3 class="text-green-800 font-bold mb-1 text-sm">WhatsApp ile İletişim</h3>
-            <p class="text-green-700 text-xs mb-3">MDF & Panel hattımıza bağlanın.</p>
-            <a
-              href="https://wa.me/905464886737" target="_blank" rel="noopener noreferrer"
-              class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
-            >
-              WhatsApp — MDF & Panel
-            </a>
-          </div>
-
-          <div class="border border-gray-200 rounded-2xl p-5">
-            <h3 class="font-bold text-gray-900 mb-4 text-sm">Diğer KE Ürünleri</h3>
-            <ul class="space-y-3">
-              {[
-                { ad: 'Yongalevha (Sunta)', href: '/urunler/kastamonu-entegre/yongalevha' },
-                { ad: 'MDFLam', href: '/urunler/kastamonu-entegre/mdflam' },
-                { ad: 'Kapı Paneli', href: '/urunler/kastamonu-entegre/kapi-paneli' },
-              ].map((item) => (
-                <li>
-                  <a href={item.href} class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                    </svg>
-                    {item.ad}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<PanelFamilyPage
+  title="Kastamonu Entegre Ham MDF"
+  description="Kastamonu Entegre ham MDF ürün ailesini, kullanım alanlarını ve teklif için gerekli bilgileri inceleyin. Stok, ölçü ve termin güncel teklifte teyit edilir."
+  pageLabel="MDF"
+  heading="Kastamonu Entegre Ham MDF"
+  lead="Mobilya, iç mekân ve işlenmiş panel uygulamalarında pürüzsüz bir çalışma zemini sunan ham MDF ürün ailesi."
+  product={product}
+  heroImage={heroImage}
+  imageFit="contain"
+  overview={[
+    'Ham MDF, ahşap liflerinin panel yapısında bir araya getirilmesiyle elde edilen, homojen ve pürüzsüz yüzeyli bir levhadır. Freze, CNC, boyama, folyo ve dekoratif kaplama gibi işlemler için bir taşıyıcı zemin sunar.',
+    'Kastamonu Entegre ürün gamında kullanım ve işleme amacına göre farklı MDF tipleri bulunur. Yiğiter stok kapsamı, ölçü ve ürün tipi talebiniz doğrultusunda ayrıca teyit edilir.',
+  ]}
+  comparisonTitle="MDF tipini işleme amacına göre belirleyin"
+  comparisonDescription="Freze derinliği, uygulanacak yüzey işlemi ve proje ölçüsü ürün seçimini etkiler. Teyitsiz tek bir kalınlık veya stok listesi yayınlamak yerine ihtiyacı teklif aşamasında eşleştiriyoruz."
+  comparedProducts={[product]}
+  selectionPoints={[
+    {
+      title: 'İşleme biçimi',
+      description: 'CNC, freze, profil açma, kesim veya düz gövde kullanımını belirtin.',
+    },
+    {
+      title: 'Yüzey işlemi',
+      description: 'Lake boya, folyo, melamin veya başka bir kaplama uygulanacaksa paylaşın.',
+    },
+    {
+      title: 'Ölçü ve miktar',
+      description: 'İstenen kalınlık, levha ölçüsü, adet/palet ve teslimat şehrini yazın.',
+    },
+  ]}
+  quoteProduct="Kastamonu Entegre MDF"
+  catalogTitle="Güncel MDF ürün bilgisini talebinize göre paylaşalım"
+  catalogDescription="Resmî ürün gamı zaman içinde güncellenebilir. İhtiyacınıza uygun ürün tipi, güncel doküman ve numune bilgisi satış ekibi tarafından teyit edilerek paylaşılır."
+  relatedLinks={[
+    { label: 'Medelam / MDFLam', href: '/urunler/kastamonu-entegre/mdflam/' },
+    { label: 'Yonga Levha', href: '/urunler/kastamonu-entegre/yongalevha/' },
+    { label: 'Çok markalı MDF', href: '/urunler/mdf/' },
+    { label: 'Kastamonu Entegre ürün merkezi', href: '/urunler/kastamonu-entegre/' },
+  ]}
+/>
