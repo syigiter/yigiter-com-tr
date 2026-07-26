@@ -1,14 +1,30 @@
 # Next Steps — Yiğiter Sitesi
 
-## Güncel Yön — 2026-07-23
+## Güncel Yön — 2026-07-26
 
-Sprint 2.8D ve Sprint 2.8F tamamlandı. Kapı Pervazı sayfasında ölçü ailesi / üretim kabiliyeti tablosu ile gerçek pervaz profil örnekleri; Kapı Komponentleri sayfasında ise kısa pervaz ölçü özeti ve pervaz/seren profil aileleri bloğu yayında.
+`Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı` kod, yayın ve T0 ölçüm tabanı tarafında tamamlandı. Production release'i [PR #77](https://github.com/syigiter/yigiter-com-tr/pull/77) ile `f980789fda592b063879bf0efd5cdf8c75d4ecfd`; ağ dalgalanmalarına dayanıklı QA düzeltmesi [PR #78](https://github.com/syigiter/yigiter-com-tr/pull/78) ile `12718f52341d412245257d13ac4f9ceb92c7129c` commit'inde yayına alındı.
 
-Kapı Pervazı sayfası artık B2B alıcı için yalnızca pazarlama metni değil; ölçü ailesi, üretim kabiliyeti ve gerçek profil örnekleri içeren teknik içerik seviyesine yükseldi.
+Program artık yeni içerik üretme aşamasında değil, ölçüm dönemindedir. Teknik regresyon görülmedikçe Kastamonu sayfalarında T+14 karar penceresinden önce yeni SEO veya CTA değişikliği yapılmayacaktır.
 
-**Yeni kod sprintinden önce teknik asset ve belge toplama yapılmalı.** Bundan sonraki öncelik yeni tablo veya teyitsiz içerik üretmek değil; doğrulanmış teknik asset ve belgeleri toplamaktır.
+### Öncelik 1 — T+24 teknik sağlık kontrolü
 
-### Öncelik 1 — Teknik asset toplama
+İlk kontrol zamanı: **2026-07-27 23:48 TSİ sonrası**.
+
+- `npm run qa:kastamonu:production` ile 7 rota, 73 yerel hedef, schema/sitemap, CSP/Analytics ve 404 kontrolü.
+- Vercel Analytics ve Speed Insights'ta yayın sonrası trafik/performans sağlığı.
+- Clarity custom event köprüsünün canlı bundle'da yüklenmesi; gerçek olay sayısının sıfır olması T+24 aşamasında tek başına hata sayılmayacak.
+- Teknik regresyon varsa içerik genişletmeden önce küçük hotfix; regresyon yoksa kod değişikliği yok.
+
+### Öncelik 2 — Ölçüm ve karar takvimi
+
+- **2026-08-09 / T+14:** İlk GSC görünürlük ve CTA olay sinyali.
+- **2026-08-23 / T+28:** Sorgu/landing eğilimi ve ürün ailesi karşılaştırması.
+- **2026-09-20 / T+56:** Kalıcı içerik, SEO ve dönüşüm kararı.
+- GSC raporu için `credentials.json`, `.gsc/token.json` ve Google API bağımlılıkları hâlâ gereklidir; bunlar olmadan sitemap/canonical sağlığı doğrulanabilir ancak Search Analytics ve URL Inspection API raporu alınamaz.
+
+Detaylı takip adımları, eşikler ve geri dönüş sırası: [`docs/kastamonu-entegre-measurement-plan.md`](docs/kastamonu-entegre-measurement-plan.md).
+
+### Öncelik 3 — Teknik asset toplama
 
 Toplanacak ve firma tarafından doğrulanacak materyaller:
 
@@ -21,7 +37,7 @@ Toplanacak ve firma tarafından doğrulanacak materyaller:
 - Aktif ölçü kombinasyonlarının firma onayı
 - Yüzey/profil örnek görsellerinin firma onayı
 
-### Öncelik 2 — Asset geldikten sonra uygulama sprinti
+### Öncelik 4 — Asset geldikten sonra uygulama sprinti
 
 Doğrulanmış asset ve belgeler geldikten sonra şu potansiyel sprint açılabilir:
 
@@ -38,11 +54,12 @@ Olası kapsam:
 
 Bu sprint assetler gelmeden açılmamalı; teyitsiz teknik içerik, stok garantisi veya kesin termin bilgisi üretilmemeli.
 
-### Öncelik 3 — Analytics kontrol notu
+### Analytics güncel durumu
 
-Production testlerinde Microsoft Clarity'nin proje ayarları nedeniyle veri toplamadığını bildiren uyarı görülüyor. Site davranışını bozmuyor; ayrı bir analytics/ölçüm kontrolünde değerlendirilmeli.
-
-Bu uyarı kritik site hatası veya `Sprint 2.9A` için engelleyici olarak değerlendirilmemelidir.
+- Vercel `Hobby` planında özel olay raporu bulunmadığı için aktif dönüşüm olayları Clarity custom event API'sine bağlandı.
+- İzlenen olaylar: `catalog_download`, `quote_click`, `whatsapp_click`, `quote_submitted`.
+- Olaylara ad, telefon, e-posta veya serbest form verisi gönderilmez.
+- Vercel `track()` bağlantısı plan yükseltmesi hâlinde kullanılmak üzere korunur.
 
 ## Güncel Karar (2026-07-07)
 
@@ -302,7 +319,7 @@ Her satır **iki ayrı query kümesini** yakalar; ikisinde de zaten gösterim va
 
 **Schema (follow-up, ayrı PR — claude-seo lane):** Farklılaşınca duplike çifte Product eklenebilir — generic marka-agnostik (seller), Kastamonu `brand: Kastamonu Entegre`. Rakip-entity sorunu kalmaz. PR #64 bu çifti bilinçli erteledi (BreadcrumbList eklendi, Product beklemede).
 
-## Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı — AKTİF 2026-07-26
+## Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı — KOD/YAYIN TAMAM, ÖLÇÜM AKTİF 2026-07-26
 
 **Yeni iş gerçeği / izin teyidi:** Kullanıcı, aktif Kastamonu Entegre bayilik anlaşmasının ürün görsellerini Yiğiter sitesinde kullanma izni verdiğini teyit etti.
 
@@ -320,7 +337,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha — **TAMAMLANDI 2026-07-26**
 7. `2.10G` — Katalog merkezi + yüzey galerisi — **TAMAMLANDI 2026-07-26**
 8. `2.10H` — SEO / schema / teklif ve ölçüm etiketleri — **TAMAMLANDI 2026-07-26**
-9. `2.10I` — Production QA + 14/28/56 gün ölçüm — **TAMAMLANDI 2026-07-26**
+9. `2.10I` — Production QA + 14/28/56 gün ölçüm — **UYGULAMA/T0 TAMAMLANDI 2026-07-26; TAKİP AKTİF**
 
 **Sprint açma önkoşulları:**
 
@@ -408,7 +425,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - GSC URL Inspection/performance listelerine altı marka rotası; yerel credentials olmadığı için API çağrısı bekliyor, production sitemap temiz.
 - `docs/kastamonu-entegre-measurement-plan.md`: T+24 saat ve 14/28/56 günlük takvim, metrikler, karar eşikleri ve güvenli geri dönüş noktası.
 
-**Program durumu:** `Sprint 2.10` kod ve production QA tarafında tamamlandı. Sıradaki işlem 2026-07-27 teknik sağlık kontrolü; ilk karar penceresi 2026-08-09 T+14 ölçümüdür.
+**Program durumu:** `Sprint 2.10` kod, production yayını ve T0 ölçüm tabanı tarafında tamamlandı. Sıradaki işlem 2026-07-27 23:48 TSİ sonrası teknik sağlık kontrolü; ilk içerik/dönüşüm karar penceresi 2026-08-09 T+14 ölçümüdür.
 
 **Mimari kararlar:**
 

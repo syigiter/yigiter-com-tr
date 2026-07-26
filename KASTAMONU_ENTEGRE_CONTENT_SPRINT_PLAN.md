@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Tamamlandı — `2.10A–2.10I`
+Durum: Kod ve production yayını tamamlandı — `2.10A–2.10I`; takip ölçümleri aktif
 
 ## 1. Karar ve Dayanak
 
@@ -472,14 +472,15 @@ Kabul kriterleri:
 
 Sonuç:
 
-- `2.10I` 2026-07-26 tarihinde tamamlandı.
+- `2.10I` uygulama, production yayını ve T0 ölçüm tabanı 2026-07-26 tarihinde tamamlandı; T+24/T+14/T+28/T+56 takip pencereleri takvimlerinde bekliyor.
 - Yedi production rotası, 73 ortak yerel hedef, altı sitemap/schema kaydı, CSP/Analytics ve 404 davranışı tekrar çalıştırılabilir production QA script'iyle doğrulandı.
 - Altı Kastamonu rotası 1440×900 ve 390×844 görünümde kontrol edildi; yatay taşma, hata katmanı ve console warning/error bulunmadı.
 - Dekoratif panelin lazy yüzey görselleri yükleme tamamlandıktan sonra eksiksiz görüntülendi; kalıcı kırık asset bulunmadı.
 - Vercel planının `Hobby` olduğu ve özel olay raporlamadığı doğrulandı. Dönüşüm olayları aktif Microsoft Clarity custom event API'sine de bağlandı; Vercel hook'u plan yükseltmesi için korundu.
 - Vercel Analytics raporuna beş alt marka rotası, Speed Insights raporuna hub/dekoratif panel eklendi; T0 değeri 352/1.139 toplam 7/28 günlük pageview olarak kaydedildi.
 - GSC yapılandırmasına altı Kastamonu rotası eklendi. Yerel GSC kimlik bilgileri bulunmadığı için canlı API çağrısı yapılmadı; sitemap tarafı production'da temiz ve salt-okunur takip komutu kayıtlıdır.
-- 2026-07-27, 2026-08-09, 2026-08-23 ve 2026-09-20 kontrol tarihleri; metrikler, karar eşikleri ve geri dönüş noktası `docs/kastamonu-entegre-measurement-plan.md` içinde kaydedildi.
+- PR #77 `f980789fda592b063879bf0efd5cdf8c75d4ecfd` ile production'a alındı; PR #78 `12718f52341d412245257d13ac4f9ceb92c7129c` ile QA aracına sınırlı eşzamanlılık, yeniden deneme ve düzenli ağ hatası raporu eklendi.
+- 2026-07-27 23:48 TSİ sonrası, 2026-08-09, 2026-08-23 ve 2026-09-20 kontrol zamanları; metrikler, karar eşikleri ve geri dönüş sırası `docs/kastamonu-entegre-measurement-plan.md` içinde kaydedildi.
 
 ## 8. Uygulama Sırası ve Bağımlılıklar
 
@@ -498,7 +499,7 @@ Sonuç:
           ↓
 2.10H SEO/schema/dönüşüm
           ↓
-2.10I QA + ölçüm
+2.10I QA + T0 ölçüm tabanı
 ```
 
 `2.10D` ve `2.10E`, `2.10B` tamamlandıktan sonra paralel hazırlanabilir; production'a aynı anda alınmaları gerekmez.
@@ -564,7 +565,7 @@ Sonuç:
 - Generic ve marka katmanlarının farklılaştırılması.
 - Schema/canonical/sitemap/CTA kontrollerinin geçmesi.
 - Tüm assetlerin manifestte izlenebilir olması.
-- 14/28/56 günlük ölçüm takviminin başlatılması.
+- 14/28/56 günlük ölçüm takviminin başlatılması; takip sonuçlarının kendi tarihlerinde kaydedilmesi.
 
 ## 13. Kapsam Dışı
 
