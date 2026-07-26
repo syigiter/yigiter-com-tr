@@ -118,19 +118,21 @@ export const productImages: ProductImage[] = [
   },
   {
     id: 'ke-img-002',
-    src: '/images/products/kastamonu-entegre/mdf/mdf-yongalevha-compact-panel.webp',
-    width: 282,
-    height: 163,
-    alt: 'Kastamonu Entegre MDF, yonga levha ve compact panel ürün grubu',
-    sourceUrl: 'https://www.kastamonuentegre.com/uploads/2022/11/mdf.jpg',
+    src: '/images/products/kastamonu-entegre/yongalevha/ham-yonga-levha.webp',
+    width: 1000,
+    height: 1000,
+    alt: 'Kastamonu Entegre ham yonga levha panelleri',
+    sourceUrl:
+      'https://www.kastamonuentegre.com/uploads/2022/12/teknopan-yongapan-ekopan-extrapan.jpg',
   },
   {
     id: 'ke-img-003',
     src: '/images/products/kastamonu-entegre/mdf/ham-mdf-levha.webp',
-    width: 651,
-    height: 283,
-    alt: 'Ham MDF levha kesiti',
-    sourceUrl: 'https://www.kastamonuentegre.com/uploads/2022/11/ham-levha.jpg',
+    width: 1000,
+    height: 1000,
+    alt: 'Kastamonu Entegre ham MDF panelleri',
+    sourceUrl:
+      'https://www.kastamonuentegre.com/uploads/2022/12/medepan-maxipan-neopan.jpg',
   },
   {
     id: 'ke-img-004',
@@ -147,6 +149,14 @@ export const productImages: ProductImage[] = [
     height: 163,
     alt: 'Kastamonu Entegre kapı paneli uygulaması',
     sourceUrl: 'https://www.kastamonuentegre.com/uploads/2023/03/kapipanel-min.jpg',
+  },
+  {
+    id: 'ke-img-008',
+    src: '/images/products/kastamonu-entegre/mdflam/medelam-carmen-uygulama.webp',
+    width: 1500,
+    height: 800,
+    alt: 'Kastamonu Entegre Medelam dekoratif panel uygulaması',
+    sourceUrl: 'https://www.kastamonuentegre.com/assets/img/galeri/A396-1-1-3.jpg',
   },
 ];
 
@@ -405,7 +415,7 @@ export const productFamilies: KastamonuProductFamily[] = [
     claimStatus: 'official_source',
     availability: defaultAvailability,
     route: '/urunler/kastamonu-entegre/mdflam/',
-    heroImageId: 'ke-img-001',
+    heroImageId: 'ke-img-008',
     catalogIds: [],
   },
   {
@@ -421,7 +431,7 @@ export const productFamilies: KastamonuProductFamily[] = [
     claimStatus: 'official_source',
     availability: defaultAvailability,
     route: '/urunler/kastamonu-entegre/yongalevha/',
-    heroImageId: 'ke-img-001',
+    heroImageId: 'ke-img-008',
     catalogIds: [],
   },
   {

@@ -1,173 +1,66 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PanelFamilyPage from '../../../components/kastamonu-entegre/PanelFamilyPage.astro';
+import {
+  decorativeSurfaceSamples,
+  productFamiliesById,
+  productImagesById,
+} from '../../../data/kastamonu-entegre';
+
+const product = productFamiliesById.get('medelam');
+const heroImage = productImagesById.get('ke-img-008');
+
+if (!product || !heroImage) {
+  throw new Error('Kastamonu Entegre MDFLam sayfası verisi bulunamadı.');
+}
+
+const featuredSurfaces = [
+  decorativeSurfaceSamples[0],
+  decorativeSurfaceSamples[1],
+  decorativeSurfaceSamples[6],
+  decorativeSurfaceSamples[8],
+  decorativeSurfaceSamples[11],
+  decorativeSurfaceSamples[14],
+];
 ---
 
-<BaseLayout
-  title="MDFLam"
-  description="Kastamonu Entegre MDFLam — Yiğiter Orman Ürünleri Ana Bayi. Hazır laminat yüzeyli MDF, dekoratif uygulamalar için geniş desen ve renk seçenekleri."
->
-  <!-- Breadcrumb -->
-  <nav class="bg-gray-50 border-b border-gray-200 py-3">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <ol class="flex items-center gap-2 text-sm text-gray-500">
-        <li><a href="/" class="hover:text-primary transition-colors">Anasayfa</a></li>
-        <li class="text-gray-300">/</li>
-        <li><a href="/urunler/" class="hover:text-primary transition-colors">Ürünler</a></li>
-        <li class="text-gray-300">/</li>
-        <li><a href="/urunler/kastamonu-entegre/" class="hover:text-primary transition-colors">Kastamonu Entegre</a></li>
-        <li class="text-gray-300">/</li>
-        <li class="text-gray-800 font-medium">MDFLam</li>
-      </ol>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="bg-wood-100 py-12 lg:py-16 border-b border-wood-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-          Kastamonu Entegre — Ana Bayi
-        </span>
-        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
-          MDFLam
-        </h1>
-        <p class="text-gray-600 text-lg">
-          Hazır laminat yüzeyli MDF — ek kaplama işlemi gerektirmeden doğrudan uygulamaya
-          hazır, dekoratif ve pratik çözüm.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- İçerik -->
-  <section class="py-16 lg:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-
-        <div class="lg:col-span-2">
-
-          <!-- TODO: Ürün görseli eklenecek -->
-          <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center mb-8 text-gray-400 text-sm">
-            MDFLam ürün görseli eklenecek
-          </div>
-
-          <p class="text-gray-700 text-base leading-relaxed mb-5">
-            MDFLam, laminat kaplama yüzeyiyle önceden hazırlanmış MDF paneldir. Ek kaplama
-            işlemine gerek kalmadan doğrudan mobilya, iç mekan ve dekorasyon uygulamalarında
-            kullanılabilir.
-          </p>
-
-          <p class="text-gray-700 text-base leading-relaxed mb-10">
-            Kastamonu Entegre'nin Ana Bayisi olarak geniş MDFLam renk ve desen kataloğunu
-            stoktan sunuyoruz. Hem üretim hızını artırır hem de nihai ürüne estetik bir
-            görünüm kazandırır.
-          </p>
-
-          <!-- Ürün Özellikleri -->
-          <h2 class="text-xl font-bold text-primary mb-5">Ürün Özellikleri</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-            {[
-              { label: 'Marka', value: 'Kastamonu Entegre' },
-              { label: 'Bayi Statüsü', value: 'Ana Bayi' },
-              { label: 'Yüzey', value: 'Hazır Laminat' },
-              { label: 'Sevkiyat', value: 'Türkiye Geneli' },
-              { label: 'Kalınlık', value: '8, 10, 12, 15, 18, 22, 25 mm' },
-              { label: 'Desen/Renk', value: '100+ renk & desen — Kastamonu Entegre kataloğu' },
-            ].map((spec) => (
-              <div class="flex justify-between py-3 border-b border-gray-100">
-                <span class="text-gray-500 text-sm">{spec.label}</span>
-                <span class="text-gray-900 text-sm font-medium" set:html={spec.value} />
-              </div>
-            ))}
-          </div>
-
-          <!-- Laminat Yüzey Seçenekleri -->
-          <h2 class="text-xl font-bold text-primary mb-4">Laminat Yüzey Seçenekleri</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
-            {[
-              { ad: 'Mat Laminat', tanim: 'Sade ve modern görünüm.' },
-              { ad: 'Parlak (Glossmax)', tanim: 'Yüksek parlaklık, şık finish.' },
-              { ad: 'Softmatt', tanim: 'Kadife mat doku.' },
-              { ad: 'Ahşap Dekor', tanim: 'Meşe, ceviz, gürgen vb. 200+ desen.' },
-              { ad: 'Düz Renk', tanim: 'Beyaz, antrasit, krem ve daha fazlası.' },
-              { ad: 'Taş & Beton', tanim: 'Endüstriyel ve modern dekor desenleri.' },
-            ].map((item) => (
-              <div class="border border-gray-100 rounded-lg p-3 bg-gray-50">
-                <div class="font-semibold text-gray-900 text-xs mb-0.5">{item.ad}</div>
-                <div class="text-gray-500 text-xs">{item.tanim}</div>
-              </div>
-            ))}
-          </div>
-
-          <!-- Kullanım Alanları -->
-          <h2 class="text-xl font-bold text-primary mb-4">Kullanım Alanları</h2>
-          <ul class="space-y-2 mb-10">
-            {[
-              'Mobilya ön yüzleri ve kapak imalatı',
-              'Mutfak ve banyo dolap kapakları',
-              'Raf sistemleri ve iç mekan dekorasyonu',
-              'Kapı kasası ve pervaz kaplama',
-              'Sergileme ve mağaza donanımı',
-            ].map((item) => (
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                </svg>
-                <span class="text-gray-700 text-sm">{item}</span>
-              </li>
-            ))}
-          </ul>
-
-        </div>
-
-        <!-- Sağ: CTA -->
-        <div class="space-y-5">
-          <div class="bg-primary rounded-2xl p-6 text-white">
-            <h3 class="text-lg font-bold mb-2">Fiyat Teklifi Alın</h3>
-            <p class="text-white/70 text-sm mb-4">
-              MDFLam ihtiyacınızı bildirin, teklif hazırlayalım.
-            </p>
-            <a
-              href="/teklif-al?urun=MDFLam+%28Kastamonu+Entegre%29"
-              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors"
-            >
-              Teklif Al
-            </a>
-          </div>
-
-          <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
-            <h3 class="text-green-800 font-bold mb-1 text-sm">WhatsApp ile İletişim</h3>
-            <p class="text-green-700 text-xs mb-3">MDF & Panel hattımıza bağlanın.</p>
-            <a
-              href="https://wa.me/905464886737" target="_blank" rel="noopener noreferrer"
-              class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
-            >
-              WhatsApp — MDF & Panel
-            </a>
-          </div>
-
-          <div class="border border-gray-200 rounded-2xl p-5">
-            <h3 class="font-bold text-gray-900 mb-4 text-sm">Diğer KE Ürünleri</h3>
-            <ul class="space-y-3">
-              {[
-                { ad: 'Yongalevha (Sunta)', href: '/urunler/kastamonu-entegre/yongalevha' },
-                { ad: 'MDF', href: '/urunler/kastamonu-entegre/mdf' },
-                { ad: 'Kapı Paneli', href: '/urunler/kastamonu-entegre/kapi-paneli' },
-              ].map((item) => (
-                <li>
-                  <a href={item.href} class="text-primary hover:text-accent text-sm font-medium transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                    </svg>
-                    {item.ad}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<PanelFamilyPage
+  title="Kastamonu Entegre Medelam MDFLam"
+  description="Kastamonu Entegre Medelam melamin kaplı MDF ürün ailesini, yüzey örneklerini ve kullanım alanlarını inceleyin. Güncel dekor, ölçü ve stok için teklif alın."
+  pageLabel="MDFLam"
+  heading="Medelam — Melamin Kaplı MDF"
+  lead="MDF levha üzerine melamin uygulanarak elde edilen, mobilya ve iç dekorasyona yönelik hazır dekoratif panel."
+  product={product}
+  heroImage={heroImage}
+  overview={[
+    'Sektörde MDFLam olarak anılan ürünün Kastamonu Entegre ürün ailesindeki karşılığı Medelam’dır. Taşıyıcı MDF levhanın yüzeyi melaminle kaplanır; bu nedenle “laminat kaplı MDF” yerine doğru ifade “melamin kaplı MDF”dir.',
+    'Dekor ve doku seçimi görsel beklentiye göre yapılırken levha ölçüsü, kalınlık ve güncel tedarik durumu proje bazında teyit edilir. Yüzey örnekleri renk kartelası değil, dokunun karakterini gösterir.',
+  ]}
+  comparisonTitle="Hazır dekoratif yüzeyi doğru adla seçin"
+  comparisonDescription="Medelam, ham MDF’den farklı olarak melamin kaplı hazır bir yüzey sunar. Parlak, ekstra mat veya akrilik gibi farklı teknoloji aileleri ise dekoratif panel sayfasında ayrı ürünler olarak değerlendirilir."
+  comparedProducts={[product]}
+  selectionPoints={[
+    {
+      title: 'Dekor ve doku',
+      description: 'Dekor adı/kodu ile istenen yüzey dokusunu veya fiziksel numuneyi belirtin.',
+    },
+    {
+      title: 'Uygulama alanı',
+      description: 'Gövde, kapak, raf, duvar paneli veya sabit mobilya kullanımını paylaşın.',
+    },
+    {
+      title: 'Ölçü ve miktar',
+      description: 'Kalınlık, levha ölçüsü, adet/palet ve teslimat şehriyle teklif isteyin.',
+    },
+  ]}
+  surfaceSamples={featuredSurfaces}
+  surfaceHeading="Medelam seçiminde kullanılabilecek yüzey dokuları"
+  quoteProduct="Kastamonu Entegre MDFLam Medelam"
+  catalogTitle="Güncel dekor ve yüzey bilgisini birlikte teyit edin"
+  catalogDescription="Ekran rengi nihai seçim için yeterli değildir. Güncel katalog, dekor durumu ve fiziksel numune talebinizi satış ekibine iletin."
+  relatedLinks={[
+    { label: 'Ham MDF', href: '/urunler/kastamonu-entegre/mdf/' },
+    { label: 'Dekoratif Panel', href: '/urunler/kastamonu-entegre/dekoratif-panel/' },
+    { label: 'Çok markalı MDFLam', href: '/urunler/mdflam/' },
+    { label: 'Kastamonu Entegre ürün merkezi', href: '/urunler/kastamonu-entegre/' },
+  ]}
+/>

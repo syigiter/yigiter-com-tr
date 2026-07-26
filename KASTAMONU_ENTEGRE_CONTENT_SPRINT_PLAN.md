@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Uygulamada — `2.10A`, `2.10B` ve `2.10C` tamamlandı, `2.10D` sırada
+Durum: Uygulamada — `2.10A–2.10D` tamamlandı, `2.10E` sırada
 
 ## 1. Karar ve Dayanak
 
@@ -315,6 +315,16 @@ Kabul kriterleri:
 - Her sayfada gerçek ürün görseli, doğru ürün ailesi ve katalog CTA'sı var.
 - Generic sayfalarla aynı giriş metni/H1 kullanılmıyor.
 - Stok ve ölçü ifadeleri güvenli ve doğrulanmış.
+
+Sonuç:
+
+- `2.10D` 2026-07-26 tarihinde tamamlandı.
+- Kastamonu Entegre MDF, MDFLam ve yonga levha sayfaları ortak veri modelini kullanan ürün sayfalarına dönüştürüldü.
+- Placeholder'lar; kesin stok, ölçü, termin, desen sayısı ve teyitsiz performans iddiaları kaldırıldı.
+- MDFLam terminolojisi “melamin kaplı MDF” olarak düzeltildi; Medelam, ham yonga levha ve Teknolam/Yongalam ürün aileleri ayrıştırıldı.
+- MDF ve yonga levha için 1000×1000, Medelam için 1500×800 resmî kaynak görselleri yerelde WebP olarak optimize edildi.
+- Güncelliği doğrulanamayan eski genel kataloglar yayınlanmadı; üç sayfada güncel katalog/numune talep CTA'sı ve resmî kaynak bağlantısı sunuldu.
+- Üretim derlemesi 37 sayfayla tamamlandı; üç rotada self-canonical, tek H1, görsel metadata ve 49 yerel hedef doğrulandı.
 
 ### Sprint 2.10E — Doorpan / Doorlam Kapı Paneli
 
