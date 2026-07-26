@@ -1,5 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildProduct } from '../../lib/schema';
+
+const productSchema = buildProduct({
+  name: 'PVC Film',
+  description:
+    'Kapı imalatında kullanılan PVC film; kapı üreticileri için farklı desen ve ölçü seçenekleriyle toptan tedarik.',
+  url: '/urunler/pvc-film/',
+  category: 'Kapı İmalat Malzemeleri',
+});
 
 const relatedProducts = [
   {
@@ -26,6 +35,7 @@ const relatedProducts = [
 ---
 
 <BaseLayout
+  structuredData={productSchema}
   title="PVC Film Tedariki"
   description="Kapı ve mobilya üreticileri için toptan PVC kaplama filmi tedariki. Renk, desen, uygulama alanı, adet ve teslimat ihtiyacınıza uygun PVC film teklifi alın."
 >

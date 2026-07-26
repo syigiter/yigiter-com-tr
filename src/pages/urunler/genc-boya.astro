@@ -1,8 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildProduct } from '../../lib/schema';
+
+const productSchema = buildProduct({
+  name: 'Genç Boya',
+  description:
+    'Genç Boya distribütörü olarak ahşap boya ve vernik ürünlerinin toptan tedariki. İstanbul Anadolu Yakası distribütör, Tosya bayi.',
+  url: '/urunler/genc-boya/',
+  category: 'Boya ve Vernik',
+  brandName: 'Genç Boya',
+});
 ---
 
 <BaseLayout
+  structuredData={productSchema}
   title="Genç Boya Ürünleri"
   description="Yiğiter Orman Ürünleri — Genç Boya İstanbul Anadolu Yakası Distribütörü ve Avrupa Yakası Bayisi. Avrupa'nın en büyük 5 mobilya boyası üreticisi. Stoktan hızlı teslimat."
 >
