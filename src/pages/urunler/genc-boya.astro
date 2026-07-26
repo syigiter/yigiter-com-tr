@@ -157,24 +157,26 @@ const gencBoyaLocations = [
 
           <!-- Ürün Grubu -->
           <h2 class="text-xl font-bold text-primary mb-5">Ürün Grupları</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {[
-              { label: 'Ahşap Boyaları', value: 'Tüm renk ve finish seçenekleri' },
-              { label: 'Vernik', value: 'Mat, yarı mat, parlak' },
-              { label: 'Astar', value: 'Yüksek örtücü, MDF ve ahşap için' },
-              { label: 'Ahşap Renklendiriciler', value: 'Wood stain, geniş ton aralığı' },
-              { label: 'Dekoratif Ürünler', value: 'Özel efekt ve dekoratif finish' },
-              { label: 'Bariyer Ürünleri', value: 'Yalıtım ve koruyucu ara katlar' },
-              { label: 'Sertleştirici & Katkılar', value: 'PU/akrilik sistemler için' },
-              { label: 'Özel Amaçlı Ürünler', value: 'Projeye özel çözümler' },
-              { label: 'Tiner & Yardımcı Ürünler', value: 'Sistem uyumlu inceltici ve çözücüler' },
-            ].map((spec) => (
-              <div class="flex justify-between py-3 border-b border-gray-100">
-                <span class="text-gray-500 text-sm">{spec.label}</span>
-                <span class="text-gray-900 text-sm font-medium text-right">{spec.value}</span>
+              { title: 'Ahşap Renklendiriciler', img: 'ahsap-renklendirici', desc: 'Wood stain — geniş ton aralığı, doğal ahşap görünümü.' },
+              { title: 'Sertleştirici & Katkılar', img: 'katki', desc: 'PU/akrilik sistem sertleştiricileri ve performans katkıları.' },
+              { title: 'Özel Amaçlı Ürünler', img: 'ozel-amacli', desc: 'Projeye özel ve özel yüzey çözümleri.' },
+              { title: 'Sentetik Sistemler', img: 'sentetik', desc: 'Solvent bazlı sentetik boya ve vernikler.' },
+              { title: 'Tiner & Yardımcılar', img: 'tiner', desc: 'Sistem uyumlu inceltici ve çözücüler.' },
+            ].map((item) => (
+              <div class="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors text-center">
+                <div class="bg-gray-50 rounded-lg mb-3 flex items-center justify-center h-32">
+                  <img src={`/images/products/genc-boya/${item.img}.webp`} alt={`Genç Boya ${item.title}`} width="220" height="174" loading="lazy" class="max-h-28 w-auto object-contain" />
+                </div>
+                <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
+          <p class="text-gray-500 text-sm mb-10">
+            Ayrıca ahşap boyaları, vernik, astar, dekoratif ve bariyer ürünlerini de tam ürün gamıyla stoktan tedarik ediyoruz.
+          </p>
 
           <!-- Kullanım Alanları -->
           <h2 class="text-xl font-bold text-primary mb-4">Kullanım Alanları</h2>
