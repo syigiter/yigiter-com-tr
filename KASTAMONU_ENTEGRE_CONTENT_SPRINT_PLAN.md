@@ -1,0 +1,474 @@
+# Kastamonu Entegre İçerik ve Görsel Zenginleştirme Planı
+
+Tarih: 2026-07-26  
+Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
+Durum: Planlandı, uygulama başlamadı
+
+## 1. Karar ve Dayanak
+
+- Yiğiter'in Kastamonu Entegre ile aktif bayilik anlaşması vardır.
+- Kullanıcı teyidine göre bayilik anlaşması, Kastamonu Entegre ürün görsellerinin Yiğiter sitesinde kullanımına izin vermektedir.
+- Kastamonu Entegre'ye ait ürün görselleri, kataloglar ve ürün adları bu izin kapsamında kullanılabilir.
+- Kaynak materyal izinli olsa da SEO açısından üretici metinleri uzun bloklar halinde kopyalanmayacak; içerik Yiğiter'in ana bayi, stok, sevkiyat ve teklif bağlamına göre özgün biçimde yazılacaktır.
+- Üretici ürün gamı ile Yiğiter'in fiilen stokladığı/tedarik ettiği ürünler ayrı etiketlenecektir. Teyitsiz stok, ölçü, kalınlık, termin ve fiyat garantisi verilmeyecektir.
+
+## 2. Programın Mevcut Sprintlere Yerleşimi
+
+Bu program:
+
+- aktif `Sprint 2.9 — On-page/Teknik SEO` işlerini değiştirmez;
+- teknik profil/föy çalışmaları için ayrılmış `Sprint 2.9A` adını kullanmaz;
+- `Sprint 2.8 — Türkiye İç Pazar SEO` içindeki Kastamonu Entegre adayını somutlaştırır;
+- `W-010 Product Card Standard`, `W-011 Product PDF System`, `W-012 Quote Flow` ve `W-042 Schema Markup` maddelerini Kastamonu Entegre ürün ailesinde uygular;
+- `NEXT_STEPS.md` içindeki “Panel Ürünleri — İki Katmanlı Mimari” kararını korur.
+
+Yeni program numarası bu nedenle `Sprint 2.10` olarak belirlenmiştir.
+
+## 3. Hedefler
+
+1. Kastamonu Entegre ana bayi konumunu ürün seviyesinde kanıtlamak.
+2. Mevcut ince/placeholder ağırlıklı marka sayfalarını görsel ve teknik içerikle güçlendirmek.
+3. Dekoratif panel ürün gamı için yeni ve taranabilir bir bilgi mimarisi kurmak.
+4. Doorpan ve Doorlam ürünlerini doğru isim, kullanım ve kataloglarla sunmak.
+5. Resmî katalogları sürümlü ve izlenebilir biçimde siteye eklemek.
+6. Generic çok-markalı sayfalar ile Kastamonu'ya özel sayfaların arama niyetini ayrıştırmak.
+7. Ürün sayfasından teklif/WhatsApp aksiyonuna geçişi güçlendirmek.
+
+## 4. Kapsam
+
+### 4.1 Mevcut marka sayfaları
+
+- `/urunler/kastamonu-entegre/`
+- `/urunler/kastamonu-entegre/mdf/`
+- `/urunler/kastamonu-entegre/mdflam/`
+- `/urunler/kastamonu-entegre/yongalevha/`
+- `/urunler/kastamonu-entegre/kapi-paneli/`
+
+### 4.2 Yeni sayfa
+
+- `/urunler/kastamonu-entegre/dekoratif-panel/`
+
+### 4.3 İki katmanlı mimariyle ilişkili generic sayfalar
+
+- `/urunler/mdf/`
+- `/urunler/mdflam/`
+- `/urunler/kapi-paneli/`
+- yeni `/urunler/yongalevha/`
+
+Generic sayfalar çok-markalı tedarik niyetini; Kastamonu altındaki sayfalar ise marka, ürün ailesi ve ana bayi niyetini hedefleyecektir. İlk sürümde bu URL'ler arasında 301 veya canonical birleştirmesi yapılmayacaktır.
+
+## 5. Ürün Bilgi Mimarisi
+
+### 5.1 Dekoratif panel grupları
+
+Yeni dekoratif panel sayfasında aşağıdaki gruplar yer alacaktır:
+
+- Melamin kaplı paneller
+  - Medelam
+  - Teknolam / Yongalam
+- Parlak ve laklı yüzeyler
+  - Glossmax
+  - Glossmax Pro
+  - Evogloss
+- Mat yüzeyler
+  - Mattplus
+  - Evosoft
+- Akrilik panel
+  - Çizilmez akrilik
+  - Endüstriyel akrilik
+- Printpan
+- Compact Panel Lam
+
+Her ürün kartında:
+
+- resmî ürün adı;
+- kısa ve özgün açıklama;
+- uygun kullanım alanları;
+- öne çıkan yüzey/işleme avantajı;
+- resmî görsel;
+- ilgili katalog;
+- “Stok ve ölçü için teklif al” CTA'sı bulunacaktır.
+
+### 5.2 Yüzey örnekleri
+
+İzinli yüzey görselleri ayrı bir galeri olarak kullanılacaktır. İlk adaylar:
+
+- PS10 Düz
+- PS11 Natural
+- PS12 Parlak
+- PS14 Bute
+- PS16 Kumaş
+- PS22 Wood
+- PS27 Charm
+- PS28 Grove
+- PS30 Paint
+- PS33 Stone
+- PS37 Veneer
+- PS60 Magma
+- PS72 Leather
+- PS73 Sıva
+- PS74 Soft Mat
+- PS76 Art
+- PS77 Flow
+
+Galeri “renk kartelası” gibi sunulmayacak; yüzey/doku örnekleri olduğu açıkça belirtilecektir. Ekran rengi ile fiziksel numune arasında fark olabileceği uyarısı bulunacaktır.
+
+### 5.3 Kapı paneli
+
+Mevcut genel ifadeler yerine iki gerçek ürün ailesi kullanılacaktır:
+
+- Doorpan
+  - beyaz astarlı kapı paneli;
+  - şekilli ve düz yüzey aileleri;
+  - iç kapı üretiminde kullanım;
+  - resmî yüzey/model görselleri.
+- Doorlam
+  - 4 mm MDF üzerine dekoratif kâğıt kaplı hazır panel;
+  - ek boya/cila ihtiyacını azaltan yapı;
+  - Buz Meşe, Kastamonu Meşe, Zeugma, Urartu, Likya, Sümer ve Babil dekorları;
+  - resmî Doorlam kataloğu.
+
+Mevcut sayfadaki doğrulanmamış `5.000+ seçenek`, özel ölçü, yüksek nem direnci ve benzeri iddialar belgeyle teyit edilmezse kaldırılacaktır.
+
+### 5.4 MDF, MDFLam ve yongalevha
+
+- MDF sayfası: ham MDF, işlenebilirlik, CNC/freze, boyama/kaplama ve kullanım alanları.
+- MDFLam sayfası: terminoloji “laminat kaplı MDF” yerine “melamin kaplı MDF” olarak düzeltilecek; Medelam ve ilgili yüzey teknolojileri anlatılacak.
+- Yongalevha sayfası: ham yongalevha ile melamin kaplı Teknolam/Yongalam ayrıştırılacak.
+- Kalınlık, ebat, yoğunluk ve stok bilgileri yalnızca güncel katalog veya Yiğiter satış/stok teyidiyle yayınlanacak.
+
+## 6. İçerik ve Asset Modeli
+
+### 6.1 Dosya yapısı
+
+```text
+public/
+  images/products/kastamonu-entegre/
+    dekoratif-panel/
+    mdf/
+    mdflam/
+    yongalevha/
+    kapi-paneli/
+    yuzeyler/
+  documents/kastamonu-entegre/
+src/
+  data/kastamonu-entegre.ts
+docs/
+  kastamonu-entegre-asset-manifest.csv
+```
+
+### 6.2 Asset manifest alanları
+
+- resmî kaynak URL;
+- ürün ailesi;
+- asset türü;
+- orijinal dosya adı;
+- yerel dosya yolu;
+- kaynak/alım tarihi;
+- dosya hash'i;
+- kullanım izni dayanağı;
+- kullanıldığı sayfalar;
+- alt metin;
+- durum: `aday`, `onaylı`, `yayında`, `arşiv`.
+
+### 6.3 Görsel standardı
+
+- Hotlink yapılmayacak; izinli dosyalar yerelde barındırılacak.
+- Orijinal dosya arşivlenecek, web sürümü WebP/AVIF üretilecek.
+- Kart görselleri hedefi: 640 px ve mümkünse 80 KB altı.
+- Geniş içerik görselleri hedefi: 1280–1600 px ve mümkünse 200 KB altı.
+- `width`, `height`, açıklayıcı `alt`, `loading="lazy"` ve `decoding="async"` kullanılacak.
+- İlk görünümdeki ana görselde lazy loading kullanılmayacak; diğerleri lazy olacaktır.
+- Görsel kırpma ürün desenini veya teknik detayı yanıltmayacaktır.
+
+### 6.4 PDF standardı
+
+- Resmî PDF içeriği değiştirilmeden saklanacak.
+- Dosya adı standardı:
+
+```text
+kastamonu-entegre-{urun}-{yil}-v{surum}.pdf
+```
+
+- Kaynak URL, yayın tarihi ve hash manifestte tutulacak.
+- Eski sürümler `documents/.../archive/` altında saklanacak ancak kullanıcıya yalnızca güncel sürüm gösterilecek.
+- PDF CTA metni “Resmî ürün kataloğunu indir” olacaktır.
+
+## 7. Sprint ve PR Planı
+
+Her alt sprint ayrı branch/PR olacak. Her PR sonrası build, Vercel preview ve stop-report-wait uygulanacaktır.
+
+### Sprint 2.10A — Asset ve İddia Envanteri
+
+Boyut: S  
+Production etkisi: Yok
+
+İşler:
+
+- Resmî ürün görsellerini ve katalogları listele.
+- Asset manifesti oluştur.
+- Mevcut sayfalardaki tüm teknik/ticari iddiaları çıkar.
+- Her iddiayı `resmî kaynak`, `Yiğiter teyidi`, `kaldırılacak` olarak sınıflandır.
+- Üretici ürün gamı ile Yiğiter stok/tedarik listesini ayır.
+
+Kabul kriterleri:
+
+- Kullanılacak her assetin kaynak URL'si ve ürün ailesi kayıtlı.
+- Teyitsiz kalınlık, ebat, stok, termin ve performans iddiası listelenmiş.
+- Görsel/PDF kullanım izni dayanağı manifestte belirtilmiş.
+
+### Sprint 2.10B — Veri Modeli ve Asset Pipeline
+
+Boyut: M  
+Production etkisi: Düşük
+
+İşler:
+
+- `src/data/kastamonu-entegre.ts` ürün veri modelini oluştur.
+- Asset dizinlerini ve isim standardını kur.
+- Görselleri optimize et.
+- Katalog dosyalarını sürümlü biçimde ekle.
+- Tekrarlanan ürün kartı/katalog CTA bileşenlerini oluştur.
+
+Kabul kriterleri:
+
+- Sayfalarda ürün bilgisinin tek kaynağı veri dosyası.
+- Kırık asset/PDF bağlantısı yok.
+- Görsel bütçeleri sağlanıyor.
+- Mevcut sayfaların görünümü bozulmuyor.
+
+### Sprint 2.10C — Kastamonu Hub ve Dekoratif Panel Sayfası
+
+Boyut: L  
+Production etkisi: Yüksek
+
+İşler:
+
+- Kastamonu ana sayfasını ürün ailesi hub'ına dönüştür.
+- Yeni `/dekoratif-panel/` sayfasını oluştur.
+- Ürün grubu kartları, kullanım alanları, yüzey galerisi ve katalog CTA'ları ekle.
+- Ana bayi/teklif/WhatsApp mesajlarını koru.
+- Ana sayfa ve ürünler sayfasından doğal iç link ekle.
+
+Kabul kriterleri:
+
+- Yeni rota 200, self-canonical ve sitemap içinde.
+- Mobilde ürün kartları ve galeri rahat taranıyor.
+- Placeholder bulunmuyor.
+- Her ürün grubu teklif veya katalog aksiyonuna sahip.
+- Üretici metinleri birebir uzun bloklar halinde kopyalanmamış.
+
+### Sprint 2.10D — MDF, MDFLam ve Yongalevha Marka Sayfaları
+
+Boyut: L  
+Production etkisi: Yüksek
+
+İşler:
+
+- Üç mevcut sayfadaki placeholder'ları kaldır.
+- MDFLam terminolojisini “melamin kaplı MDF” olarak düzelt.
+- Medelam, Teknolam/Yongalam ve ilgili yüzey teknolojilerini doğru sayfalara yerleştir.
+- Resmî kullanım alanlarını özgün dille aktar.
+- Teyitsiz teknik özellikleri kaldır veya doğrulanmış veriyle değiştir.
+- İlgili katalog ve ürün görsellerini ekle.
+
+Kabul kriterleri:
+
+- Her sayfada gerçek ürün görseli, doğru ürün ailesi ve katalog CTA'sı var.
+- Generic sayfalarla aynı giriş metni/H1 kullanılmıyor.
+- Stok ve ölçü ifadeleri güvenli ve doğrulanmış.
+
+### Sprint 2.10E — Doorpan / Doorlam Kapı Paneli
+
+Boyut: M  
+Production etkisi: Yüksek
+
+İşler:
+
+- Kastamonu kapı paneli sayfasını Doorpan ve Doorlam odaklı yeniden yaz.
+- Doorpan model/yüzey galerisi ekle.
+- Doorlam dekorlarını ve 4 mm hazır panel bilgisini ekle.
+- Doorpan ve Doorlam kataloglarını ekle.
+- Genel `/urunler/kapi-paneli/` sayfasıyla marka/genel niyet ayrımını güçlendir.
+
+Kabul kriterleri:
+
+- `5.000+ seçenek` ve doğrulanmamış performans iddiaları yok.
+- Doorpan ve Doorlam ayrı başlık, görsel ve CTA ile sunuluyor.
+- Genel kapı paneli sayfasıyla içerik çakışması düşük.
+
+### Sprint 2.10F — İki Katmanlı Panel Mimarisi
+
+Boyut: M  
+Production etkisi: Orta
+
+İşler:
+
+- Generic MDF/MDFLam/Kapı Paneli sayfalarını çok-markalı tedarik niyetine göre farklılaştır.
+- Yeni generic `/urunler/yongalevha/` sayfasını oluştur.
+- Generic ↔ Kastamonu sayfaları arasında bağlamlı iç linkler ekle.
+- Generic sayfalarda Kastamonu, Kronospan ve Çamsan yalnızca doğrulanmış ürün/tedarik kapsamıyla anılacak.
+
+Kabul kriterleri:
+
+- Generic ve Kastamonu sayfaları farklı H1, title, description ve içerik açısına sahip.
+- Her iki katman self-canonical.
+- 301 yönlendirme yok.
+- Yeni generic yongalevha rotası sitemap ve teklif formu mapping'inde.
+
+### Sprint 2.10G — Katalog Merkezi ve Yüzey Galerisi
+
+Boyut: M  
+Production etkisi: Orta
+
+İşler:
+
+- Kastamonu hub içinde filtrelenebilir katalog alanı oluştur.
+- Yüzey galerisine ürün ailesi filtresi ekle.
+- PDF sürüm/tarih bilgisini kullanıcıya göster.
+- Fiziksel numune ile ekran rengi farkı uyarısı ekle.
+- Katalog ve yüzey CTA'larını ilgili ürün sayfalarına dağıt.
+
+Kabul kriterleri:
+
+- Güncel katalogların tamamı tek merkezden erişilebilir.
+- Eski sürümler kullanıcıya görünmüyor.
+- Yüzey görsellerinde kod ve ad doğru.
+- Mobilde yatay taşma yok.
+
+### Sprint 2.10H — SEO, Schema ve Dönüşüm
+
+Boyut: M  
+Production etkisi: Orta
+
+İşler:
+
+- Title/description'ları marka ve ürün niyetine göre yaz.
+- Kastamonu hub/dekoratif panel için `CollectionPage` + `ItemList`.
+- Marka ürün sayfalarında uygun olanlarda `Product`/`ProductGroup`, `brand: Kastamonu Entegre`, `seller: Yiğiter`.
+- Breadcrumb ve Organization bağlantılarını doğrula.
+- Ürün bazlı teklif query mapping'lerini genişlet.
+- Katalog indirme, teklif ve WhatsApp aksiyonlarına ölçüm etiketi ekle.
+
+Kabul kriterleri:
+
+- Schema doğrulamasında kritik hata yok.
+- Canonical ve sitemap doğru.
+- Teklif formu doğru ürün grubunu seçiyor.
+- Generic sayfalar marka-agnostik schema; Kastamonu sayfaları marka odaklı schema kullanıyor.
+
+### Sprint 2.10I — Yayın, Kalite ve Ölçüm
+
+Boyut: S  
+Production etkisi: Kontrol
+
+İşler:
+
+- Tüm program için production smoke test.
+- Kırık link, 404, console, CSP ve failed request kontrolü.
+- Masaüstü/mobil görsel kontrol.
+- GSC URL Inspection ve sitemap kontrolü.
+- Yayın öncesi metrik tabanı ile 14/28/56 günlük takip şablonu oluştur.
+
+Kabul kriterleri:
+
+- `npm run build` başarılı.
+- Tüm hedef rotalar 200.
+- Console/CSP kritik hata yok.
+- Kırık resim/PDF yok.
+- Yeni sayfalar sitemap içinde.
+- Geri dönüş deployment'ı ve önceki commit kayıtlı.
+
+## 8. Uygulama Sırası ve Bağımlılıklar
+
+```text
+2.10A Envanter
+  ↓
+2.10B Veri/asset altyapısı
+  ↓
+2.10C Hub + Dekoratif Panel
+  ├── 2.10D MDF/MDFLam/Yonga
+  └── 2.10E Doorpan/Doorlam
+          ↓
+2.10F İki katmanlı mimari
+          ↓
+2.10G Katalog + yüzey galerisi
+          ↓
+2.10H SEO/schema/dönüşüm
+          ↓
+2.10I QA + ölçüm
+```
+
+`2.10D` ve `2.10E`, `2.10B` tamamlandıktan sonra paralel hazırlanabilir; production'a aynı anda alınmaları gerekmez.
+
+## 9. Yayın Stratejisi
+
+- Her alt sprint ayrı feature branch ve PR.
+- Önce Vercel preview, sonra production.
+- İlk sürümde mevcut URL silinmeyecek ve yönlendirme yapılmayacak.
+- Yeni içerik yayına girdikten sonra ilgili URL için GSC yeniden index talebi değerlendirilecek.
+- Büyük asset paketi tek PR yerine ürün ailesine göre bölünecek.
+- Her merge sonrası 24 saat teknik sağlık; 14/28/56 gün arama ve dönüşüm ölçümü yapılacak.
+
+## 10. Ölçüm Planı
+
+### Yayın öncesi taban
+
+- Kastamonu Entegre route'larının son 28 günlük impression/click/position verisi.
+- Ürün sayfası görüntülenmeleri.
+- Teklif sayfasına geçişler.
+- WhatsApp ve katalog CTA görünürlüğü.
+
+### İzlenecek sorgu kümeleri
+
+- kastamonu entegre bayi / ana bayi
+- kastamonu entegre mdf
+- kastamonu entegre mdflam
+- kastamonu entegre yongalevha / sunta
+- kastamonu entegre dekoratif panel
+- glossmax / mattplus / evogloss bayi
+- doorpan / doorlam panel
+
+### Başarı göstergeleri
+
+- Marka ürün sayfalarında impression artışı.
+- 0 impression olan MDFLam/Kapı Paneli sayfalarının sorgu almaya başlaması.
+- Ürün sayfasından teklif veya WhatsApp aksiyonuna geçiş.
+- Katalog indirme/tıklama kullanımı.
+- Generic ve marka sayfalarının farklı sorgularla görünmesi.
+- Görsel eklemelerine rağmen LCP/CLS regresyonu olmaması.
+
+## 11. Riskler ve Önlemler
+
+| Risk | Önlem |
+|---|---|
+| Üretici portföyü ile Yiğiter stoğunun karışması | “Üretici ürün gamı” ve “stok/tedarik” alanlarını ayrı göster |
+| Teyitsiz teknik özellik | Manifestte kaynak/teyit durumu olmadan yayınlama |
+| Generic/marka keyword çakışması | H1, meta, içerik açısı ve schema'yı iki katmana göre ayır |
+| Ağır görseller | WebP/AVIF, boyut bütçesi, lazy loading, sabit ölçüler |
+| Eski katalog | Sürüm, tarih, hash ve arşiv standardı |
+| Üretici metniyle duplicate content | Özgün Yiğiter bayi/tedarik bağlamı ve kısa kaynak referansı |
+| Yanlış renk beklentisi | Ekran/fiziksel numune farkı uyarısı |
+| Büyük tek seferlik release | Küçük PR'lar ve ürün ailesi bazlı rollout |
+
+## 12. Program Definition of Done
+
+- Kastamonu hub ve beş marka alt sayfasında placeholder kalmaması.
+- Dekoratif panel sayfasının production'da olması.
+- Doorpan/Doorlam içeriğinin doğru ve görselli olması.
+- MDFLam terminolojisinin düzeltilmesi.
+- Katalogların sürümlü ve erişilebilir olması.
+- Generic yongalevha sayfasının açılması.
+- Generic ve marka katmanlarının farklılaştırılması.
+- Schema/canonical/sitemap/CTA kontrollerinin geçmesi.
+- Tüm assetlerin manifestte izlenebilir olması.
+- 14/28/56 günlük ölçüm takviminin başlatılması.
+
+## 13. Kapsam Dışı
+
+- Fiyatların açık yayınlanması.
+- Gerçek zamanlı stok entegrasyonu.
+- ERP/CRM entegrasyonu.
+- Kullanıcıya özel bayi portalı.
+- Kastamonu Entegre'nin tüm ürün portföyünün tek sürümde yayınlanması.
+- Floorpan, laminat tezgâh, süpürgelik ve duvar profili; satış önceliği ayrıca teyit edilmeden bu programa alınmayacaktır.
