@@ -79,3 +79,33 @@ export function buildProduct(p: ProductInput) {
   if (p.manufacturedByYigiter) schema.manufacturer = { '@id': ORG_ID };
   return schema;
 }
+
+export interface LocalBusinessInput {
+  /** unique fragment for @id, e.g. "genc-boya-anadolu" */
+  idFragment: string;
+  name: string;
+  telephone: string;
+  streetAddress: string;
+  addressLocality: string;
+  addressRegion?: string;
+  /** page path the node lives on, e.g. "/urunler/genc-boya/" */
+  url: string;
+}
+
+export function buildLocalBusiness(b: LocalBusinessInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE}${b.url}#${b.idFragment}`,
+    name: b.name,
+    telephone: b.telephone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: b.streetAddress,
+      addressLocality: b.addressLocality,
+      addressRegion: b.addressRegion ?? 'İstanbul',
+      addressCountry: 'TR',
+    },
+    parentOrganization: { '@id': ORG_ID },
+  };
+}

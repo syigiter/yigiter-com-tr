@@ -1,19 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { buildProduct } from '../../lib/schema';
+import { buildProduct, buildLocalBusiness } from '../../lib/schema';
 
 const productSchema = buildProduct({
   name: 'Genç Boya',
   description:
-    'Genç Boya distribütörü olarak ahşap boya ve vernik ürünlerinin toptan tedariki. İstanbul Anadolu Yakası distribütör, Tosya bayi.',
+    'Genç Boya İstanbul Anadolu Yakası distribütörü ve Avrupa Yakası bayisi olarak mobilya ve ahşap sektörüne boya, vernik, astar ve GENÇ Tinting renklendirme sistemiyle sınırsız renk seçeneği; toptan tedarik.',
   url: '/urunler/genc-boya/',
   category: 'Boya ve Vernik',
   brandName: 'Genç Boya',
 });
+
+// İstanbul Genç Boya lokasyonları — yerel arama (genç boya bayileri / istanbul) için
+const gencBoyaLocations = [
+  buildLocalBusiness({
+    idFragment: 'genc-boya-anadolu',
+    name: 'Yiğiter Orman Ürünleri — Genç Boya Anadolu Yakası Distribütörü',
+    telephone: '+905333876756',
+    streetAddress: 'Keyap Sanayi Sitesi No: 44/133 H Blok',
+    addressLocality: 'Ümraniye',
+    url: '/urunler/genc-boya/',
+  }),
+  buildLocalBusiness({
+    idFragment: 'genc-boya-avrupa',
+    name: 'Yiğiter Orman Ürünleri — Genç Boya Avrupa Yakası Bayisi',
+    telephone: '+902126700038',
+    streetAddress: 'İkitelli Keresteciler Sitesi, 18. Blok No: 19/21, Başakşehir',
+    addressLocality: 'Başakşehir',
+    url: '/urunler/genc-boya/',
+  }),
+];
 ---
 
 <BaseLayout
-  structuredData={productSchema}
+  structuredData={[productSchema, ...gencBoyaLocations]}
   title="Genç Boya Ürünleri"
   description="Yiğiter Orman Ürünleri — Genç Boya İstanbul Anadolu Yakası Distribütörü ve Avrupa Yakası Bayisi. Avrupa'nın en büyük 5 mobilya boyası üreticisi. Stoktan hızlı teslimat."
 >
@@ -96,6 +116,7 @@ const productSchema = buildProduct({
             sürekli yenilikçi formüller geliştirmektedir.
           </p>
 
+          <h2 class="text-xl font-bold text-primary mb-4">İstanbul Genç Boya Bayi ve Distribütörü</h2>
           <p class="text-gray-700 text-base leading-relaxed mb-10">
             <strong class="text-gray-900">Yiğiter Orman Ürünleri</strong> olarak İstanbul Anadolu Yakası
             distribütörü sıfatıyla tam stok tutuyoruz. Avrupa Yakası bayisi ve Tosya bayisi konumumuzla
@@ -111,6 +132,7 @@ const productSchema = buildProduct({
               { title: 'Poliester', desc: 'Derin parlak yüzeyler için. Yüksek dolum gücü ve üstün görünüm.' },
               { title: 'Selülozik', desc: 'Klasik ve güvenilir sistem. Hızlı kuruma, kolay tamir edilebilirlik.' },
               { title: 'Su Bazlı', desc: 'Çevre dostu formül. Düşük VOC, iç mekân uygulamaları için ideal.' },
+              { title: 'Asit Kürlenmeli (AC)', desc: 'Sert, dayanıklı yüzey. Klasik mobilya ve doğrama uygulamaları için.' },
               { title: 'UV Curing', desc: 'Anlık kuruma teknolojisi. Seri üretim hatları için yüksek verimlilik.' },
             ].map((item) => (
               <div class="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors">
@@ -120,6 +142,19 @@ const productSchema = buildProduct({
             ))}
           </div>
 
+          <!-- Renk / Tinting -->
+          <h2 class="text-xl font-bold text-primary mb-4">Renk Kartelası ve Sınırsız Renk</h2>
+          <p class="text-gray-700 text-base leading-relaxed mb-4">
+            <strong class="text-gray-900">GENÇ Tinting</strong> renklendirme sistemiyle çalışıyoruz:
+            sabit bir renk kartelasıyla sınırlı kalmadan <strong>istediğiniz her tonu</strong> üretiyoruz.
+            Katalog renkleri, özel renk eşleştirme ve numuneye göre renk tutturma taleplerinizi karşılıyoruz.
+          </p>
+          <p class="text-gray-700 text-base leading-relaxed mb-10">
+            Ahşap renklendiriciler, dekoratif efektler ve tam ürün gamı için güncel Genç Boya kataloğunu
+            birlikte inceleyip ihtiyacınıza uygun renk ve sistemi belirleyebiliriz.
+            <a href="https://www.gencboya.com.tr/urunlerimiz/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-medium">Resmi Genç Boya ürün kataloğu →</a>
+          </p>
+
           <!-- Ürün Grubu -->
           <h2 class="text-xl font-bold text-primary mb-5">Ürün Grupları</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -127,9 +162,12 @@ const productSchema = buildProduct({
               { label: 'Ahşap Boyaları', value: 'Tüm renk ve finish seçenekleri' },
               { label: 'Vernik', value: 'Mat, yarı mat, parlak' },
               { label: 'Astar', value: 'Yüksek örtücü, MDF ve ahşap için' },
-              { label: 'Sertleştirici', value: 'PU ve akrilik sistemler için' },
-              { label: 'Ahşap Boyalar & Renklendirici', value: 'Geniş renk paleti' },
-              { label: 'Tiner & Seyreltici', value: 'Sistem uyumlu çözücüler' },
+              { label: 'Ahşap Renklendiriciler', value: 'Wood stain, geniş ton aralığı' },
+              { label: 'Dekoratif Ürünler', value: 'Özel efekt ve dekoratif finish' },
+              { label: 'Bariyer Ürünleri', value: 'Yalıtım ve koruyucu ara katlar' },
+              { label: 'Sertleştirici & Katkılar', value: 'PU/akrilik sistemler için' },
+              { label: 'Özel Amaçlı Ürünler', value: 'Projeye özel çözümler' },
+              { label: 'Tiner & Yardımcı Ürünler', value: 'Sistem uyumlu inceltici ve çözücüler' },
             ].map((spec) => (
               <div class="flex justify-between py-3 border-b border-gray-100">
                 <span class="text-gray-500 text-sm">{spec.label}</span>
