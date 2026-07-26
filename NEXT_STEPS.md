@@ -320,7 +320,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha — **TAMAMLANDI 2026-07-26**
 7. `2.10G` — Katalog merkezi + yüzey galerisi — **TAMAMLANDI 2026-07-26**
 8. `2.10H` — SEO / schema / teklif ve ölçüm etiketleri — **TAMAMLANDI 2026-07-26**
-9. `2.10I` — Production QA + 14/28/56 gün ölçüm
+9. `2.10I` — Production QA + 14/28/56 gün ölçüm — **TAMAMLANDI 2026-07-26**
 
 **Sprint açma önkoşulları:**
 
@@ -399,7 +399,16 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - Katalog indirme, teklif, WhatsApp ve başarılı teklif gönderimi için kişisel veri taşımayan Vercel Analytics özel olayları.
 - 38 sayfalık başarılı build; altı Kastamonu rotasında tek H1 ve 2.421 yerel hedefte sıfır eksik.
 
-**Sıradaki iş:** `2.10I` — Production smoke test, kırık istek/console/CSP kontrolü, masaüstü-mobil görsel QA, GSC/sitemap kontrolü ve 14/28/56 günlük ölçüm şablonu.
+**2.10I çıktıları:**
+
+- Tekrar çalıştırılabilir `qa:kastamonu:production` kontrolü: 7 rota, 73 yerel hedef, 6 sitemap/schema kaydı, CSP/Analytics ve 404.
+- Altı marka rotasında 1440×900 ve 390×844 görsel QA; sıfır yatay taşma, error overlay ve console warning/error.
+- Vercel `Hobby` plan sınırlaması nedeniyle dönüşüm olaylarının aktif Clarity custom event API'sine bağlanması; Vercel hook'unun upgrade-ready korunması.
+- Vercel raporuna beş alt Kastamonu rotası ve hub/dekoratif panel Web Vitals takibi; T0 için 352/1.139 toplam 7/28 günlük pageview.
+- GSC URL Inspection/performance listelerine altı marka rotası; yerel credentials olmadığı için API çağrısı bekliyor, production sitemap temiz.
+- `docs/kastamonu-entegre-measurement-plan.md`: T+24 saat ve 14/28/56 günlük takvim, metrikler, karar eşikleri ve güvenli geri dönüş noktası.
+
+**Program durumu:** `Sprint 2.10` kod ve production QA tarafında tamamlandı. Sıradaki işlem 2026-07-27 teknik sağlık kontrolü; ilk karar penceresi 2026-08-09 T+14 ölçümüdür.
 
 **Mimari kararlar:**
 

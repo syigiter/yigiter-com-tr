@@ -13,7 +13,8 @@
     "assets:kastamonu:sync": "node scripts/sync-kastamonu-assets.mjs --sync",
     "assets:kastamonu:verify": "node scripts/sync-kastamonu-assets.mjs --verify",
     "data:kastamonu:verify": "node --experimental-strip-types scripts/validate-kastamonu-data.mjs",
-    "types:kastamonu:check": "tsc --ignoreConfig --noEmit --strict --skipLibCheck --target ES2022 --module NodeNext --moduleResolution NodeNext src/data/kastamonu-entegre.ts"
+    "types:kastamonu:check": "tsc --ignoreConfig --noEmit --strict --skipLibCheck --target ES2022 --module NodeNext --moduleResolution NodeNext src/data/kastamonu-entegre.ts",
+    "qa:kastamonu:production": "node scripts/validate-production-kastamonu.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
