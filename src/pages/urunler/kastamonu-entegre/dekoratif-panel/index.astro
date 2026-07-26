@@ -3,6 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CatalogDownload from '../../../../components/kastamonu-entegre/CatalogDownload.astro';
 import ProductFamilyCard from '../../../../components/kastamonu-entegre/ProductFamilyCard.astro';
 import SurfaceSampleCard from '../../../../components/kastamonu-entegre/SurfaceSampleCard.astro';
+import { buildCollectionPage } from '../../../../lib/schema';
 import {
   decorativeSurfaceSamples,
   getProductCatalogs,
@@ -94,11 +95,29 @@ const useCases = [
     description: 'Compact Panel Lam ile okul, hastane, AVM ve kabina/kubikal uygulamaları.',
   },
 ];
+const title = 'Kastamonu Entegre Dekoratif Panel';
+const description =
+  'Medelam, Teknolam/Yongalam, Glossmax, Glossmax Pro, Mattplus, Evogloss, akrilik, Printpan ve Compact Panel Lam ürünlerini ve resmî yüzey örneklerini inceleyin.';
+const decorativeProducts = sections.flatMap((section) => section.products);
+const collectionSchema = buildCollectionPage({
+  name: title,
+  description,
+  url: '/urunler/kastamonu-entegre/dekoratif-panel/',
+  items: decorativeProducts.map((product) => ({
+    name: product.displayName,
+    description: product.summary,
+    url: `${product.route}#urun-${product.id}`,
+    image: product.heroImageId ? productImagesById.get(product.heroImageId)?.src : undefined,
+    type: 'Product',
+  })),
+});
 ---
 
 <BaseLayout
-  title="Kastamonu Entegre Dekoratif Panel"
-  description="Medelam, Teknolam/Yongalam, Glossmax, Glossmax Pro, Mattplus, Evogloss, akrilik, Printpan ve Compact Panel Lam ürünlerini ve resmî yüzey örneklerini inceleyin."
+  title={title}
+  description={description}
+  ogImage={heroImage.src}
+  structuredData={collectionSchema}
 >
   <nav aria-label="Sayfa yolu" class="border-b border-gray-200 bg-gray-50 py-3">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -140,6 +159,9 @@ const useCases = [
           </a>
           <a
             href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel"
+            data-analytics-event="Quote Click"
+            data-analytics-product="Kastamonu Entegre Dekoratif Panel"
+            data-analytics-placement="hero"
             class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
           >
             Proje İçin Teklif Al
@@ -305,6 +327,9 @@ const useCases = [
         {compactCatalogs.map((catalog) => <CatalogDownload catalog={catalog} />)}
         <a
           href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel%20Katalo%C4%9Fu"
+          data-analytics-event="Quote Click"
+          data-analytics-product="Kastamonu Entegre Dekoratif Panel Kataloğu"
+          data-analytics-placement="catalog-request"
           class="inline-flex w-full items-center justify-center rounded-xl border border-primary px-5 py-4 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
         >
           Diğer Güncel Katalogları İste
@@ -326,12 +351,18 @@ const useCases = [
       <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
         <a
           href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel"
+          data-analytics-event="Quote Click"
+          data-analytics-product="Kastamonu Entegre Dekoratif Panel"
+          data-analytics-placement="final-cta"
           class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
         >
           Teklif Formunu Aç
         </a>
         <a
           href="https://wa.me/905464886737?text=Merhaba%2C%20Kastamonu%20Entegre%20dekoratif%20panel%20%C3%BCr%C3%BCnleri%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+          data-analytics-event="WhatsApp Click"
+          data-analytics-product="Kastamonu Entegre Dekoratif Panel"
+          data-analytics-placement="final-cta"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"

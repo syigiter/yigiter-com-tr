@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CatalogCenter from '../../../components/kastamonu-entegre/CatalogCenter.astro';
 import SurfaceGallery from '../../../components/kastamonu-entegre/SurfaceGallery.astro';
+import { buildCollectionPage } from '../../../lib/schema';
 import {
   decorativeSurfaceSamples,
   doorpanSurfaceSamples,
@@ -26,6 +27,9 @@ function getImage(id: string) {
 const heroImage = getImage('ke-img-001');
 const surfaceCount = decorativeSurfaceSamples.length + doorpanSurfaceSamples.length;
 const surfaceSamples = [...decorativeSurfaceSamples, ...doorpanSurfaceSamples];
+const title = 'Kastamonu Entegre Ürünleri';
+const description =
+  "Kastamonu Entegre Ana Bayisi Yiğiter'den MDF, yonga levha, dekoratif panel, Doorpan ve Doorlam ürünlerini inceleyin; stok, ölçü ve termin için teklif alın.";
 
 const hubGroups = [
   {
@@ -85,11 +89,25 @@ const hubGroups = [
   ...group,
   productNames: group.productIds.map((id) => getProduct(id).displayName),
 }));
+const collectionSchema = buildCollectionPage({
+  name: title,
+  description,
+  url: '/urunler/kastamonu-entegre/',
+  items: hubGroups.map((group) => ({
+    name: `Kastamonu Entegre ${group.title}`,
+    description: group.description,
+    url: group.href,
+    image: group.image.src,
+    type: 'ProductGroup',
+  })),
+});
 ---
 
 <BaseLayout
-  title="Kastamonu Entegre Ürünleri"
-  description="Kastamonu Entegre Ana Bayisi Yiğiter'den MDF, yonga levha, melamin kaplı ve dekoratif paneller ile Doorpan ve Doorlam ürün aileleri. Stok, ölçü ve termin için teklif alın."
+  title={title}
+  description={description}
+  ogImage={heroImage.src}
+  structuredData={collectionSchema}
 >
   <nav aria-label="Sayfa yolu" class="border-b border-gray-200 bg-gray-50 py-3">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -129,6 +147,9 @@ const hubGroups = [
           </a>
           <a
             href="/teklif-al?urun=Kastamonu%20Entegre%20Panel%20%C3%9Cr%C3%BCnleri"
+            data-analytics-event="Quote Click"
+            data-analytics-product="Kastamonu Entegre Panel Ürünleri"
+            data-analytics-placement="hero"
             class="inline-flex items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-primary"
           >
             Teklif Al
@@ -279,12 +300,18 @@ const hubGroups = [
           <div class="mt-6 flex flex-col gap-3">
             <a
               href="/teklif-al?urun=Kastamonu%20Entegre%20Panel%20%C3%9Cr%C3%BCnleri"
+              data-analytics-event="Quote Click"
+              data-analytics-product="Kastamonu Entegre Panel Ürünleri"
+              data-analytics-placement="final-cta"
               class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
             >
               Teklif Formunu Aç
             </a>
             <a
               href="https://wa.me/905464886737?text=Merhaba%2C%20Kastamonu%20Entegre%20panel%20%C3%BCr%C3%BCnleri%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+              data-analytics-event="WhatsApp Click"
+              data-analytics-product="Kastamonu Entegre Panel Ürünleri"
+              data-analytics-placement="final-cta"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center justify-center rounded-lg border border-white/35 px-5 py-3 text-sm font-semibold text-white hover:bg-white hover:text-primary"

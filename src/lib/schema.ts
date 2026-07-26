@@ -64,21 +64,126 @@ export interface ProductInput {
   brandName?: string;
   /** true for products Yiğiter manufactures in-house (kasa, pervaz) */
   manufacturedByYigiter?: boolean;
+  /** true when Yiğiter is the B2B seller; price remains quote-based */
+  soldByYigiter?: boolean;
 }
 
-export function buildProduct(p: ProductInput) {
+function absoluteUrl(path: string) {
+  return path.startsWith('http') ? path : `${SITE}${path}`;
+}
+
+function productEntity(p: ProductInput) {
   const schema: Record<string, unknown> = {
-    '@context': 'https://schema.org',
     '@type': 'Product',
     name: p.name,
     description: p.description,
-    url: `${SITE}${p.url}`,
+    url: absoluteUrl(p.url),
   };
   if (p.category) schema.category = p.category;
-  if (p.image) schema.image = `${SITE}${p.image}`;
+  if (p.image) schema.image = absoluteUrl(p.image);
   if (p.brandName) schema.brand = { '@type': 'Brand', name: p.brandName };
   if (p.manufacturedByYigiter) schema.manufacturer = { '@id': ORG_ID };
+  if (p.soldByYigiter) {
+    schema.offers = {
+      '@type': 'Offer',
+      url: absoluteUrl(p.url),
+      seller: { '@id': ORG_ID },
+    };
+  }
   return schema;
+}
+
+export function buildProduct(p: ProductInput) {
+  return {
+    '@context': 'https://schema.org',
+    ...productEntity(p),
+  };
+}
+
+export interface ProductGroupInput extends Omit<ProductInput, 'manufacturedByYigiter'> {
+  productGroupID: string;
+  variants: ProductInput[];
+}
+
+export function buildProductGroup(group: ProductGroupInput) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'ProductGroup',
+    name: group.name,
+    description: group.description,
+    url: absoluteUrl(group.url),
+    productGroupID: group.productGroupID,
+    hasVariant: group.variants.map((variant) =>
+      productEntity({
+        ...variant,
+        brandName: variant.brandName ?? group.brandName,
+        soldByYigiter: variant.soldByYigiter ?? group.soldByYigiter,
+      }),
+    ),
+  };
+  if (group.category) schema.category = group.category;
+  if (group.image) schema.image = absoluteUrl(group.image);
+  if (group.brandName) schema.brand = { '@type': 'Brand', name: group.brandName };
+  if (group.soldByYigiter) {
+    schema.offers = {
+      '@type': 'Offer',
+      url: absoluteUrl(group.url),
+      seller: { '@id': ORG_ID },
+    };
+  }
+  return schema;
+}
+
+export interface CollectionItemInput {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  type?: 'Product' | 'ProductGroup';
+}
+
+export interface CollectionPageInput {
+  name: string;
+  description: string;
+  url: string;
+  items: CollectionItemInput[];
+}
+
+/** Build linked CollectionPage + ItemList nodes for a product-family landing page. */
+export function buildCollectionPage(input: CollectionPageInput) {
+  const pageUrl = absoluteUrl(input.url);
+  const listId = `${pageUrl}#item-list`;
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: input.name,
+      description: input.description,
+      publisher: { '@id': ORG_ID },
+      mainEntity: { '@id': listId },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      '@id': listId,
+      name: `${input.name} ürün listesi`,
+      numberOfItems: input.items.length,
+      itemListElement: input.items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': item.type ?? 'ProductGroup',
+          name: item.name,
+          description: item.description,
+          url: absoluteUrl(item.url),
+          ...(item.image ? { image: absoluteUrl(item.image) } : {}),
+          brand: { '@type': 'Brand', name: 'Kastamonu Entegre' },
+        },
+      })),
+    },
+  ];
 }
 
 export interface LocalBusinessInput {

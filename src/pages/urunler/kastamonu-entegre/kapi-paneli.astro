@@ -10,7 +10,7 @@ import {
   productFamiliesById,
   productImagesById,
 } from '../../../data/kastamonu-entegre';
-import { buildProduct } from '../../../lib/schema';
+import { buildProductGroup } from '../../../lib/schema';
 
 const doorpan = productFamiliesById.get('doorpan');
 const doorlam = productFamiliesById.get('doorlam');
@@ -44,13 +44,31 @@ const quoteHref = `/teklif-al?urun=${encodeURIComponent(quoteProduct)}`;
 const whatsappHref = `https://wa.me/905464886737?text=${encodeURIComponent(
   `Merhaba, ${quoteProduct} için bilgi almak istiyorum.`,
 )}`;
-const productSchema = buildProduct({
+const productSchema = buildProductGroup({
   name: title,
   description,
   url: '/urunler/kastamonu-entegre/kapi-paneli/',
+  productGroupID: 'kastamonu-entegre-kapi-paneli',
   category: 'Kapı Paneli',
   image: doorpanImage.src,
   brandName: 'Kastamonu Entegre',
+  soldByYigiter: true,
+  variants: [
+    {
+      name: doorpan.displayName,
+      description: doorpan.summary,
+      url: `${doorpan.route}#urun-${doorpan.id}`,
+      image: doorpanImage.src,
+      category: 'Kapı Paneli',
+    },
+    {
+      name: doorlam.displayName,
+      description: doorlam.summary,
+      url: `${doorlam.route}#urun-${doorlam.id}`,
+      image: doorlamImage.src,
+      category: 'Kapı Paneli',
+    },
+  ],
 });
 
 const comparisonRows = [
@@ -105,6 +123,9 @@ const comparisonRows = [
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
             href={quoteHref}
+            data-analytics-event="Quote Click"
+            data-analytics-product={quoteProduct}
+            data-analytics-placement="hero"
             class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
           >
             Teklif Al
@@ -350,12 +371,18 @@ const comparisonRows = [
       <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
         <a
           href={quoteHref}
+          data-analytics-event="Quote Click"
+          data-analytics-product={quoteProduct}
+          data-analytics-placement="final-cta"
           class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
         >
           Teklif Formunu Aç
         </a>
         <a
           href={whatsappHref}
+          data-analytics-event="WhatsApp Click"
+          data-analytics-product={quoteProduct}
+          data-analytics-placement="final-cta"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"

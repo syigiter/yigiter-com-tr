@@ -319,7 +319,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 5. `2.10E` — Doorpan / Doorlam kapı paneli — **TAMAMLANDI 2026-07-26**
 6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha — **TAMAMLANDI 2026-07-26**
 7. `2.10G` — Katalog merkezi + yüzey galerisi — **TAMAMLANDI 2026-07-26**
-8. `2.10H` — SEO / schema / teklif ve ölçüm etiketleri
+8. `2.10H` — SEO / schema / teklif ve ölçüm etiketleri — **TAMAMLANDI 2026-07-26**
 9. `2.10I` — Production QA + 14/28/56 gün ölçüm
 
 **Sprint açma önkoşulları:**
@@ -389,7 +389,17 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - Mobilde satır kıran filtreler, minimum genişlik dayatmayan kartlar ve yatay taşmasız grid.
 - 38 sayfalık başarılı build; 14 ürün ailesi, 25 yüzey, 3 yerel katalog ve 63 yerel hedef doğrulaması.
 
-**Sıradaki iş:** `2.10H` — Marka/genel niyete göre title-description denetimi, Kastamonu hub/dekoratif panel ItemList şeması, ürün sayfalarında uygun Product/ProductGroup bağlantıları ve teklif/katalog/WhatsApp ölçüm etiketleri.
+**2.10H çıktıları:**
+
+- Kastamonu hub ve dekoratif panelde marka/ürün niyetine göre ayrışan title-description metinleri; 5 ve 10 öğeli `CollectionPage` + `ItemList` şemaları.
+- MDF ve Medelam/MDFLam için `Product`; yonga levha/Teknolam ile Doorpan/Doorlam için ikişer varyantlı `ProductGroup`.
+- Marka ürünlerinde `brand: Kastamonu Entegre`; fiyat yayınlamayan `Offer` üzerinden `seller: Yiğiter` Organization bağlantısı.
+- Mevcut `BreadcrumbList`, Organization `@id`, altı self-canonical ve sitemap kaydının doğrulanması.
+- 13 temsilî query eşleşmesi; Medelam/melamin öncelik hatasının giderilmesi ve Kastamonu panel/katalog sorgularının ayrı ürün grubuna bağlanması.
+- Katalog indirme, teklif, WhatsApp ve başarılı teklif gönderimi için kişisel veri taşımayan Vercel Analytics özel olayları.
+- 38 sayfalık başarılı build; altı Kastamonu rotasında tek H1 ve 2.421 yerel hedefte sıfır eksik.
+
+**Sıradaki iş:** `2.10I` — Production smoke test, kırık istek/console/CSP kontrolü, masaüstü-mobil görsel QA, GSC/sitemap kontrolü ve 14/28/56 günlük ölçüm şablonu.
 
 **Mimari kararlar:**
 
