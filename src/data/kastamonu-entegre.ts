@@ -110,11 +110,11 @@ export const productImages: ProductImage[] = [
   {
     id: 'ke-img-001',
     src: '/images/products/kastamonu-entegre/dekoratif-panel/dekoratif-panel-uygulama-01.webp',
-    width: 282,
-    height: 163,
+    width: 1500,
+    height: 800,
     alt: 'Kastamonu Entegre dekoratif panel uygulama örneği',
     sourceUrl:
-      'https://www.kastamonuentegre.com/uploads/2023/03/a609-belmonte-yasam-alani-01-min-1.jpg',
+      'https://www.kastamonuentegre.com/assets/img/galeri/A609-1-1-3.jpg',
   },
   {
     id: 'ke-img-002',

@@ -24,7 +24,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h1 class="text-4xl lg:text-5xl font-bold mb-4 leading-tight">
           Teklif Al
         </h1>
-        <p class="text-white/85 text-lg">
+        <p id="quote-hero-description" class="text-white/85 text-lg">
           Kapı, kasa, pervaz, MDF panel ve orman ürünleri ihtiyaçlarınız için hızlı teklif talebi oluşturun.
         </p>
       </div>
@@ -167,6 +167,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <option value="Kapı pervazı">Kapı pervazı</option>
                 <option value="Melamin kapı yüzeyi">Melamin kapı yüzeyi</option>
                 <option value="PVC film">PVC film</option>
+                <option value="Kastamonu Entegre dekoratif panel">Kastamonu Entegre dekoratif panel</option>
                 <option value="MDF / MDFLAM">MDF / MDFLAM</option>
                 <option value="Yonga levha / kapı paneli">Yonga levha / kapı paneli</option>
                 <option value="Boya ve yüzey çözümleri">Boya ve yüzey çözümleri</option>
@@ -386,7 +387,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   const urun = params.get('urun');
   if (urun) {
     const decoded = decodeURIComponent(urun);
-    const heroP = document.querySelector('section.bg-primary p.text-white\\/75');
+    const heroP = document.getElementById('quote-hero-description');
     if (heroP) heroP.textContent = `"${decoded}" için teklif talebinizi aşağıdaki formu doldurarak iletebilirsiniz.`;
     const details = document.getElementById('product_details') as HTMLTextAreaElement | null;
     if (details && !details.value) details.value = decoded;
@@ -399,6 +400,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       else if (lower.includes('pervaz')) val = 'Kapı pervazı';
       else if (lower.includes('melamin')) val = 'Melamin kapı yüzeyi';
       else if (lower.includes('pvc')) val = 'PVC film';
+      else if (lower.includes('dekoratif') && lower.includes('panel')) val = 'Kastamonu Entegre dekoratif panel';
       else if (lower.includes('mdf')) val = 'MDF / MDFLAM';
       else if (lower.includes('yonga') || lower.includes('panel')) val = 'Yonga levha / kapı paneli';
       else if (lower.includes('boya') || lower.includes('yüzey')) val = 'Boya ve yüzey çözümleri';

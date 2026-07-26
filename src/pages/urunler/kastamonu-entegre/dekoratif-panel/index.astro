@@ -1,0 +1,351 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CatalogDownload from '../../../../components/kastamonu-entegre/CatalogDownload.astro';
+import ProductFamilyCard from '../../../../components/kastamonu-entegre/ProductFamilyCard.astro';
+import SurfaceSampleCard from '../../../../components/kastamonu-entegre/SurfaceSampleCard.astro';
+import {
+  decorativeSurfaceSamples,
+  getProductCatalogs,
+  localCatalogs,
+  productFamiliesById,
+  productImagesById,
+  type KastamonuProductFamily,
+} from '../../../../data/kastamonu-entegre';
+
+function getProduct(id: string) {
+  const product = productFamiliesById.get(id);
+  if (!product) throw new Error(`Dekoratif panel ürün ailesi bulunamadı: ${id}`);
+  return product;
+}
+
+function getImage(id: string) {
+  const image = productImagesById.get(id);
+  if (!image) throw new Error(`Dekoratif panel görseli bulunamadı: ${id}`);
+  return image;
+}
+
+const heroImage = getImage('ke-img-001');
+const compactImage = getImage('ke-img-004');
+const compactCatalogs = localCatalogs.filter((catalog) =>
+  catalog.productFamilyIds.includes('compact-panel-lam'),
+);
+
+const sections: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  products: KastamonuProductFamily[];
+}[] = [
+  {
+    id: 'melamin-kapli-paneller',
+    eyebrow: 'Melamin Kaplı Paneller',
+    title: 'MDF ve yonga levha tabanlı dekoratif paneller',
+    description:
+      'Medelam MDF üzerine, Teknolam/Yongalam ise yonga levha üzerine melamin uygulanarak üretilir.',
+    products: [getProduct('medelam'), getProduct('teknolam-yongalam')],
+  },
+  {
+    id: 'parlak-mat-paneller',
+    eyebrow: 'Parlak ve Mat Yüzeyler',
+    title: 'Parlaklık, matlık ve dokunma hissine göre seçim',
+    description:
+      'Glossmax ve Glossmax Pro parlak yüzeylere; Mattplus ekstra mat yüzeye; Evogloss ise parlak ve mat desenlere odaklanır.',
+    products: [
+      getProduct('glossmax'),
+      getProduct('glossmax-pro'),
+      getProduct('mattplus'),
+      getProduct('evogloss'),
+    ],
+  },
+  {
+    id: 'akrilik-paneller',
+    eyebrow: 'Akrilik Paneller',
+    title: 'Akrilik ön yüzeyli hazır panel aileleri',
+    description:
+      'Çizilmeye dayanıklı ve endüstriyel akrilik panel seçenekleri, farklı proje ve yüzey beklentileri için ayrıştırılır.',
+    products: [getProduct('acrylic-panel'), getProduct('industrial-acrylic-panel')],
+  },
+  {
+    id: 'ozel-paneller',
+    eyebrow: 'Özel Panel Çözümleri',
+    title: 'Boyalı ve yüksek yoğunluklu panel seçenekleri',
+    description:
+      'Printpan su bazlı boyalı yüzeye, Compact Panel Lam ise yoğun kullanım alanlarına yönelik melamin kaplı compact yapıya sahiptir.',
+    products: [getProduct('printpan'), getProduct('compact-panel-lam')],
+  },
+];
+
+const useCases = [
+  {
+    title: 'Mobilya ve kapak',
+    description: 'Mutfak, banyo ve yaşam alanı mobilyalarında yüzey ve gövde ihtiyaçları.',
+  },
+  {
+    title: 'İç mekân tasarımı',
+    description: 'Mağaza, ofis, konut ve dekoratif sabit mobilya uygulamaları.',
+  },
+  {
+    title: 'Arka panel ve çekmece',
+    description: 'Printpan gibi ürünlerle mobilya arka yüzü ve çekmece tabanı uygulamaları.',
+  },
+  {
+    title: 'Ortak kullanım alanları',
+    description: 'Compact Panel Lam ile okul, hastane, AVM ve kabina/kubikal uygulamaları.',
+  },
+];
+---
+
+<BaseLayout
+  title="Kastamonu Entegre Dekoratif Panel"
+  description="Medelam, Teknolam/Yongalam, Glossmax, Glossmax Pro, Mattplus, Evogloss, akrilik, Printpan ve Compact Panel Lam ürünlerini ve resmî yüzey örneklerini inceleyin."
+>
+  <nav aria-label="Sayfa yolu" class="border-b border-gray-200 bg-gray-50 py-3">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary">Ana Sayfa</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li><a href="/urunler/" class="hover:text-primary">Ürünler</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li><a href="/urunler/kastamonu-entegre/" class="hover:text-primary">Kastamonu Entegre</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li aria-current="page" class="font-medium text-gray-900">Dekoratif Panel</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="overflow-hidden border-b border-wood-300 bg-wood-100">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-accent-dark">
+          Kastamonu Entegre Dekoratif Panel
+        </p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-5xl lg:text-6xl">
+          Yüzeyden ürüne, doğru paneli bulun
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-gray-700">
+          Melamin kaplı, parlak, mat, akrilik, boyalı ve compact panel ailelerini resmî
+          ürün tanımları, kullanım alanları ve yüzey örnekleriyle karşılaştırın.
+        </p>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-gray-600">
+          Buradaki ürünler Kastamonu Entegre üretici gamını gösterir. Yiğiter stok, ölçü,
+          dekor ve termin bilgisi teklif sırasında ayrıca teyit edilir.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="#urun-aileleri"
+            class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#7C2D12]"
+          >
+            Ürün Ailelerini İncele
+          </a>
+          <a
+            href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel"
+            class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+          >
+            Proje İçin Teklif Al
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <img
+          src={heroImage.src}
+          width={heroImage.width}
+          height={heroImage.height}
+          alt={heroImage.alt}
+          decoding="async"
+          class="col-span-2 aspect-[16/9] w-full rounded-2xl border border-wood-300 bg-white object-cover shadow-lg"
+        />
+        {decorativeSurfaceSamples.slice(12, 16).map((sample) => (
+          <img
+            src={sample.src}
+            width={sample.width}
+            height={sample.height}
+            alt={sample.alt}
+            loading="lazy"
+            decoding="async"
+            class="aspect-square w-full rounded-2xl border border-wood-300 bg-white object-cover"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Dekoratif panel özeti" class="border-b border-gray-200 bg-white">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-gray-200 sm:grid-cols-4">
+      {[
+        ['10', 'Ürün ailesi'],
+        [String(decorativeSurfaceSamples.length), 'Yüzey/doku örneği'],
+        ['6', 'Panel kategorisi'],
+        ['Teklif', 'Stok ve ölçü teyidi'],
+      ].map(([value, label]) => (
+        <div class="bg-white px-4 py-6 text-center">
+          <p class="text-2xl font-bold text-primary">{value}</p>
+          <p class="mt-1 text-xs text-gray-600">{label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Dekoratif panel bölüm bağlantıları" class="flex flex-wrap gap-2">
+        {sections.map((section) => (
+          <a
+            href={`#${section.id}`}
+            class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-primary/30 hover:text-primary"
+          >
+            {section.eyebrow}
+          </a>
+        ))}
+        <a
+          href="#yuzeyler"
+          class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-primary/30 hover:text-primary"
+        >
+          Yüzeyler
+        </a>
+        <a
+          href="#katalog"
+          class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-primary/30 hover:text-primary"
+        >
+          Katalog
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <div id="urun-aileleri" class="scroll-mt-24">
+    {sections.map((section, sectionIndex) => (
+      <section
+        id={section.id}
+        class:list={[
+          'scroll-mt-24 py-14 lg:py-20',
+          sectionIndex % 2 === 1 && 'border-y border-gray-200 bg-gray-50',
+        ]}
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">{section.eyebrow}</p>
+            <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">{section.title}</h2>
+            <p class="mt-4 leading-7 text-gray-700">{section.description}</p>
+          </div>
+
+          <div class:list={['mt-9 grid gap-6', section.products.length > 2 ? 'lg:grid-cols-2' : 'md:grid-cols-2']}>
+            {section.products.map((product) => (
+              <ProductFamilyCard
+                product={product}
+                image={product.id === 'compact-panel-lam' ? compactImage : product.id === 'medelam' ? heroImage : undefined}
+                catalogs={getProductCatalogs(product)}
+                quoteHref={`/teklif-al?urun=${encodeURIComponent(`Kastamonu Entegre ${product.displayName}`)}`}
+                showDetailLink={false}
+                headingLevel="h3"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <section class="bg-primary-900 py-14 text-white lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-400">Kullanım Alanları</p>
+        <h2 class="mt-3 text-3xl font-bold lg:text-4xl">Panel seçimini uygulamadan başlatın</h2>
+        <p class="mt-4 leading-7 text-white/75">
+          Kullanım alanı, istenen görünüm ve işleme ihtiyacı ürün ailesini belirler. Teknik
+          uygunluk ve güncel tedarik durumu teklif aşamasında birlikte değerlendirilir.
+        </p>
+      </div>
+      <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {useCases.map((item) => (
+          <article class="rounded-2xl border border-white/15 bg-white/5 p-5">
+            <h3 class="font-bold text-white">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-white/70">{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="yuzeyler" class="scroll-mt-24 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Yüzey Kütüphanesi</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          {decorativeSurfaceSamples.length} resmî yüzey ve doku örneği
+        </h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Yüzey kodları doku karakterini gösterir; dekor veya renk seçeneği anlamına gelmez.
+          Ekran parlaklığı ve renk ayarları nedeniyle fiziksel numuneyle farklılık görülebilir.
+        </p>
+      </div>
+
+      <div class="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        Nihai seçim öncesinde güncel katalog ve fiziksel numune üzerinden teyit alın.
+      </div>
+
+      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        {decorativeSurfaceSamples.map((sample) => <SurfaceSampleCard sample={sample} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="katalog" class="scroll-mt-24 border-y border-gray-200 bg-gray-50 py-14 lg:py-20">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Resmî Katalog</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary">Compactlam Panel 2026</h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Yerel katalog, Kastamonu Entegre'nin resmî dosyasının değiştirilmemiş kopyasıdır.
+          Glossmax, Mattplus, Evogloss ve akrilik panel için güncel sürüm ürün talebinizle birlikte paylaşılır.
+        </p>
+      </div>
+      <div class="space-y-3">
+        {compactCatalogs.map((catalog) => <CatalogDownload catalog={catalog} />)}
+        <a
+          href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel%20Katalo%C4%9Fu"
+          class="inline-flex w-full items-center justify-center rounded-xl border border-primary px-5 py-4 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+        >
+          Diğer Güncel Katalogları İste
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="teklif" class="scroll-mt-24 bg-wood-100 py-14 lg:py-20">
+    <div class="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Teklif ve Numune</p>
+      <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+        Ürün, yüzey ve ölçü ihtiyacınızı paylaşın
+      </h2>
+      <p class="mx-auto mt-4 max-w-3xl leading-7 text-gray-700">
+        Ürün ailesi, yüzey kodu, ölçü, miktar ve teslimat şehrini belirtin. Güncel stok,
+        tedarik ve termin durumuna göre size dönüş yapalım.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <a
+          href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel"
+          class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+        >
+          Teklif Formunu Aç
+        </a>
+        <a
+          href="https://wa.me/905464886737?text=Merhaba%2C%20Kastamonu%20Entegre%20dekoratif%20panel%20%C3%BCr%C3%BCnleri%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+        >
+          WhatsApp ile Sor
+        </a>
+      </div>
+      <p class="mt-6 text-sm text-gray-600">
+        Ham MDF ve yonga levha için
+        <a href="/urunler/kastamonu-entegre/" class="font-semibold text-primary underline underline-offset-4">
+          Kastamonu Entegre ürün merkezine
+        </a>
+        dönebilirsiniz.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

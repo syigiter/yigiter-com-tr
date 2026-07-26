@@ -19,6 +19,7 @@ const SLUG_LABELS: Record<string, string> = {
   mdf: 'MDF',
   mdflam: 'MDFLam',
   yongalevha: 'Yonga Levha',
+  'dekoratif-panel': 'Dekoratif Panel',
   'melamin-kapi-yuzeyi': 'Melamin Kapı Yüzeyi',
   'genc-boya': 'Genç Boya',
   'pvc-film': 'PVC Film',

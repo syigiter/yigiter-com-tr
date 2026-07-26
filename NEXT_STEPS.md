@@ -314,7 +314,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 
 1. `2.10A` — Asset ve iddia envanteri — **TAMAMLANDI 2026-07-26**
 2. `2.10B` — Ürün veri modeli ve asset pipeline — **TAMAMLANDI 2026-07-26**
-3. `2.10C` — Kastamonu hub + yeni dekoratif panel sayfası
+3. `2.10C` — Kastamonu hub + yeni dekoratif panel sayfası — **TAMAMLANDI 2026-07-26**
 4. `2.10D` — MDF / MDFLam / yongalevha marka sayfaları
 5. `2.10E` — Doorpan / Doorlam kapı paneli
 6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha
@@ -329,7 +329,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - Teyitsiz ölçü, kalınlık, termin, stok ve performans iddialarının işaretlenmesi
 - Üretici ürün gamı ile Yiğiter stok/tedarik bilgisinin ayrı tutulması
 
-**İlk production hedefi:** `2.10C` ile `/urunler/kastamonu-entegre/dekoratif-panel/` rotasının açılması ve mevcut Kastamonu hub'ın gerçek ürün ailesi navigasyonuna kavuşması.
+**İlk production hedefi:** `2.10C` kapsamında `/urunler/kastamonu-entegre/dekoratif-panel/` rotası ve mevcut Kastamonu hub'ın gerçek ürün ailesi navigasyonu uygulandı.
 
 **2.10A çıktıları:**
 
@@ -344,7 +344,15 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - `docs/kastamonu-entegre-asset-pipeline.md` — dosya standardı, bütçeler ve kullanım akışı.
 - 30 optimize görsel/yüzey ve Compactlam, Doorlam, Doorpan resmî katalogları.
 
-**Sıradaki iş:** `2.10C` — Kastamonu hub'ı veri modeline geçir, yeni `/urunler/kastamonu-entegre/dekoratif-panel/` rotasını oluştur, ürün aileleri/yüzeyler/kataloglar ile teklif akışını production sayfalarına uygula.
+**2.10C çıktıları:**
+
+- Veri odaklı Kastamonu Entegre ürün ailesi hub'ı.
+- 10 ürün ailesi, kullanım alanları, 18 yüzey örneği ve katalog CTA'sı içeren yeni dekoratif panel sayfası.
+- Ana sayfa, ürünler sayfası, header ve footer üzerinden yeni rotaya iç bağlantılar.
+- Teklif formunda dekoratif panel query ön seçimi.
+- 37 sayfalık başarılı build, self-canonical, sitemap ve 94 yerel hedef doğrulaması.
+
+**Sıradaki iş:** `2.10D` — Kastamonu MDF, MDFLam ve yongalevha marka sayfalarını veri modeline geçir; placeholder ve teyitsiz iddiaları kaldır; ürün görselleri ile katalog aksiyonlarını ekle.
 
 **Mimari kararlar:**
 
