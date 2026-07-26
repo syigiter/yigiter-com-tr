@@ -301,3 +301,40 @@ Her satır **iki ayrı query kümesini** yakalar; ikisinde de zaten gösterim va
 3. Farklılaşınca her iki sayfa da self-canonical kalabilir (farklı içerik = meşru ayrı sayfalar).
 
 **Schema (follow-up, ayrı PR — claude-seo lane):** Farklılaşınca duplike çifte Product eklenebilir — generic marka-agnostik (seller), Kastamonu `brand: Kastamonu Entegre`. Rakip-entity sorunu kalmaz. PR #64 bu çifti bilinçli erteledi (BreadcrumbList eklendi, Product beklemede).
+
+## Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı — PLANLANDI 2026-07-26
+
+**Yeni iş gerçeği / izin teyidi:** Kullanıcı, aktif Kastamonu Entegre bayilik anlaşmasının ürün görsellerini Yiğiter sitesinde kullanma izni verdiğini teyit etti.
+
+Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 — Türkiye İç Pazar SEO` içindeki Kastamonu Entegre adayını somut iş paketlerine dönüştürür. Aktif `Sprint 2.9` teknik SEO işlerini ve teknik föy/profil çalışmaları için ayrılmış `Sprint 2.9A` adını değiştirmez.
+
+**Detaylı plan:** `KASTAMONU_ENTEGRE_CONTENT_SPRINT_PLAN.md`
+
+**Alt sprint sırası:**
+
+1. `2.10A` — Asset ve iddia envanteri
+2. `2.10B` — Ürün veri modeli ve asset pipeline
+3. `2.10C` — Kastamonu hub + yeni dekoratif panel sayfası
+4. `2.10D` — MDF / MDFLam / yongalevha marka sayfaları
+5. `2.10E` — Doorpan / Doorlam kapı paneli
+6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha
+7. `2.10G` — Katalog merkezi + yüzey galerisi
+8. `2.10H` — SEO / schema / teklif ve ölçüm etiketleri
+9. `2.10I` — Production QA + 14/28/56 gün ölçüm
+
+**Sprint açma önkoşulları:**
+
+- Kullanılacak assetlerin resmî kaynak URL ve ürün ailesiyle manifestlenmesi
+- Yiğiter'in aktif stok/tedarik kapsamının satış ekibi tarafından teyidi
+- Teyitsiz ölçü, kalınlık, termin, stok ve performans iddialarının işaretlenmesi
+- Üretici ürün gamı ile Yiğiter stok/tedarik bilgisinin ayrı tutulması
+
+**İlk production hedefi:** `2.10C` ile `/urunler/kastamonu-entegre/dekoratif-panel/` rotasının açılması ve mevcut Kastamonu hub'ın gerçek ürün ailesi navigasyonuna kavuşması.
+
+**Mimari kararlar:**
+
+- Mevcut generic ve Kastamonu URL'leri korunacak; 301/canonical birleştirme yapılmayacak.
+- Üretici metni uzun bloklar halinde kopyalanmayacak; ana bayi/tedarik bağlamında özgün içerik yazılacak.
+- İzinli görseller hotlink yerine optimize edilerek yerelde barındırılacak.
+- Resmî kataloglar sürüm, tarih, kaynak ve hash bilgisiyle yönetilecek.
+- Her alt sprint ayrı branch/PR, Vercel preview, build ve route smoke test ile ilerleyecek.
