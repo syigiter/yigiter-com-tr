@@ -302,7 +302,7 @@ Her satır **iki ayrı query kümesini** yakalar; ikisinde de zaten gösterim va
 
 **Schema (follow-up, ayrı PR — claude-seo lane):** Farklılaşınca duplike çifte Product eklenebilir — generic marka-agnostik (seller), Kastamonu `brand: Kastamonu Entegre`. Rakip-entity sorunu kalmaz. PR #64 bu çifti bilinçli erteledi (BreadcrumbList eklendi, Product beklemede).
 
-## Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı — PLANLANDI 2026-07-26
+## Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı — AKTİF 2026-07-26
 
 **Yeni iş gerçeği / izin teyidi:** Kullanıcı, aktif Kastamonu Entegre bayilik anlaşmasının ürün görsellerini Yiğiter sitesinde kullanma izni verdiğini teyit etti.
 
@@ -312,7 +312,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 
 **Alt sprint sırası:**
 
-1. `2.10A` — Asset ve iddia envanteri
+1. `2.10A` — Asset ve iddia envanteri — **TAMAMLANDI 2026-07-26**
 2. `2.10B` — Ürün veri modeli ve asset pipeline
 3. `2.10C` — Kastamonu hub + yeni dekoratif panel sayfası
 4. `2.10D` — MDF / MDFLam / yongalevha marka sayfaları
@@ -330,6 +330,13 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - Üretici ürün gamı ile Yiğiter stok/tedarik bilgisinin ayrı tutulması
 
 **İlk production hedefi:** `2.10C` ile `/urunler/kastamonu-entegre/dekoratif-panel/` rotasının açılması ve mevcut Kastamonu hub'ın gerçek ürün ailesi navigasyonuna kavuşması.
+
+**2.10A çıktıları:**
+
+- `docs/kastamonu-entegre-asset-manifest.csv` — kaynak URL, ürün ailesi, izin dayanağı, hedef yol ve yayın durumu.
+- `docs/kastamonu-entegre-claims-audit.md` — mevcut teknik/ticari iddiaların `resmî kaynak`, `Yiğiter teyidi`, `kaldırılacak` sınıflandırması.
+
+**Sıradaki iş:** `2.10B` — `onaylı` varlıkları yerel arşive al, dosya hash/metadata kaydını tamamla, `src/data/kastamonu-entegre.ts` veri modelini ve tekrar kullanılabilir ürün/katalog bileşenlerini kur.
 
 **Mimari kararlar:**
 
