@@ -47,6 +47,11 @@ TRACKED_PATHS = [
     "/urunler/kapi-paneli/",
     "/urunler/genc-boya/",
     "/urunler/kastamonu-entegre/",
+    "/urunler/kastamonu-entegre/dekoratif-panel/",
+    "/urunler/kastamonu-entegre/mdf/",
+    "/urunler/kastamonu-entegre/mdflam/",
+    "/urunler/kastamonu-entegre/yongalevha/",
+    "/urunler/kastamonu-entegre/kapi-paneli/",
 ]
 
 COUNTRY_LABELS = {
@@ -66,7 +71,12 @@ COUNTRY_LABELS = {
 }
 
 GULF_COUNTRIES = {"AE", "SA", "QA", "KW", "BH", "OM"}
-KEY_SPEED_PATHS = ["/", "/en/interior-door-components", "/teklif-al", "/urunler"]
+KEY_SPEED_PATHS = [
+    "/",
+    "/teklif-al",
+    "/urunler/kastamonu-entegre",
+    "/urunler/kastamonu-entegre/dekoratif-panel",
+]
 SPEED_METRICS = [
     ("LCP", "vercel.speed_insights.lcp_ms", "ms"),
     ("INP", "vercel.speed_insights.inp_ms", "ms"),

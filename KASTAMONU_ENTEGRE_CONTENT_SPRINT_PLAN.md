@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Uygulamada — `2.10A–2.10H` tamamlandı, `2.10I` sırada
+Durum: Tamamlandı — `2.10A–2.10I`
 
 ## 1. Karar ve Dayanak
 
@@ -469,6 +469,17 @@ Kabul kriterleri:
 - Kırık resim/PDF yok.
 - Yeni sayfalar sitemap içinde.
 - Geri dönüş deployment'ı ve önceki commit kayıtlı.
+
+Sonuç:
+
+- `2.10I` 2026-07-26 tarihinde tamamlandı.
+- Yedi production rotası, 73 ortak yerel hedef, altı sitemap/schema kaydı, CSP/Analytics ve 404 davranışı tekrar çalıştırılabilir production QA script'iyle doğrulandı.
+- Altı Kastamonu rotası 1440×900 ve 390×844 görünümde kontrol edildi; yatay taşma, hata katmanı ve console warning/error bulunmadı.
+- Dekoratif panelin lazy yüzey görselleri yükleme tamamlandıktan sonra eksiksiz görüntülendi; kalıcı kırık asset bulunmadı.
+- Vercel planının `Hobby` olduğu ve özel olay raporlamadığı doğrulandı. Dönüşüm olayları aktif Microsoft Clarity custom event API'sine de bağlandı; Vercel hook'u plan yükseltmesi için korundu.
+- Vercel Analytics raporuna beş alt marka rotası, Speed Insights raporuna hub/dekoratif panel eklendi; T0 değeri 352/1.139 toplam 7/28 günlük pageview olarak kaydedildi.
+- GSC yapılandırmasına altı Kastamonu rotası eklendi. Yerel GSC kimlik bilgileri bulunmadığı için canlı API çağrısı yapılmadı; sitemap tarafı production'da temiz ve salt-okunur takip komutu kayıtlıdır.
+- 2026-07-27, 2026-08-09, 2026-08-23 ve 2026-09-20 kontrol tarihleri; metrikler, karar eşikleri ve geri dönüş noktası `docs/kastamonu-entegre-measurement-plan.md` içinde kaydedildi.
 
 ## 8. Uygulama Sırası ve Bağımlılıklar
 

@@ -388,7 +388,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
 <script>
-  import { track } from '@vercel/analytics';
+  import { trackConversion } from '../lib/analytics-events';
   import { mapQuoteProductGroup } from '../lib/quote-product';
 
   // ?urun= pre-fill
@@ -454,7 +454,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       const result = await res.json();
       if (result.success) {
         const productGroup = data.get('product_group');
-        track('Quote Submitted', {
+        trackConversion('Quote Submitted', {
           productGroup: typeof productGroup === 'string' ? productGroup : undefined,
         });
         await new Promise((resolve) => window.setTimeout(resolve, 150));

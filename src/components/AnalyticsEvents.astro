@@ -1,5 +1,5 @@
 <script>
-  import { track } from '@vercel/analytics';
+  import { trackConversion } from '../lib/analytics-events';
 
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element)) return;
@@ -8,7 +8,7 @@
     const eventName = target?.dataset.analyticsEvent;
     if (!target || !eventName) return;
 
-    track(eventName, {
+    trackConversion(eventName, {
       page: window.location.pathname,
       destination: target.getAttribute('href') ?? undefined,
       product: target.dataset.analyticsProduct,
