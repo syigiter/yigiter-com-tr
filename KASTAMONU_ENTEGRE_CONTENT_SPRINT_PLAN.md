@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Uygulamada — `2.10A–2.10F` tamamlandı, `2.10G` sırada
+Durum: Uygulamada — `2.10A–2.10G` tamamlandı, `2.10H` sırada
 
 ## 1. Karar ve Dayanak
 
@@ -404,6 +404,17 @@ Kabul kriterleri:
 - Eski sürümler kullanıcıya görünmüyor.
 - Yüzey görsellerinde kod ve ad doğru.
 - Mobilde yatay taşma yok.
+
+Sonuç:
+
+- `2.10G` 2026-07-26 tarihinde tamamlandı.
+- Kastamonu Entegre hub içinde Compactlam 2026, Doorlam 2024 ve Doorpan 2024 yerel resmî dosyalarını kapsayan filtreli katalog merkezi oluşturuldu.
+- Katalog kartlarında ürün ailesi, yayın yılı, sürüm ve dosya boyutu görünür hâle getirildi; metadata-only ve güncelliği belirsiz eski dokümanlar kullanıcıya açılmadı.
+- 18 dekoratif panel dokusu ile 7 Doorpan yüzeyi tek galeride birleştirildi; Tümü, Dekoratif Panel ve Doorpan filtreleri eklendi.
+- Filtre kontrolleri `aria-pressed` ve canlı sonuç sayısıyla erişilebilir biçimde uygulandı; JavaScript olmadan tüm katalog ve yüzey içerikleri görünür kalır.
+- Ekran rengi/fiziksel numune farkı ile Doorpan örneklerinin yalnız yüzey biçimini gösterdiği uyarısı galeri öncesinde görünür hâle getirildi.
+- Filtre satırları mobilde satır kıracak, kartlar minimum genişlik dayatmayacak biçimde kuruldu; yatay taşma üreten sınıf kullanılmadı.
+- Üretim derlemesi 38 sayfayla tamamlandı; 14 ürün ailesi, 25 yüzey, 3 yerel katalog, 63 yerel hedef ve Kastamonu hub self-canonical kaydı doğrulandı.
 
 ### Sprint 2.10H — SEO, Schema ve Dönüşüm
 
