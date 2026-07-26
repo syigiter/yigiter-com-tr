@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Uygulamada — `2.10A–2.10D` tamamlandı, `2.10E` sırada
+Durum: Uygulamada — `2.10A–2.10E` tamamlandı, `2.10F` sırada
 
 ## 1. Karar ve Dayanak
 
@@ -344,6 +344,16 @@ Kabul kriterleri:
 - `5.000+ seçenek` ve doğrulanmamış performans iddiaları yok.
 - Doorpan ve Doorlam ayrı başlık, görsel ve CTA ile sunuluyor.
 - Genel kapı paneli sayfasıyla içerik çakışması düşük.
+
+Sonuç:
+
+- `2.10E` 2026-07-26 tarihinde tamamlandı.
+- Kastamonu Entegre kapı paneli sayfası Doorpan ve Doorlam ürün ailelerini ayrı görsel, içerik, katalog ve teklif CTA'larıyla sunacak biçimde yeniden kuruldu.
+- 282×163 kategori küçük resmi production kullanımından çıkarıldı; Doorpan için 1500×800, Doorlam için 1600×1600 optimize resmî WebP görselleri kullanıldı.
+- Doorpan'ın 7 yüzey ailesi ve 16 şekilli / 3 düz model ayrımı; Doorlam'ın 7 dekoru, 4 mm MDF taşıyıcısı ve hazır dekoratif yüzey farkı açıklandı.
+- Doorpan ve Doorlam'ın yerel resmî katalogları ürün kartlarına ve katalog bölümüne bağlandı.
+- `5.000+ seçenek`, stoktan teslim, üretici garantisi, özel ölçü ve teyitsiz performans iddiaları kaldırıldı.
+- Üretim derlemesi 37 sayfayla tamamlandı; rotada self-canonical, tek H1, Product schema, sitemap kaydı, 7 yüzey varlığı ve 7 dekor adı doğrulandı.
 
 ### Sprint 2.10F — İki Katmanlı Panel Mimarisi
 

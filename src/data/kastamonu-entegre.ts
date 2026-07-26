@@ -145,10 +145,19 @@ export const productImages: ProductImage[] = [
   {
     id: 'ke-img-005',
     src: '/images/products/kastamonu-entegre/kapi-paneli/kapi-paneli-uygulama.webp',
-    width: 282,
-    height: 163,
-    alt: 'Kastamonu Entegre kapı paneli uygulaması',
-    sourceUrl: 'https://www.kastamonuentegre.com/uploads/2023/03/kapipanel-min.jpg',
+    width: 1500,
+    height: 800,
+    alt: 'Kastamonu Entegre Doorpan beyaz astarlı kapı paneli uygulaması',
+    sourceUrl: 'https://www.kastamonuentegre.com/assets/img/galeri/DP201-1.jpg',
+  },
+  {
+    id: 'ke-img-009',
+    src: '/images/products/kastamonu-entegre/kapi-paneli/doorlam-kastamonu-mese-uygulama.webp',
+    width: 1600,
+    height: 1600,
+    alt: 'Kastamonu Entegre Doorlam Kastamonu Meşe kapı paneli uygulaması',
+    sourceUrl:
+      'https://www.kastamonuentegre.com/uploads/2024/11/doorlam-dl116-kastamonumese-interactive-lightmix.jpg',
   },
   {
     id: 'ke-img-008',
@@ -222,6 +231,16 @@ export const doorpanSurfaceSamples: SurfaceSample[] = [
   disclaimer:
     'Doorpan paneller beyaz astarlıdır; örnek renklendirme yalnızca yüzey biçimini göstermek içindir.',
 }));
+
+export const doorlamDecorNames = [
+  'Buz Meşe',
+  'Kastamonu Meşe',
+  'Zeugma',
+  'Urartu',
+  'Likya',
+  'Sümer',
+  'Babil',
+] as const;
 
 export const catalogs: CatalogDocument[] = [
   {
@@ -591,7 +610,7 @@ export const productFamilies: KastamonuProductFamily[] = [
     claimStatus: 'official_source',
     availability: defaultAvailability,
     route: '/urunler/kastamonu-entegre/kapi-paneli/',
-    heroImageId: 'ke-img-005',
+    heroImageId: 'ke-img-009',
     catalogIds: ['ke-pdf-014'],
   },
 ];

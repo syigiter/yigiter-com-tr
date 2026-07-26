@@ -316,7 +316,7 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 2. `2.10B` — Ürün veri modeli ve asset pipeline — **TAMAMLANDI 2026-07-26**
 3. `2.10C` — Kastamonu hub + yeni dekoratif panel sayfası — **TAMAMLANDI 2026-07-26**
 4. `2.10D` — MDF / MDFLam / yongalevha marka sayfaları — **TAMAMLANDI 2026-07-26**
-5. `2.10E` — Doorpan / Doorlam kapı paneli
+5. `2.10E` — Doorpan / Doorlam kapı paneli — **TAMAMLANDI 2026-07-26**
 6. `2.10F` — Generic/marka iki katmanlı panel mimarisi + generic yongalevha
 7. `2.10G` — Katalog merkezi + yüzey galerisi
 8. `2.10H` — SEO / schema / teklif ve ölçüm etiketleri
@@ -361,7 +361,15 @@ Bu program, yukarıdaki iki katmanlı panel mimarisini uygular ve `Sprint 2.8 �
 - Teyitsiz stok, ölçü, termin, desen sayısı ve teknik değerlerin kaldırılması.
 - 37 sayfalık başarılı build; üç rotada self-canonical, tek H1 ve 49 yerel hedef doğrulaması.
 
-**Sıradaki iş:** `2.10E` — Kastamonu kapı paneli sayfasını Doorpan ve Doorlam odaklı yenile; yüksek çözünürlüklü ürün görselleri, model/dekor ayrımı ve yerel resmî katalogları uygula.
+**2.10E çıktıları:**
+
+- Doorpan ve Doorlam ürün ailelerini ayrı görsel, ürün kartı, karşılaştırma ve teklif CTA'larıyla sunan yeni Kastamonu kapı paneli sayfası.
+- 282×163 kategori küçük resmi yerine 1500×800 Doorpan ve 1600×1600 Doorlam resmî uygulama görselleri.
+- Doorpan'ın 7 yüzey ailesi ve model ayrımı; Doorlam'ın 7 dekoru, 4 mm MDF ve hazır dekoratif yüzey bilgisi.
+- Yerel Doorpan ve Doorlam resmî katalog indirmeleri; güvenli stok, ölçü ve termin dili.
+- 37 sayfalık başarılı build; self-canonical, tek H1, Product schema, sitemap, 7 yüzey ve 7 dekor doğrulaması.
+
+**Sıradaki iş:** `2.10F` — Generic MDF, MDFLam ve kapı paneli sayfalarını çok markalı tedarik niyetiyle farklılaştır; yeni generic `/urunler/yongalevha/` sayfasını oluştur ve generic ↔ Kastamonu bağlamlı iç linklerini tamamla.
 
 **Mimari kararlar:**
 

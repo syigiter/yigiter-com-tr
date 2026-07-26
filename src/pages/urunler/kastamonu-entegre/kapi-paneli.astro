@@ -1,201 +1,384 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CatalogDownload from '../../../components/kastamonu-entegre/CatalogDownload.astro';
+import ProductFamilyCard from '../../../components/kastamonu-entegre/ProductFamilyCard.astro';
+import SurfaceSampleCard from '../../../components/kastamonu-entegre/SurfaceSampleCard.astro';
+import {
+  doorlamDecorNames,
+  doorpanSurfaceSamples,
+  getProductCatalogs,
+  productFamiliesById,
+  productImagesById,
+} from '../../../data/kastamonu-entegre';
+import { buildProduct } from '../../../lib/schema';
+
+const doorpan = productFamiliesById.get('doorpan');
+const doorlam = productFamiliesById.get('doorlam');
+const doorpanImage = productImagesById.get('ke-img-005');
+const doorlamImage = productImagesById.get('ke-img-009');
+
+if (!doorpan || !doorlam || !doorpanImage || !doorlamImage) {
+  throw new Error('Kastamonu Entegre Doorpan / Doorlam sayfa verisi bulunamadı.');
+}
+
+const doorpanCatalogs = getProductCatalogs(doorpan);
+const doorlamCatalogs = getProductCatalogs(doorlam);
+const doorpanCatalog = doorpanCatalogs.find(
+  (catalog): catalog is typeof catalog & { localPath: string } =>
+    catalog.publicationStatus === 'local' && Boolean(catalog.localPath),
+);
+const doorlamCatalog = doorlamCatalogs.find(
+  (catalog): catalog is typeof catalog & { localPath: string } =>
+    catalog.publicationStatus === 'local' && Boolean(catalog.localPath),
+);
+
+if (!doorpanCatalog || !doorlamCatalog) {
+  throw new Error('Doorpan / Doorlam yerel katalogları bulunamadı.');
+}
+
+const title = 'Kastamonu Entegre Doorpan ve Doorlam Kapı Paneli';
+const description =
+  'Kastamonu Entegre Doorpan ve Doorlam kapı paneli ailelerini, yüzey ve dekor seçeneklerini karşılaştırın; resmî katalogları indirin ve güncel teklif alın.';
+const quoteProduct = 'Kastamonu Entegre Doorpan / Doorlam Kapı Paneli';
+const quoteHref = `/teklif-al?urun=${encodeURIComponent(quoteProduct)}`;
+const whatsappHref = `https://wa.me/905464886737?text=${encodeURIComponent(
+  `Merhaba, ${quoteProduct} için bilgi almak istiyorum.`,
+)}`;
+const productSchema = buildProduct({
+  name: title,
+  description,
+  url: '/urunler/kastamonu-entegre/kapi-paneli/',
+  category: 'Kapı Paneli',
+  image: doorpanImage.src,
+  brandName: 'Kastamonu Entegre',
+});
+
+const comparisonRows = [
+  ['Yüzey başlangıcı', 'Beyaz astarlı yüzey', 'Dekoratif kâğıt kaplı hazır yüzey'],
+  ['Seçim yapısı', '16 şekilli, 3 düz model; 7 yüzey ailesi', '7 dekor seçeneği'],
+  ['Son işlem', 'Boyanabilir', 'Ek boya veya cila gerektirmez'],
+  ['Öne çıkan teknik bilgi', 'Şekilli ve düz iç kapı paneli seçenekleri', '4 mm MDF taşıyıcı'],
+  ['Teklif için belirtin', 'Model/yüzey ailesi, ölçü ve miktar', 'Dekor adı/kodu, ölçü ve miktar'],
+];
 ---
 
 <BaseLayout
-  title="Kastamonu Entegre Kapı Paneli"
-  description="Kastamonu Entegre kapı paneli ürünleri — Yiğiter Orman Ürünleri Ana Bayi güvencesiyle. Melamin ve laminat yüzeyli kapı paneli, stoktan teslimat."
+  title={title}
+  description={description}
+  ogImage={doorpanImage.src}
+  structuredData={productSchema}
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-gray-50 border-b border-gray-200 py-3">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <ol class="flex items-center gap-2 text-sm text-gray-500">
-        <li><a href="/" class="hover:text-primary transition-colors">Anasayfa</a></li>
-        <li class="text-gray-300">/</li>
-        <li><a href="/urunler/" class="hover:text-primary transition-colors">Ürünler</a></li>
-        <li class="text-gray-300">/</li>
-        <li><a href="/urunler/kastamonu-entegre/" class="hover:text-primary transition-colors">Kastamonu Entegre</a></li>
-        <li class="text-gray-300">/</li>
-        <li class="text-gray-800 font-medium">Kapı Paneli</li>
+  <nav aria-label="Sayfa yolu" class="border-b border-gray-200 bg-gray-50 py-3">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary">Ana Sayfa</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li><a href="/urunler/" class="hover:text-primary">Ürünler</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li>
+          <a href="/urunler/kastamonu-entegre/" class="hover:text-primary">
+            Kastamonu Entegre
+          </a>
+        </li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li aria-current="page" class="font-medium text-gray-900">Kapı Paneli</li>
       </ol>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="bg-wood-100 py-12 lg:py-16 border-b border-wood-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-          Kastamonu Entegre — Ana Bayi
-        </span>
-        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-3 leading-tight">
-          Kastamonu Entegre Kapı Paneli
+  <section class="overflow-hidden border-b border-wood-300 bg-wood-100">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8 lg:py-20">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-accent-dark">
+          Kastamonu Entegre Ana Bayisi
+        </p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-5xl lg:text-6xl">
+          Doorpan ve Doorlam Kapı Paneli
         </h1>
-        <p class="text-accent font-semibold text-base mb-4">Kapı Üreticileri İçin Hazır Panel Çözümleri</p>
-        <p class="text-gray-600 text-lg leading-relaxed">
-          Kastamonu Entegre'nin kapı üretimine özel melamin ve laminat yüzeyli panel seçeneklerini
-          Ana Bayi güvencesiyle, stoktan sunuyoruz.
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-gray-700">
+          Boyanabilir beyaz astarlı Doorpan ile dekoratif hazır yüzeyli Doorlam ürün ailelerini
+          kullanım ve üretim beklentinize göre karşılaştırın.
+        </p>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-gray-600">
+          Stok, ölçü, model/dekor ve termin bilgisi güncel teklif sırasında teyit edilir.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={quoteHref}
+            class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+          >
+            Teklif Al
+          </a>
+          <a
+            href="#urun-aileleri"
+            class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+          >
+            Doorpan / Doorlam Karşılaştır
+          </a>
+        </div>
+      </div>
+
+      <div class="relative overflow-hidden rounded-2xl border border-wood-300 bg-white p-3 shadow-lg">
+        <img
+          src={doorpanImage.src}
+          width={doorpanImage.width}
+          height={doorpanImage.height}
+          alt={doorpanImage.alt}
+          decoding="async"
+          class="aspect-[16/9] w-full rounded-xl object-cover"
+        />
+        <p class="absolute bottom-6 left-6 rounded-full bg-primary/90 px-4 py-2 text-xs font-bold text-white backdrop-blur">
+          Doorpan uygulama örneği
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Ana İçerik -->
-  <section class="py-16 lg:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-
-        <!-- Sol: Metin -->
-        <div class="lg:col-span-2">
-          <p class="text-gray-700 text-base leading-relaxed mb-5">
-            <strong class="text-gray-900">Kastamonu Entegre Kapı Paneli</strong>, kapı gövdesi, çerçeve ve
-            dekor yüzeylerinde kullanılmak üzere özel olarak geliştirilen, yüksek baskı dayanımına sahip
-            panel ürünleridir.
-          </p>
-          <p class="text-gray-700 text-base leading-relaxed mb-10">
-            Melamin ve laminat yüzey seçenekleriyle geniş bir renk ve desen kataloğuna sahip olan kapı paneli
-            serisi; hem seri üretim hem de özel proje bazlı kapı imalatçılarının ihtiyaçlarına yanıt vermektedir.
-            <strong class="text-gray-900">Yiğiter Orman Ürünleri</strong> olarak bu ürünleri Ana Bayi statüsüyle,
-            üretici garantisiyle sunuyoruz.
-          </p>
-
-          <!-- Özellikler -->
-          <h2 class="text-2xl font-bold text-primary mb-6">Ürün Özellikleri</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-            {[
-              { baslik: 'Yüzey Seçenekleri', aciklama: 'Melamin ve laminat kaplama — mat, parlak, dokulu seçenekler.' },
-              { baslik: 'Renk & Desen', aciklama: 'Ahşap görünümlü, düz renk, taş ve beton desenler dahil 5.000+ seçenek.' },
-              { baslik: 'Ölçü Esnekliği', aciklama: 'Standart ve ısmarlama ölçülerde üretim imkânı.' },
-              { baslik: 'Yüksek Dayanım', aciklama: 'Çizilme, darbe ve nem direnci yüksek yüzey kalitesi.' },
-              { baslik: 'Kolay İşlenebilirlik', aciklama: 'Kesme, frezeleme ve yapıştırma işlemlerine uygun panel yapısı.' },
-              { baslik: 'Üretici Garantisi', aciklama: 'Kastamonu Entegre orijinal ürün, orijinal garanti.' },
-            ].map((item) => (
-              <div class="border border-gray-100 rounded-lg p-4 bg-gray-50">
-                <div class="font-semibold text-gray-900 text-sm mb-1">{item.baslik}</div>
-                <div class="text-gray-500 text-xs leading-relaxed">{item.aciklama}</div>
-              </div>
-            ))}
-          </div>
-
-          <!-- Kullanım Alanları -->
-          <h2 class="text-2xl font-bold text-primary mb-5">Kullanım Alanları</h2>
-          <ul class="space-y-3 mb-10">
-            {[
-              'Ahşap ve MDF kapı gövdesi kaplaması',
-              'Kapı çerçevesi ve pervaz yüzey kaplama',
-              'İç kapı kanat yüzeyleri',
-              'Dolap ve mobilya kapak paneli',
-              'Duvar paneli ve dekoratif yüzey uygulamaları',
-            ].map((item) => (
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                </svg>
-                <span class="text-gray-700 text-sm">{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <!-- Genel kategori sayfası iç linki -->
-          <p class="text-gray-600 text-sm mb-10">
-            Genel kapı paneli tedarik çözümleri için{' '}
-            <a href="/urunler/kapi-paneli/" class="text-primary font-medium hover:underline">Kapı Paneli</a>
-            {' '}sayfamızı da inceleyebilirsiniz.
-          </p>
-
-          <!-- Diğer KE Ürünleri -->
-          <h2 class="text-2xl font-bold text-primary mb-5">Diğer Kastamonu Entegre Ürünleri</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {[
-              { ad: 'Yongalevha (Sunta)', href: '/urunler/kastamonu-entegre/yongalevha' },
-              { ad: 'MDF', href: '/urunler/kastamonu-entegre/mdf' },
-              { ad: 'MDFLam', href: '/urunler/kastamonu-entegre/mdflam' },
-            ].map((item) => (
-              <a href={item.href} class="group border border-gray-200 rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:border-primary/40 hover:text-primary flex items-center justify-between transition-all">
-                {item.ad}
-                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            ))}
-          </div>
+  <section aria-label="Kapı paneli özeti" class="border-b border-gray-200 bg-white">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-gray-200 sm:grid-cols-4">
+      {[
+        ['2', 'Ürün ailesi'],
+        ['7', 'Doorpan yüzey ailesi'],
+        ['7', 'Doorlam dekoru'],
+        ['2', 'Yerel resmî katalog'],
+      ].map(([value, label]) => (
+        <div class="bg-white px-4 py-6 text-center">
+          <p class="text-xl font-bold text-primary sm:text-2xl">{value}</p>
+          <p class="mt-1 text-xs text-gray-600">{label}</p>
         </div>
+      ))}
+    </div>
+  </section>
 
-        <!-- Sağ: CTA -->
-        <div class="space-y-5">
-          <div class="bg-primary rounded-2xl p-6 text-white">
-            <h3 class="text-lg font-bold mb-2">Fiyat Teklifi Alın</h3>
-            <p class="text-white/70 text-sm mb-4">
-              İhtiyacınızı bildirin, ana bayi fiyatıyla teklif hazırlayalım.
-            </p>
-            <a
-              href="/teklif-al?urun=Kastamonu+Entegre+Kap%C4%B1+Paneli"
-              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors"
-            >
-              Teklif Al
-            </a>
-          </div>
+  <section id="urun-aileleri" class="scroll-mt-24 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Ürün Aileleri</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          Son işlem kararına göre doğru kapı panelini seçin
+        </h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Doorpan boyama sürecine açık beyaz astarlı bir paneldir. Doorlam ise dekoratif kâğıt
+          kaplı yüzeyiyle ilave boya veya cila gerektirmeden kullanılmak üzere sunulur.
+        </p>
+      </div>
 
-          <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
-            <h3 class="text-green-800 font-bold mb-2 text-sm">WhatsApp ile İletişim</h3>
-            <p class="text-green-700 text-xs mb-4">
-              Hızlı yanıt için WhatsApp üzerinden ulaşın.
-            </p>
-            <a
-              href="https://wa.me/905464886737" target="_blank" rel="noopener noreferrer"
-              class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
-            >
-              WhatsApp — MDF & Panel
-            </a>
-          </div>
-
-          <div class="bg-wood rounded-2xl p-6">
-            <h3 class="text-primary font-bold mb-2 text-sm">Ana Bayi Güvencesi</h3>
-            <p class="text-primary/70 text-xs leading-relaxed">
-              Kastamonu Entegre Ana Bayisi sıfatıyla orijinal ürün ve üretici garantisi sunuyoruz.
-            </p>
-          </div>
-
-          <div class="border border-gray-200 rounded-2xl p-6">
-            <h3 class="text-gray-800 font-bold mb-3 text-sm">Tüm KE Ürün Kategorileri</h3>
-            <ul class="space-y-2">
-              {[
-                { ad: 'Yongalevha', href: '/urunler/kastamonu-entegre/yongalevha' },
-                { ad: 'MDF', href: '/urunler/kastamonu-entegre/mdf' },
-                { ad: 'MDFLam', href: '/urunler/kastamonu-entegre/mdflam' },
-                { ad: 'Kapı Paneli', href: '/urunler/kastamonu-entegre/kapi-paneli', aktif: true },
-              ].map((item) => (
-                <li>
-                  <a
-                    href={item.href}
-                    class={`text-sm flex items-center gap-2 ${item.aktif ? 'text-primary font-semibold' : 'text-gray-600 hover:text-primary'} transition-colors`}
-                  >
-                    <span class={`w-1.5 h-1.5 rounded-full shrink-0 ${item.aktif ? 'bg-accent' : 'bg-gray-300'}`}></span>
-                    {item.ad}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
+      <div class="mt-9 grid gap-6 lg:grid-cols-2">
+        <ProductFamilyCard
+          product={doorpan}
+          image={doorpanImage}
+          catalogs={doorpanCatalogs}
+          headingLevel="h3"
+          quoteHref={`/teklif-al?urun=${encodeURIComponent('Kastamonu Entegre Doorpan')}`}
+          showDetailLink={false}
+        />
+        <ProductFamilyCard
+          product={doorlam}
+          image={doorlamImage}
+          catalogs={doorlamCatalogs}
+          headingLevel="h3"
+          quoteHref={`/teklif-al?urun=${encodeURIComponent('Kastamonu Entegre Doorlam')}`}
+          showDetailLink={false}
+        />
       </div>
     </div>
   </section>
 
-  <!-- Alt CTA -->
-  <section class="bg-gray-50 border-t border-gray-200 py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-gray-700 font-medium">Tüm Kastamonu Entegre ürünlerini inceleyin</p>
-      <a
-        href="/urunler/kastamonu-entegre/"
-        class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors text-sm"
-      >
-        Kastamonu Entegre
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
+  <section class="border-y border-gray-200 bg-gray-50 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Ürün Ayrımı</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          Doorpan mı, Doorlam mı?
+        </h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Tasarım ve üretim akışınızdaki son işlem ihtiyacı iki ürün ailesi arasındaki temel
+          ayrımdır. Nihai ölçü ve güncel tedarik durumu teklif aşamasında doğrulanır.
+        </p>
+      </div>
+
+      <div class="mt-8 overflow-hidden rounded-2xl border border-gray-200 bg-white">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[720px] border-collapse text-left text-sm">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th scope="col" class="px-5 py-4 font-semibold">Karşılaştırma</th>
+                <th scope="col" class="px-5 py-4 font-semibold">Doorpan</th>
+                <th scope="col" class="px-5 py-4 font-semibold">Doorlam</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row, index) => (
+                <tr class:list={[index % 2 === 1 && 'bg-gray-50', 'border-t border-gray-200']}>
+                  <th scope="row" class="px-5 py-4 font-semibold text-gray-900">{row[0]}</th>
+                  <td class="px-5 py-4 leading-6 text-gray-700">{row[1]}</td>
+                  <td class="px-5 py-4 leading-6 text-gray-700">{row[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Doorpan</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          Yedi yüzey ailesi, şekilli ve düz model seçenekleri
+        </h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Yüzey kartları renk seçeneği değil, Doorpan panel biçimlerini gösterir. Doorpan paneller
+          beyaz astarlıdır; model seçimi güncel katalog üzerinden yapılmalıdır.
+        </p>
+      </div>
+      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+        {doorpanSurfaceSamples.map((sample) => <SurfaceSampleCard sample={sample} />)}
+      </div>
+      <p class="mt-5 text-xs leading-5 text-gray-500">
+        Görseller yüzey biçimini anlatır; ekrandaki ton fiziksel ürün rengi olarak
+        değerlendirilmemelidir.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-y border-gray-200 bg-wood-100 py-14 lg:py-20">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+      <div class="overflow-hidden rounded-2xl border border-wood-300 bg-white p-3 shadow-lg">
+        <img
+          src={doorlamImage.src}
+          width={doorlamImage.width}
+          height={doorlamImage.height}
+          alt={doorlamImage.alt}
+          loading="lazy"
+          decoding="async"
+          class="aspect-[4/3] w-full rounded-xl object-cover"
+        />
+      </div>
+
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Doorlam</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          Dekoratif hazır yüzey için yedi dekor
+        </h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          4 mm MDF üzerine dekoratif kâğıt uygulanan Doorlam, ek boya veya cila gerektirmeyen
+          yüzeyiyle sunulur. Güncel dekor görünümü ve kodunu fiziksel numune veya resmî katalogla
+          teyit edin.
+        </p>
+        <ul class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3" aria-label="Doorlam dekor adları">
+          {doorlamDecorNames.map((decor, index) => (
+            <li class="rounded-xl border border-wood-300 bg-white px-4 py-3">
+              <span class="block text-xs font-bold text-accent-dark">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span class="mt-1 block text-sm font-semibold text-primary">{decor}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-5 text-xs leading-5 text-gray-600">
+          Dekor adları seçim başlangıcıdır; ekran rengi fiziksel numuneden farklı görünebilir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Teklif Hazırlığı</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          Talebinizi dört bilgiyle netleştirin
+        </h2>
+      </div>
+      <ol class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          ['Ürün ailesi', 'Boyanabilir Doorpan veya hazır dekoratif yüzeyli Doorlam seçimini belirtin.'],
+          ['Model veya dekor', 'Doorpan model/yüzey ailesini ya da Doorlam dekor adı ve kodunu paylaşın.'],
+          ['Ölçü ve miktar', 'Panel ölçüsü, adet veya proje miktarını talebinize ekleyin.'],
+          ['Teslimat', 'Teslimat şehrini ve hedef termin bilgisini yazın.'],
+        ].map(([heading, body], index) => (
+          <li class="rounded-2xl border border-gray-200 bg-white p-6">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+              {index + 1}
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-primary">{heading}</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-700">{body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-primary-900 py-14 text-white lg:py-20">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-400">Resmî Kataloglar</p>
+        <h2 class="mt-3 text-3xl font-bold lg:text-4xl">Model ve dekor seçimini katalogla yapın</h2>
+        <p class="mt-4 leading-7 text-white/75">
+          Doorpan ve Doorlam katalogları Yiğiter sunucusundan indirilebilir. Güncel ürün, stok ve
+          numune durumunu teklif öncesinde ayrıca teyit edin.
+        </p>
+        <a
+          href={doorpan.source.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 inline-flex text-sm font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
+        >
+          Kastamonu Entegre resmî kapı paneli kaynağını aç
+        </a>
+      </div>
+      <div class="grid gap-4">
+        <CatalogDownload catalog={doorpanCatalog} />
+        <CatalogDownload catalog={doorlamCatalog} />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-14 lg:py-20">
+    <div class="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Teklif ve Numune</p>
+      <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+        Kapı üretim akışınıza uygun paneli birlikte netleştirelim
+      </h2>
+      <p class="mx-auto mt-4 max-w-3xl leading-7 text-gray-700">
+        Ürün ailesi, model/dekor, ölçü, miktar ve teslimat şehrini paylaşın; güncel tedarik
+        bilgisiyle teklif hazırlayalım.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <a
+          href={quoteHref}
+          class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+        >
+          Teklif Formunu Aç
+        </a>
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+        >
+          WhatsApp ile Sor
+        </a>
+      </div>
+
+      <nav aria-label="İlgili ürün sayfaları" class="mt-9 flex flex-wrap justify-center gap-3">
+        {[
+          ['Genel Kapı Paneli', '/urunler/kapi-paneli/'],
+          ['Kapı Komponentleri', '/urunler/kapi-komponentleri/'],
+          ['Dekoratif Panel', '/urunler/kastamonu-entegre/dekoratif-panel/'],
+          ['Kastamonu Entegre Ürün Merkezi', '/urunler/kastamonu-entegre/'],
+        ].map(([label, href]) => (
+          <a
+            href={href}
+            class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-primary hover:border-primary/30"
+          >
+            {label} →
+          </a>
+        ))}
+      </nav>
     </div>
   </section>
 </BaseLayout>
