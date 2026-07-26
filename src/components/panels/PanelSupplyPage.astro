@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface SupplierOption {
+  name: string;
+  description: string;
+  href?: string;
+  linkLabel?: string;
+}
+
+interface SelectionPoint {
+  title: string;
+  description: string;
+}
+
+interface RelatedLink {
+  label: string;
+  href: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  pageLabel: string;
+  heading: string;
+  lead: string;
+  productName: string;
+  definitionTitle: string;
+  definition: string[];
+  supplierOptions: SupplierOption[];
+  audiences: string[];
+  useCases: string[];
+  selectionPoints: SelectionPoint[];
+  quoteProduct: string;
+  brandTitle: string;
+  brandDescription: string;
+  brandHref: string;
+  relatedLinks: RelatedLink[];
+}
+
+const {
+  title,
+  description,
+  pageLabel,
+  heading,
+  lead,
+  productName,
+  definitionTitle,
+  definition,
+  supplierOptions,
+  audiences,
+  useCases,
+  selectionPoints,
+  quoteProduct,
+  brandTitle,
+  brandDescription,
+  brandHref,
+  relatedLinks,
+} = Astro.props;
+
+const quoteHref = `/teklif-al?urun=${encodeURIComponent(quoteProduct)}`;
+const whatsappHref = `https://wa.me/905464886737?text=${encodeURIComponent(
+  `Merhaba, ${quoteProduct} için bilgi almak istiyorum.`,
+)}`;
+---
+
+<BaseLayout title={title} description={description}>
+  <nav aria-label="Sayfa yolu" class="border-b border-gray-200 bg-gray-50 py-3">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary">Ana Sayfa</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li><a href="/urunler/" class="hover:text-primary">Ürünler</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li aria-current="page" class="font-medium text-gray-900">{pageLabel}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="border-b border-wood-300 bg-wood-100">
+    <div class="mx-auto grid max-w-7xl items-start gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.7fr] lg:px-8 lg:py-20">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-accent-dark">
+          Çok Markalı B2B Panel Tedariki
+        </p>
+        <h1 class="mt-4 max-w-4xl text-4xl font-bold leading-tight text-primary sm:text-5xl lg:text-6xl">
+          {heading}
+        </h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-gray-700">{lead}</p>
+        <p class="mt-4 max-w-3xl text-sm leading-6 text-gray-600">
+          Marka, ürün tipi, ölçü ve güncel tedarik durumu talebinize göre teyit edilir.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={quoteHref}
+            class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+          >
+            {productName} Teklifi Al
+          </a>
+          <a
+            href="#marka-secenekleri"
+            class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+          >
+            Tedarik Yapısını İncele
+          </a>
+        </div>
+      </div>
+
+      <aside class="rounded-2xl border border-wood-300 bg-white p-6 shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-widest text-accent-dark">Teklif Başlangıcı</p>
+        <h2 class="mt-3 text-xl font-bold text-primary">Ürünü üç bilgiyle eşleştirelim</h2>
+        <ol class="mt-5 space-y-4">
+          {[
+            ['Kullanım', 'Ürünün nerede ve nasıl işleneceğini belirtin.'],
+            ['Teknik ihtiyaç', 'Ürün tipi, ölçü, kalınlık ve yüzey beklentisini paylaşın.'],
+            ['Tedarik', 'Marka tercihi varsa ekleyin; miktar ve teslimat şehrini yazın.'],
+          ].map(([itemTitle, itemDescription], index) => (
+            <li class="flex items-start gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
+                {index + 1}
+              </span>
+              <span>
+                <span class="block text-sm font-semibold text-gray-900">{itemTitle}</span>
+                <span class="mt-1 block text-xs leading-5 text-gray-600">{itemDescription}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <section aria-label="Tedarik özeti" class="border-b border-gray-200 bg-white">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-gray-200 sm:grid-cols-4">
+      {[
+        ['Çok marka', 'Tedarik yaklaşımı'],
+        ['Toptan', 'B2B satış odağı'],
+        ['Proje', 'İhtiyaca göre eşleştirme'],
+        ['Teklif', 'Stok ve ölçü teyidi'],
+      ].map(([value, label]) => (
+        <div class="bg-white px-4 py-6 text-center">
+          <p class="text-lg font-bold text-primary sm:text-xl">{value}</p>
+          <p class="mt-1 text-xs text-gray-600">{label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="marka-secenekleri" class="scroll-mt-24 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Tedarik Seçenekleri</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          Marka tercihini teknik ihtiyacınızla birlikte değerlendirin
+        </h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Aşağıdaki markalar ve tedarik kapsamı Yiğiter’in teyitli ticari portföyünü gösterir.
+          Ürün serisi, ölçü, kalınlık, dekor ve stok bilgisi teklif sırasında ayrıca doğrulanır.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {supplierOptions.map((option) => (
+          <article class="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-widest text-accent-dark">Tedarik Seçeneği</p>
+            <h3 class="mt-2 text-xl font-bold text-primary">{option.name}</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-700">{option.description}</p>
+            {option.href && (
+              <a
+                href={option.href}
+                class="mt-auto pt-5 text-sm font-semibold text-primary underline decoration-primary/25 underline-offset-4 hover:decoration-primary"
+              >
+                {option.linkLabel ?? 'Marka ürünlerini incele'} →
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-gray-200 bg-gray-50 py-14 lg:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Ürün Bilgisi</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">{definitionTitle}</h2>
+        <div class="mt-5 space-y-4 leading-7 text-gray-700">
+          {definition.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+        <section class="rounded-2xl border border-gray-200 bg-white p-6">
+          <h3 class="text-lg font-bold text-primary">Kimler için?</h3>
+          <ul class="mt-4 space-y-2">
+            {audiences.map((item) => (
+              <li class="flex items-start gap-2 text-sm leading-6 text-gray-700">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section class="rounded-2xl border border-gray-200 bg-white p-6">
+          <h3 class="text-lg font-bold text-primary">Nerede kullanılır?</h3>
+          <ul class="mt-4 space-y-2">
+            {useCases.map((item) => (
+              <li class="flex items-start gap-2 text-sm leading-6 text-gray-700">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Teklif Hazırlığı</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+          Doğru ürünü seçmek için gereken bilgiler
+        </h2>
+      </div>
+      <ol class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {selectionPoints.map((point, index) => (
+          <li class="rounded-2xl border border-gray-200 bg-white p-6">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+              {index + 1}
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-primary">{point.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-700">{point.description}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-primary-900 py-14 text-white lg:py-20">
+    <div class="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-400">İki Katmanlı Ürün Yapısı</p>
+        <h2 class="mt-3 text-3xl font-bold lg:text-4xl">{brandTitle}</h2>
+        <p class="mt-4 max-w-3xl leading-7 text-white/75">{brandDescription}</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <a
+          href={brandHref}
+          class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-bold text-primary hover:bg-gray-100"
+        >
+          Kastamonu Entegre Sayfasını Aç
+        </a>
+        <a
+          href={quoteHref}
+          class="inline-flex items-center justify-center rounded-lg border border-white/35 px-6 py-3 text-sm font-semibold text-white hover:bg-white hover:text-primary"
+        >
+          Çok Markalı Teklif Al
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-wood-100 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Teklif</p>
+          <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">
+            Marka tercihiniz varsa yazın; yoksa ihtiyacınıza göre eşleştirelim
+          </h2>
+          <p class="mt-4 max-w-3xl leading-7 text-gray-700">
+            Ürün tipi, ölçü, kalınlık, miktar, kullanım alanı ve teslimat şehrini paylaşın.
+            Güncel tedarik seçenekleri teyit edildikten sonra teklif hazırlayalım.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={quoteHref}
+              class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+            >
+              Teklif Formunu Aç
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+            >
+              WhatsApp ile Sor
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="İlgili panel ürünleri" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+          {relatedLinks.map((link) => (
+            <a href={link.href} class="rounded-xl border border-wood-300 bg-white p-4 hover:border-primary/30">
+              <span class="block text-sm font-bold text-primary">{link.label}</span>
+              <span class="mt-1 block text-xs leading-5 text-gray-600">{link.description}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

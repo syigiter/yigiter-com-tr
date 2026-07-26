@@ -52,14 +52,34 @@ const productGroups = [
     usage: 'Kapı ve mobilya yüzey kaplama uygulamaları',
   },
   {
-    title: 'MDF ve MDFLAM',
+    title: 'MDF',
     href: '/urunler/mdf/',
-    quoteHref: '/teklif-al?urun=mdf-mdflam',
-    detailLabel: 'Detaylı İncele',
-    summary: 'Mobilya, kapı ve dekorasyon üretiminde kullanılan MDF ve MDFLAM ürünleri. Kastamonu Entegre ana bayiliği gücüyle düzenli tedarik.',
+    quoteHref: '/teklif-al?urun=Cok+Markali+MDF',
+    detailLabel: 'Markaları İncele',
+    summary: 'Kapı, mobilya ve panel işleme üreticileri için Kastamonu Entegre ve Kronospan dahil çok markalı ham MDF tedariki.',
+    audiences: ['Mobilya imalatçıları', 'Kapı üreticileri', 'CNC / freze atölyeleri', 'Bayiler'],
+    supplyType: 'Marka, ürün tipi, ölçü ve miktara göre teklif',
+    usage: 'Mobilya, kapı, CNC ve dekoratif kaplama zemini',
+  },
+  {
+    title: 'MDFLam',
+    href: '/urunler/mdflam/',
+    quoteHref: '/teklif-al?urun=Cok+Markali+MDFLam',
+    detailLabel: 'Markaları İncele',
+    summary: 'Mobilya ve iç mekân üretimi için Kastamonu Entegre Medelam ve Çamsan dahil çok markalı melamin kaplı MDF tedariki.',
     audiences: ['Mobilya imalatçıları', 'Kapı üreticileri', 'Dekorasyon firmaları', 'Bayiler'],
-    supplyType: 'Marka ürün gamı; stok, ölçü ve termin teklifte teyit edilir',
-    usage: 'Mobilya, kapı ve iç dekorasyon üretimi',
+    supplyType: 'Dekor, yüzey, ölçü ve miktara göre teklif',
+    usage: 'Mobilya, raf, dolap ve iç mekân panel uygulamaları',
+  },
+  {
+    title: 'Yonga Levha',
+    href: '/urunler/yongalevha/',
+    quoteHref: '/teklif-al?urun=Cok+Markali+Yonga+Levha',
+    detailLabel: 'Ürün Tiplerini İncele',
+    summary: 'Mobilya ve panel üretimi için ham veya melamin kaplı yonga levha (sunta) ürünlerinin çok markalı tedariki.',
+    audiences: ['Mobilya imalatçıları', 'Panel işleyen firmalar', 'Dekorasyon firmaları', 'Toptan alıcılar'],
+    supplyType: 'Ham/kaplı ürün, ölçü, dekor ve miktara göre teklif',
+    usage: 'Mobilya gövdesi, raf ve iç mekân panel üretimi',
   },
   {
     title: 'Kastamonu Entegre Dekoratif Panel',
@@ -72,14 +92,14 @@ const productGroups = [
     usage: 'Mobilya, mağaza, mutfak, banyo ve iç mekân uygulamaları',
   },
   {
-    title: 'Yonga Levha ve Kapı Paneli',
+    title: 'Kapı Paneli',
     href: '/urunler/kapi-paneli/',
-    detailLabel: 'Detaylı İncele',
-    quoteHref: '/teklif-al?urun=yonga-levha-kapi-paneli',
-    summary: 'Mobilya, kapı ve yapı içi üretim süreçlerinde kullanılan yonga levha ve kapı paneli ürünleri.',
-    audiences: ['Mobilya üreticileri', 'Kapı üreticileri', 'İç mimari / proje firmaları', 'Toptan alıcılar'],
-    supplyType: 'Toptan satış ve proje bazlı sevkiyat',
-    usage: 'Panel, mobilya ve kapı üretim süreçleri',
+    detailLabel: 'Ürün Ailelerini İncele',
+    quoteHref: '/teklif-al?urun=Cok+Markali+Kapi+Paneli',
+    summary: 'İç kapı üreticileri için boyanabilir veya dekoratif hazır yüzey beklentisine göre çok markalı kapı paneli tedariki.',
+    audiences: ['Kapı üreticileri', 'Kapı kanadı üreticileri', 'Panel işleyen firmalar', 'Toptan alıcılar'],
+    supplyType: 'Yüzey, model/dekor, ölçü ve miktara göre teklif',
+    usage: 'İç kapı kanadı ve seri üretim süreçleri',
   },
   {
     title: 'Boya ve Yüzey Çözümleri',
@@ -95,7 +115,7 @@ const productGroups = [
 
 <BaseLayout
   title="Ürünler ve Tedarik Çözümleri"
-  description="Kapı üreticileri, mobilya imalatçıları, bayiler ve proje müşterileri için MDF, MDFLAM, kapı komponentleri, melamin kapı yüzeyi, PVC film ve boya tedarik çözümleri."
+  description="Kapı üreticileri, mobilya imalatçıları, bayiler ve proje müşterileri için MDF, MDFLam, yonga levha, kapı paneli, komponent, yüzey ve boya tedarik çözümleri."
 >
   <section class="bg-wood-100 border-b border-wood-300 py-12 lg:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

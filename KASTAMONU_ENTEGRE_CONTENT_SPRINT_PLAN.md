@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Uygulamada — `2.10A–2.10E` tamamlandı, `2.10F` sırada
+Durum: Uygulamada — `2.10A–2.10F` tamamlandı, `2.10G` sırada
 
 ## 1. Karar ve Dayanak
 
@@ -373,6 +373,17 @@ Kabul kriterleri:
 - Her iki katman self-canonical.
 - 301 yönlendirme yok.
 - Yeni generic yongalevha rotası sitemap ve teklif formu mapping'inde.
+
+Sonuç:
+
+- `2.10F` 2026-07-26 tarihinde tamamlandı.
+- Generic MDF, MDFLam ve kapı paneli sayfaları tek bir üreticiye odaklanan anlatımdan çıkarılarak ortak çok markalı B2B tedarik yapısına geçirildi.
+- Yeni `/urunler/yongalevha/` rotası ham ve melamin kaplı ürün ayrımıyla oluşturuldu.
+- Teyitli ticari kapsam doğrultusunda MDF sayfasında Kastamonu Entegre ve Kronospan, MDFLam sayfasında Kastamonu Entegre Medelam ve Çamsan gösterildi; teyitsiz ürün serisi, ölçü ve stok ayrıntıları yayınlanmadı.
+- Generic ve Kastamonu sayfaları arasında dört ürün grubunda çift yönlü, bağlamlı iç linkler kuruldu.
+- Ürün kataloğundaki birleşik MDF/MDFLam ve yonga levha/kapı paneli kartları dört ayrı ürün grubuna ayrıldı.
+- Teklif formu MDF, MDFLam, yonga levha ve kapı paneli query'lerini ayrı ürün gruplarına eşleyecek biçimde güncellendi.
+- Üretim derlemesi 38 sayfayla tamamlandı; dört generic rotada tek H1, farklı marka/genel içerik açısı, self-canonical, eksiksiz yerel hedef ve yeni yongalevha sitemap kaydı doğrulandı.
 
 ### Sprint 2.10G — Katalog Merkezi ve Yüzey Galerisi
 
