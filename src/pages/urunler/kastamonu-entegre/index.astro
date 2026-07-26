@@ -1,219 +1,318 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CatalogDownload from '../../../components/kastamonu-entegre/CatalogDownload.astro';
+import SurfaceSampleCard from '../../../components/kastamonu-entegre/SurfaceSampleCard.astro';
+import {
+  decorativeSurfaceSamples,
+  doorpanSurfaceSamples,
+  localCatalogs,
+  productFamilies,
+  productFamiliesById,
+  productImagesById,
+} from '../../../data/kastamonu-entegre';
+
+function getProduct(id: string) {
+  const product = productFamiliesById.get(id);
+  if (!product) throw new Error(`Kastamonu ürün ailesi bulunamadı: ${id}`);
+  return product;
+}
+
+function getImage(id: string) {
+  const image = productImagesById.get(id);
+  if (!image) throw new Error(`Kastamonu ürün görseli bulunamadı: ${id}`);
+  return image;
+}
+
+const heroImage = getImage('ke-img-001');
+const featuredSurfaces = decorativeSurfaceSamples.slice(0, 6);
+const surfaceCount = decorativeSurfaceSamples.length + doorpanSurfaceSamples.length;
+
+const hubGroups = [
+  {
+    title: 'MDF',
+    eyebrow: 'Ham Panel',
+    description: getProduct('raw-mdf').summary,
+    productIds: ['raw-mdf'],
+    href: '/urunler/kastamonu-entegre/mdf/',
+    image: getImage('ke-img-003'),
+  },
+  {
+    title: 'Yonga Levha',
+    eyebrow: 'Ham ve Melamin Kaplı',
+    description: getProduct('raw-particleboard').summary,
+    productIds: ['raw-particleboard', 'teknolam-yongalam'],
+    href: '/urunler/kastamonu-entegre/yongalevha/',
+    image: getImage('ke-img-002'),
+  },
+  {
+    title: 'Melamin Kaplı MDF',
+    eyebrow: 'Medelam',
+    description: getProduct('medelam').summary,
+    productIds: ['medelam'],
+    href: '/urunler/kastamonu-entegre/mdflam/',
+    image: heroImage,
+  },
+  {
+    title: 'Dekoratif Panel',
+    eyebrow: 'Parlak, Mat, Akrilik ve Compact',
+    description:
+      'Melamin kaplı, parlak, mat, akrilik, boyalı ve compact panel ailelerini tek sayfada inceleyin.',
+    productIds: [
+      'medelam',
+      'teknolam-yongalam',
+      'glossmax',
+      'glossmax-pro',
+      'mattplus',
+      'evogloss',
+      'acrylic-panel',
+      'industrial-acrylic-panel',
+      'printpan',
+      'compact-panel-lam',
+    ],
+    href: '/urunler/kastamonu-entegre/dekoratif-panel/',
+    image: getImage('ke-img-004'),
+  },
+  {
+    title: 'Kapı Paneli',
+    eyebrow: 'Doorpan ve Doorlam',
+    description:
+      'Doorpan beyaz astarlı kapı panelleri ile Doorlam dekoratif hazır panellerini karşılaştırın.',
+    productIds: ['doorpan', 'doorlam'],
+    href: '/urunler/kastamonu-entegre/kapi-paneli/',
+    image: getImage('ke-img-005'),
+  },
+].map((group) => ({
+  ...group,
+  productNames: group.productIds.map((id) => getProduct(id).displayName),
+}));
 ---
 
 <BaseLayout
   title="Kastamonu Entegre Ürünleri"
-  description="Yiğiter Orman Ürünleri — Kastamonu Entegre Ana Bayisi. Yongalevha, MDF, MDFLam ve panel ürünleri. Türkiye geneli sevkiyat, stoktan teslimat."
+  description="Kastamonu Entegre Ana Bayisi Yiğiter'den MDF, yonga levha, melamin kaplı ve dekoratif paneller ile Doorpan ve Doorlam ürün aileleri. Stok, ölçü ve termin için teklif alın."
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-gray-50 border-b border-gray-200 py-3">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <ol class="flex items-center gap-2 text-sm text-gray-500">
-        <li><a href="/" class="hover:text-primary transition-colors">Anasayfa</a></li>
-        <li class="text-gray-300">/</li>
-        <li><a href="/urunler/" class="hover:text-primary transition-colors">Ürünler</a></li>
-        <li class="text-gray-300">/</li>
-        <li class="text-gray-800 font-medium">Kastamonu Entegre</li>
+  <nav aria-label="Sayfa yolu" class="border-b border-gray-200 bg-gray-50 py-3">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary">Ana Sayfa</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li><a href="/urunler/" class="hover:text-primary">Ürünler</a></li>
+        <li aria-hidden="true" class="text-gray-300">/</li>
+        <li aria-current="page" class="font-medium text-gray-900">Kastamonu Entegre</li>
       </ol>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-wood-100 py-12 lg:py-16 border-b border-wood-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-          Kastamonu Entegre — Ana Bayi
-        </span>
-        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-3 leading-tight">
-          Kastamonu Entegre Ürünleri
-        </h1>
-        <p class="text-accent font-semibold text-base mb-4">Doğadan Hayata Köprü</p>
-        <p class="text-gray-600 text-lg leading-relaxed">
-          Türkiye'nin lider panel üreticisinden yetkili ana bayi güvencesiyle — yongalevha, MDF,
-          MDFLam ve kapı paneli ürünlerini stoktan sunuyoruz.
+  <section class="overflow-hidden border-b border-primary-800 bg-primary-900 text-white">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
+      <div>
+        <p class="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-400">
+          Kastamonu Entegre Ana Bayisi
         </p>
+        <h1 class="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+          Panel ürünlerini doğru aileden seçin
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
+          Ham MDF ve yonga levhadan melamin kaplı, parlak, mat, akrilik ve kapı paneli
+          çözümlerine kadar resmî ürün ailelerini tek merkezden inceleyin.
+        </p>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-white/65">
+          Üretici ürün gamı ile Yiğiter'in güncel stok ve tedarik durumu ayrı değerlendirilir.
+          Ölçü, dekor ve termin bilgisi teklif aşamasında netleştirilir.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="#urun-aileleri"
+            class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#7C2D12]"
+          >
+            Ürün Ailelerini İncele
+          </a>
+          <a
+            href="/teklif-al?urun=Kastamonu%20Entegre%20Panel%20%C3%9Cr%C3%BCnleri"
+            class="inline-flex items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-primary"
+          >
+            Teklif Al
+          </a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="overflow-hidden rounded-2xl border border-white/15 bg-white/5 p-3 shadow-2xl">
+          <img
+            src={heroImage.src}
+            width={heroImage.width}
+            height={heroImage.height}
+            alt={heroImage.alt}
+            decoding="async"
+            class="aspect-[16/10] w-full rounded-xl object-cover"
+          />
+        </div>
+        <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Seçili yüzey örnekleri">
+          {decorativeSurfaceSamples.slice(10, 13).map((sample) => (
+            <img
+              src={sample.src}
+              width={sample.width}
+              height={sample.height}
+              alt={sample.alt}
+              loading="lazy"
+              decoding="async"
+              class="aspect-square w-full rounded-xl border border-white/15 object-cover"
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Marka Güç Rozetleri -->
-  <section class="border-b border-gray-100 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { sayi: '5.000+', etiket: 'Yüzey Seçeneği' },
-          { sayi: '55+', etiket: 'Ülkeye İhracat' },
-          { sayi: 'Türkiye', etiket: 'Lider Üretici' },
-          { sayi: 'Ana Bayi', etiket: 'Yiğiter Statüsü' },
-        ].map((item) => (
-          <div class="text-center py-4">
-            <div class="text-2xl font-bold text-primary">{item.sayi}</div>
-            <div class="text-gray-500 text-xs mt-1">{item.etiket}</div>
-          </div>
+  <section aria-label="Program özeti" class="border-b border-gray-200 bg-white">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-gray-200 sm:grid-cols-4">
+      {[
+        ['Ana Bayi', 'Yiğiter statüsü'],
+        [String(productFamilies.length), 'Doğrulanmış ürün ailesi'],
+        [String(surfaceCount), 'Yüzey/doku örneği'],
+        [String(localCatalogs.length), 'Yerel resmî katalog'],
+      ].map(([value, label]) => (
+        <div class="bg-white px-4 py-6 text-center">
+          <p class="text-2xl font-bold text-primary">{value}</p>
+          <p class="mt-1 text-xs text-gray-600">{label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="urun-aileleri" class="scroll-mt-24 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Ürün Merkezi</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">Kastamonu Entegre ürün grupları</h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Teknik ürün bilgisini resmî kaynaklardan, stok ve teslimat bilgisini ise güncel teklif
+          sürecinden alırsınız. İhtiyacınıza uygun gruptan başlayın.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {hubGroups.map((group) => (
+          <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+            <img
+              src={group.image.src}
+              width={group.image.width}
+              height={group.image.height}
+              alt={group.image.alt}
+              loading="lazy"
+              decoding="async"
+              class="aspect-[16/9] w-full bg-gray-100 object-cover"
+            />
+            <div class="flex flex-1 flex-col p-6">
+              <p class="text-xs font-bold uppercase tracking-widest text-accent-dark">{group.eyebrow}</p>
+              <h3 class="mt-2 text-2xl font-bold text-primary">{group.title}</h3>
+              <p class="mt-3 text-sm leading-6 text-gray-700">{group.description}</p>
+              <ul class="mt-5 flex flex-wrap gap-2" aria-label={`${group.title} ürün aileleri`}>
+                {group.productNames.map((name) => (
+                  <li class="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs text-gray-700">
+                    {name}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={group.href}
+                class="mt-auto pt-6 text-sm font-bold text-primary underline decoration-accent/50 underline-offset-4 hover:text-accent-dark"
+              >
+                {group.title} ürünlerini incele →
+              </a>
+            </div>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Ana İçerik -->
-  <section class="py-16 lg:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-
-        <!-- Sol: Metin -->
-        <div class="lg:col-span-2">
-          <p class="text-gray-700 text-base leading-relaxed mb-5">
-            <strong class="text-gray-900">Yiğiter Orman Ürünleri</strong>, Türkiye'nin en büyük orman ürünleri
-            üreticilerinden Kastamonu Entegre'nin <strong class="text-gray-900">Ana Bayisi</strong> olarak yongalevha (sunta),
-            MDF, MDFLam ve panel ürünlerinin tüm portföyünü stoktan sunmaktadır.
+  <section class="border-y border-gray-200 bg-gray-50 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+        <div class="max-w-3xl">
+          <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Yüzey Kütüphanesi</p>
+          <h2 class="mt-3 text-3xl font-bold text-primary lg:text-4xl">Yüzey ve doku örnekleri</h2>
+          <p class="mt-4 leading-7 text-gray-700">
+            Kodlar renk kartelası değil, yüzey ve doku karakterini gösteren resmî örneklerdir.
+            Fiziksel numune ve ekran görünümü arasında fark olabilir.
           </p>
-          <p class="text-gray-700 text-base leading-relaxed mb-10">
-            Mobilya imalatçıları, kapı üreticileri, mutfak ve dekorasyon firmaları için ihtiyaç duyulan
-            tüm levha çeşitlerini geniş bir desen, renk ve ölçü yelpazesinde bulabilirsiniz.
-            <strong class="text-gray-900">Türkiye genelinde sevkiyat</strong> ağımızla siparişinizi en kısa
-            sürede şantiye, atölye veya deponuza ulaştırıyoruz.
-          </p>
-
-          <!-- Alt Kategoriler -->
-          <h2 class="text-2xl font-bold text-primary mb-6">Ürün Kategorileri</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-
-            <a href="/urunler/kastamonu-entegre/yongalevha" class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">Yongalevha (Sunta)</h3>
-                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-              <p class="text-gray-500 text-sm">Mobilya ve genel imalat için temel panel çözümü.</p>
-            </a>
-
-            <a href="/urunler/kastamonu-entegre/mdf" class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">MDF</h3>
-                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-              <p class="text-gray-500 text-sm">Hassas işçilik gerektiren projeler için orta yoğunluklu lif levha.</p>
-            </a>
-
-            <a href="/urunler/kastamonu-entegre/mdflam" class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">MDFLam</h3>
-                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-              <p class="text-gray-500 text-sm">Hazır laminat yüzeyli MDF — dekoratif ve pratik uygulamalar için.</p>
-            </a>
-
-            <a href="/urunler/kastamonu-entegre/kapi-paneli" class="group border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors">Kapı Paneli</h3>
-                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-              <p class="text-gray-500 text-sm">Kapı üretimi için melamin ve laminat yüzeyli panel çözümleri.</p>
-            </a>
-
-          </div>
-
-          <!-- Yüzey Teknolojileri -->
-          <h2 class="text-2xl font-bold text-primary mb-5">Öne Çıkan Yüzey Teknolojileri</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-            {[
-              { ad: 'Safe Surface', tanim: 'Antibakteriyel ve hijyenik yüzey — okul, hastane, mutfak uygulamaları için.' },
-              { ad: 'QuietPan', tanim: 'Ses yalıtımlı panel teknolojisi — sessiz mekânlar için akustik çözüm.' },
-              { ad: 'Mattplus', tanim: 'Parmak izi bırakmayan mat yüzey — modern ve şık görünüm.' },
-              { ad: 'Glossmax', tanim: 'Yüksek parlaklıklı laminat yüzey — prestijli iç mekânlar için.' },
-              { ad: 'Evogloss', tanim: 'Parlak ve dirençli yüzey — yoğun kullanım ortamları için ideal.' },
-              { ad: 'Softmatt', tanim: 'Kadife dokunuşlu mat yüzey — doğal ve sıcak ambiyans.' },
-            ].map((item) => (
-              <div class="border border-gray-100 rounded-lg p-4 bg-gray-50">
-                <div class="font-semibold text-gray-900 text-sm mb-1">{item.ad}</div>
-                <div class="text-gray-500 text-xs leading-relaxed">{item.tanim}</div>
-              </div>
-            ))}
-          </div>
-
-          <!-- Neden Yiğiter -->
-          <h2 class="text-2xl font-bold text-primary mb-5">Neden Yiğiter'den Kastamonu Entegre?</h2>
-          <ul class="space-y-3">
-            {[
-              'Ana bayi statüsü — orijinal ürün, üretici garantisi',
-              'Geniş stok — beklemeden, stoktan teslimat',
-              'Türkiye geneli sevkiyat ağı',
-              'Rekabetçi ana bayi fiyatı',
-              '20+ yıllık panel piyasası tecrübesi',
-              '5.000+ desen ve renk seçeneği',
-            ].map((item) => (
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                </svg>
-                <span class="text-gray-700 text-sm">{item}</span>
-              </li>
-            ))}
-          </ul>
         </div>
+        <a
+          href="/urunler/kastamonu-entegre/dekoratif-panel/#yuzeyler"
+          class="text-sm font-bold text-primary underline decoration-accent/50 underline-offset-4 hover:text-accent-dark"
+        >
+          Tüm {decorativeSurfaceSamples.length} yüzeyi gör →
+        </a>
+      </div>
 
-        <!-- Sağ: CTA -->
-        <div class="space-y-5">
-          <div class="bg-primary rounded-2xl p-6 text-white">
-            <h3 class="text-lg font-bold mb-2">Fiyat Teklifi Alın</h3>
-            <p class="text-white/70 text-sm mb-4">
-              İhtiyacınızı bildirin, ana bayi fiyatıyla teklif hazırlayalım.
-            </p>
-            <a
-              href="/teklif-al?urun=Kastamonu+Entegre"
-              class="block text-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 rounded-lg transition-colors"
-            >
-              Teklif Al
-            </a>
-          </div>
-
-          <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
-            <h3 class="text-green-800 font-bold mb-2 text-sm">WhatsApp ile İletişim</h3>
-            <p class="text-green-700 text-xs mb-4">
-              Hızlı yanıt için WhatsApp üzerinden ulaşın.
-            </p>
-            <a
-              href="https://wa.me/905464886737" target="_blank" rel="noopener noreferrer"
-              class="block text-center bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm"
-            >
-              WhatsApp — MDF & Panel
-            </a>
-          </div>
-
-          <div class="bg-wood rounded-2xl p-6">
-            <h3 class="text-primary font-bold mb-2 text-sm">Ana Bayi Güvencesi</h3>
-            <p class="text-primary/70 text-xs leading-relaxed">
-              Kastamonu Entegre Ana Bayisi sıfatıyla orijinal ürün ve üretici garantisi sunuyoruz.
-            </p>
-          </div>
-        </div>
-
+      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        {featuredSurfaces.map((sample) => <SurfaceSampleCard sample={sample} />)}
       </div>
     </div>
   </section>
 
-  <!-- Alt CTA -->
-  <section class="bg-gray-50 border-t border-gray-200 py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-gray-700 font-medium">Diğer ürün kategorilerini keşfedin</p>
-      <a
-        href="/urunler/"
-        class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors text-sm"
-      >
-        Tüm Ürünler
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
+  <section class="py-14 lg:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Resmî Dokümanlar</p>
+        <h2 class="mt-3 text-3xl font-bold text-primary">Yerel ve sürümlü kataloglar</h2>
+        <p class="mt-4 leading-7 text-gray-700">
+          Yayına alınan kataloglar resmî dosyanın değiştirilmemiş kopyasıdır. Diğer ürün aileleri
+          için güncel katalog sürümü teklif aşamasında paylaşılır.
+        </p>
+      </div>
+      <div class="grid gap-3">
+        {localCatalogs.map((catalog) => <CatalogDownload catalog={catalog} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-wood-100 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-accent-dark">Teklif Süreci</p>
+          <h2 class="mt-3 text-3xl font-bold text-primary">İhtiyacınızı birlikte netleştirelim</h2>
+          <ol class="mt-6 grid gap-4 sm:grid-cols-2">
+            {[
+              ['1', 'Ürün ailesini seçin'],
+              ['2', 'Ölçü, dekor veya yüzey kodunu paylaşın'],
+              ['3', 'Miktar ve teslimat şehrini belirtin'],
+              ['4', 'Stok ve termin teyitli teklif alın'],
+            ].map(([step, label]) => (
+              <li class="flex items-center gap-3 rounded-xl border border-wood-300 bg-white/70 p-4">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+                  {step}
+                </span>
+                <span class="text-sm font-medium text-gray-800">{label}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div id="teklif" class="scroll-mt-24 rounded-2xl bg-primary p-6 text-white shadow-lg sm:p-8">
+          <h2 class="text-2xl font-bold">Kastamonu Entegre teklifi alın</h2>
+          <p class="mt-3 text-sm leading-6 text-white/75">
+            Ürün, ölçü, adet ve teslimat şehrini paylaşın; güncel tedarik durumuna göre dönüş yapalım.
+          </p>
+          <div class="mt-6 flex flex-col gap-3">
+            <a
+              href="/teklif-al?urun=Kastamonu%20Entegre%20Panel%20%C3%9Cr%C3%BCnleri"
+              class="inline-flex items-center justify-center rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]"
+            >
+              Teklif Formunu Aç
+            </a>
+            <a
+              href="https://wa.me/905464886737?text=Merhaba%2C%20Kastamonu%20Entegre%20panel%20%C3%BCr%C3%BCnleri%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center rounded-lg border border-white/35 px-5 py-3 text-sm font-semibold text-white hover:bg-white hover:text-primary"
+            >
+              WhatsApp ile Sor
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>

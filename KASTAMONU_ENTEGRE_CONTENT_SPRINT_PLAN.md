@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-26  
 Program: `Sprint 2.10 — Kastamonu Entegre İçerik ve Görsel Programı`  
-Durum: Uygulamada — `2.10A` ve `2.10B` tamamlandı, `2.10C` sırada
+Durum: Uygulamada — `2.10A`, `2.10B` ve `2.10C` tamamlandı, `2.10D` sırada
 
 ## 1. Karar ve Dayanak
 
@@ -286,6 +286,15 @@ Kabul kriterleri:
 - Placeholder bulunmuyor.
 - Her ürün grubu teklif veya katalog aksiyonuna sahip.
 - Üretici metinleri birebir uzun bloklar halinde kopyalanmamış.
+
+Sonuç:
+
+- `2.10C` 2026-07-26 tarihinde tamamlandı.
+- Kastamonu Entegre hub'ı 14 ürün ailesi, 25 yüzey örneği ve 3 yerel katalogdan beslenen veri odaklı bir yapıya geçirildi.
+- Yeni `/urunler/kastamonu-entegre/dekoratif-panel/` rotasında 10 dekoratif panel ailesi, kullanım alanları, 18 dekoratif yüzey örneği ve Compactlam kataloğu yayın akışına hazırlandı.
+- Ana sayfa, ürünler sayfası, header ve footer üzerinden yeni rotaya doğal iç bağlantılar eklendi.
+- Teklif formuna dekoratif panel ürün grubu ve query ön seçimi eklendi.
+- Üretim derlemesi 37 sayfayla tamamlandı; rota self-canonical, sitemap içinde ve kontrol edilen 94 yerel hedefte eksik dosya/bağlantı bulunmadı.
 
 ### Sprint 2.10D — MDF, MDFLam ve Yongalevha Marka Sayfaları
 

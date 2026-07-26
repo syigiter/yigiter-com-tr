@@ -11,6 +11,8 @@ interface Props {
   image?: ProductImage;
   catalogs?: CatalogDocument[];
   headingLevel?: 'h2' | 'h3';
+  quoteHref?: string;
+  showDetailLink?: boolean;
 }
 
 const {
@@ -18,8 +20,20 @@ const {
   image,
   catalogs = [],
   headingLevel = 'h3',
+  quoteHref,
+  showDetailLink = true,
 } = Astro.props;
 const Heading = headingLevel;
+const categoryLabels: Record<KastamonuProductFamily['category'], string> = {
+  'raw-panel': 'Ham Panel',
+  'melamine-panel': 'Melamin Kaplı Panel',
+  'gloss-panel': 'Parlak Yüzey',
+  'mat-panel': 'Mat Yüzey',
+  'acrylic-panel': 'Akrilik Panel',
+  'printed-panel': 'Boyalı Panel',
+  'compact-panel': 'Compact Panel',
+  'door-panel': 'Kapı Paneli',
+};
 const localCatalogs = catalogs.filter(
   (catalog): catalog is CatalogDocument & { localPath: string } =>
     catalog.publicationStatus === 'local' && Boolean(catalog.localPath),
@@ -44,6 +58,9 @@ const localCatalogs = catalogs.filter(
   }
 
   <div class="flex flex-1 flex-col p-5 sm:p-6">
+    <p class="mb-2 text-xs font-bold uppercase tracking-widest text-accent-dark">
+      {categoryLabels[product.category]}
+    </p>
     <Heading class="text-xl font-bold text-primary">{product.displayName}</Heading>
     <p class="mt-3 text-sm leading-6 text-gray-600">{product.summary}</p>
 
@@ -68,12 +85,28 @@ const localCatalogs = catalogs.filter(
           <CatalogDownload catalog={catalog} compact />
         ))
       }
-      <a
-        href={`${product.route}#teklif`}
-        class="inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
-      >
-        Ürünü incele ve teklif al
-      </a>
+      <div class="flex flex-col gap-2 sm:flex-row">
+        {
+          quoteHref && (
+            <a
+              href={quoteHref}
+              class="inline-flex flex-1 items-center justify-center rounded-lg bg-[#9A3412] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#7C2D12]"
+            >
+              Teklif Al
+            </a>
+          )
+        }
+        {
+          showDetailLink && (
+            <a
+              href={product.route}
+              class="inline-flex flex-1 items-center justify-center rounded-lg border border-primary px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+            >
+              Ürünü İncele
+            </a>
+          )
+        }
+      </div>
     </div>
   </div>
 </article>
