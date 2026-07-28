@@ -110,6 +110,21 @@
       "source": "/urunler/kapi-komponentleri/pervaz/",
       "destination": "/urunler/kapi-pervazi/",
       "permanent": true
+    },
+    {
+      "source": "/en/home",
+      "destination": "/en/interior-door-components/",
+      "permanent": true
+    },
+    {
+      "source": "/en/home/",
+      "destination": "/en/interior-door-components/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
