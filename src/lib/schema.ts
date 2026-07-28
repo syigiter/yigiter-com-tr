@@ -86,6 +86,7 @@ function productEntity(p: ProductInput) {
   // ponytail: B2B teklif bazlı katalog — kamuya açık fiyat yok. Google'ın Product
   // zengin sonucu offers.price ister; fiyatsız Offer geçersiz (GSC "Product snippets"
   // hatası). Gerçek fiyat yayınlanmadıkça Offer eklenmez; sahte fiyat = politika ihlali.
+  // Kalan GSC uyarısı kabul edilmiş by-design: docs/gsc-product-snippets-accepted.md
   return schema;
 }
 
