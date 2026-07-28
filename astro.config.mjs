@@ -16,6 +16,7 @@ export default defineConfig({
         'https://www.yigiter.com.tr/iletisim/teklif-al/',
         'https://www.yigiter.com.tr/product-catalog/',
         'https://www.yigiter.com.tr/products/',
+        'https://www.yigiter.com.tr/tesekkurler/',
       ].includes(page),
       i18n: {
         defaultLocale: 'tr',
