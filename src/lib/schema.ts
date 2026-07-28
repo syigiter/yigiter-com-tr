@@ -83,13 +83,9 @@ function productEntity(p: ProductInput) {
   if (p.image) schema.image = absoluteUrl(p.image);
   if (p.brandName) schema.brand = { '@type': 'Brand', name: p.brandName };
   if (p.manufacturedByYigiter) schema.manufacturer = { '@id': ORG_ID };
-  if (p.soldByYigiter) {
-    schema.offers = {
-      '@type': 'Offer',
-      url: absoluteUrl(p.url),
-      seller: { '@id': ORG_ID },
-    };
-  }
+  // ponytail: B2B teklif bazlı katalog — kamuya açık fiyat yok. Google'ın Product
+  // zengin sonucu offers.price ister; fiyatsız Offer geçersiz (GSC "Product snippets"
+  // hatası). Gerçek fiyat yayınlanmadıkça Offer eklenmez; sahte fiyat = politika ihlali.
   return schema;
 }
 
@@ -98,40 +94,6 @@ export function buildProduct(p: ProductInput) {
     '@context': 'https://schema.org',
     ...productEntity(p),
   };
-}
-
-export interface ProductGroupInput extends Omit<ProductInput, 'manufacturedByYigiter'> {
-  productGroupID: string;
-  variants: ProductInput[];
-}
-
-export function buildProductGroup(group: ProductGroupInput) {
-  const schema: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'ProductGroup',
-    name: group.name,
-    description: group.description,
-    url: absoluteUrl(group.url),
-    productGroupID: group.productGroupID,
-    hasVariant: group.variants.map((variant) =>
-      productEntity({
-        ...variant,
-        brandName: variant.brandName ?? group.brandName,
-        soldByYigiter: variant.soldByYigiter ?? group.soldByYigiter,
-      }),
-    ),
-  };
-  if (group.category) schema.category = group.category;
-  if (group.image) schema.image = absoluteUrl(group.image);
-  if (group.brandName) schema.brand = { '@type': 'Brand', name: group.brandName };
-  if (group.soldByYigiter) {
-    schema.offers = {
-      '@type': 'Offer',
-      url: absoluteUrl(group.url),
-      seller: { '@id': ORG_ID },
-    };
-  }
-  return schema;
 }
 
 export interface CollectionItemInput {
@@ -174,7 +136,10 @@ export function buildCollectionPage(input: CollectionPageInput) {
         '@type': 'ListItem',
         position: index + 1,
         item: {
-          '@type': item.type ?? 'ProductGroup',
+          // ponytail: 5 ayrı ürün ailesi = düz Product. ProductGroup yalnız tek
+          // ürünün varyantları içindir (productGroupID/variesBy/hasVariant zorunlu);
+          // burada yanlış tip GSC "Product snippets" kritik hatasını tetikliyordu.
+          '@type': item.type ?? 'Product',
           name: item.name,
           description: item.description,
           url: absoluteUrl(item.url),

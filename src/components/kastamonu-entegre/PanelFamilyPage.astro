@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { buildProduct, buildProductGroup } from '../../lib/schema';
+import { buildProduct } from '../../lib/schema';
 import type {
   KastamonuProductFamily,
   ProductImage,
@@ -73,18 +73,9 @@ const schemaBase = {
   brandName: 'Kastamonu Entegre',
   soldByYigiter: true,
 };
-const productSchema = comparedProducts.length > 1
-  ? buildProductGroup({
-      ...schemaBase,
-      productGroupID: product.route.replaceAll('/', '-').replace(/^-|-$/g, ''),
-      variants: comparedProducts.map((item) => ({
-        name: item.displayName,
-        description: item.summary,
-        url: `${item.route}#urun-${item.id}`,
-        category: 'Kastamonu Entegre Paneller',
-      })),
-    })
-  : buildProduct(schemaBase);
+// ponytail: panel aileleri (medepan/maxipan/neopan vb.) ayrı ürünler, tek ürünün
+// varyantı değil → düz Product. Fiyatsız katalogta ProductGroup geçerli olamaz.
+const productSchema = buildProduct(schemaBase);
 ---
 
 <BaseLayout title={title} description={description} structuredData={productSchema}>
