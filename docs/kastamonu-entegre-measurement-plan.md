@@ -70,12 +70,18 @@ Başlangıç Web Vitals:
 
 | Kontrol | Zaman | Durum | Ana amaç |
 | --- | --- | --- | --- |
-| T+24 saat | 2026-07-27 23:48 TSİ sonrası | Bekliyor | HTTP, asset, console/CSP ve event yüklenme sağlığı |
+| T+24 saat | 2026-07-27 23:48 TSİ sonrası | ✅ Tamam (2026-07-28 10:53 TSİ) | HTTP, asset, console/CSP ve event yüklenme sağlığı |
 | T+14 gün | 2026-08-09 | Bekliyor | İlk GSC görünürlük ve CTA olay sinyali |
 | T+28 gün | 2026-08-23 | Bekliyor | Sorgu/landing eğilimi ve ürün ailesi karşılaştırması |
 | T+56 gün | 2026-09-20 | Bekliyor | Kalıcı içerik, SEO ve dönüşüm kararı |
 
 T+24 raporu belirtilen saatten önce “tamamlandı” olarak işaretlenmez. Sıfır Clarity olayı tek başına teknik hata değildir; bundle/hook sağlığı ile gerçek kullanıcı trafiği ayrı değerlendirilir.
+
+### T+24 sonucu — 2026-07-28 10:53 TSİ
+
+- `npm run qa:kastamonu:production`: **başarılı** — 7 sayfa, 73 yerel hedef, 6 sitemap/schema rotası, CSP/Analytics ve 404 doğrulandı.
+- Teknik regresyon görülmedi; karar eşiklerinden hiçbiri tetiklenmedi. İçerik/CTA değişikliği yapılmadı (planla uyumlu).
+- Vercel Analytics/Speed Insights, GSC ve Clarity olay sayıları bu ortamda kimlik bilgisi/dashboard erişimi gerektirdiği için T+14 penceresinde değerlendirilecek.
 
 Her kontrolde:
 

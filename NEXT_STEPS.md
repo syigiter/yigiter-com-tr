@@ -6,21 +6,32 @@
 
 Program artık yeni içerik üretme aşamasında değil, ölçüm dönemindedir. Teknik regresyon görülmedikçe Kastamonu sayfalarında T+14 karar penceresinden önce yeni SEO veya CTA değişikliği yapılmayacaktır.
 
-### Öncelik 1 — T+24 teknik sağlık kontrolü
+### Öncelik 1 — T+24 teknik sağlık kontrolü ✅ (2026-07-28 10:53 TSİ)
 
-İlk kontrol zamanı: **2026-07-27 23:48 TSİ sonrası**.
+İlk kontrol zamanı: **2026-07-27 23:48 TSİ sonrası**. Yapıldı: `npm run qa:kastamonu:production` başarılı, teknik regresyon yok, kod değişikliği yapılmadı. Detay: [`docs/kastamonu-entegre-measurement-plan.md`](docs/kastamonu-entegre-measurement-plan.md) → “T+24 sonucu”. Sıradaki: T+14 (2026-08-09).
 
 - `npm run qa:kastamonu:production` ile 7 rota, 73 yerel hedef, schema/sitemap, CSP/Analytics ve 404 kontrolü.
 - Vercel Analytics ve Speed Insights'ta yayın sonrası trafik/performans sağlığı.
 - Clarity custom event köprüsünün canlı bundle'da yüklenmesi; gerçek olay sayısının sıfır olması T+24 aşamasında tek başına hata sayılmayacak.
 - Teknik regresyon varsa içerik genişletmeden önce küçük hotfix; regresyon yoksa kod değişikliği yok.
 
+### Öncelik 1B — SEO denetimi bulguları (2026-07-28)
+
+7 uzman sub-agent ile tam SEO denetimi yapıldı. Bulgular: [SEO_AUDIT_2026-07-28.md](SEO_AUDIT_2026-07-28.md). Düzeltme planı: [SEO_FIX_PLAN_2026-07-28.md](SEO_FIX_PLAN_2026-07-28.md).
+
+- **Freeze notu:** Kastamonu içerik/CTA dondurma T+14'e kadar sürüyor. Ama denetimdeki teknik düzeltmeler (301 redirect'ler, schema tip bug'ı, NAP, clickjacking) içerik/CTA değişikliği değil → bunlar yapılabilir. Faz 2 içerik genişletmeleri Kastamonu sayfalarına dokunuyorsa T+14 sonrasına bırakılır.
+- **En yüksek ROI:** eski 404 URL'lerinin 301'lenmesi (GSC 404 listesi gerekir).
+
 ### Öncelik 2 — Ölçüm ve karar takvimi
 
 - **2026-08-09 / T+14:** İlk GSC görünürlük ve CTA olay sinyali.
 - **2026-08-23 / T+28:** Sorgu/landing eğilimi ve ürün ailesi karşılaştırması.
 - **2026-09-20 / T+56:** Kalıcı içerik, SEO ve dönüşüm kararı.
-- GSC raporu için `credentials.json`, `.gsc/token.json` ve Google API bağımlılıkları hâlâ gereklidir; bunlar olmadan sitemap/canonical sağlığı doğrulanabilir ancak Search Analytics ve URL Inspection API raporu alınamaz.
+- **GSC KURULDU (2026-07-28):** Google API bağımlılıkları kalıcı venv'de (`.gsc/venv`, gitignore'da). Rapor çalıştırma:
+  ```
+  .gsc/venv/bin/python scripts/gsc_check.py --output reports/gsc-YYYY-MM-DD.md --csv-output reports/gsc-YYYY-MM-DD.csv
+  ```
+  `credentials.json` + `.gsc/token.json` mevcut ve token refresh çalışıyor (salt-okunur `webmasters.readonly`). Venv kaybolursa: `python3 -m venv .gsc/venv && .gsc/venv/bin/pip install -r .gsc/requirements.txt`.
 
 Detaylı takip adımları, eşikler ve geri dönüş sırası: [`docs/kastamonu-entegre-measurement-plan.md`](docs/kastamonu-entegre-measurement-plan.md).
 
