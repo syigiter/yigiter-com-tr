@@ -27,11 +27,11 @@ const productRoutes = [
   },
   {
     path: '/urunler/kastamonu-entegre/yongalevha/',
-    schemaTypes: ['ProductGroup'],
+    schemaTypes: ['Product'],
   },
   {
     path: '/urunler/kastamonu-entegre/kapi-paneli/',
-    schemaTypes: ['ProductGroup'],
+    schemaTypes: ['Product'],
   },
 ];
 const pageRoutes = [...productRoutes, { path: '/teklif-al/', schemaTypes: [] }];
