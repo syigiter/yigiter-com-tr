@@ -14,6 +14,8 @@ interface Props {
   lang?: string;
   ogLocale?: string;
   appendSiteName?: boolean;
+  /** true for utility pages (thank-you, etc.) that should not be indexed */
+  noindex?: boolean;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
@@ -24,6 +26,7 @@ const {
   lang = 'tr',
   ogLocale = 'tr_TR',
   appendSiteName = true,
+  noindex = false,
   structuredData,
 } = Astro.props;
 
@@ -53,6 +56,7 @@ if (structuredData) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
