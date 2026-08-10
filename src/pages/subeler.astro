@@ -16,6 +16,7 @@ const subeler = [
     whatsapp: 'https://wa.me/905415157667?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
     eposta: 'kapi@yigiter.com.tr',
     uzmanlik: 'Kapı kasası, pervaz, melamin kapı yüzeyleri, kağıt dolgu, PVC film',
+    mapUrl: 'https://maps.app.goo.gl/sFS4P5Zg9NGqH75e9',
     renk: 'primary',
   },
   {
@@ -32,6 +33,7 @@ const subeler = [
     whatsapp: 'https://wa.me/905417602735?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
     eposta: 'gencboya@yigiter.com.tr',
     uzmanlik: 'Genç Boya ürünleri — boya, vernik, astar, sertleştirici, tiner',
+    mapUrl: 'https://maps.app.goo.gl/QmZvfWXMGvdBUimJA',
     renk: 'primary',
   },
   {
@@ -47,6 +49,7 @@ const subeler = [
     whatsapp: 'https://wa.me/905464886737?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
     eposta: 'plaka@yigiter.com.tr',
     uzmanlik: 'Kastamonu Entegre ürünleri — yongalevha, MDF, MDFLam, paneller',
+    mapUrl: 'https://maps.app.goo.gl/v2FyRt3gUYEncb3t5',
     renk: 'primary',
   },
   {
@@ -64,6 +67,7 @@ const subeler = [
     whatsapp: 'https://wa.me/905319313310?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
     eposta: 'tosya@yigiter.com.tr',
     uzmanlik: 'Kapı kasası, pervaz, melamin kapı yüzeyleri, kapı imalat malzemeleri, Kastamonu Entegre ürünleri, Genç Boya — Karadeniz bölgesi tüm ürün merkezi',
+    mapUrl: 'https://maps.app.goo.gl/9nQwRRK2JkHPoxre9',
     renk: 'primary',
   },
   {
@@ -79,6 +83,7 @@ const subeler = [
     whatsapp: null,
     eposta: 'tosya@yigiter.com.tr',
     uzmanlik: 'Kapı kasası ve pervaz — kendi tesisimizde üretim. İhracat kalitesi.',
+    mapUrl: 'https://maps.app.goo.gl/EVVUZ36NoVTSsM258',
     renk: 'accent',
     ozelVurgu: true,
   },
@@ -95,6 +100,7 @@ const subeler = [
     whatsapp: 'https://wa.me/905333876756?text=Merhaba%2C%20Yi%C4%9Fiter%20Orman%20%C3%9Cr%C3%BCnleri%27ne%20ula%C5%9Fmak%20istiyorum.',
     eposta: 'gencsiparis@yigiter.com.tr',
     uzmanlik: 'Genç Boya ürünleri — Anadolu Yakası distribütörü',
+    mapUrl: 'https://maps.app.goo.gl/trLPfVtegF7EFCLT9',
     renk: 'primary',
   },
 ];
@@ -109,6 +115,7 @@ const localBusinessSchema = {
     "telephone": s.telefonlar[0].href.replace('tel:', ''),
     "email": s.eposta,
     "openingHours": ["Mo-Fr 08:30-18:00", "Sa 08:30-15:00"],
+    ...(s.mapUrl ? { "sameAs": [s.mapUrl] } : {}),
     "address": {
       "@type": "PostalAddress",
       "streetAddress": s.adres,
