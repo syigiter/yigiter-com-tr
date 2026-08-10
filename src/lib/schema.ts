@@ -166,6 +166,8 @@ export interface LocalBusinessInput {
   sameAs?: string[];
   /** [latitude, longitude] for this location */
   geo?: [number, number];
+  /** schema.org openingHours strings, e.g. "Mo-Fr 08:30-18:00" */
+  openingHours?: string[];
 }
 
 export function buildLocalBusiness(b: LocalBusinessInput) {
@@ -184,6 +186,7 @@ export function buildLocalBusiness(b: LocalBusinessInput) {
     },
     ...(b.sameAs && b.sameAs.length ? { sameAs: b.sameAs } : {}),
     ...(b.geo ? { geo: { '@type': 'GeoCoordinates', latitude: b.geo[0], longitude: b.geo[1] } } : {}),
+    ...(b.openingHours && b.openingHours.length ? { openingHours: b.openingHours } : {}),
     parentOrganization: { '@id': ORG_ID },
   };
 }
