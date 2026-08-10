@@ -27,9 +27,9 @@ function getImage(id: string) {
 const heroImage = getImage('ke-img-001');
 const surfaceCount = decorativeSurfaceSamples.length + doorpanSurfaceSamples.length;
 const surfaceSamples = [...decorativeSurfaceSamples, ...doorpanSurfaceSamples];
-const title = 'Kastamonu Entegre Ürünleri';
+const title = 'Kastamonu Entegre Ana Bayisi | MDF, Yonga Levha, Panel';
 const description =
-  "Kastamonu Entegre Ana Bayisi Yiğiter'den MDF, yonga levha, dekoratif panel, Doorpan ve Doorlam ürünlerini inceleyin; stok, ölçü ve termin için teklif alın.";
+  "Kastamonu Entegre Ana Bayisi Yiğiter: MDF, yonga levha, dekoratif panel, Doorpan ve Doorlam ürünlerini İstanbul şubelerinden Türkiye geneline sevk ediyoruz. Teklif alın.";
 
 const hubGroups = [
   {
@@ -197,6 +197,37 @@ const collectionSchema = buildCollectionPage({
           <p class="mt-1 text-xs text-gray-600">{label}</p>
         </div>
       ))}
+    </div>
+  </section>
+
+  <section aria-label="Bayilik ve sevkiyat" class="border-b border-gray-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div class="max-w-3xl">
+          <h2 class="text-2xl font-bold text-primary">
+            Kastamonu Entegre Ana Bayisi olarak Türkiye geneline sevkiyat
+          </h2>
+          <p class="mt-3 leading-7 text-gray-700">
+            Yiğiter, Kastamonu Entegre MDF, yonga levha (sunta) ve panel ürünlerinin ana
+            bayisidir. İstanbul'daki İkitelli ve Dudullu şubelerimizden Ankara, İzmir, Bursa
+            ve diğer illere depolardan 48-72 saat içinde teslimat yapıyoruz.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a
+            href="/subeler/"
+            class="inline-flex items-center justify-center rounded-lg border border-primary px-5 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+          >
+            İkitelli ve Dudullu Şubeleri
+          </a>
+          <a
+            href="/hizmet-bolgesi/"
+            class="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-primary/40 hover:text-primary"
+          >
+            Türkiye Hizmet Ağı
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
