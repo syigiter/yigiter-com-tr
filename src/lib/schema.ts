@@ -162,6 +162,8 @@ export interface LocalBusinessInput {
   addressRegion?: string;
   /** page path the node lives on, e.g. "/urunler/genc-boya/" */
   url: string;
+  /** external profiles for this location, e.g. its GBP maps link */
+  sameAs?: string[];
 }
 
 export function buildLocalBusiness(b: LocalBusinessInput) {
@@ -178,6 +180,7 @@ export function buildLocalBusiness(b: LocalBusinessInput) {
       addressRegion: b.addressRegion ?? 'İstanbul',
       addressCountry: 'TR',
     },
+    ...(b.sameAs && b.sameAs.length ? { sameAs: b.sameAs } : {}),
     parentOrganization: { '@id': ORG_ID },
   };
 }
