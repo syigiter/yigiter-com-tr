@@ -35,7 +35,7 @@
 - Production deploy `Ready`; `/urunler/kapi-pervazi/`, `/urunler/kapi-komponentleri/` ve ilgili teklif rotaları 200 dönüyor.
 - Form/query mapping korunuyor: “Kapı pervazı” ve “Kapı komponentleri”.
 - Console, failed request veya CSP kaynaklı kritik uygulama hatası yok.
-- Microsoft Clarity'nin proje ayarları nedeniyle veri toplamadığını bildiren uyarı site davranışını bozmuyor; ayrı analytics/ölçüm kontrolünde ele alınmalı.
+- Microsoft Clarity entegrasyonu doğrulandı (2026-08-10 kod kontrolü + 2026-07-07 uçtan uca test): tag yükleniyor, CSP açık, 4 dönüşüm olayı (quote_click, whatsapp_click, catalog_download, quote_submitted) butonlara bağlı. Dashboard'daki "veri toplamıyor" uyarısı bir kod hatası değil; düşük trafik + dashboard erişimi kaynaklı. Olay sayıları yalnız Clarity dashboard login'i ile okunur.
 - Yeni geliştirme için ana bekleyen unsur doğrulanmış teknik belge ve assetlerdir.
 - Bundan sonraki öncelik yeni tablo veya teyitsiz içerik üretmek değil; ölçülü profil kesit çizimleri, teknik föy/PDF katalog, sertifika/test belgeleri ve gerçek ürün/üretim/ambalaj görsellerini toplamaktır.
 
