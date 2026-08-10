@@ -164,6 +164,8 @@ export interface LocalBusinessInput {
   url: string;
   /** external profiles for this location, e.g. its GBP maps link */
   sameAs?: string[];
+  /** [latitude, longitude] for this location */
+  geo?: [number, number];
 }
 
 export function buildLocalBusiness(b: LocalBusinessInput) {
@@ -181,6 +183,7 @@ export function buildLocalBusiness(b: LocalBusinessInput) {
       addressCountry: 'TR',
     },
     ...(b.sameAs && b.sameAs.length ? { sameAs: b.sameAs } : {}),
+    ...(b.geo ? { geo: { '@type': 'GeoCoordinates', latitude: b.geo[0], longitude: b.geo[1] } } : {}),
     parentOrganization: { '@id': ORG_ID },
   };
 }
