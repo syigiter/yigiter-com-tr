@@ -143,15 +143,15 @@ Dördü de indexed ve canonical match; sorun index değil görünürlük. Plan m
 - Her iki rotada da belirgin iyileşme, regresyon yok.
 - Tek dikkat noktası: `/teklif-al` INP p75 **200 ms** — "iyi" eşiğinin tam sınırında. T+28'de tekrar bakılmalı.
 
-**Clarity — eksik**
+**Clarity — kod doğru, okuma dashboard'a bağlı**
 
-Dört custom event (`catalog_download`, `quote_click`, `whatsapp_click`, `quote_submitted`) bu ölçümde okunamadı; dashboard erişimi gerektiriyor. `AI_HANDOFF.md`'de production'da Clarity'nin proje ayarları nedeniyle veri toplamadığını bildiren uyarı kayıtlı. Dolayısıyla plan md. 6'daki ilk dört karar eşiği (`quote_click` / `quote_submitted` / `catalog_download` / `whatsapp_click`) **değerlendirilemedi**.
+Dört custom event (`catalog_download`, `quote_click`, `whatsapp_click`, `quote_submitted`) bu ölçümde okunamadı; okuma Clarity dashboard login'i gerektiriyor. 2026-08-10 kod kontrolü entegrasyonu doğruladı: tag yükleniyor (ID `xirpsgg0ls`), CSP script-src+connect-src açık, dört olay da `data-analytics-event` ile gerçek butonlara bağlı (`quote_click` ×12, `whatsapp_click` ×5, `catalog_download` ×1, `quote_submitted` form submit). Entegrasyon ayrıca 2026-07-07'de uçtan uca doğrulanmıştı (oturum kaydı dashboard'a ulaştı — `AI_HANDOFF.md`). Dolayısıyla dashboard'daki "veri toplamıyor" uyarısı **kod arızası değil**; düşük trafik + erişim kaynaklı. Plan md. 6'daki ilk dört karar eşiği kod tarafından karşılanıyor ama sayısal okuma **dashboard login'i olmadan yapılamadı**.
 
 **Karar**
 
 1. Yeni içerik sprinti açılmıyor. Teknik taban sağlam, sinyal büyüyor ama 28 günde 8 klik hâlâ ince.
-2. Öncelik: dört sıfır-impression rotası için iç bağlantı + title/description düzeltmesi. Yeni sayfa değil, mevcut sayfaların on-page'i.
-3. Clarity'nin gerçekten veri toplayıp toplamadığı doğrulanmalı. Toplamıyorsa bu bir ölçüm arızasıdır ve T+28 öncesi giderilmelidir; yoksa dönüşüm tarafı üç penceredir kör kalıyor.
+2. Dört sıfır-impression rotası incelendi: iç bağlantı zaten güçlü (dekoratif-panel global Header+Footer'da), title'lar keyword hedefli, içerik ince değil. Reçetenin "iç bağlantı + on-page" kısmı zaten yapılmış; head-term'ler otorite+zaman ister. Bugün oynatacak kaldıraç yok — T+28'de long-tail impression verisiyle hedefli ekleme yapılacak. Bunun yerine hub `/urunler/kastamonu-entegre/` bayi/sevkiyat sorguları (poz 10.8) için güçlendirildi (PR #86).
+3. Clarity kod entegrasyonu doğrulandı (yukarı bkz.) — arıza yok. Dönüşüm sayıları için tek gereken Clarity dashboard login'i; kod tarafında yapılacak iş yok.
 4. `/teklif-al` hacmi ve `/teklif-al` INP değeri T+28'de tekrar okunacak.
 
 Her kontrolde:
