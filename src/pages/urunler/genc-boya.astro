@@ -41,12 +41,12 @@ const faqItems = [
   {
     question: 'Genç Boya renk kartelası nasıl temin edilir?',
     answer:
-      'Güncel Genç Boya renk kartelasını Ümraniye (Keyap Sanayi Sitesi), İkitelli Keresteciler Sitesi ve Tosya şubelerimizde fiziksel olarak inceleyebilirsiniz. İhtiyacınızı bildirdiğinizde ilgili boya sisteminin renk seçeneklerini ve uygun ürün grubunu birlikte belirliyoruz.',
+      'Renk seçimi fiziksel karteladan yapılır. Güncel Genç Boya kartelasını Ümraniye (Keyap Sanayi Sitesi), İkitelli Keresteciler Sitesi ve Tosya şubelerimizde yerinde inceleyebilir veya bizden kartela talep edebilirsiniz. Ekrandaki renkler monitör kalibrasyonuna göre değiştiği için doğru ton eşleşmesi fiziksel karteladan sağlanır.',
   },
   {
-    question: 'Genç Boya renk kodu ile sipariş verebilir miyim?',
+    question: 'RAL kodu ile Genç Boya siparişi verebilir miyim?',
     answer:
-      'Evet. Elinizde bir Genç Boya renk kodu varsa doğrudan o kod üzerinden hazırlıyoruz. Kod yoksa numune, mevcut mobilya parçası veya farklı bir marka renk referansı üzerinden GENÇ Tinting sistemiyle renk tutturma yapıyoruz.',
+      'Evet. Elinizde bir RAL kodu veya Genç Boya renk kodu varsa doğrudan o kod üzerinden hazırlıyoruz. Kod yoksa numune, mevcut mobilya parçası veya farklı bir marka renk referansı üzerinden GENÇ Tinting sistemiyle renk tutturma yapıyoruz.',
   },
   {
     question: 'Kartelada olmayan özel bir renk yaptırabilir miyim?',
@@ -79,7 +79,7 @@ const faqSchema = {
 <BaseLayout
   structuredData={[productSchema, ...gencBoyaLocations]}
   title="Genç Boya Renk Kartelası ve Ürünleri"
-  description="Genç Boya renk kartelası, renk kodları ve GENÇ Tinting ile sınırsız renk. İstanbul Anadolu Yakası distribütörü, Avrupa Yakası ve Tosya bayisi — boya, vernik ve astar toptan tedarik."
+  description="Genç Boya renk kartelası, RAL ve renk kodu ile sipariş, GENÇ Tinting ile sınırsız renk. İstanbul Anadolu Yakası distribütörü, Avrupa Yakası ve Tosya bayisi — boya, vernik ve astar toptan tedarik."
 >
   <!-- Breadcrumb -->
   <nav class="bg-gray-50 border-b border-gray-200 py-3">
@@ -201,17 +201,18 @@ const faqSchema = {
             Katalog renkleri, özel renk eşleştirme ve numuneye göre renk tutturma taleplerinizi karşılıyoruz.
           </p>
           <p class="text-gray-700 text-base leading-relaxed mb-4">
-            <strong class="text-gray-900">Renk kartelasını nasıl inceleyebilirsiniz?</strong> Güncel Genç Boya
-            renk kartelasını Ümraniye (Keyap), İkitelli Keresteciler Sitesi ve Tosya şubelerimizde
-            fiziksel olarak inceleyebilirsiniz. Dilerseniz ihtiyacınızı bildirin, ilgili sistemin
-            karteladan renk seçeneklerini ve uygun ürün grubunu birlikte belirleyelim.
+            <strong class="text-gray-900">Renk kartelasını nasıl inceleyebilirsiniz?</strong> Renk seçimi
+            <strong>fiziksel karteladan</strong> yapılır: güncel Genç Boya kartelasını Ümraniye (Keyap),
+            İkitelli Keresteciler Sitesi ve Tosya şubelerimizde yerinde inceleyebilir, dilerseniz
+            bizden kartela talep edebilirsiniz. Ekrandaki renkler monitör kalibrasyonuna göre
+            değiştiği için, doğru ton eşleşmesi ancak fiziksel karteladan veya numuneden sağlanır.
           </p>
           <p class="text-gray-700 text-base leading-relaxed mb-4">
-            <strong class="text-gray-900">Renk kodu ile sipariş:</strong> Elinizde bir Genç Boya renk kodu
-            varsa doğrudan o kod üzerinden hazırlıyoruz. Kod yoksa numune, mevcut mobilya parçası veya
-            rakip marka renk referansı üzerinden Tinting sistemiyle renk tutturma yapıyoruz.
+            <strong class="text-gray-900">Renk kodu ile sipariş:</strong> Elinizde bir
+            <strong>RAL kodu</strong> veya Genç Boya renk kodu varsa doğrudan o kod üzerinden
+            hazırlıyoruz. Kod yoksa numune, mevcut mobilya parçası veya farklı bir marka renk
+            referansı üzerinden GENÇ Tinting sistemiyle renk tutturma yapıyoruz.
           </p>
-          <!-- TODO: Fiziksel renk kartelası fotoğrafı eklenecek (şube kartela görseli) -->
           <p class="text-gray-700 text-base leading-relaxed mb-10">
             Ahşap renklendiriciler, dekoratif efektler ve tam ürün gamı için güncel Genç Boya kataloğunu
             birlikte inceleyip ihtiyacınıza uygun renk ve sistemi belirleyebiliriz.
