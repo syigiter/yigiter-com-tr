@@ -5,7 +5,7 @@ import { buildProduct } from '../../lib/schema';
 const productSchema = buildProduct({
   name: 'Kapı Pervazı',
   description:
-    'Kendi tesisimizde üretilen kapı pervazı; standart ölçü seri üretim ve projeye özel ölçü seçenekleriyle kapı üreticileri, bayiler ve projeler için toptan tedarik.',
+    'Kendi tesisimizde üretilen kapı pervazı; dekoratif, MDF/MDFLAM, lakelik ve hareli profil seçenekleri, standart ölçü seri üretim ve projeye özel ölçülerle kapı üreticileri, bayiler ve projeler için toptan tedarik.',
   url: '/urunler/kapi-pervazi/',
   category: 'Kapı Komponentleri',
   manufacturedByYigiter: true,
@@ -116,12 +116,50 @@ const measurementFamilies = [
 ];
 
 const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L';
+
+const faqItems = [
+  {
+    question: 'Kapı pervazı nedir?',
+    answer:
+      'Kapı pervazı, kapı kasası ile duvar birleşimini örten ve geçişi estetik olarak bitiren tamamlayıcı profildir. İç kapı üretiminde, montaj ve renovasyon işlerinde düzgün bir görünüm sağlar.',
+  },
+  {
+    question: 'Dekoratif kapı pervazı ne demek?',
+    answer:
+      'Yüzeyinde hare, kanal, bombe veya PVC kaplama gibi tasarım detayı bulunan, iç mekânda görünür bitiş sağlayan pervaz türüdür. PVC dekoratif ve ham dekoratif profil aileleri bu kapsamda değerlendirilir.',
+  },
+  {
+    question: 'MDF kapı pervazının avantajı nedir?',
+    answer:
+      'MDF ve MDFLAM tabanlı gövde düzgün yüzey ile boyutsal kararlılık sağlar; lakelik ve kaplama uygulamalarına uygundur, bu nedenle seri kapı üretiminde tercih edilir.',
+  },
+  {
+    question: 'Kapı kasası ve pervazı birlikte tedarik edilebilir mi?',
+    answer:
+      'Evet. Kasa ve pervazı takım olarak planlayarak kapı çerçevesinde profil, ölçü ve yüzey bütünlüğü sağlıyoruz. Talebinize kasa bilgisi, duvar kalınlığı ve tahmini takım miktarını eklemeniz yeterli.',
+  },
+  {
+    question: 'Kapı pervazı standart ölçüleri nedir?',
+    answer:
+      'Standart boy olarak 210 cm ve 220 cm değerlendirilir; 6–30 mm arası kalınlıklarda ve özel imalat boylarında üretim planlanabilir. Güncel stok, kombinasyon ve termin teklif aşamasında doğrulanır.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
 ---
 
 <BaseLayout
   structuredData={productSchema}
-  title="Kapı Pervazı Tedariki"
-  description="Kapı pervazı nedir, hangi ölçü ve model seçenekleri vardır? Kapı üreticileri, bayiler ve projeler için toptan kapı pervazı tedariki ve teklif alın."
+  title="Kapı Pervazı: Dekoratif, MDF ve Ölçüleri"
+  description="Dekoratif kapı pervazı, MDF kapı pervazı, kasa ve pervaz takımı ve ölçü aileleri. Kapı üreticileri, bayiler ve projeler için üreticiden toptan kapı pervazı tedariki; teklif alın."
 >
   <section class="bg-wood-100 border-b border-wood-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -176,6 +214,44 @@ const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L';
               uygulamalarında düzenli görünüm ve tamamlayıcı çözüm sağlar. Yiğiter olarak kapı pervazı
               tedarikini kapı üreticileri, bayiler ve proje bazlı alımlar için B2B mantıkla ele alıyoruz.
             </p>
+          </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-3">Kapı Pervazı Çeşitleri ve Malzeme Seçenekleri</h2>
+            <p class="text-gray-700 leading-relaxed mb-5">
+              Kapı pervazını kullanım alanına, kasa yapısına ve istenen görünüme göre farklı malzeme ve
+              profillerle sunuyoruz. Aşağıdaki başlıklar en sık talep edilen kapı pervazı türlerini
+              özetler; kesin profil, ölçü ve yüzey kombinasyonu teklif aşamasında netleşir.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                {
+                  title: 'Dekoratif Kapı Pervazı',
+                  description:
+                    'PVC dekoratif ve ham dekoratif profillerle, iç kapı ve renovasyon uygulamalarında görünür estetik bitiş sağlayan dekoratif kapı pervazı seçenekleri.',
+                },
+                {
+                  title: 'MDF Kapı Pervazı',
+                  description:
+                    'MDF ve MDFLAM tabanlı gövdeyle düzgün yüzey ve boyutsal kararlılık sunan MDF kapı pervazı; lakelik ve kaplama uygulamalarına uygundur.',
+                },
+                {
+                  title: 'Kapı Kasası ve Pervazı (Takım)',
+                  description:
+                    'Kasa ve pervazı takım olarak planlayarak kapı çerçevesinde profil, ölçü ve yüzey bütünlüğü kurar; montajda tutarlı bitiş sağlar.',
+                },
+                {
+                  title: 'Lakelik, Hareli, Bombeli ve Uzun L Profiller',
+                  description:
+                    'Lakelik ham, hareli, hareli kanallı, çizgili, bombeli, taç ve Uzun L profil aileleriyle farklı tasarım ihtiyaçlarına yanıt verir.',
+                },
+              ].map((item) => (
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                  <p class="text-gray-600 text-xs leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
           </section>
 
           <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -352,6 +428,18 @@ const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L';
               ihtiyaçlarında tek noktadan çözüm sunmayı hedefliyoruz.
             </p>
           </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm" aria-labelledby="pervaz-sss">
+            <h2 id="pervaz-sss" class="text-2xl font-bold text-primary mb-5">Sık Sorulan Sorular</h2>
+            <div class="space-y-5">
+              {faqItems.map((item) => (
+                <div>
+                  <h3 class="font-semibold text-gray-900 text-base mb-1">{item.question}</h3>
+                  <p class="text-gray-700 text-sm leading-relaxed">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
 
         <aside class="space-y-6 lg:sticky lg:top-6">
@@ -453,4 +541,6 @@ const surfaceAndProfileOptions = 'Lakelik, hareli, çizgili, bombeli, Uzun L';
       </div>
     </div>
   </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
 </BaseLayout>

@@ -5,7 +5,7 @@ import { buildProduct, buildLocalBusiness } from '../../lib/schema';
 const productSchema = buildProduct({
   name: 'Genç Boya',
   description:
-    'Genç Boya İstanbul Anadolu Yakası distribütörü ve Avrupa Yakası bayisi olarak mobilya ve ahşap sektörüne boya, vernik, astar ve GENÇ Tinting renklendirme sistemiyle sınırsız renk seçeneği; toptan tedarik.',
+    'Genç Boya İstanbul Anadolu Yakası distribütörü ve Avrupa Yakası bayisi olarak mobilya ve ahşap sektörüne boya, vernik, astar; renk kartelası, renk kodu ile sipariş ve GENÇ Tinting renklendirme sistemiyle sınırsız renk seçeneği; toptan tedarik.',
   url: '/urunler/genc-boya/',
   category: 'Boya ve Vernik',
   brandName: 'Genç Boya',
@@ -36,12 +36,50 @@ const gencBoyaLocations = [
     openingHours: ['Mo-Fr 08:30-18:00', 'Sa 08:30-15:00'],
   }),
 ];
+
+const faqItems = [
+  {
+    question: 'Genç Boya renk kartelası nasıl temin edilir?',
+    answer:
+      'Güncel Genç Boya renk kartelasını Ümraniye (Keyap Sanayi Sitesi), İkitelli Keresteciler Sitesi ve Tosya şubelerimizde fiziksel olarak inceleyebilirsiniz. İhtiyacınızı bildirdiğinizde ilgili boya sisteminin renk seçeneklerini ve uygun ürün grubunu birlikte belirliyoruz.',
+  },
+  {
+    question: 'Genç Boya renk kodu ile sipariş verebilir miyim?',
+    answer:
+      'Evet. Elinizde bir Genç Boya renk kodu varsa doğrudan o kod üzerinden hazırlıyoruz. Kod yoksa numune, mevcut mobilya parçası veya farklı bir marka renk referansı üzerinden GENÇ Tinting sistemiyle renk tutturma yapıyoruz.',
+  },
+  {
+    question: 'Kartelada olmayan özel bir renk yaptırabilir miyim?',
+    answer:
+      'Evet. GENÇ Tinting renklendirme sistemiyle çalıştığımız için sabit bir kartelayla sınırlı değiliz; numuneye veya referansa göre istediğiniz tonu üretebiliyoruz.',
+  },
+  {
+    question: 'İstanbul’da Genç Boya bayisi nerede?',
+    answer:
+      'Anadolu Yakası distribütörlüğümüz Ümraniye Keyap Sanayi Sitesi’nde, Avrupa Yakası bayimiz İkitelli Keresteciler Sitesi’nde, üçüncü şubemiz ise Tosya (Kastamonu) adresinde hizmet veriyor.',
+  },
+  {
+    question: 'Genç Boya vernik ve boya sistemleri neler?',
+    answer:
+      'Poliüretan (PU), akrilik, poliester, selülozik, su bazlı, asit kürlenmeli (AC) ve UV curing sistemlerinin yanında ahşap renklendiriciler, sertleştirici ve katkılar, sentetik sistemler ile tiner ve yardımcı ürünleri stoktan tedarik ediyoruz.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
 ---
 
 <BaseLayout
   structuredData={[productSchema, ...gencBoyaLocations]}
-  title="Genç Boya Ürünleri"
-  description="Genç Boya İstanbul Anadolu Yakası Distribütörü ve Avrupa Yakası Bayisi. Avrupa'nın en büyük 5 mobilya boyası üreticisi. Stoktan hızlı teslimat."
+  title="Genç Boya Renk Kartelası ve Ürünleri"
+  description="Genç Boya renk kartelası, renk kodları ve GENÇ Tinting ile sınırsız renk. İstanbul Anadolu Yakası distribütörü, Avrupa Yakası ve Tosya bayisi — boya, vernik ve astar toptan tedarik."
 >
   <!-- Breadcrumb -->
   <nav class="bg-gray-50 border-b border-gray-200 py-3">
@@ -118,11 +156,18 @@ const gencBoyaLocations = [
             sürekli yenilikçi formüller geliştirmektedir.
           </p>
 
-          <h2 class="text-xl font-bold text-primary mb-4">İstanbul Genç Boya Bayi ve Distribütörü</h2>
-          <p class="text-gray-700 text-base leading-relaxed mb-10">
+          <h2 class="text-xl font-bold text-primary mb-4">Genç Boya Bayileri — İstanbul Anadolu ve Avrupa Yakası</h2>
+          <p class="text-gray-700 text-base leading-relaxed mb-4">
             <strong class="text-gray-900">Yiğiter Orman Ürünleri</strong> olarak İstanbul Anadolu Yakası
             distribütörü sıfatıyla tam stok tutuyoruz. Avrupa Yakası bayisi ve Tosya bayisi konumumuzla
             İstanbul'un her iki yakasında ve Karadeniz bölgesinde hızlı teslimat sağlıyoruz.
+          </p>
+          <p class="text-gray-700 text-base leading-relaxed mb-10">
+            Genç Boya bayisi arayan mobilyacı, marangoz ve kapı üreticileri bize üç noktadan
+            ulaşabilir: <strong class="text-gray-900">Ümraniye Keyap Sanayi Sitesi</strong> (Anadolu Yakası
+            distribütör), <strong class="text-gray-900">İkitelli Keresteciler Sitesi</strong> (Avrupa Yakası
+            bayi) ve <strong class="text-gray-900">Tosya</strong> (Kastamonu bayi). Her üç şubede de boya,
+            vernik ve astar ürünlerini stoktan alabilir, renk kartelasını yerinde inceleyebilirsiniz.
           </p>
 
           <!-- Boya Sistemleri -->
@@ -148,13 +193,25 @@ const gencBoyaLocations = [
           </div>
 
           <!-- Renk / Tinting -->
-          <h2 class="text-xl font-bold text-primary mb-4">Renk Kartelası ve Sınırsız Renk</h2>
-          <img src="/images/products/genc-boya/tinting.webp" alt="Genç Boya GENÇ Tinting renklendirme sistemi" width="500" height="395" loading="lazy" class="rounded-xl border border-gray-200 mb-4 w-full max-w-sm" />
+          <h2 id="renk-kartelasi" class="text-xl font-bold text-primary mb-4">Genç Boya Renk Kartelası ve Renk Kodları</h2>
+          <img src="/images/products/genc-boya/tinting.webp" alt="Genç Boya GENÇ Tinting renklendirme sistemi ve renk kartelası" width="500" height="395" loading="lazy" class="rounded-xl border border-gray-200 mb-4 w-full max-w-sm" />
           <p class="text-gray-700 text-base leading-relaxed mb-4">
             <strong class="text-gray-900">GENÇ Tinting</strong> renklendirme sistemiyle çalışıyoruz:
             sabit bir renk kartelasıyla sınırlı kalmadan <strong>istediğiniz her tonu</strong> üretiyoruz.
             Katalog renkleri, özel renk eşleştirme ve numuneye göre renk tutturma taleplerinizi karşılıyoruz.
           </p>
+          <p class="text-gray-700 text-base leading-relaxed mb-4">
+            <strong class="text-gray-900">Renk kartelasını nasıl inceleyebilirsiniz?</strong> Güncel Genç Boya
+            renk kartelasını Ümraniye (Keyap), İkitelli Keresteciler Sitesi ve Tosya şubelerimizde
+            fiziksel olarak inceleyebilirsiniz. Dilerseniz ihtiyacınızı bildirin, ilgili sistemin
+            karteladan renk seçeneklerini ve uygun ürün grubunu birlikte belirleyelim.
+          </p>
+          <p class="text-gray-700 text-base leading-relaxed mb-4">
+            <strong class="text-gray-900">Renk kodu ile sipariş:</strong> Elinizde bir Genç Boya renk kodu
+            varsa doğrudan o kod üzerinden hazırlıyoruz. Kod yoksa numune, mevcut mobilya parçası veya
+            rakip marka renk referansı üzerinden Tinting sistemiyle renk tutturma yapıyoruz.
+          </p>
+          <!-- TODO: Fiziksel renk kartelası fotoğrafı eklenecek (şube kartela görseli) -->
           <p class="text-gray-700 text-base leading-relaxed mb-10">
             Ahşap renklendiriciler, dekoratif efektler ve tam ürün gamı için güncel Genç Boya kataloğunu
             birlikte inceleyip ihtiyacınıza uygun renk ve sistemi belirleyebiliriz.
@@ -222,6 +279,17 @@ const gencBoyaLocations = [
               </li>
             ))}
           </ul>
+
+          <!-- SSS -->
+          <h2 class="text-xl font-bold text-primary mt-10 mb-5">Sık Sorulan Sorular</h2>
+          <div class="space-y-5">
+            {faqItems.map((item) => (
+              <div>
+                <h3 class="font-semibold text-gray-900 text-base mb-1">{item.question}</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">{item.answer}</p>
+              </div>
+            ))}
+          </div>
 
         </div>
 
@@ -310,4 +378,6 @@ const gencBoyaLocations = [
       </div>
     </div>
   </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
 </BaseLayout>
