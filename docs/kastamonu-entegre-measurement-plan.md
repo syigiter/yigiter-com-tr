@@ -72,7 +72,7 @@ Başlangıç Web Vitals:
 | --- | --- | --- | --- |
 | T+24 saat | 2026-07-27 23:48 TSİ sonrası | ✅ Tamam (2026-07-28 10:53 TSİ) | HTTP, asset, console/CSP ve event yüklenme sağlığı |
 | T+14 gün | 2026-08-09 | ✅ Tamam (2026-08-10 11:11 TSİ) | İlk GSC görünürlük ve CTA olay sinyali |
-| T+28 gün | 2026-08-23 | Bekliyor | Sorgu/landing eğilimi ve ürün ailesi karşılaştırması |
+| T+28 gün | 2026-08-23 | ✅ Kısmi (2026-08-24) — bkz. aşağı | Sorgu/landing eğilimi ve ürün ailesi karşılaştırması |
 | T+56 gün | 2026-09-20 | Bekliyor | Kalıcı içerik, SEO ve dönüşüm kararı |
 
 T+24 raporu belirtilen saatten önce “tamamlandı” olarak işaretlenmez. Sıfır Clarity olayı tek başına teknik hata değildir; bundle/hook sağlığı ile gerçek kullanıcı trafiği ayrı değerlendirilir.
@@ -82,6 +82,36 @@ T+24 raporu belirtilen saatten önce “tamamlandı” olarak işaretlenmez. Sı
 - `npm run qa:kastamonu:production`: **başarılı** — 7 sayfa, 73 yerel hedef, 6 sitemap/schema rotası, CSP/Analytics ve 404 doğrulandı.
 - Teknik regresyon görülmedi; karar eşiklerinden hiçbiri tetiklenmedi. İçerik/CTA değişikliği yapılmadı (planla uyumlu).
 - Vercel Analytics/Speed Insights, GSC ve Clarity olay sayıları bu ortamda kimlik bilgisi/dashboard erişimi gerektirdiği için T+14 penceresinde değerlendirilecek.
+
+### T+28 sonucu — 2026-08-24
+
+Bu checkpoint, kimlik bilgisi bulunmayan bir bulut ortamında (sıfır bağlamla, sadece bu plan dosyası okunarak) çalıştırıldı. GSC, Vercel Analytics ve Microsoft Clarity dashboard verileri bu ortamda **okunamaz** — aşağıda beşi de "KULLANICI DOLDURACAK" olarak işaretlendi. Ayrıca bu pencerede T+24/T+14'ten farklı, yeni bir kısıt ortaya çıktı: aşağıya bakınız.
+
+**Teknik sağlık**
+
+- Bağımlılık kurulumu (`npm ci`) bu ortamda **başarısız oldu**: `package-lock.json` içindeki 371 paket `registry.npmmirror.com` üzerinden çözümleniyor ve bu ortamın çıkış ağı politikası o host'a `403` ile CONNECT tunnel'ı reddediyor (`npm error` ile `exit 1`). `--registry=https://registry.npmjs.org/` ile yeniden deneme de bu oturumda makul sürede tamamlanmadı. Bu, uygulama kodunda bir regresyon değil; bu spesifik bulut ortamının ağ allowlist'inin lockfile'daki mirror host'unu kapsamaması. Yerelde veya farklı bir CI ortamında muhtemelen sorunsuz kurulur.
+- `npm run qa:kastamonu:production` betiği harici bağımlılık içermediği için (`import`/`require` yok, yalnız Node'un yerleşik `fetch`'i) kurulumu beklemeden doğrudan `node scripts/validate-production-kastamonu.mjs` ile çalıştırıldı. **Sonuç: 11 bulgu, hepsi `HTTP 403`** — 6 Kastamonu ürün rotası, `/teklif-al/`, `robots.txt`, `sitemap-index.xml`, `sitemap-0.xml` ve 404 davranış kontrolü dahil tüm hedefler.
+- Bu 403'ler **production sitesinin bir hatası değil**: `curl -v https://www.yigiter.com.tr/` de aynı ortamdan `CONNECT tunnel failed, response 403` ile başarısız oluyor (proxy seviyesinde red, TLS/uygulama seviyesine hiç ulaşmıyor). `vercel.com`'a giden istek de aynı şekilde 403 alıyor. Yani bu bulut ortamının çıkış ağı politikası `www.yigiter.com.tr` (ve muhtemelen Vercel origin'i) için tamamen kapalı — bu, planın öngördüğü "GSC/Vercel/Clarity dashboard login'i yok" kısıtından **farklı ve daha temel bir kısıt**: dashboard'lara değil, canlı siteye HTTP erişimi bile yok.
+- Önemli: T+24 ve T+14 checkpoint'lerinde aynı `npm run qa:kastamonu:production` komutu **başarılı** çalışmıştı (bkz. yukarı). Bu, o zamanki çalışma ortamlarının (yerel/farklı bulut oturumu) ağ politikasının bu oturumdakinden farklı olduğunu gösteriyor. Dolayısıyla **teknik regresyon sinyali yok** — kanıt sadece bu oturumdan üretilemedi. Production QA'nın gerçek sonucunu almak için bu adımın ağ erişimi olan bir ortamda (yerel makine veya önceki checkpoint'lerdeki gibi bir oturum) tekrarlanması gerekiyor.
+
+**Sorgu/landing eğilimi ve dönüşüm — KULLANICI DOLDURACAK (yerel GSC/Vercel/Clarity)**
+
+1. **KULLANICI DOLDURACAK (yerel GSC)** — Hub `/urunler/kastamonu-entegre/` için `kastamonu entegre mdf bayileri` sorgusu T+14'te poz 10,8 idi; Ağustos başında title'a "Ana Bayisi" eklendi (PR #86). Sıralama page-1'e (ilk 10) girdi mi? Yeni pozisyon nedir?
+2. **KULLANICI DOLDURACAK (yerel GSC)** — Şehir varyantları (Ankara/İzmir/İstanbul) T+14'te poz 23-33 aralığındaydı. Yükseldi mi, yeni pozisyonlar nedir?
+3. **KULLANICI DOLDURACAK (yerel Vercel Analytics)** — `/teklif-al` pageview hacmi: T0'ın bot trafiği içermesi nedeniyle T+28, ilk temiz karşılaştırma penceresi olarak planlanmıştı. T+14'te 7g = 3, 28g = 37 idi. T+28 rakamları nedir?
+4. **KULLANICI DOLDURACAK (yerel Vercel Speed Insights)** — `/teklif-al` INP p75: T+14'te 200 ms ("iyi" eşiğinin tam sınırında) idi. Şimdiki değer nedir?
+5. **KULLANICI DOLDURACAK (yerel Clarity dashboard)** — Dört dönüşüm event'i (`quote_click`, `whatsapp_click`, `catalog_download`, `quote_submitted`) Özel filtreler > Özel etiketler'de `conversion_event` altında görünüyor mu, oturum/olay sayıları nedir? (Kod entegrasyonu T+14'te doğrulandı; burada sadece dashboard okuması gerekiyor.)
+
+**Karar (taslak — kullanıcı verileri girince tamamlanacak)**
+
+1. Hub bayi/sevkiyat sorgusu page-1'e girdi mi? _(veri 1 bekleniyor)_
+2. Şehir varyantları hâlâ 20+ pozisyonda mı, yoksa toparlanıyor mu? _(veri 2 bekleniyor)_
+3. `/teklif-al` hacmi T0'a göre (temiz pencere) arttı mı azaldı mı — CTA/içerik müdahalesi gerekiyor mu? _(veri 3 bekleniyor)_
+4. `/teklif-al` INP "iyi" eşiğinin (≤200 ms) altına indi mi, yoksa performans incelemesi mi açılmalı? _(veri 4 bekleniyor)_
+5. Clarity dönüşüm event'leri gerçek trafikte görünüyor mu — evetse sayısal taban T+56 karşılaştırması için kaydedilecek; hayırsa (düşük trafik dışında) tekrar kod/CSP kontrolü mü gerekiyor? _(veri 5 bekleniyor)_
+6. **Yeni madde:** Production QA'nın bu bulut ortamından çalıştırılamaması tekrarlayan bir sorun mu, yoksa bu oturuma özgü bir ağ politikası mı? Eğer gelecekteki otomatik checkpoint'ler de aynı kısıtla karşılaşacaksa, T+56'dan önce ya ağ allowlist'i genişletilmeli ya da bu adım her seferinde yerelde/ayrı bir ortamda manuel çalıştırılmalı.
+
+Toplu karar: Kullanıcı yukarıdaki 5 veriyi doldurup bu bölümü güncelleyene kadar T+28 için içerik/SEO kararı **askıda**. Teknik tarafta acil bir hotfix eşiği tetiklenmedi (403'ler ortam kısıtından kaynaklanıyor, production'da doğrulanmış bir hata değil).
 
 ### T+14 sonucu — 2026-08-10 11:11 TSİ
 
