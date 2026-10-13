@@ -4,13 +4,21 @@
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element)) return;
 
-    const target = event.target.closest<HTMLElement>('[data-analytics-event]');
-    const eventName = target?.dataset.analyticsEvent;
+    const target = event.target.closest<HTMLElement>('[data-analytics-event], a[href]');
+    if (!target) return;
+    const href = target.getAttribute('href');
+    const url = href ? new URL(href, window.location.href) : null;
+    const inferredEvent = url?.protocol === 'tel:' ? 'Phone Click'
+      : url?.hostname === 'wa.me' ? 'WhatsApp Click'
+      : url?.origin === window.location.origin && url.pathname.replace(/\/$/, '') === '/teklif-al'
+        ? 'Quote Click' : undefined;
+    const eventName = target.dataset.analyticsEvent ?? inferredEvent;
     if (!target || !eventName) return;
 
     trackConversion(eventName, {
       page: window.location.pathname,
-      destination: target.getAttribute('href') ?? undefined,
+      // Exclude prefilled messages and other query parameters from analytics.
+      destination: url ? `${url.origin === 'null' ? '' : url.origin}${url.pathname}` : undefined,
       product: target.dataset.analyticsProduct,
       catalog: target.dataset.analyticsCatalog,
       placement: target.dataset.analyticsPlacement,

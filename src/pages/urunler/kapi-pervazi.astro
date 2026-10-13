@@ -19,12 +19,12 @@ const relatedProducts = [
   },
   {
     title: 'Kapı Kasası',
-    href: '/teklif-al?urun=kapi-kasasi',
+    href: '/urunler/kapi-kasasi/',
     description: 'Kapı pervazı ile birlikte değerlendirilebilecek kasa çözümleri.',
   },
   {
     title: 'Melamin Kapı Yüzeyi',
-    href: '/teklif-al?urun=melamin-kapi-yuzeyi',
+    href: '/urunler/melamin-kapi-yuzeyi/',
     description: 'Kapı üretimi ve yüzey uygulamalarını birlikte planlayan alımlar için.',
   },
 ];
@@ -187,6 +187,11 @@ const faqSchema = {
               Tüm Ürünleri İncele
             </a>
           </div>
+          <nav aria-label="Kapı pervazı sayfa bölümleri" class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-primary">
+            <a href="#profil-secimi" class="underline underline-offset-4">Profil seçimi</a>
+            <a href="#pervaz-olculeri" class="underline underline-offset-4">Ölçüler ve üretim seçenekleri</a>
+            <a href="#pervaz-profil-ornekleri" class="underline underline-offset-4">Tüm profil fotoğrafları</a>
+          </nav>
         </div>
 
         <aside class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -202,10 +207,27 @@ const faqSchema = {
     </div>
   </section>
 
+  <section id="profil-secimi" aria-labelledby="profil-secimi-baslik" class="scroll-mt-24 border-b border-gray-200 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="profil-secimi-baslik" class="text-2xl font-bold text-primary mb-4">Kapınıza Uygun Pervaz Profilini Seçin</h2>
+      <p class="max-w-3xl text-gray-700 mb-6">Önce profil görünümünü, ardından kasa uyumunu ve ölçüyü belirleyin. Standart boylar 210 ve 220 cm'dir; özel boy, yüzey ve güncel üretim uygunluğu teklif sırasında doğrulanır. Taç profil yalnızca 25 ve 30 mm kalınlıklarda sunulur.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {pervazProfileGroups.map((group, index) => (
+          <a href={`#pervaz-profil-grubu-${index + 1}`} class="min-w-0 overflow-hidden rounded-lg border border-gray-200 hover:border-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+            <img src={group.images[0]} alt={`${group.title} kesit görünümü`} width="640" height="640" loading="lazy" class="aspect-square w-full object-cover" />
+            <span class="block p-3 text-sm font-semibold text-primary">{group.title}</span>
+          </a>
+        ))}
+      </div>
+      <p class="mt-5 text-sm text-gray-600">Görseller üretim geçmişinden örneklerdir, stok beyanı değildir. Lakelik yüzey, profil kesiti ve ölçü birlikte değerlendirilir.</p>
+      <a href="/teklif-al?urun=kapi-pervazi" data-analytics-event="Quote Click" data-analytics-product="Kapı pervazı" data-analytics-placement="profile-selection" class="mt-5 inline-flex rounded-lg bg-[#9A3412] px-5 py-3 text-sm font-bold text-white hover:bg-[#7C2D12]">Pervaz İçin Teklif İste</a>
+    </div>
+  </section>
+
   <section class="py-12 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)] gap-8 lg:gap-10 items-start">
-        <div class="space-y-6">
+        <div class="min-w-0 space-y-6">
           <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
             <h2 class="text-2xl font-bold text-primary mb-3">Kapı Pervazı Nedir?</h2>
             <p class="text-gray-700 leading-relaxed">
@@ -338,7 +360,7 @@ const faqSchema = {
           </section>
 
           <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 class="text-2xl font-bold text-primary mb-3">Pervaz Ölçü Aileleri ve Üretim Seçenekleri</h2>
+            <h2 id="pervaz-olculeri" class="scroll-mt-24 text-2xl font-bold text-primary mb-3">Pervaz Ölçü Aileleri ve Üretim Seçenekleri</h2>
             <p class="text-gray-700 leading-relaxed mb-4">
               Pervaz ölçü ailelerimiz, üretim geçmişimizde yer alan ve siparişe göre değerlendirilebilen
               seçeneklerden oluşur. 210 cm ve 220 cm boylar standart üretim içinde değerlendirilir;
@@ -351,7 +373,7 @@ const faqSchema = {
               genel olarak bir palet üzerinden değerlendirilir; termin stok ve üretim planına göre değişebilir.
             </p>
 
-            <div class="overflow-x-auto rounded-xl border border-gray-200">
+            <div tabindex="0" role="region" aria-label="Pervaz ölçü tablosu" class="overflow-x-auto rounded-lg border border-gray-200">
               <table class="min-w-[900px] w-full text-left text-sm">
                 <caption class="sr-only">Pervaz kalınlık, boy, yüzey ve profil seçenekleri</caption>
                 <thead class="bg-gray-50 text-gray-900">
@@ -483,7 +505,7 @@ const faqSchema = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
         <p class="text-accent-dark font-semibold text-sm uppercase tracking-widest mb-3">Profil Aileleri</p>
-        <h2 id="pervaz-profil-ornekleri" class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+        <h2 id="pervaz-profil-ornekleri" class="scroll-mt-24 text-3xl lg:text-4xl font-bold text-primary mb-4">
           Pervaz Profil Örnekleri
         </h2>
         <p class="text-gray-700 leading-relaxed">
@@ -500,7 +522,7 @@ const faqSchema = {
           return (
             <section aria-labelledby={headingId}>
               <div class="mb-5 flex items-center gap-4">
-                <h3 id={headingId} class="shrink-0 text-xl font-bold text-gray-900">{group.title}</h3>
+                <h3 id={headingId} class="scroll-mt-24 text-xl font-bold text-gray-900">{group.title}</h3>
                 <span class="h-px w-full bg-gray-300" aria-hidden="true"></span>
               </div>
 
