@@ -24,18 +24,27 @@ function clarityEventName(name: string) {
  * destination while the Vercel team remains on the Hobby plan.
  */
 export function trackConversion(name: string, properties: ConversionProperties = {}) {
-  track(name, properties);
+  // Optional analytics must never interrupt navigation or a successful form.
+  try {
+    track(name, properties);
+  } catch {
+    // The independent Clarity destination may still be available.
+  }
 
   const clarityName = clarityEventName(name);
-  window.clarity?.('event', clarityName);
-  window.clarity?.('set', 'conversion_event', clarityName);
+  try {
+    window.clarity?.('event', clarityName);
+    window.clarity?.('set', 'conversion_event', clarityName);
 
-  const clarityTags = {
-    conversion_product: properties.product ?? properties.productGroup,
-    conversion_catalog: properties.catalog,
-    conversion_placement: properties.placement,
-  };
-  Object.entries(clarityTags).forEach(([key, value]) => {
-    if (value) window.clarity?.('set', key, value.slice(0, 255));
-  });
+    const clarityTags = {
+      conversion_product: properties.product ?? properties.productGroup,
+      conversion_catalog: properties.catalog,
+      conversion_placement: properties.placement,
+    };
+    Object.entries(clarityTags).forEach(([key, value]) => {
+      if (value) window.clarity?.('set', key, value.slice(0, 255));
+    });
+  } catch {
+    // Tracking failures must not change the customer's submission outcome.
+  }
 }

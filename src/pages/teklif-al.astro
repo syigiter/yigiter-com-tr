@@ -395,7 +395,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   const params = new URLSearchParams(window.location.search);
   const urun = params.get('urun');
   if (urun) {
-    const decoded = decodeURIComponent(urun);
+    const decoded = urun;
     const heroP = document.getElementById('quote-hero-description');
     if (heroP) heroP.textContent = `"${decoded}" için teklif talebinizi aşağıdaki formu doldurarak iletebilirsiniz.`;
     const details = document.getElementById('product_details') as HTMLTextAreaElement | null;
@@ -436,7 +436,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!submitBtn || !form) return;
+    if (!submitBtn || !form || submitBtn.disabled) return;
 
     submitBtn.disabled = true;
     submitLabel?.classList.add('hidden');
@@ -452,9 +452,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         body: JSON.stringify(json),
       });
       const result = await res.json();
-      if (result.success) {
+      if (res.ok && result.success === true) {
         const productGroup = data.get('product_group');
         trackConversion('Quote Submitted', {
+          page: window.location.pathname,
           productGroup: typeof productGroup === 'string' ? productGroup : undefined,
         });
         await new Promise((resolve) => window.setTimeout(resolve, 150));
