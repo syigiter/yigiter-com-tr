@@ -62,8 +62,8 @@ const {
   surfaceHeading = 'Yüzey ve doku örnekleri',
 } = Astro.props;
 
-const quoteHref = `/teklif-al?urun=${encodeURIComponent(quoteProduct)}`;
-const catalogHref = `/teklif-al?urun=${encodeURIComponent(`${quoteProduct} güncel katalog ve numune`)}`;
+const quoteHref = `/teklif-al/?urun=${encodeURIComponent(quoteProduct)}`;
+const catalogHref = `/teklif-al/?urun=${encodeURIComponent(`${quoteProduct} güncel katalog ve numune`)}`;
 const schemaBase = {
   name: heading,
   description,

@@ -316,7 +316,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           />
           <label for="contact_consent" class="text-sm text-gray-700">
             Kişisel verilerimin, teklif talebimin değerlendirilmesi ve tarafıma dönüş yapılması amacıyla işlenmesine ilişkin
-            <a href="/kvkk" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:text-accent-dark underline underline-offset-2">
+            <a href="/kvkk/" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:text-accent-dark underline underline-offset-2">
               KVKK ve Gizlilik Politikası
             </a>’nı okudum ve kabul ediyorum. <span class="text-accent-dark">*</span>
           </label>
@@ -333,7 +333,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span id="submit-loading" class="hidden">Gönderiliyor...</span>
           </button>
           <a
-            href="/iletisim"
+            href="/iletisim/"
             class="flex-1 text-center border border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-semibold px-6 py-3 rounded-lg transition-colors"
           >
             İptal
@@ -459,7 +459,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           productGroup: typeof productGroup === 'string' ? productGroup : undefined,
         });
         await new Promise((resolve) => window.setTimeout(resolve, 150));
-        window.location.href = '/tesekkurler';
+        window.location.href = '/tesekkurler/';
       } else {
         alert('Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin veya WhatsApp ile iletişime geçin.');
         submitBtn.disabled = false;
