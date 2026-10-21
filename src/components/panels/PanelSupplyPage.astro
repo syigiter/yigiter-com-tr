@@ -59,7 +59,7 @@ const {
   relatedLinks,
 } = Astro.props;
 
-const quoteHref = `/teklif-al?urun=${encodeURIComponent(quoteProduct)}`;
+const quoteHref = `/teklif-al/?urun=${encodeURIComponent(quoteProduct)}`;
 const whatsappHref = `https://wa.me/905464886737?text=${encodeURIComponent(
   `Merhaba, ${quoteProduct} için bilgi almak istiyorum.`,
 )}`;

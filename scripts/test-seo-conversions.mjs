@@ -65,7 +65,7 @@ for (const [label, ok, success, expected] of [
     });
     await submit({ preventDefault() {} });
     assert.equal(events.length, expected);
-    assert.equal(location.href, expected ? '/tesekkurler' : '');
+    assert.equal(location.href, expected ? '/tesekkurler/' : '');
     if (!expected) assert.equal(elements.get('submit-btn').disabled, false);
   });
 }

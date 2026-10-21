@@ -40,7 +40,7 @@ const title = 'Kastamonu Entegre Doorpan ve Doorlam Kapı Paneli';
 const description =
   'Kastamonu Entegre Doorpan ve Doorlam kapı paneli ailelerini, yüzey ve dekor seçeneklerini karşılaştırın; resmî katalogları indirin ve güncel teklif alın.';
 const quoteProduct = 'Kastamonu Entegre Doorpan / Doorlam Kapı Paneli';
-const quoteHref = `/teklif-al?urun=${encodeURIComponent(quoteProduct)}`;
+const quoteHref = `/teklif-al/?urun=${encodeURIComponent(quoteProduct)}`;
 const whatsappHref = `https://wa.me/905464886737?text=${encodeURIComponent(
   `Merhaba, ${quoteProduct} için bilgi almak istiyorum.`,
 )}`;
@@ -175,7 +175,7 @@ const comparisonRows = [
           image={doorpanImage}
           catalogs={doorpanCatalogs}
           headingLevel="h3"
-          quoteHref={`/teklif-al?urun=${encodeURIComponent('Kastamonu Entegre Doorpan')}`}
+          quoteHref={`/teklif-al/?urun=${encodeURIComponent('Kastamonu Entegre Doorpan')}`}
           showDetailLink={false}
         />
         <ProductFamilyCard
@@ -183,7 +183,7 @@ const comparisonRows = [
           image={doorlamImage}
           catalogs={doorlamCatalogs}
           headingLevel="h3"
-          quoteHref={`/teklif-al?urun=${encodeURIComponent('Kastamonu Entegre Doorlam')}`}
+          quoteHref={`/teklif-al/?urun=${encodeURIComponent('Kastamonu Entegre Doorlam')}`}
           showDetailLink={false}
         />
       </div>

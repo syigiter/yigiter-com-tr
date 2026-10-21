@@ -1,8 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const pdf = '/catalogs/yigiter-kapi-yuzeyleri-2026.pdf';
+
+const groups = [
+  { title: 'Göbekli melamin kapı yüzeyleri', text: 'Göbek detaylı, melamin kaplı kapı yüzey modelleri. Katalogda YG-GM kodlu 27 model yer alır.', href: '/urunler/melamin-kapi-yuzeyi/' },
+  { title: 'Düz melamin kapı yüzeyleri', text: 'Göbeksiz, düz görünümlü melamin kaplı kapı yüzey modelleri. Katalogda YG-DM kodlu 7 model yer alır.', href: '/urunler/melamin-kapi-yuzeyi/' },
+  { title: 'PVC membran yüzeyler', text: 'PVC membran kaplı kapı yüzey modelleri. Katalogda YG-PV kodlu 26 model yer alır.' },
+  { title: 'Lake yüzeyler', text: 'Lake kapı yüzey modelleri. Katalogda YG-LK kodlu 9 model yer alır. Renk ve dekor tercihlerinizi teklif aşamasında birlikte netleştiriyoruz.' },
+  { title: 'Amerikan panel yüzeyler', text: 'Amerikan panel kapı yüzey modelleri. Katalogda Efes, Aspendos, Sümela gibi isimlerle 12 model yer alır.' },
+  { title: 'Kasa, pervaz ve kapı çıtaları', text: 'Kapı kasası ve pervazlarını kendi tesisimizde üretiyoruz; standart seri üretimin yanında müşteriye özel ölçü üretim de yapıyoruz. Katalogda 6 pervaz, 6 taç ve kapı çıtası, 5 kasa profili olmak üzere YG-KB kodlu 17 seçenek yer alır.', href: '/urunler/kapi-kasasi/' },
+];
+
+const faqItems = [
+  { question: 'Katalogdaki modelleri nasıl sipariş ederim?', answer: 'Katalogdan seçtiğiniz modelin kodunu veya adını, adet ve istediğiniz ölçüyle birlikte teklif formundan bize iletin. Renk, dekor ve diğer malzeme ihtiyaçlarınızı teklif aşamasında birlikte netleştiriyoruz.' },
+  { question: 'Kataloğu basılı olarak alabilir miyim?', answer: "Katalog şu an dijital (PDF) olarak sunuluyor. Sayfadaki 'PDF indir' butonuyla indirip yazdırabilirsiniz." },
+  { question: 'Özel ölçü üretim yapıyor musunuz?', answer: 'Evet. Kapı kasası ve pervazlarını kendi tesisimizde üretiyoruz; standart seri üretimin yanında özel ölçü, profil ve proje gereksinimlerinde sipariş bazlı üretim yapıyoruz. Kapı yüzeyi modellerinde ölçü ihtiyacınızı teklif talebinizde paylaşın, uygunluğunu size bildirelim.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
 ---
-<BaseLayout title="2026 Kapı Yüzeyleri ve İmalat Malzemeleri Kataloğu" description="Yiğiter 2026 kataloğu: 81 kapı yüzey modeli, kasa, pervaz ve kapı çıtaları. 98 sayfalık kataloğu görüntüleyin veya PDF olarak indirin." ogImage="/images/catalog/yigiter-2026-cover.webp">
+<BaseLayout structuredData={faqSchema} title="2026 Kapı Yüzeyleri ve İmalat Malzemeleri Kataloğu" description="Yiğiter 2026 kataloğu: 81 kapı yüzey modeli, kasa, pervaz ve kapı çıtaları. 98 sayfalık kataloğu görüntüleyin veya PDF olarak indirin." ogImage="/images/catalog/yigiter-2026-cover.webp">
   <section class="bg-wood-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
       <nav aria-label="Sayfa yolu" class="text-sm text-gray-600 mb-8"><a href="/" class="underline">Ana Sayfa</a> <span aria-hidden="true">/</span> Katalog</nav>
@@ -12,7 +37,7 @@ const pdf = '/catalogs/yigiter-kapi-yuzeyleri-2026.pdf';
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary leading-tight mb-6">Kapıyı siz üretin.<br />Yüzeyini birlikte seçelim.</h1>
           <p class="text-lg text-gray-700 leading-relaxed mb-4">Kapı yüzeyleri ve imalat malzemeleri kataloğumuzdan üretiminize uygun modeli seçin.</p>
           <p class="text-gray-700 leading-relaxed mb-6">Göbekli ve düz melamin, PVC membran, lake ve Amerikan panel yüzeyler; kasa, pervaz ve kapı çıtaları bir arada.</p>
-          <p class="text-sm text-gray-600 mb-5">PDF · 98 sayfa · 11,6 MB · Türkçe</p>
+          <p class="text-sm text-gray-600 mb-5">PDF · 98 sayfa · 11,5 MB · Türkçe</p>
           <div class="flex flex-col sm:flex-row gap-3">
             <a href={pdf} target="_blank" rel="noopener" data-analytics-event="catalog_view" data-analytics-catalog="yigiter-2026" class="inline-flex items-center justify-center bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary-800">Kataloğu görüntüle <span class="sr-only">(yeni sekmede açılır)</span></a>
             <a href={pdf} download="Yigiter-2026-Kapi-Yuzeyleri-Katalogu.pdf" data-analytics-event="catalog_download" data-analytics-catalog="yigiter-2026" class="inline-flex items-center justify-center border-2 border-primary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-white">PDF indir</a>
@@ -32,6 +57,30 @@ const pdf = '/catalogs/yigiter-kapi-yuzeyleri-2026.pdf';
       <div><p class="text-3xl font-bold text-primary">81</p><p class="text-gray-700 mt-2">Kapı yüzey modeli</p></div>
       <div><p class="text-3xl font-bold text-primary">17</p><p class="text-gray-700 mt-2">Kasa, pervaz ve çıta seçeneği</p></div>
       <div><p class="text-3xl font-bold text-primary">9</p><p class="text-gray-700 mt-2">Hızlı model seçim sayfası</p></div>
+    </div>
+    <div class="mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-3">Katalogda neler var?</h2>
+      <p class="text-gray-700 max-w-3xl leading-relaxed mb-8">2026 kataloğu, kapı üretiminde kullanılan yüzey modellerini ve kasa, pervaz, çıta gibi imalat malzemelerini tek dosyada toplar. Beğendiğiniz modelin kodunu not alarak teklif talebinizi hızlandırabilirsiniz.</p>
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {groups.map((g) => (
+          <li class="rounded-xl border border-wood-300 bg-white p-5">
+            <h3 class="font-bold text-primary mb-2">{g.title}</h3>
+            <p class="text-gray-700 text-sm leading-relaxed">{g.text}</p>
+            {g.href && <a href={g.href} class="inline-block mt-3 text-sm font-semibold text-accent-dark underline underline-offset-2">Ürün sayfasına git →</a>}
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-6">Sık sorulan sorular</h2>
+      <dl class="space-y-4 max-w-3xl">
+        {faqItems.map((item) => (
+          <div class="border-b border-gray-200 pb-4">
+            <dt class="font-bold text-gray-900 mb-2">{item.question}</dt>
+            <dd class="text-gray-700 leading-relaxed">{item.answer}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
     <div class="rounded-xl bg-gray-50 border border-gray-200 p-6 sm:p-8">
       <h2 class="text-2xl font-bold text-primary mb-3">Modelinizi seçin, ihtiyacınızı bize iletin.</h2>

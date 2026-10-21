@@ -158,7 +158,7 @@ const collectionSchema = buildCollectionPage({
             Ürün Ailelerini İncele
           </a>
           <a
-            href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel"
+            href="/teklif-al/?urun=Kastamonu%20Entegre%20Dekoratif%20Panel"
             data-analytics-event="Quote Click"
             data-analytics-product="Kastamonu Entegre Dekoratif Panel"
             data-analytics-placement="hero"
@@ -258,7 +258,7 @@ const collectionSchema = buildCollectionPage({
                 product={product}
                 image={product.id === 'compact-panel-lam' ? compactImage : product.id === 'medelam' ? heroImage : undefined}
                 catalogs={getProductCatalogs(product)}
-                quoteHref={`/teklif-al?urun=${encodeURIComponent(`Kastamonu Entegre ${product.displayName}`)}`}
+                quoteHref={`/teklif-al/?urun=${encodeURIComponent(`Kastamonu Entegre ${product.displayName}`)}`}
                 showDetailLink={false}
                 headingLevel="h3"
               />
@@ -326,7 +326,7 @@ const collectionSchema = buildCollectionPage({
       <div class="space-y-3">
         {compactCatalogs.map((catalog) => <CatalogDownload catalog={catalog} />)}
         <a
-          href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel%20Katalo%C4%9Fu"
+          href="/teklif-al/?urun=Kastamonu%20Entegre%20Dekoratif%20Panel%20Katalo%C4%9Fu"
           data-analytics-event="Quote Click"
           data-analytics-product="Kastamonu Entegre Dekoratif Panel Kataloğu"
           data-analytics-placement="catalog-request"
@@ -350,7 +350,7 @@ const collectionSchema = buildCollectionPage({
       </p>
       <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
         <a
-          href="/teklif-al?urun=Kastamonu%20Entegre%20Dekoratif%20Panel"
+          href="/teklif-al/?urun=Kastamonu%20Entegre%20Dekoratif%20Panel"
           data-analytics-event="Quote Click"
           data-analytics-product="Kastamonu Entegre Dekoratif Panel"
           data-analytics-placement="final-cta"
