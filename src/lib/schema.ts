@@ -99,10 +99,7 @@ export function buildProduct(p: ProductInput) {
 
 export interface CollectionItemInput {
   name: string;
-  description: string;
   url: string;
-  image?: string;
-  type?: 'Product' | 'ProductGroup';
 }
 
 export interface CollectionPageInput {
@@ -133,20 +130,14 @@ export function buildCollectionPage(input: CollectionPageInput) {
       '@id': listId,
       name: `${input.name} ürün listesi`,
       numberOfItems: input.items.length,
+      // ponytail: öğeler ürün değil kategori/ürün ailesi linki; düz ListItem (ad + url).
+      // Product tipi fiyat/yorum (offers/review/aggregateRating) istediği için GSC
+      // "Ürün snippet'leri" kritik hatası veriyordu; sitede fiyat olmadan dolduramayız.
       itemListElement: input.items.map((item, index) => ({
         '@type': 'ListItem',
         position: index + 1,
-        item: {
-          // ponytail: 5 ayrı ürün ailesi = düz Product. ProductGroup yalnız tek
-          // ürünün varyantları içindir (productGroupID/variesBy/hasVariant zorunlu);
-          // burada yanlış tip GSC "Product snippets" kritik hatasını tetikliyordu.
-          '@type': item.type ?? 'Product',
-          name: item.name,
-          description: item.description,
-          url: absoluteUrl(item.url),
-          ...(item.image ? { image: absoluteUrl(item.image) } : {}),
-          brand: { '@type': 'Brand', name: 'Kastamonu Entegre' },
-        },
+        name: item.name,
+        url: absoluteUrl(item.url),
       })),
     },
   ];

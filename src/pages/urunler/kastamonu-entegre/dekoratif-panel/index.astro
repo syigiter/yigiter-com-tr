@@ -105,10 +105,7 @@ const collectionSchema = buildCollectionPage({
   url: '/urunler/kastamonu-entegre/dekoratif-panel/',
   items: decorativeProducts.map((product) => ({
     name: product.displayName,
-    description: product.summary,
     url: `${product.route}#urun-${product.id}`,
-    image: product.heroImageId ? productImagesById.get(product.heroImageId)?.src : undefined,
-    type: 'Product',
   })),
 });
 ---
