@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
   "headers": [
     {
       "source": "/(.*)",
@@ -58,27 +59,52 @@
   "redirects": [
     {
       "source": "/get-a-quote",
-      "destination": "/teklif-al",
+      "destination": "/teklif-al/",
+      "permanent": true
+    },
+    {
+      "source": "/get-a-quote/",
+      "destination": "/teklif-al/",
       "permanent": true
     },
     {
       "source": "/quote",
-      "destination": "/teklif-al",
+      "destination": "/teklif-al/",
+      "permanent": true
+    },
+    {
+      "source": "/quote/",
+      "destination": "/teklif-al/",
       "permanent": true
     },
     {
       "source": "/iletisim/teklif-al",
-      "destination": "/teklif-al",
+      "destination": "/teklif-al/",
+      "permanent": true
+    },
+    {
+      "source": "/iletisim/teklif-al/",
+      "destination": "/teklif-al/",
       "permanent": true
     },
     {
       "source": "/product-catalog",
-      "destination": "/urunler",
+      "destination": "/urunler/",
+      "permanent": true
+    },
+    {
+      "source": "/product-catalog/",
+      "destination": "/urunler/",
       "permanent": true
     },
     {
       "source": "/products",
-      "destination": "/urunler",
+      "destination": "/urunler/",
+      "permanent": true
+    },
+    {
+      "source": "/products/",
+      "destination": "/urunler/",
       "permanent": true
     },
     {
