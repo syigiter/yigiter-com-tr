@@ -19,6 +19,9 @@ const decorativePanelTerms = [
   'compactlam',
 ];
 
+/** Teklif formu linki; ürün adı ?urun= ile forma ön doldurulur. */
+export const quoteHref = (product: string) => `/teklif-al/?urun=${encodeURIComponent(product)}`;
+
 export function mapQuoteProductGroup(product: string): string {
   const lower = product.toLocaleLowerCase('tr-TR');
 
