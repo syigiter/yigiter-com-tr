@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { subeler } from '../data/subeler';
+import { subeler, subeAddress, subeSchemaId } from '../data/subeler';
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@graph": subeler.map((s) => ({
     "@type": "LocalBusiness",
+    "@id": subeSchemaId(s),
     "name": `Yiğiter Orman Ürünleri — ${s.ad}`,
     "description": s.uzmanlik,
     "url": "https://www.yigiter.com.tr/subeler/",
@@ -14,13 +15,7 @@ const localBusinessSchema = {
     "openingHours": ["Mo-Fr 08:30-18:00", "Sa 08:30-15:00"],
     ...(s.mapUrl ? { "sameAs": [s.mapUrl] } : {}),
     ...(s.geo ? { "geo": { "@type": "GeoCoordinates", "latitude": s.geo[0], "longitude": s.geo[1] } } : {}),
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": s.adres,
-      "addressLocality": s.şehir.split(' / ')[0],
-      "addressRegion": s.şehir.split(' / ')[1] ?? s.şehir,
-      "addressCountry": "TR"
-    },
+    "address": subeAddress(s),
     "parentOrganization": {
       "@type": "Organization",
       "name": "Yiğiter Orman Ürünleri",

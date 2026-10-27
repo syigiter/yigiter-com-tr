@@ -1,0 +1,17 @@
+name: IndexNow
+
+# Vercel her deploy için GitHub'a deployment durumu gönderir; yalnız başarılı production deploy'larda çalışır.
+on: deployment_status
+
+jobs:
+  ping:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/indexnow.mjs
