@@ -6,6 +6,7 @@ import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/global.css';
 import { breadcrumbFromPath } from '../lib/schema';
+import { subeler, subeAddress, subeSchemaId } from '../data/subeler';
 
 interface Props {
   title: string;
@@ -38,6 +39,20 @@ const fullTitle = appendSiteName
   : title;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const absoluteOgImage = new URL(ogImage, Astro.site);
+
+// Şirket adresi = Kapı Ürünleri Bölümü (şube 1); onun harita profili şirketin kendisi,
+// diğer şubeler department olarak /subeler/ sayfasındaki kayıtlarla aynı @id'yi taşır.
+const merkezSube = subeler.find((s) => s.id === 1);
+if (!merkezSube) throw new Error('Merkez şube (id 1) bulunamadı');
+const subeDepartments = subeler
+  .filter((s) => s !== merkezSube)
+  .map((s) => ({
+    '@type': 'LocalBusiness',
+    '@id': subeSchemaId(s),
+    name: `Yiğiter Orman Ürünleri — ${s.ad}`,
+    address: subeAddress(s),
+    sameAs: [s.mapUrl],
+  }));
 
 // Per-page JSON-LD: auto BreadcrumbList for /urunler/** pages + any page-supplied schema.
 const extraStructuredData: Record<string, unknown>[] = [];
@@ -135,8 +150,10 @@ if (structuredData) {
       ],
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61591880458378",
-        "https://www.instagram.com/yigiterormanurunleri/"
-      ]
+        "https://www.instagram.com/yigiterormanurunleri/",
+        merkezSube.mapUrl
+      ],
+      "department": subeDepartments
     })} />
 
 

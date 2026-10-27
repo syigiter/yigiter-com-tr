@@ -108,3 +108,16 @@ export const subeler = [
     renk: 'primary',
   },
 ];
+
+type Sube = (typeof subeler)[number];
+
+/** JSON-LD @id: /subeler/ sayfasındaki şube kaydı ile şirket şemasındaki department aynı düğüm olsun. */
+export const subeSchemaId = (s: Sube) => `https://www.yigiter.com.tr/subeler/#sube-${s.id}`;
+
+export const subeAddress = (s: Sube) => ({
+  '@type': 'PostalAddress',
+  streetAddress: s.adres,
+  addressLocality: s.şehir.split(' / ')[0],
+  addressRegion: s.şehir.split(' / ')[1] ?? s.şehir,
+  addressCountry: 'TR',
+});
