@@ -138,9 +138,7 @@ const collectionSchema = buildCollectionPage({
   url: '/urunler/kastamonu-entegre/',
   items: hubGroups.map((group) => ({
     name: `Kastamonu Entegre ${group.title}`,
-    description: group.description,
     url: group.href,
-    image: group.image.src,
   })),
 });
 ---
