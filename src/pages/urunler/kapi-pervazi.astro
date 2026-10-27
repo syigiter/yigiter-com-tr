@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { buildProduct } from '../../lib/schema';
+import { quoteHref } from '../../lib/quote-product';
 
 const productSchema = buildProduct({
   name: 'Kapı Pervazı',
@@ -264,14 +265,17 @@ const faqSchema = {
                 },
                 {
                   title: 'Lakelik, Hareli, Bombeli ve Uzun L Profiller',
+                  // Başlıkta "pervaz" geçmediği için formdaki ürün grubu eşleşsin diye.
+                  quoteProduct: 'Lakelik, Hareli, Bombeli ve Uzun L Pervaz Profilleri',
                   description:
                     'Lakelik ham, hareli, hareli kanallı, çizgili, bombeli, taç ve Uzun L profil aileleriyle farklı tasarım ihtiyaçlarına yanıt verir.',
                 },
               ].map((item) => (
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <a href={quoteHref(item.quoteProduct ?? item.title)} data-analytics-product={item.quoteProduct ?? item.title} data-analytics-placement="pervaz-types" class="block rounded-lg border border-gray-200 bg-gray-50 p-4 hover:border-primary/40 hover:bg-white transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
                   <h3 class="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
                   <p class="text-gray-600 text-xs leading-relaxed">{item.description}</p>
-                </div>
+                  <span class="mt-2 inline-block text-xs font-bold text-accent-dark">Teklif iste →</span>
+                </a>
               ))}
             </div>
           </section>
@@ -528,20 +532,23 @@ const faqSchema = {
 
               <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
                 {group.images.map((src) => (
-                  <figure class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-                    <img
-                      src={src}
-                      alt={`${group.title} profil örneği`}
-                      width="640"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      class="aspect-square w-full object-cover"
-                    />
-                    <figcaption class="border-t border-gray-100 px-3 py-3 text-sm font-medium text-gray-700">
-                      {group.title}
-                    </figcaption>
-                  </figure>
+                  <a href={quoteHref(group.title)} data-analytics-product={group.title} data-analytics-placement="profile-gallery" class="block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:border-primary/40 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+                    <figure>
+                      <img
+                        src={src}
+                        alt={`${group.title} profil örneği`}
+                        width="640"
+                        height="640"
+                        loading="lazy"
+                        decoding="async"
+                        class="aspect-square w-full object-cover"
+                      />
+                      <figcaption class="border-t border-gray-100 px-3 py-3 text-sm font-medium text-gray-700">
+                        {group.title}
+                        <span class="mt-1 block text-xs font-bold text-accent-dark">Teklif iste →</span>
+                      </figcaption>
+                    </figure>
+                  </a>
                 ))}
               </div>
             </section>

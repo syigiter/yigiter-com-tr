@@ -2,7 +2,9 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CatalogCenter from '../../../components/kastamonu-entegre/CatalogCenter.astro';
 import SurfaceGallery from '../../../components/kastamonu-entegre/SurfaceGallery.astro';
+import FaqList from '../../../components/FaqList.astro';
 import { buildCollectionPage } from '../../../lib/schema';
+import { subeler } from '../../../data/subeler';
 import {
   decorativeSurfaceSamples,
   doorpanSurfaceSamples,
@@ -29,7 +31,48 @@ const surfaceCount = decorativeSurfaceSamples.length + doorpanSurfaceSamples.len
 const surfaceSamples = [...decorativeSurfaceSamples, ...doorpanSurfaceSamples];
 const title = 'Kastamonu Entegre Ana Bayisi | MDF, Yonga Levha, Panel';
 const description =
-  "Kastamonu Entegre Ana Bayisi Yiğiter: MDF, yonga levha, dekoratif panel, Doorpan ve Doorlam ürünlerini İstanbul şubelerinden Türkiye geneline sevk ediyoruz. Teklif alın.";
+  "Kastamonu Entegre bayi Yiğiter: MDF, yonga levha ve panel ürünleri İstanbul Başakşehir ve Tosya şubelerinde; Ankara, İzmir, Bursa'ya 48-72 saatte sevkiyat.";
+
+// Kastamonu Entegre satan şubeler: Başakşehir Deparko panel deposu ve Tosya.
+const [panelDeposu, tosyaSubesi] = [3, 4].map((id) => {
+  const sube = subeler.find((s) => s.id === id);
+  if (!sube) throw new Error(`Şube bulunamadı: ${id}`);
+  return sube;
+});
+const quoteHref = '/teklif-al/?urun=Kastamonu%20Entegre%20Panel%20%C3%9Cr%C3%BCnleri';
+const whatsappHref =
+  'https://wa.me/905464886737?text=Merhaba%2C%20Kastamonu%20Entegre%20panel%20%C3%BCr%C3%BCnleri%20i%C3%A7in%20bilgi%20almak%20istiyorum.';
+const shippingCities = ['Ankara', 'İzmir', 'Bursa'];
+
+const faqItems = [
+  {
+    question: 'Kastamonu Entegre bayileri nerede?',
+    answer: `Kastamonu Entegre ürünlerini İstanbul'da ${panelDeposu.adres} (${panelDeposu.şehir}) adresindeki panel depomuzda ve ${tosyaSubesi.adres} (${tosyaSubesi.şehir}) adresindeki Tosya şubemizde satıyoruz. Bu iki noktadan Ankara, İzmir, Bursa ve diğer illere sevkiyat yapıyoruz.`,
+    links: [{ label: 'Şubelerimiz ve depolarımız', href: '/subeler/' }],
+  },
+  {
+    question: "Bursa, İzmir veya Ankara'ya gönderim yapıyor musunuz?",
+    answer:
+      "Evet. Başakşehir Deparko Sanayi Sitesi'ndeki panel depomuz ve Tosya şubemizden Ankara, İzmir, Bursa ve diğer illere 48-72 saat içinde teslimat yapıyoruz.",
+  },
+  {
+    question: 'Kastamonu Entegre güncel fiyat listesini nasıl alabilirim?',
+    answer:
+      'Kastamonu Entegre fiyatları ölçü, dekor ve miktara göre teklif usulüyle verilir. Ürün, ölçü, adet ve teslimat şehrini paylaşın; güncel tedarik durumuna göre dönüş yapalım.',
+    links: [
+      { label: 'Teklif formunu aç', href: quoteHref },
+      { label: 'WhatsApp ile sor', href: whatsappHref },
+    ],
+  },
+  {
+    question: 'Renk ve dekor kartelasını nereden inceleyebilirim?',
+    answer: `Bu sayfadaki yüzey galerisinde ${surfaceCount} yüzey/doku örneğini, Katalog Merkezi'nde ${localCatalogs.length} resmî Kastamonu Entegre kataloğunu inceleyebilirsiniz. Ekran görünümü fiziksel numuneden farklı olabileceği için nihai seçimde güncel katalog kodunu ve fiziksel numuneyi birlikte teyit edin. Genellikle geniş stokta tuttuğumuz ürünlerin fiziksel numunelerini Başakşehir Deparko panel depomuzda ve Tosya şubemizde yerinde inceleyebilirsiniz.`,
+    links: [
+      { label: 'Yüzey galerisi', href: '#yuzeyler' },
+      { label: 'Katalog Merkezi', href: '#kataloglar' },
+    ],
+  },
+];
 
 const hubGroups = [
   {
@@ -123,12 +166,12 @@ const collectionSchema = buildCollectionPage({
   <section class="overflow-hidden border-b border-primary-800 bg-primary-900 text-white">
     <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
       <div>
-        <p class="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-400">
-          Kastamonu Entegre Ana Bayisi
-        </p>
-        <h1 class="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-          Panel ürünlerini doğru aileden seçin
+        <h1 class="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
+          Kastamonu Entegre Ana Bayisi — İstanbul ve Tosya
         </h1>
+        <p class="mt-4 max-w-3xl text-2xl font-semibold text-accent-400 sm:text-3xl">
+          Panel ürünlerini doğru aileden seçin
+        </p>
         <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
           Ham MDF ve yonga levhadan melamin kaplı, parlak, mat, akrilik ve kapı paneli
           çözümlerine kadar resmî ürün ailelerini tek merkezden inceleyin.
@@ -184,6 +227,62 @@ const collectionSchema = buildCollectionPage({
     </div>
   </section>
 
+  <section id="bayi" aria-labelledby="bayi-baslik" class="scroll-mt-24 border-b border-gray-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
+      <h2 id="bayi-baslik" class="text-2xl font-bold text-primary sm:text-3xl">Kastamonu Entegre bayisi mi arıyorsunuz?</h2>
+      <p class="mt-3 max-w-3xl leading-7 text-gray-700">
+        Yiğiter, Kastamonu Entegre MDF, yonga levha (sunta) ve panel ürünlerinin ana bayisidir.
+        Ürünleri Başakşehir Deparko Sanayi Sitesi'ndeki panel depomuzdan ve Tosya şubemizden
+        satıyor, Türkiye geneline sevk ediyoruz.
+      </p>
+      <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {[panelDeposu, tosyaSubesi].map((sube) => (
+          <article class="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-widest text-accent-dark">{sube.bölgeEtiket}</p>
+            <h3 class="mt-2 text-lg font-bold text-primary">{sube.ad}</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-700">{sube.adres}, {sube.şehir}</p>
+            <ul class="mt-3 space-y-1 text-sm">
+              {sube.telefonlar.map((tel) => (
+                <li>
+                  <a href={tel.href} class="font-semibold text-primary hover:text-accent-dark">{tel.numara}</a>
+                  <span class="text-gray-500"> · {tel.tip}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={sube.mapUrl} target="_blank" rel="noopener noreferrer" class="mt-auto pt-5 text-sm font-bold text-accent-dark underline underline-offset-4">
+              Google Haritalar'da aç →
+            </a>
+          </article>
+        ))}
+        <article class="flex flex-col rounded-2xl bg-primary p-6 text-white shadow-sm md:col-span-2 lg:col-span-1">
+          <h3 class="text-lg font-bold">Türkiye geneline sevkiyat</h3>
+          <p class="mt-3 text-sm leading-6 text-white/80">Panel depomuz ve Tosya şubemizden 48-72 saat içinde teslimat:</p>
+          <ul class="mt-4 flex flex-wrap gap-2" aria-label="Sevkiyat yapılan şehirler">
+            {shippingCities.map((city) => (
+              <li class="rounded-full bg-white/15 px-3 py-1 text-sm font-semibold">{city}</li>
+            ))}
+            <li class="rounded-full border border-white/30 px-3 py-1 text-sm">ve diğer iller</li>
+          </ul>
+          <a
+            href={whatsappHref}
+            data-analytics-event="WhatsApp Click"
+            data-analytics-product="Kastamonu Entegre Panel Ürünleri"
+            data-analytics-placement="dealer-section"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center justify-center rounded-lg bg-green-600 px-5 py-3 text-sm font-bold text-white hover:bg-green-700"
+          >
+            MDF &amp; Panel WhatsApp Hattı
+          </a>
+          <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+            <a href="/subeler/" class="underline underline-offset-4 hover:text-accent-400">Tüm şubeler ve depolar</a>
+            <a href="/hizmet-bolgesi/" class="underline underline-offset-4 hover:text-accent-400">Türkiye hizmet ağı</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section aria-label="Program özeti" class="border-b border-gray-200 bg-white">
     <div class="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-gray-200 sm:grid-cols-4">
       {[
@@ -197,37 +296,6 @@ const collectionSchema = buildCollectionPage({
           <p class="mt-1 text-xs text-gray-600">{label}</p>
         </div>
       ))}
-    </div>
-  </section>
-
-  <section aria-label="Bayilik ve sevkiyat" class="border-b border-gray-200 bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-        <div class="max-w-3xl">
-          <h2 class="text-2xl font-bold text-primary">
-            Kastamonu Entegre Ana Bayisi olarak Türkiye geneline sevkiyat
-          </h2>
-          <p class="mt-3 leading-7 text-gray-700">
-            Yiğiter, Kastamonu Entegre MDF, yonga levha (sunta) ve panel ürünlerinin ana
-            bayisidir. Başakşehir Deparko Sanayi Sitesi'ndeki panel depomuz ve Tosya
-            şubemizden Ankara, İzmir, Bursa ve diğer illere 48-72 saat içinde teslimat yapıyoruz.
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-3 lg:justify-end">
-          <a
-            href="/subeler/"
-            class="inline-flex items-center justify-center rounded-lg border border-primary px-5 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
-          >
-            Şubelerimiz ve Depolarımız
-          </a>
-          <a
-            href="/hizmet-bolgesi/"
-            class="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-primary/40 hover:text-primary"
-          >
-            Türkiye Hizmet Ağı
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -300,6 +368,12 @@ const collectionSchema = buildCollectionPage({
 
   <SurfaceGallery samples={surfaceSamples} />
 
+  <section aria-label="Sık sorulan sorular" class="border-t border-gray-200 py-14 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <FaqList items={faqItems} />
+    </div>
+  </section>
+
   <section class="bg-wood-100 py-14 lg:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
@@ -329,7 +403,7 @@ const collectionSchema = buildCollectionPage({
           </p>
           <div class="mt-6 flex flex-col gap-3">
             <a
-              href="/teklif-al/?urun=Kastamonu%20Entegre%20Panel%20%C3%9Cr%C3%BCnleri"
+              href={quoteHref}
               data-analytics-event="Quote Click"
               data-analytics-product="Kastamonu Entegre Panel Ürünleri"
               data-analytics-placement="final-cta"
@@ -338,7 +412,7 @@ const collectionSchema = buildCollectionPage({
               Teklif Formunu Aç
             </a>
             <a
-              href="https://wa.me/905464886737?text=Merhaba%2C%20Kastamonu%20Entegre%20panel%20%C3%BCr%C3%BCnleri%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+              href={whatsappHref}
               data-analytics-event="WhatsApp Click"
               data-analytics-product="Kastamonu Entegre Panel Ürünleri"
               data-analytics-placement="final-cta"

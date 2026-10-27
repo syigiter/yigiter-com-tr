@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqList from '../components/FaqList.astro';
 const pdf = '/catalogs/yigiter-kapi-yuzeyleri-2026.pdf';
 
 const groups = [
@@ -16,18 +17,8 @@ const faqItems = [
   { question: 'Kataloğu basılı olarak alabilir miyim?', answer: "Katalog şu an dijital (PDF) olarak sunuluyor. Sayfadaki 'PDF indir' butonuyla indirip yazdırabilirsiniz." },
   { question: 'Özel ölçü üretim yapıyor musunuz?', answer: 'Evet. Kapı kasası ve pervazlarını kendi tesisimizde üretiyoruz; standart seri üretimin yanında özel ölçü, profil ve proje gereksinimlerinde sipariş bazlı üretim yapıyoruz. Kapı yüzeyi modellerinde ölçü ihtiyacınızı teklif talebinizde paylaşın, uygunluğunu size bildirelim.' },
 ];
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqItems.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: { '@type': 'Answer', text: item.answer },
-  })),
-};
 ---
-<BaseLayout structuredData={faqSchema} title="2026 Kapı Yüzeyleri ve İmalat Malzemeleri Kataloğu" description="Yiğiter 2026 kataloğu: 81 kapı yüzey modeli, kasa, pervaz ve kapı çıtaları. 98 sayfalık kataloğu görüntüleyin veya PDF olarak indirin." ogImage="/images/catalog/yigiter-2026-cover.webp">
+<BaseLayout title="2026 Kapı Yüzeyleri ve İmalat Malzemeleri Kataloğu" description="Yiğiter 2026 kataloğu: 81 kapı yüzey modeli, kasa, pervaz ve kapı çıtaları. 98 sayfalık kataloğu görüntüleyin veya PDF olarak indirin." ogImage="/images/catalog/yigiter-2026-cover.webp">
   <section class="bg-wood-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
       <nav aria-label="Sayfa yolu" class="text-sm text-gray-600 mb-8"><a href="/" class="underline">Ana Sayfa</a> <span aria-hidden="true">/</span> Katalog</nav>
@@ -72,15 +63,7 @@ const faqSchema = {
       </ul>
     </div>
     <div class="mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-6">Sık sorulan sorular</h2>
-      <dl class="space-y-4 max-w-3xl">
-        {faqItems.map((item) => (
-          <div class="border-b border-gray-200 pb-4">
-            <dt class="font-bold text-gray-900 mb-2">{item.question}</dt>
-            <dd class="text-gray-700 leading-relaxed">{item.answer}</dd>
-          </div>
-        ))}
-      </dl>
+      <FaqList items={faqItems} />
     </div>
     <div class="rounded-xl bg-gray-50 border border-gray-200 p-6 sm:p-8">
       <h2 class="text-2xl font-bold text-primary mb-3">Modelinizi seçin, ihtiyacınızı bize iletin.</h2>
