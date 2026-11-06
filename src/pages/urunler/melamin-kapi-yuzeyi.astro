@@ -33,12 +33,45 @@ const relatedProducts = [
     description: 'Kapı üretiminde yüzey kaplama için kullanılan PVC film tedariki.',
   },
 ];
+
+const faqItems = [
+  {
+    question: 'Melamin kapı yüzeyi nedir?',
+    answer:
+      'Melamin kapı yüzeyi, kapı kanadı üretiminde kullanılan, dekoratif görünüm ve yüzey dayanıklılığı sağlayan kaplama malzemesidir. Renk ve desen tercihine göre seçilir ve iç kapı üretiminde yaygın olarak kullanılır.',
+  },
+  {
+    question: 'Melamin kapı yüzeyini kendiniz mi üretiyorsunuz?',
+    answer:
+      'Hayır. Melamin kapı yüzeyini kendi tesisimizde üretmiyor, doğrudan ithal ediyoruz. Kapı kasası ve kapı pervazı ise kendi üretimimizdir. Doğrudan ithalatçı olmamız, kapı kanadı üreticileri için aracısız tedarik anlamına gelir.',
+  },
+  {
+    question: 'Melamin kapı yüzeyi için teklif alırken hangi bilgiler gerekir?',
+    answer:
+      'Renk veya desen tercihi, ihtiyaç duyulan adet, teslimat ili ve termin beklentiniz yeterlidir. Proje veya bayi alımı olup olmadığını da belirtirseniz teklifi buna göre hazırlıyoruz.',
+  },
+  {
+    question: 'Melamin kapı yüzeyi diğer kapı malzemeleriyle birlikte tedarik edilebilir mi?',
+    answer:
+      'Evet. Melamin kapı yüzeyi; kapı kasası, kapı pervazı, PVC film ve diğer kapı üretim malzemeleriyle aynı teklif ve sevkiyat içinde planlanabilir.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
 ---
 
 <BaseLayout
   structuredData={productSchema}
-  title="Melamin Kapı Yüzeyi Tedariki"
-  description="Melamin kapı yüzeyi toptan tedarikçisi ve ithalatçısı. Kapı kanadı üreticileri için farklı üretici ve ithalatçılardan renk, desen ve adet seçeneğiyle teklif alın."
+  title="Melamin Kapı Yüzeyi — Doğrudan İthalatçı, Toptan"
+  description="Melamin kapı yüzeyini doğrudan ithal ediyoruz — aracısız toptan tedarik. Kapı kanadı üreticileri için renk, desen ve adet seçenekleriyle teklif alın. Türkiye geneli sevkiyat."
 >
   <section class="bg-wood-100 border-b border-wood-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -93,6 +126,21 @@ const relatedProducts = [
               değerlendirilebilen bu yüzey malzemesi, iç kapı üretiminde yaygın olarak tercih edilir.
               Yiğiter olarak melamin kapı yüzeyi tedarikini kapı kanadı üreticileri, seri üretim
               yapan firmalar ve proje bazlı alımlar için B2B mantıkla ele alıyoruz.
+            </p>
+          </section>
+
+          <section class="rounded-xl border border-primary/20 bg-primary/5 p-6">
+            <h2 class="text-2xl font-bold text-primary mb-3">Üretici mi, İthalatçı mı?</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Melamin kapı yüzeyini <strong class="text-gray-900">kendi tesisimizde üretmiyoruz;
+              doğrudan ithal ediyoruz.</strong> Bu, kapı kanadı üreticileri için aracı katmanı
+              olmadan tedarik anlamına gelir: sipariş, termin ve sevkiyat tek muhatap üzerinden yürür.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Melamin kapı yüzeyi üreticisi veya tedarikçisi arayan firmalar için pratik fark şudur:
+              yurt dışındaki üreticiyle doğrudan çalıştığımız için renk ve desen seçeneklerini, adedi
+              ve termini tek noktadan netleştirebiliyoruz. Kendi ürettiğimiz kapı kasası ve kapı
+              pervazı ile PVC film gibi diğer kapı üretim malzemeleri aynı sevkiyatta planlanabilir.
             </p>
           </section>
 
@@ -184,6 +232,18 @@ const relatedProducts = [
               ve kapı üretim malzemeleri ihtiyaçlarında tek noktadan çözüm sunmayı hedefliyoruz.
             </p>
           </section>
+
+          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary mb-4">Sık Sorulan Sorular</h2>
+            <div class="space-y-4">
+              {faqItems.map((item) => (
+                <div>
+                  <h3 class="font-semibold text-gray-900 text-base mb-1">{item.question}</h3>
+                  <p class="text-gray-700 text-sm leading-relaxed">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
 
         <aside class="space-y-6 lg:sticky lg:top-6">
@@ -223,4 +283,6 @@ const relatedProducts = [
     </div>
   </section>
   <CatalogCTA />
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
 </BaseLayout>
